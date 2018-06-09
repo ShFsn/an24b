@@ -6,7 +6,7 @@
 
  <animation>
   <type>material</type>
-  <object-name>background</object-name>
+  <object-name>light_plate</object-name>
   <emission>
    <red>1.0</red>
    <green>0.1</green>
