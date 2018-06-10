@@ -629,7 +629,8 @@ alight GPK-52 with correct magnetic heading
   </radar-altimeter>
   <transponder>
    <inputs>
-    <knob-mode type="int">0</knob-mode>
+    <knob-mode type="int">1</knob-mode>
+    <anim-knob-mode type="int">3</anim-knob-mode>
    </inputs>
   </transponder>
   <vertical-speed-indicator n="1">
@@ -728,7 +729,6 @@ alight GPK-52 with correct magnetic heading
   </instrumentation>
 
   <SP-50>
-   <course_freq-mhz type="double">110.3</course_freq-mhz>
    <channel type="int">6</channel>
   </SP-50>
 

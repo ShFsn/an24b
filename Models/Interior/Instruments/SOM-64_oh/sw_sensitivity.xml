@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Transponder sensitivity -->
+<!-- Transponder responding sensitivity -->
 
 <PropertyList>
  <path>../../shared/switches/2png-15k.ac</path>
@@ -15,10 +15,23 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/instrumentation/transponder/sensitivity", 1.0, 0.1 );
+        interpolate("/instrumentation/transponder/inputs/sensitivity", 1.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>%s Sensitivity</label>
+         <property>/instrumentation/transponder/inputs/sensitivity</property>
+         <tooltip-id>so-63-sense</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var so63sense = ['Low', 'High'];
+	return so63sense[arg[0]];
+         </script>
+       </binding>
+    </hovered>
  </animation>
 
 <animation>
@@ -31,16 +44,29 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/instrumentation/transponder/sensitivity", 0.0, 0.1 );
+        interpolate("/instrumentation/transponder/inputs/sensitivity", 0.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>%s Sensitivity</label>
+         <property>/instrumentation/transponder/inputs/sensitivity</property>
+         <tooltip-id>so-63-sense</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var so63sense = ['Low', 'High'];
+	return so63sense[arg[0]];
+         </script>
+       </binding>
+    </hovered>
 </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>/instrumentation/transponder/sensitivity</property>
+   <property>/instrumentation/transponder/inputs/sensitivity</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
