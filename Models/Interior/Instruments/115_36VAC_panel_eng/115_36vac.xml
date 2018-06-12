@@ -7,7 +7,7 @@ functionality not to be taken too seriously atm! -->
 
 <animation>
   <type>pick</type>
-  <object-name>fuse0101</object-name>
+  <object-name>fuse0102</object-name>
   <visible>true</visible>
   <action>
     <button>0</button>
@@ -15,11 +15,11 @@ functionality not to be taken too seriously atm! -->
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/animations/fuses/fuse0101" ) == 0.0 ){
-        interpolate("an24/animations/fuses/fuse0101", 3.0, 3.0 );
+        if( getprop("an24/animations/fuses/fuse0102" ) == 0.0 ){
+        interpolate("an24/animations/fuses/fuse0102", 3.0, 3.0 );
         }
         else {
-        interpolate("an24/animations/fuses/fuse0101", 0.0, 3.0 );
+        interpolate("an24/animations/fuses/fuse0102", 0.0, 3.0 );
         }
       </script>
     </binding>
@@ -28,8 +28,8 @@ functionality not to be taken too seriously atm! -->
 
  <animation>
    <type>rotate</type>
-   <object-name>fuse0101</object-name>
-   <property>an24/animations/fuses/fuse0101</property>
+   <object-name>fuse0102</object-name>
+   <property>an24/animations/fuses/fuse0102</property>
     <interpolation>
       <entry>
 	<ind>0.0</ind>
@@ -46,8 +46,8 @@ functionality not to be taken too seriously atm! -->
     </interpolation>
     <center>
      <x-m>0</x-m>
-     <y-m>-0.116</y-m>
-     <z-m>0.2</z-m>
+     <y-m>-0.0689</y-m>
+     <z-m>0.2008</z-m>
     </center>
     <axis>
      <x>1</x>
@@ -58,8 +58,8 @@ functionality not to be taken too seriously atm! -->
 
  <animation>
    <type>rotate</type>
-   <object-name>fuse0101</object-name>
-   <property>an24/animations/fuses/fuse0101</property>
+   <object-name>fuse0102</object-name>
+   <property>an24/animations/fuses/fuse0102</property>
     <interpolation>
       <entry>
 	<ind>0.0</ind>
@@ -85,7 +85,5 @@ functionality not to be taken too seriously atm! -->
      <z>0</z>
     </axis>
  </animation>
-
-
 
 </PropertyList>
