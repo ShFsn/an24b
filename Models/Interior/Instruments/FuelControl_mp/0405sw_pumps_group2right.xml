@@ -31,6 +31,15 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pumps463ron</tooltip-id>
+      <label>Pumps 463 %s</label>
+      <property>an24/FuelControl/sw0405</property>
+      <mapping>on-off</mapping>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -55,6 +64,15 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pumps463roff</tooltip-id>
+      <label>Pumps 463 %s</label>
+      <property>an24/FuelControl/sw0405</property>
+      <mapping>on-off</mapping>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

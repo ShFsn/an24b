@@ -350,6 +350,8 @@ var startup = func {
 		setprop("an24/Start-Panel/timerapd", 0.0, 1.0 );
 		interpolate("an24/Start-Panel/startai24-btn", 1.0, 0.3, 0.0, 0.2 );
 		interpolate("an24/Start-Panel/timerapd", 30.0, 30.0, 0.0, 3.0 );
+		setprop("an24/FuelControl/flow-meter", 1.0 );
+		setprop("an24/FuelControl/anim-flow-meter", 1.0 );
 		}, t); t += 0.5;
 
 		settimer( func{
@@ -359,8 +361,21 @@ var startup = func {
 		}, t); t += 10.0;
 
 		settimer( func{
-		screen.log.write("Fuel indicator to sum", 1, 1, 1);
+		screen.log.write("Fuel indicators ON and to sum", 1, 1, 1);
+		setprop("an24/FuelControl/fuel-meter-l", 1.0 );
+		setprop("an24/FuelControl/fuel-meter-r", 1.0 );
 		interpolate("an24/PG5and2PPT1/selected-ind", 1.0, 0.1, 2.0, 0.1, 3.0, 0.1 );
+
+		}, t); t += 1.0;
+
+		settimer( func{
+		screen.log.write("Setting RTMS fuel-flow counters", 1, 1, 1);
+		setprop("an24/FuelControl/fuel-meter-l", 1.0 );
+		setprop("an24/FuelControl/fuel-meter-r", 1.0 );
+		interpolate("an24/RTMS/fuel-offset-l", (getprop("/consumables/fuel/tank/level-kg") + getprop("/consumables/fuel/tank[1]/level-kg") + getprop("/consumables/fuel/tank[2]/level-kg")) * -2.2, 4.4 );
+		interpolate("an24/RTMS/fuel-offset-r", (getprop("/consumables/fuel/tank[3]/level-kg") + getprop("/consumables/fuel/tank[4]/level-kg") + getprop("/consumables/fuel/tank[5]/level-kg")) * -2.2, 4.2 );
+		interpolate("an24/PG5and2PPT1/selected-ind", 1.0, 0.1, 2.0, 0.1, 3.0, 0.1 );
+
 		}, t); t += 1.0;
 
 		settimer( func{
@@ -372,7 +387,7 @@ var startup = func {
 		screen.log.write("Right engine start", 1, 1, 1);
 		setprop("an24/Start-Panel/left-right", 1.0 );
 		interpolate("an24/Start-Panel/left-right_sw", 0.0, 0.1 );
-		setprop("an24/Start-Panel/timerapd", 0.0, 1.0 );
+		setprop("an24/Start-Panel/timerapd", 0.0 );
 		interpolate("an24/Start-Panel/startai24-btn", 1.0, 0.3, 0.0, 0.2 );
 		interpolate("an24/Start-Panel/timerapd", 30.0, 30.0, 0.0, 3.0 );
 		}, t); t += 15.0;

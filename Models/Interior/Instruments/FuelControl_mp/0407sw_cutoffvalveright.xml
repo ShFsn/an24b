@@ -34,6 +34,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cutoffropen</tooltip-id>
+      <label>Cutoff Valve</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -70,6 +77,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cutoffrclose</tooltip-id>
+      <label>Cutoff Valve</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

@@ -23,12 +23,20 @@
 <animation>
   <type>rotate</type>
   <object-name>needle</object-name>
-  <property>fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-pps</property>
-  <interpolation>
+  <expression>
+    <table>
+      <mod>
+      <product>
+       <property>fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-pps</property>
+       <property>an24/FuelControl/flow-meter</property>
+      </product>
+        <value>0.48947</value>
+      </mod>
     <entry><ind>	0.0</ind>	<dep> -148.0</dep></entry>
     <entry><ind>        0.12236</ind>	<dep> -113.0</dep></entry>
     <entry><ind>        0.48947</ind>	<dep>  114.0</dep></entry>
-  </interpolation>
+    </table>
+  </expression>
   <axis>
     <x>-1.0</x>
     <y>0.0</y>
@@ -72,6 +80,9 @@
 <animation>
   <type>rotate</type>
   <object-name>dig1</object-name>
+    <condition>
+      <property>an24/FuelControl/anim-flow-meter</property>
+    </condition>
   <expression>
     <table>
       <mod>
@@ -100,9 +111,13 @@
   </axis>
 </animation>
 
+
 <animation>
   <type>rotate</type>
   <object-name>dig10</object-name>
+    <condition>
+      <property>an24/FuelControl/anim-flow-meter</property>
+    </condition>
   <expression>
     <table>
       <mod>
@@ -151,6 +166,9 @@
 <animation>
   <type>rotate</type>
   <object-name>dig100</object-name>
+    <condition>
+      <property>an24/FuelControl/anim-flow-meter</property>
+    </condition>
   <expression>
     <table>
       <mod>

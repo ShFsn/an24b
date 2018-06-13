@@ -621,6 +621,7 @@ alight GPK-52 with correct magnetic heading
   </marker-beacon>
   <radar-altimeter>
     <serviceable type="bool">true</serviceable>
+    <sw-on type="double">0.0</sw-on>
     <antenna>
       <x-offset-m type="double">0</x-offset-m>
       <y-offset-m type="double">0</y-offset-m>
@@ -707,15 +708,18 @@ alight GPK-52 with correct magnetic heading
     </internal>
   </AP-28l1>
 
+ <FuelControl>
+  <anim-flow-meter type="double">0</anim-flow-meter>
+  <flow-meter type="double">0</flow-meter>
+  <flow-meter-save-l type="double">0</flow-meter-save-l>
+  <flow-meter-save-r type="double">0</flow-meter-save-r>
+  <fuel-meter-l type="double">0</fuel-meter-l>
+  <fuel-meter-r type="double">0</fuel-meter-r>
+ </FuelControl>
+
   <gear>
     <steer_mode>2.0</steer_mode>
   </gear>
-
-  <Pressure>
-    <pitotvalve1>1.0</pitotvalve1>
-    <pitotvalve2>1.0</pitotvalve2>
-    <pitotvalve3>1.0</pitotvalve3>
-  </Pressure>
 
   <instrumentation>
     <idle-lock>
@@ -728,9 +732,21 @@ alight GPK-52 with correct magnetic heading
     <eup type="double">0.0</eup>
   </instrumentation>
 
-  <SP-50>
+
+  <Pressure>
+    <pitotvalve1 type="double">1.0</pitotvalve1>
+    <pitotvalve2 type="double">1.0</pitotvalve2>
+    <pitotvalve3 type="double">1.0</pitotvalve3>
+  </Pressure>
+
+ <RTMS>
+  <fuel-offset-l type="double">0</fuel-offset-l>
+  <fuel-offset-r type="double">0</fuel-offset-r>
+ </RTMS>
+
+ <SP-50>
    <channel type="int">6</channel>
-  </SP-50>
+ </SP-50>
 
 </an24>
 

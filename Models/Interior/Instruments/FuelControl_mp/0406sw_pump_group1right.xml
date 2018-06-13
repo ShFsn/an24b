@@ -19,6 +19,19 @@
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Main Pump %s</label>
+         <property>an24/FuelControl/sw0406</property>
+         <tooltip-id>mainpumprauto</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var mainpumprauto = ['OFF', 'Auto', 'Manual'];
+	return mainpumprauto[arg[0]];
+         </script>
+       </binding>
+    </hovered>
  </animation>
 
  <animation>
@@ -35,6 +48,19 @@
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Main Pump %s</label>
+         <property>an24/FuelControl/sw0406</property>
+         <tooltip-id>mainpumproff</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var mainpumproff = ['OFF', 'Auto', 'Manual'];
+	return mainpumproff[arg[0]];
+         </script>
+       </binding>
+    </hovered>
  </animation>
 
  <animation>
@@ -51,6 +77,19 @@
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Main Pump %s</label>
+         <property>an24/FuelControl/sw0406</property>
+         <tooltip-id>mainpumprman</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var mainpumprman = ['OFF', 'Auto', 'Manual'];
+	return mainpumprman[arg[0]];
+         </script>
+       </binding>
+    </hovered>
 </animation>
 
  <animation>
