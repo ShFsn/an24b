@@ -552,6 +552,14 @@
 					<property>/sim/time/elapsed-sec</property>
 					<property>/an24/AP-28l1/internal/power-on-time</property>
 				</greater-than>
+				<greater-than>
+					<property>/controls/flight/rudder</property>
+					<value>-0.1</value>
+				</greater-than>
+				<less-than>
+					<property>/controls/flight/rudder</property>
+					<value>0.1</value>
+				</less-than>
 				<not><property>/an24/AP-28l1/internal/engaged</property></not>
 			</and>
 		</input>

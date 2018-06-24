@@ -17,7 +17,7 @@
       <script>
         instruments.engage_horizon_mode();
         interpolate("an24/AP-28l1/buttons/horizon", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ap-28l1/buttons/horizon", 0.0, 0.1 );},0.1);
+        settimer(func {interpolate("an24/AP-28l1/buttons/horizon", 0.0, 0.1 );},0.1);
       </script>
     </binding>
   </action>

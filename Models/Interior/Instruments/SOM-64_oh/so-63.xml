@@ -10,7 +10,7 @@
   <offsets>
     <x-m>-0.0011</x-m>
     <y-m>0.0215</y-m>
-    <z-m>0.0342</z-m>
+    <z-m>0.0377</z-m>
   </offsets>
 </model>
 
@@ -181,8 +181,8 @@
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
-   <y-m>-0.0442</y-m>
-   <z-m>-0.0328</z-m>
+   <y-m>-0.0433</y-m>
+   <z-m>-0.0326</z-m>
   </center>
   <axis>
     <x>1.0</x>
@@ -216,8 +216,8 @@
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
-   <y-m>-0.0149</y-m>
-   <z-m>-0.0355</z-m>
+   <y-m>-0.014</y-m>
+   <z-m>-0.0353</z-m>
   </center>
   <axis>
     <x>1.0</x>
@@ -251,8 +251,8 @@
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
-   <y-m>0.0147</y-m>
-   <z-m>-0.0350</z-m>
+   <y-m>0.0155</y-m>
+   <z-m>-0.0347</z-m>
   </center>
   <axis>
     <x>1.0</x>
@@ -286,8 +286,8 @@
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
-   <y-m>0.0444</y-m>
-   <z-m>-0.0336</z-m>
+   <y-m>0.0451</y-m>
+   <z-m>-0.0334</z-m>
   </center>
   <axis>
     <x>1.0</x>

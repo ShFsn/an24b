@@ -47,6 +47,8 @@ selected static ports [0,1,7,8] or pitots[0,1]
   <altimeter>
     <name>altimeter</name>
     <number>0</number>
+    <encode-mode-c type="bool">true</encode-mode-c>
+    <encode-mode-s type="bool">false</encode-mode-s>
     <static-pressure>/systems/static[9]/pressure-inhg</static-pressure>
     <quantum>0</quantum>
     <tau>0</tau>
@@ -55,6 +57,8 @@ selected static ports [0,1,7,8] or pitots[0,1]
   <altimeter>
     <name>altimeter</name>
     <number>1</number>
+    <encode-mode-c type="bool">true</encode-mode-c>
+    <encode-mode-s type="bool">false</encode-mode-s>
     <static-pressure>/systems/static[10]/pressure-inhg</static-pressure>
     <quantum>0</quantum>
     <tau>0</tau>

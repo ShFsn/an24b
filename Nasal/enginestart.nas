@@ -24,7 +24,7 @@ setlistener("engines/engine[2]/n1", apdseq);
 
 var gtseq = func {
 var gtn2 = getprop("engines/engine[2]/n2");
-	if (gtn2 > 18.0 and getprop("an24/FuelControl/TG-16_cutoff") == 0.0 ) {
+	if (gtn2 > 24.0 and getprop("an24/Start-Panel/tg-cold-start") == 0.0 and getprop("an24/FuelControl/TG-16_cutoff") == 0.0 ) {
 	setprop("/fdm/jsbsim/propulsion/cutoff_cmd", 0.0);
 	setprop("/controls/engines/engine[2]/cutoff", 0.0);
 	}
