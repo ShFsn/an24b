@@ -22,6 +22,8 @@ var lengreng = getprop("an24/Start-Panel/left-right");
 
 setlistener("engines/engine[2]/n1", apdseq);
 
+setprop("an24/Start-Panel/tg-cold-start", 0.0);
+setprop("an24/Start-Panel/tg-cold-start_sw", 0.0);
 var gtseq = func {
 var gtn2 = getprop("engines/engine[2]/n2");
 	if (gtn2 > 24.0 and getprop("an24/Start-Panel/tg-cold-start") == 0.0 and getprop("an24/FuelControl/TG-16_cutoff") == 0.0 ) {
