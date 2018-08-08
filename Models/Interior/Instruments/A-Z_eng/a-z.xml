@@ -46,7 +46,7 @@
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">A-Z Amperemeter</text>
+    <text type="string">A-Z Ampere- meter</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>

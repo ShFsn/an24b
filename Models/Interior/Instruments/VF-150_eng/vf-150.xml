@@ -46,7 +46,7 @@
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">VF-150 Voltmeter</text>
+    <text type="string">VF-150 Volt- meter</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>

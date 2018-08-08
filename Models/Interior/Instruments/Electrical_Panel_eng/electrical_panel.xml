@@ -207,7 +207,7 @@
   </offsets>
 </model>
 
-<!-- GO-16 Voltage regulation -->
+<!-- GO-16 Voltage regulators VS-33 -->
 
 <model>
  <path>knob_go-16l_voltage_reg.xml</path>
@@ -279,7 +279,7 @@
 <!-- A-2 Amperemeter accumulator-->
 
 <model>
- <path>../A-Z_eng/a-z.xml</path>
+ <path>../A-2_eng/a-2.xml</path>
   <offsets>
     <x-m>-0.005</x-m>
     <y-m>0.0529</y-m>
@@ -290,7 +290,7 @@
 <!-- V-1 Voltmeter -->
 
 <model>
- <path>../A-Z_eng/a-z.xml</path>
+ <path>../V-1_eng/v-1.xml</path>
   <offsets>
     <x-m>-0.005</x-m>
     <y-m>0.1102</y-m>
@@ -382,5 +382,61 @@
     <z-m>-0.2066</z-m>
   </offsets>
 </model>
+
+<!-- TEXT OSG -->
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">Remote Resistances VS-33</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.018 </x-m>
+      <y-m>  -0.095 </y-m>
+      <z-m>  0.050 </z-m>
+    </offsets>
+  </text>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">Remote Resistances VS-25B</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.20</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.015 </x-m>
+      <y-m>  -0.030 </y-m>
+      <z-m>  -0.125 </z-m>
+    </offsets>
+  </text>
 
 </PropertyList>
