@@ -3,8 +3,7 @@ setprop("an24/Electrics/Gen_18TMOl_DC_V", 0.0 );
 setprop("an24/Electrics/Gen_18TMOr_DC_V", 0.0 );
 setprop("an24/Electrics/Gen_GO16l_AC_V", 0.0 );
 setprop("an24/Electrics/Gen_GO16r_AC_V", 0.0 );
-setprop("an24/Electrics/Batt_12SAMa_DC_V", 27.0 );
-setprop("an24/Electrics/Batt_12SAMb_DC_V", 27.0 );
+setprop("an24/Electrics/Batt_12SAM_DC_V", 27.0 );
 setprop("an24/Electrics/AUX_ShRAP500a_DC_V", 0.0 ); # ?V DC AUX
 setprop("an24/Electrics/AUX_ShRAP500b_DC_V", 0.0 ); 
 setprop("an24/Electrics/AUX_ShRAP200_AC_V", 0.0 ); # 115V AC AUX
@@ -34,19 +33,19 @@ setprop("an24/Electrics/BUS_EMERGBAR_DC_V", 0.0 );
 
 
 ## Battery discharge
-var batta_discharge = maketimer(20, func(){
+var batt_discharge = maketimer(20, func(){
 	var speedup = getprop("/sim/speed-up");
-	var voltage = getprop("an24/Electrics/Batt_12SAMa_DC_V");
-	var charging = getprop("an24/Electrics/Batt_12SAMa_DC_V");
+	var voltage = getprop("an24/Electrics/Batt_12SAM_DC_V");
+	var charging = getprop("an24/Electrics/Batt_12SAM_DC_V");
 	if ( voltage > 0 ) {
 	var voltage = voltage - (speedup * 0.001);
-	setprop("an24/Electrics/Batt_12SAMa_DC_V", voltage);
+	setprop("an24/Electrics/Batt_12SAM_DC_V", voltage);
 	}
 	else {
-	batta_discharge.stop();
+	batt_discharge.stop();
 	}
 });
-batta_discharge.start();
+batt_discharge.start();
 
 var bus_36V_AC_V = func {
 	if ( getprop("an24/Electrical_Panel/sw_pt-1000") != 0.0 and (getprop("an24/Electrics/PT-1000main") == 1.0 or getprop("an24/Electrics/PT-1000reserve") == 1.0 ) ) {

@@ -15,7 +15,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Electrical_Panel/sw_pt-1000", 1.0, 0.1 );
+        interpolate("an24/Electrical_Panel/sw_go16", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -31,7 +31,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Electrical_Panel/sw_pt-1000", 0.0, 0.1 );
+        interpolate("an24/Electrical_Panel/sw_go16", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -47,7 +47,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Electrical_Panel/sw_pt-1000", -1.0, 0.1 );
+        interpolate("an24/Electrical_Panel/sw_go16", -1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -56,7 +56,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Electrical_Panel/sw_pt-1000</property>
+   <property>an24/Electrical_Panel/sw_go16</property>
   <interpolation>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
     <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>

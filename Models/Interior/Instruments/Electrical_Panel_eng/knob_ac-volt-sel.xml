@@ -8,23 +8,181 @@
  <animation>
    <type>knob</type>
    <object-name>11p1n</object-name>
-   <property>/controls/lighting/panel-r_red</property>
-   <factor>-100</factor>
-  <axis>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0.0</z>
-  </axis>
+   <property>an24/Electrical_Panel/knob_vf-150_anim</property>
+   <factor>1</factor>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </center>
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/controls/lighting/panel-r_red</property>
-      <factor>-0.05</factor>
+      <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+      <factor>-1</factor>
       <min>0</min>
-      <max>1</max>
-      <wrap>false</wrap>
+      <max>8</max>                
+      <wrap>true</wrap>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>0</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 0 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>1</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.1, 0.6, 0.9, 0.4, 1.0, 0.6 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 20 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>2</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 40 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>3</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 140 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>4</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 180 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>5</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", -140 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>6</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", -40 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/knob_vf-150_sel</property>
+       <value>7</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/vf-150_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.2, 0.6 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", -20 );
+       </script>
      </binding>
     </action>
  </animation>
+
 
 </PropertyList>

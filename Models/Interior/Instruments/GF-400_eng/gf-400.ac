@@ -3065,7 +3065,7 @@ kids 0
 OBJECT poly
 name "back"
 loc -0.000339574 0 2.91143e-08
-texture "vf-150.png"
+texture "gf-400.png"
 crease 45.000000
 numvert 25
 0 0 0.0248634
@@ -3242,7 +3242,7 @@ kids 0
 OBJECT poly
 name "housing"
 loc 0.000263638 0 5.02914e-08
-texture "vf-150.png"
+texture "gf-400.png"
 crease 45.000000
 numvert 257
 0.00166405 -0.0198126 0.00399125

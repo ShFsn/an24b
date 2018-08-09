@@ -157,7 +157,7 @@
 <!-- GF-400 Hertzmeter (fake atm!) -->
 
 <model>
- <path>../VF-150_eng/vf-150.xml</path>
+ <path>../GF-400_eng/gf-400.xml</path>
   <offsets>
     <x-m>0.0</x-m>
     <y-m>-0.1085</y-m>
@@ -315,8 +315,8 @@
  <path>knob_dc-volt-sel.xml</path>
   <offsets>
     <x-m>0.002</x-m>
-    <y-m>0.108</y-m>
-    <z-m>-0.132</z-m>
+    <y-m>0.107</y-m>
+    <z-m>-0.139</z-m>
     <roll-deg>150</roll-deg>
   </offsets>
 </model>

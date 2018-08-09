@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!--
-
--->
 
 <PropertyList>
 
@@ -15,6 +12,36 @@
   </model>
 
   <status>alpha</status>
+
+   <tags>
+   <tag>ga</tag>
+   <tag>transport</tag>
+
+   <tag>antonov</tag>
+
+   <!--tag>1950s</tag--> <!-- though maiden flight in 1959 -->
+   <tag>1960s</tag>
+   <tag>1970s</tag>
+   <tag>1980s</tag>
+   <tag>2000s</tag>
+   <tag>2010s</tag>
+   <tag>coldwar</tag>
+
+   <tag>ifr</tag>
+   <tag>high-wing</tag>
+   <tag>h-tail</tag>
+   <tag>pressurised</tag>
+   <tag>retractable-gear</tag>
+   <tag>pressurised</tag>
+
+   <tag>propeller</tag>
+   <tag>turboprop</tag>
+   <tag>twin-engine</tag>
+   <tag>variable-pitch</tag>
+
+   <tag>rembrandt</tag>
+   </tags>
+
   <minimum-fg-version>2.8</minimum-fg-version>
   <flight-model>jsb</flight-model>
   <aero>an24b</aero>
@@ -754,9 +781,9 @@ alight GPK-52 with correct magnetic heading
   <autostart>
     <file>Aircraft/an24b/Nasal/autostart.nas</file>
   </autostart>
-  <!--electrical>
-    <file>Aircraft/an24b/Nasal/electrical.nas</file>
-  </electrical-->
+  <electrical>
+    <file>Aircraft/an24b/Nasal/elect.nas</file>
+  </electrical>
   <engines>
     <file>Aircraft/an24b/Nasal/enginestart.nas</file>
   </engines>

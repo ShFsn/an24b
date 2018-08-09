@@ -3,12 +3,12 @@
 <!-- AF-150, Voltmeter -->
 
 <PropertyList>
- <path>vf-150.ac</path>
+ <path>gf-400.ac</path>
 
  <animation>
    <type>material</type>
    <object-name>back</object-name>
-   <object-name>vf-150-needle</object-name>
+   <object-name>gf-400-needle</object-name>
    <emission>
      <red>1.0</red>
      <green>1.0</green>
@@ -17,7 +17,7 @@
    </emission>
  </animation>
 
-<animation>
+<!--animation>
   <type>rotate</type>
   <object-name>vf-150-needle</object-name>
   <expression>
@@ -75,7 +75,7 @@
       <y-m>0.0</y-m>
       <z-m>-0.006</z-m>
      </center>
-</animation>
+</animation-->
 
 <!-- TEXT OSG -->
 
@@ -90,7 +90,7 @@
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">VF-150 Volt- meter</text>
+    <text type="string">GF-400 Hertz- meter</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>
