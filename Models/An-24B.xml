@@ -111,8 +111,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/animations/nose", 0.4, 0.8 );
-        settimer(func {interpolate("an24/animations/nose", 1.0, 0.15 );},0.8);
+        interpolate("an24/animations/nose", 0.4, 0.6 );
+        settimer(func {interpolate("an24/animations/nose", 1.0, 0.1 );},0.6);
       </script>
     </binding>
   </action>

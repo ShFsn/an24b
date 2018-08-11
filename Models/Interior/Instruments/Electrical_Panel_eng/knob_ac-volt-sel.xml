@@ -64,7 +64,7 @@
         interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
         interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
         interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
-        setprop("an24/Electrical_Panel/knob_vf-150_anim", 20 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 30 );
        </script>
      </binding>
      <binding>
@@ -83,7 +83,7 @@
         interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
         interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
         interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
-        setprop("an24/Electrical_Panel/knob_vf-150_anim", 40 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 60 );
        </script>
      </binding>
      <binding>
@@ -102,7 +102,7 @@
         interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
         interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
         interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
-        setprop("an24/Electrical_Panel/knob_vf-150_anim", 140 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 120 );
        </script>
      </binding>
      <binding>
@@ -140,7 +140,7 @@
         interpolate("an24/Electrical_Panel/vf-150_prop-heat", 1.0, 0.7 );
         interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
         interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
-        setprop("an24/Electrical_Panel/knob_vf-150_anim", -140 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 240 );
        </script>
      </binding>
      <binding>
@@ -159,7 +159,7 @@
         interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
         interpolate("an24/Electrical_Panel/vf-150_main-bus", 1.0, 0.5 );
         interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.0, 0.7 );
-        setprop("an24/Electrical_Panel/knob_vf-150_anim", -40 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 300 );
        </script>
      </binding>
      <binding>
@@ -178,7 +178,7 @@
         interpolate("an24/Electrical_Panel/vf-150_prop-heat", 0.0, 0.7 );
         interpolate("an24/Electrical_Panel/vf-150_main-bus", 0.0, 0.5 );
         interpolate("an24/Electrical_Panel/vf-150_aerodrome", 0.2, 0.6 );
-        setprop("an24/Electrical_Panel/knob_vf-150_anim", -20 );
+        setprop("an24/Electrical_Panel/knob_vf-150_anim", 330 );
        </script>
      </binding>
     </action>

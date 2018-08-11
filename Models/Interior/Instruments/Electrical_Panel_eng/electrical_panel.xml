@@ -303,7 +303,7 @@
 <model>
  <path>knob_ac-volt-sel.xml</path>
   <offsets>
-    <x-m>0.0</x-m>
+    <x-m>0.003</x-m>
     <y-m>-0.015</y-m>
     <z-m>0.041</z-m>
   </offsets>

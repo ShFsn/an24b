@@ -750,6 +750,10 @@ alight GPK-52 with correct magnetic heading
   <fuel-meter-r type="double">0</fuel-meter-r>
  </FuelControl>
 
+ <animations>
+  <nose>1</nose>
+ </animations>
+
   <gear>
     <steer_mode>2.0</steer_mode>
   </gear>
