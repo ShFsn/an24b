@@ -11,7 +11,13 @@
    <path>Aircraft/an24b/Models/An-24B.xml</path>
   </model>
 
-  <status>alpha</status>
+  <status>early production</status>
+  <rating>
+   <FDM type="int">5</FDM>
+   <systems type="int">3</systems>
+   <cockpit type="int">4</cockpit>
+   <model type="int">3</model>
+  </rating>
 
    <tags>
    <tag>ga</tag>
@@ -19,12 +25,12 @@
 
    <tag>antonov</tag>
 
-   <!--tag>1950s</tag--> <!-- though maiden flight in 1959 -->
+   <!--tag>1950s</tag--> <!-- though maiden flight in 1959! -->
    <tag>1960s</tag>
    <tag>1970s</tag>
    <tag>1980s</tag>
    <tag>2000s</tag>
-   <tag>2010s</tag>
+   <!--tag>2010s</tag--> <!-- less and less in service... -->
    <tag>coldwar</tag>
 
    <tag>ifr</tag>

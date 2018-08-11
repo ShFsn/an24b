@@ -490,6 +490,21 @@
     </volume>
   </radio-->
 
+  <other>
+    <name>honk</name>
+    <path>Aircraft/an24b/Sound/Systems/honk.wav</path>
+     <condition>
+     <less-than>
+      <property>an24/animations/nose</property>
+      <value>1.0</value>
+     </less-than>
+     </condition>
+    <mode>once</mode>
+    <volume>
+      <offset type="double">0.5</offset>
+    </volume>
+  </other>
+
 </fx>
  
 </PropertyList>

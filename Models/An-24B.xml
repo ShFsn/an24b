@@ -46,6 +46,7 @@
   <object-name>flapcenterR</object-name>
   <object-name>aileronL</object-name>
   <object-name>aileronR</object-name>
+  <object-name>nose</object-name>
  </animation>
 
 <animation>
@@ -53,7 +54,7 @@
   <object-name>exterior</object-name>
   <condition>
     <not>
-    	<property>/sim/current-view/internal</property>
+     <property>/sim/current-view/internal</property>
     </not>
   </condition>
 </animation>
@@ -94,6 +95,45 @@
     </offsets>
     <nopreview/>
 </model>
+
+<animation>
+  <type>pick</type>
+  <object-name>nose</object-name>
+  <condition>
+   <not>
+    <property>/sim/current-view/internal</property>
+   </not>
+  </condition>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/animations/nose", 0.4, 0.8 );
+        settimer(func {interpolate("an24/animations/nose", 1.0, 0.15 );},0.8);
+      </script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>scale</type>
+  <object-name>nose</object-name>
+  <property>an24/animations/nose</property>
+   <center>
+   <x-m>0.85</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <x-min>0.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1.0</z-min>
+  <x-factor>1.0</x-factor>
+  <y-factor>0.0</y-factor>
+  <z-factor>0.0</z-factor>
+ </animation>
 
 <!--****************************** Control surfaces **************************************-->
 <!--Ailerons-->
