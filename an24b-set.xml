@@ -4,14 +4,10 @@
 
  <sim>
 
-  <description>An-24B</description>
-  <author>Michael Soitanen (FDM), Adrian (3D)</author>
+  <description>Antonov An-24B</description>
+  <long-description>The Antonov An-24 was basically built as regional airliner from 1959-1978 in the USSR. Having many variants, the An-24 also served, and serves, e.g. as transport, reconnaissance, fire fighter, or even as navigator training plane. It's derivatives, the An-26, An-30 and An-32 are used for military purposes. 
+  </long-description>
 
-  <model>
-   <path>Aircraft/an24b/Models/An-24B.xml</path>
-  </model>
-
-  <status>early production</status>
   <rating>
    <FDM type="int">5</FDM>
    <systems type="int">3</systems>
@@ -19,12 +15,31 @@
    <model type="int">3</model>
   </rating>
 
-   <tags>
+  <author>Michael Soitanen (FDM, Systems), Adrian (3D, Systems)</author>
+  <authors>
+    <author n="0">
+      <name>Adrian</name>
+      <description>3D, Systems</description>
+      <nick>Maerchenprinz</nick>
+    </author>
+    <author n="1">
+      <name>Michael Soitanen</name>
+      <description>FDM, Systems</description>
+    </author>
+  </authors>
+
+  <maintainers>
+   <maintainer n="0">
+     <name>Adrian</name>
+     <email>euer.maerchenprinz@arcor.de</email>
+   </maintainer>
+  </maintainers >
+
+  <tags>
+   <tag>passenger</tag>
    <tag>ga</tag>
    <tag>transport</tag>
-
    <tag>antonov</tag>
-
    <!--tag>1950s</tag--> <!-- though maiden flight in 1959! -->
    <tag>1960s</tag>
    <tag>1970s</tag>
@@ -32,21 +47,48 @@
    <tag>2000s</tag>
    <!--tag>2010s</tag--> <!-- less and less in service... -->
    <tag>coldwar</tag>
-
    <tag>ifr</tag>
    <tag>high-wing</tag>
    <tag>h-tail</tag>
    <tag>pressurised</tag>
    <tag>retractable-gear</tag>
    <tag>pressurised</tag>
-
    <tag>propeller</tag>
    <tag>turboprop</tag>
    <tag>twin-engine</tag>
    <tag>variable-pitch</tag>
-
    <tag>rembrandt</tag>
-   </tags>
+  </tags>
+
+  <urls>
+   <home-page>http://wiki.flightgear.org/Antonov_An-24</home-page>
+   <support>http://forum.flightgear.org</support>
+   <wikipedia>https://en.wikipedia.org/wiki/Antonov_An-24</wikipedia>
+   <code-repository>https://sourceforge.net/p/flightgear/fgaddon/HEAD/tree/trunk/Aircraft/an24b/</code-repository>
+  </urls>
+
+  <startup>
+   <splash-texture>Aircraft/an24b/an-24b.png</splash-texture>
+  </startup>
+
+ <previews>
+  <preview>
+    <type>exterior</type>
+    <splash type="bool">false</splash>
+    <path>exterior.png</path>
+  </preview>
+  <preview>
+    <type>panel</type>
+    <splash type="bool">false</splash>
+    <path>cockpit.png</path>
+  </preview>
+ </previews>
+
+  <model>
+   <path>Aircraft/an24b/Models/An-24B.xml</path>
+  </model>
+
+  <status>early production</status>
 
   <minimum-fg-version>2.8</minimum-fg-version>
   <flight-model>jsb</flight-model>
@@ -208,8 +250,7 @@
 	   </key>
     <text>
 Quick start guide:
-- turn on 3 switches to the bottom-left of captains yoke
-labeled AGD, EUP and CGV
+- turn on all switches at the bottom of the panels
 - press and hold big round button near yoke until heading indicator move
 (this is quick alignment of magnetic compass)
 - switch to co-pilot's view (key 2), turn your head to the right and
@@ -275,10 +316,6 @@ alight GPK-52 with correct magnetic heading
       <path>Aircraft/an24b/Systems/ap-28l1.xml</path>
     </autopilot>
   </systems>
-
-   <startup>
-     <splash-texture>Aircraft/an24b/an-24b.png</splash-texture>
-   </startup>
 
 </sim>
 
@@ -743,11 +780,22 @@ alight GPK-52 with correct magnetic heading
 
  <FuelControl>
   <anim-flow-meter type="double">0</anim-flow-meter>
+  <cutoff-l-by-sw type="double">1</cutoff-l-by-sw>
+  <cutoff-l-by-fs type="double">0</cutoff-l-by-fs>
+  <cutoff-r-by-sw type="double">1</cutoff-r-by-sw>
+  <cutoff-r-by-fs type="double">0</cutoff-r-by-fs>
   <flow-meter type="double">0</flow-meter>
   <flow-meter-save-l type="double">0</flow-meter-save-l>
   <flow-meter-save-r type="double">0</flow-meter-save-r>
   <fuel-meter-l type="double">0</fuel-meter-l>
   <fuel-meter-r type="double">0</fuel-meter-r>
+  <sw0401 type="double">1</sw0401>
+  <sw0402 type="double">0</sw0402>
+  <sw0403 type="double">0</sw0403>
+  <sw_crossfeed type="double">0</sw_crossfeed>
+  <sw0405 type="double">0</sw0405>
+  <sw0406 type="double">0</sw0406>
+  <sw0407 type="double">1</sw0407>
  </FuelControl>
 
  <animations>

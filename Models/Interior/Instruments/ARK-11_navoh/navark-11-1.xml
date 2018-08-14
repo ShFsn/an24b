@@ -79,6 +79,10 @@
 	setprop("/instrumentation/adf/mode", adf1mode[getprop("an24/ARK-11/mode-1")] );
 	var adf3mode = ['off', 'off', 'adf', 'adf', 'off'];
 	setprop("/instrumentation/adf[2]/mode", adf3mode[getprop("an24/ARK-11/mode-1")] );
+#	if ( getprop("an24/ARK-11/mode-1") == 1.0 or getprop("an24/ARK-11/mode-1") == 4.0 ) {
+#	interpolate("an24/ARK-11/frame-offset-1", 0.0, 1.2 );
+#	}
+<!-- regarding literature, even in Compass Mode, offset remains applied... seems technically and in operational purposes illogical -->
       </script>
     </binding>
     </action>

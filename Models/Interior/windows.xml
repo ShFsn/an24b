@@ -24,6 +24,16 @@
   </axis>
 </animation-->
 
+<effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <object-name>crew_windows</object-name>
+   <object-name>c_glass_left</object-name>
+   <object-name>c_glass_right</object-name>
+   <object-name>Lwindow_ice</object-name>
+   <object-name>Cwindow_ice</object-name>
+   <object-name>Rwindow_ice</object-name>
+</effect>
+
 <animation>
   <object-name>Lwindow_ice</object-name>
   <type>select</type>

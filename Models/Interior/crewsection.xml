@@ -37,7 +37,7 @@
   <center>
     <x-m>3.9792</x-m>
     <y-m>-0.2841</y-m>
-    <z-m>1.2262</z-m>    
+    <z-m>0.0</z-m>    
   </center>
   <axis>
     <x>0</x>
@@ -45,6 +45,45 @@
     <z>-1</z>    
   </axis>
 </animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>RK_hood</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/animations/RK_hood" ) == 1.0 ){
+        interpolate("an24/animations/RK_hood", 0.0, 0.5 );
+        }
+        else {
+        interpolate("an24/animations/RK_hood", 1.0, 0.5 );
+        }
+      </script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>RK_hood</object-name>
+  <property>an24/animations/RK_hood</property>
+  <factor>76.0</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.968</y-m>
+    <z-m>0.015</z-m>    
+  </center>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>    
+  </axis>
+</animation>
+
 
 <!-- Navigator's Panel -->
 
