@@ -76,15 +76,15 @@
   </offsets>
 </model>
 
-<!-- Brakes - Anti-Skid -->
+<!-- Below middle panel -->
 
 <model>
  <path>sw_anti-skid.xml</path>
   <offsets>
     <pitch-deg>-25</pitch-deg>
-    <x-m>2.117</x-m>
+    <x-m>2.115</x-m>
     <y-m>-0.2744</y-m>
-    <z-m>0.6859</z-m>
+    <z-m>0.683</z-m>
   </offsets>
 </model>
 
@@ -92,9 +92,9 @@
  <path>wl_anti-skid_left.xml</path>
   <offsets>
   <pitch-deg>-25</pitch-deg>
-    <x-m>2.112</x-m>
-    <y-m>-0.3024</y-m>
-    <z-m>0.6972</z-m>
+    <x-m>2.117</x-m>
+    <y-m>-0.296</y-m>
+    <z-m>0.685</z-m>
   </offsets>
 </model>
 
@@ -102,9 +102,9 @@
  <path>wl_anti-skid_right.xml</path>
   <offsets>
   <pitch-deg>-25</pitch-deg>
-    <x-m>2.112</x-m>
-    <y-m>-0.2449</y-m>
-    <z-m>0.6972</z-m>
+    <x-m>2.117</x-m>
+    <y-m>-0.252</y-m>
+    <z-m>0.685</z-m>
   </offsets>
 </model>
 

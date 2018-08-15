@@ -5,6 +5,17 @@
 
 <!--Cockpit animations-->
 
+ <animation>
+   <type>material</type>
+   <object-name>mp_lightplate</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.3</blue>
+     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
+   </emission>
+ </animation>
+
   <effect>
 	<inherits-from>Effects/model-transparent</inherits-from>
 	<object-name>foil</object-name>
@@ -1305,7 +1316,7 @@
 <!--********************************************-->
 
 <model>
-  <name>R-802sel</name>
+  <name>R-802_II</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802sel.xml</path>
   <offsets>
     <x-m>2.349</x-m>
@@ -1319,9 +1330,9 @@
   <name>R-802selpower</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
   <offsets>
-    <x-m>2.3491</x-m>
-    <y-m>0.1189</y-m>
-    <z-m>1.374</z-m>
+    <x-m>2.36</x-m>
+    <y-m>0.1552</y-m>
+    <z-m>1.376</z-m>
     <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
@@ -1330,21 +1341,21 @@
   <name>R-802selcapacity</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
   <offsets>
-    <x-m>2.3491</x-m>
-    <y-m>0.1551</y-m>
-    <z-m>1.374</z-m>
+    <x-m>2.36</x-m>
+    <y-m>0.1182</y-m>
+    <z-m>1.376</z-m>
     <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
 
 <model>
-  <name>R-802mem</name>
+  <name>R-802_II</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
   <offsets>
-    <x-m>2.349</x-m>
+    <x-m>2.36</x-m>
     <y-m>-0.2236</y-m>
-    <z-m>1.37</z-m>
-    <pitch-deg>66</pitch-deg>
+    <z-m>1.376</z-m>
+    <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
 
@@ -1352,9 +1363,9 @@
   <name>R-802mempower</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
   <offsets>
-    <x-m>2.3491</x-m>
-    <y-m>-0.1189</y-m>
-    <z-m>1.374</z-m>
+    <x-m>2.36</x-m>
+    <y-m>-0.1552</y-m>
+    <z-m>1.376</z-m>
     <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
@@ -1363,9 +1374,9 @@
   <name>R-802memcapacity</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
   <offsets>
-    <x-m>2.3491</x-m>
-    <y-m>-0.1551</y-m>
-    <z-m>1.374</z-m>
+    <x-m>2.36</x-m>
+    <y-m>-0.1182</y-m>
+    <z-m>1.376</z-m>
     <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
@@ -1434,7 +1445,7 @@
 
 <model>
   <name>Fuel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Fuel/fuel.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Fuel_Oil/fuel_oil.xml</path>
 </model>
 
 <model>
@@ -1443,8 +1454,13 @@
 </model>
 
 <model>
-  <name>Interiorlighting</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Interiorlighting/interiorlighting.xml</path>
+  <name>LightsInt</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/LightsInterior/interiorlighting.xml</path>
+</model>
+
+<model>
+  <name>LightsExt</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/LightsExterior/exteriorlighting.xml</path>
 </model>
 
 <model>

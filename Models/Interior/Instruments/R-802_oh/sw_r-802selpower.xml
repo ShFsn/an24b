@@ -21,7 +21,7 @@
         </condition>
       <command>nasal</command>
       <script>
-        interpolate("an24/R-802/power-2", 1.0, 0.1 );
+        setprop("an24/R-802/power-2", 1.0 );
       </script>
     </binding>
     <binding>
@@ -43,7 +43,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/R-802/power-2", 0.0, 0.1 );
+        setprop("an24/R-802/power-2", 0.0 );
         interpolate("an24/R-802/sw_power-2", 0.0, 0.1 );
       </script>
     </binding>

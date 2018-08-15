@@ -808,7 +808,7 @@ alight GPK-52 with correct magnetic heading
  </FuelControl>
 
  <animations>
-  <nose>1</nose>
+  <nose type="double">1.0</nose>
  </animations>
 
   <gear>
