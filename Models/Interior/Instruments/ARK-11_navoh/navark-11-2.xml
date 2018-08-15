@@ -16,6 +16,17 @@
  </animation>
 
  <animation>
+  <object-name>subband_handle_oh</object-name>
+  <object-name>rough_adj_handle_oh</object-name>
+  <type>select</type>
+  <condition>
+   <not>
+    <property>/sim/signals/fdm-initialized</property>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
    <type>material</type>
    <object-name>light_plate</object-name>
    <object-name>subband_disk</object-name>
@@ -79,6 +90,10 @@
 	setprop("/instrumentation/adf[1]/mode", adf2mode[getprop("an24/ARK-11/mode-2")] );
 	var adf4mode = ['off', 'off', 'adf', 'adf', 'off'];
 	setprop("/instrumentation/adf[3]/mode", adf4mode[getprop("an24/ARK-11/mode-2")] );
+	if ( getprop("an24/ARK-11/mode-2") == 1.0 or getprop("an24/ARK-11/mode-2") == 4.0 ) {
+	interpolate("an24/ARK-11/frame-offset-2", 0.0, 1.2 );
+	}
+<!-- regarding literature, even in Compass Mode, offset remains applied... seems technically and in operational purposes illogical -->
       </script>
     </binding>
     </action>
@@ -531,6 +546,15 @@
 	}
 	else {
 	interpolate("an24/ARK-11/mem2/fixp", 1.0, 0.1 );
+        setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+        setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	}
       </script>
     </binding>
@@ -541,7 +565,7 @@
   <type>translate</type>
   <object-name>fixp</object-name>
   <property>an24/ARK-11/mem2/fixp</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -559,8 +583,16 @@
       <command>nasal</command>
       <script>
         interpolate("an24/ARK-11/mem2/animfix1", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix1", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix1", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix1sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix1ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -586,7 +618,7 @@
   <type>translate</type>
   <object-name>fix1</object-name>
   <property>an24/ARK-11/mem2/animfix1</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -603,9 +635,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix2", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix2", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix2", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix2sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix2ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -631,7 +671,7 @@
   <type>translate</type>
   <object-name>fix2</object-name>
   <property>an24/ARK-11/mem2/animfix2</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -648,9 +688,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix3", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix3", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix3", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix3sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix3ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -676,7 +724,7 @@
   <type>translate</type>
   <object-name>fix3</object-name>
   <property>an24/ARK-11/mem2/animfix3</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -693,9 +741,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix4", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix4", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix4", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix4sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix4ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -721,7 +777,7 @@
   <type>translate</type>
   <object-name>fix4</object-name>
   <property>an24/ARK-11/mem2/animfix4</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -738,9 +794,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix5", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix5", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix5", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix5sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix5ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -766,7 +830,7 @@
   <type>translate</type>
   <object-name>fix5</object-name>
   <property>an24/ARK-11/mem2/animfix5</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -783,9 +847,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix6", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix6", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix6", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix6sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix6ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -811,7 +883,7 @@
   <type>translate</type>
   <object-name>fix6</object-name>
   <property>an24/ARK-11/mem2/animfix6</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -828,9 +900,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix7", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix7", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix7", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix7sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix7ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -856,7 +936,7 @@
   <type>translate</type>
   <object-name>fix7</object-name>
   <property>an24/ARK-11/mem2/animfix7</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -873,9 +953,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix8", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix8", 0.0, 0.1 );},0.1);
+	setprop("an24/ARK-11/mem2/animfix9", 0.0 );
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix8", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix8sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix8ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -901,7 +989,7 @@
   <type>translate</type>
   <object-name>fix8</object-name>
   <property>an24/ARK-11/mem2/animfix8</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
@@ -918,9 +1006,17 @@
     <binding>
       <command>nasal</command>
       <script>
+	setprop("an24/ARK-11/mem2/animfix1", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem2/animfix8", 0.0 );
         interpolate("an24/ARK-11/mem2/animfix9", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix9", 0.0, 0.1 );},0.1);
 	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 and getprop("an24/AZS/sw0514") == 1.0 ) {
+        settimer(func {interpolate("an24/ARK-11/mem2/animfix9", 0.0, 0.1 );},0.1);
 	setprop("an24/ARK-11/mem2/fix9sb", getprop("an24/ARK-11/sub-band-khz-2") );
 	setprop("an24/ARK-11/mem2/fix9ff", getprop("an24/ARK-11/fine-khz-2") );
 	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[1]/frequencies/selected-khz") );
@@ -946,13 +1042,14 @@
   <type>translate</type>
   <object-name>fix9</object-name>
   <property>an24/ARK-11/mem2/animfix9</property>
-  <factor>0.003</factor>
+  <factor>0.0038</factor>
   <axis>
     <x>0.0</x>
     <y>0.0</y>
     <z>-1.0</z>
   </axis>
 </animation>
+
 <!-- Text OSG -->
 
   <animation>

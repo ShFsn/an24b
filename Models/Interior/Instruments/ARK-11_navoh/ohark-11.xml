@@ -18,6 +18,19 @@
  </animation>
 
  <animation>
+  <object-name>subband_handle</object-name>
+  <object-name>rough_adj_handle</object-name>
+  <object-name>subband_lock</object-name>
+  <object-name>rough_lock</object-name>
+  <type>select</type>
+  <condition>
+   <not>
+    <property>/sim/signals/fdm-initialized</property>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
    <type>material</type>
    <object-name>light_plate</object-name>
    <!--object-name>fine_freq_disk</object-name-->
@@ -210,7 +223,7 @@
 
 <!-- Fixed Frequency buttons 1-9 / "P" button pressed for smooth tuning mode -->
 
-<animation>
+<!--animation>
   <type>pick</type>
   <object-name>fix1</object-name>
   <action>
@@ -219,10 +232,16 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/ARK-11/mem2/animfix1", 1.0, 0.1 );
-        settimer(func {interpolate("an24/ARK-11/mem2/animfix1", 0.0, 0.1 );},0.1);
-	interpolate("an24/ARK-11/sub-band-khz-2", getprop("an24/ARK-11/mem2/fix1sb"), 2.0 );
-	interpolate("an24/ARK-11/fine-khz-2", getprop("an24/ARK-11/mem2/fix1ff"), 2.4 );
+	interpolate("an24/ARK-11/mem1/animfix1", 1.0, 0.1 );
+	setprop("an24/ARK-11/mem1/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix2", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix3", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix4", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix5", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix6", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix7", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix8", 0.0 );
+	setprop("an24/ARK-11/mem1/animfix9", 0.0 );
       </script>
     </binding>
   </action>
@@ -478,7 +497,7 @@
     <y>0.0</y>
     <z>-1.0</z>
   </axis>
-</animation>
+</animation-->
 
 <!-- Text OSG -->
 
@@ -493,7 +512,7 @@
   <text>
     <name>desc</name>
     <type type="string">literal</type>
-    <text type="string">ARK-11 No.2 Control Panel</text>
+    <text type="string">ARK-11 No.1 Control Panel</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.044</character-size>

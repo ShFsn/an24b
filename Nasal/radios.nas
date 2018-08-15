@@ -75,7 +75,7 @@ setprop("/instrumentation/adf[2]/volume-norm", 1.0 );
 var arkoutput1 = func {
 	var volume_knob = getprop("an24/ARK-11/volumeknob-1");
 	var signalstrength = abs(math.cos( 0.017453 * ( 90 + getprop("/instrumentation/adf[2]/indicated-bearing-deg") - getprop("/instrumentation/adf[0]/indicated-bearing-deg") ) ) );
-	setprop("an24/ARK-11/signal-1", signalstrength );
+	interpolate("an24/ARK-11/signal-1", signalstrength, 0.4 );
 	if ( getprop("an24/ARK-11/mode-1") == 3.0 ) {
 	setprop("an24/ARK-11/vol-1", signalstrength );
 	}

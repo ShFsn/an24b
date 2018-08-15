@@ -2,6 +2,15 @@
 
 <PropertyList>
 
+<aircraft>
+  <icao>
+    <wake-turbulence-category>M</wake-turbulence-category>
+    <type type="string">AN24</type>
+    <equipment type="string">FHLV</equipment>
+    <surveillance type="string">C</surveillance> <!-- mode-C transponder -->
+  </icao>
+</aircraft>
+
  <sim>
 
   <description>Antonov An-24B</description>
@@ -789,13 +798,13 @@ alight GPK-52 with correct magnetic heading
   <flow-meter-save-r type="double">0</flow-meter-save-r>
   <fuel-meter-l type="double">0</fuel-meter-l>
   <fuel-meter-r type="double">0</fuel-meter-r>
-  <sw0401 type="double">1</sw0401>
+  <sw0401 type="double">0</sw0401>
   <sw0402 type="double">0</sw0402>
   <sw0403 type="double">0</sw0403>
   <sw_crossfeed type="double">0</sw_crossfeed>
   <sw0405 type="double">0</sw0405>
   <sw0406 type="double">0</sw0406>
-  <sw0407 type="double">1</sw0407>
+  <sw0407 type="double">0</sw0407>
  </FuelControl>
 
  <animations>

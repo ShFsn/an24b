@@ -1284,9 +1284,9 @@
   <name>ARK-11</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-11.xml</path>
   <offsets>
-    <x-m>2.63</x-m>
+    <x-m>2.612</x-m>
     <y-m>-0.1905</y-m>
-    <z-m>1.4158</z-m>
+    <z-m>1.412</z-m>
     <pitch-deg>-190</pitch-deg>
   </offsets>
 </model>
@@ -1316,6 +1316,28 @@
 </model>
 
 <model>
+  <name>R-802selpower</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
+  <offsets>
+    <x-m>2.3491</x-m>
+    <y-m>0.1189</y-m>
+    <z-m>1.374</z-m>
+    <pitch-deg>77</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802selcapacity</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
+  <offsets>
+    <x-m>2.3491</x-m>
+    <y-m>0.1551</y-m>
+    <z-m>1.374</z-m>
+    <pitch-deg>77</pitch-deg>
+  </offsets>
+</model>
+
+<model>
   <name>R-802mem</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
   <offsets>
@@ -1323,6 +1345,28 @@
     <y-m>-0.2236</y-m>
     <z-m>1.37</z-m>
     <pitch-deg>66</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802mempower</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
+  <offsets>
+    <x-m>2.3491</x-m>
+    <y-m>-0.1189</y-m>
+    <z-m>1.374</z-m>
+    <pitch-deg>77</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802memcapacity</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
+  <offsets>
+    <x-m>2.3491</x-m>
+    <y-m>-0.1551</y-m>
+    <z-m>1.374</z-m>
+    <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
 
