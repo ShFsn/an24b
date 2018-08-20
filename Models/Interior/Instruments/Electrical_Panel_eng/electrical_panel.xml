@@ -25,8 +25,6 @@
    </emission>
  </animation>
 
-
-
  <animation>
    <type>material</type>
    <object-name>ar1_light</object-name>
@@ -119,7 +117,6 @@
      <blue>0.3</blue>
    </specular>
  </animation>
-
 
 <!-- VP-46 Voltmeter -->
 

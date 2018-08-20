@@ -833,14 +833,15 @@ alight GPK-52 with correct magnetic heading
     <pitotvalve3 type="double">1.0</pitotvalve3>
   </Pressure>
 
- <RTMS>
-  <fuel-offset-l type="double">0</fuel-offset-l>
-  <fuel-offset-r type="double">0</fuel-offset-r>
- </RTMS>
+  <RTMS>
+   <fuel-offset-l type="double">0</fuel-offset-l>
+   <fuel-offset-r type="double">0</fuel-offset-r>
+  </RTMS>
 
- <SP-50>
+  <SP-50>
    <channel type="int">6</channel>
- </SP-50>
+   <regime type="int">1</regime> <!-- 0=SP-50, 1=ILS -->
+  </SP-50>
 
 </an24>
 

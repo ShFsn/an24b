@@ -291,7 +291,6 @@ var startup = func {
 		}, t); t += 0.2;
 
 # Engine Start
-
 		settimer( func{
 		screen.log.write("Engine Start, TG-16 APU first", 1, 1, 1);
 		interpolate("an24/Start-Panel/starttg-btn", 1.0, 0.1, 0.0, 0.1 );
@@ -301,25 +300,26 @@ var startup = func {
 		setprop("/controls/engines/engine[2]/starter", 1.0 );
 		}, t); t += 0.3;
 
-
 		settimer( func{
-		screen.log.write("Meanwhile initialize AGDs, EUP and CGV...", 1, 1, 1);
+		screen.log.write("Meanwhile initialize AGDs, EUP, CGV etc...", 1, 1, 1);
 		setprop("an24/instrumentation/agd-l", 5.0 );
 		setprop("an24/instrumentation/sw_agd-l", 1.0 );
 		setprop("an24/instrumentation/agd-r", 5.0 );
 		setprop("an24/instrumentation/sw_agd-r", 1.0 );
+		interpolate("an24/PPS/light-test-knob", 1.0, 0.2, 1.0, 0.3, 0.0, 0.2 );
+		interpolate("an24/PPS/lighting", 1.0, 0.2, 1.0, 0.3, 0.0, 0.2 );
 		}, t); t += 0.2;
 
 		settimer( func{
 		setprop("an24/instrumentation/eup", 1.0 );
 		setprop("an24/instrumentation/sw_eup", 1.0 );
+		setprop("an24/SP-50/on", 1.0 );
 		}, t); t += 0.2;
 
 		settimer( func{
 		setprop("an24/instrumentation/cgv", 1.0 );
 		setprop("an24/instrumentation/sw_cgv", 1.0 );
 		}, t); t += 0.2;
-
 
 		settimer( func{
 		screen.log.write("...and compasses GIK and GPK", 1, 1, 1);

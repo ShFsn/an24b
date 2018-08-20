@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+
+<!-- R-836 Block 1 -->
+
+<PropertyList>
+ <path>r-836b1b2b3b4.ac</path>
+
+ <animation>
+  <object-name>b2_hood</object-name>
+  <object-name>b2_fixatorL</object-name>
+  <object-name>b2_fixatorR</object-name>
+  <type>select</type>
+  <condition>
+   <not>
+    <property>/sim/signals/fdm-initialized</property>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b2_knobD</object-name>
+   <property>/an24/R-836/b2_knob_D</property>
+    <condition>
+     <property>an24/R-836/b2_lockD</property>
+    </condition>
+   <factor>30</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.0033</y-m>
+   <z-m>0.0898</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>/an24/R-836/b2_knob_D</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>12</max>                
+      <wrap>true</wrap>
+     </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+	var d01 = ["1", "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d01", d01[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d02 = ["1", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d02", d02[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d03 = ["1", "1", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d03", d03[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d04 = ["1", "1", "0", "0", "0", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d04", d04[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d05 = ["1", "0", "1", "1", "1", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d05", d05[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d06 = ["1", "0", "1", "1", "0", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d06", d06[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d07 = ["1", "0", "0", "1", "1", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d07", d07[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d08 = ["1", "0", "0", "1", "0", "1", "1", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d08", d08[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d09 = ["1", "0", "0", "1", "0", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d09", d09[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d10 = ["1", "0", "0", "1", "0", "1", "0", "1", "1", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d10", d10[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d11 = ["0", "0", "1", "1", "1", "1", "0", "1", "1", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d11", d11[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d12 = ["0", "0", "0", "1", "1", "1", "0", "1", "1", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d12", d12[getprop("/an24/R-836/b2_knob_D")] );
+      </script>
+    </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b2_lockD</object-name>
+     <condition>
+       <property>/devices/status/keyboard/shift</property>
+     </condition>
+   <property>an24/R-836/b2_lockD</property>
+   <factor>30</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.0033</y-m>
+   <z-m>0.0898</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b2_lockD</property>
+      <factor>1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <!-- Text OSG -->
+
+  <!--animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">R-836 Radio</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text-->
+
+</PropertyList>

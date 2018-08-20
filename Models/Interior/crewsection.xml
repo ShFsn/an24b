@@ -261,8 +261,18 @@
 </model>
 
 <model>
-  <name>R-836</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-836_rceng/eng_r-836.xml</path>
+  <name>R-836b1b2b3b4</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-836_rceng/eng_r-836b1b2b3b4.xml</path>
+  <offsets>
+    <x-m>3.78</x-m>
+    <y-m>0.62</y-m>
+    <z-m>1.08</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>R-836b6</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-836_rceng/eng_r-836b6.xml</path>
   <offsets>
     <x-m>3.8792</x-m>
     <y-m>0.7341</y-m>

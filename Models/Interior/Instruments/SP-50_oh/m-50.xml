@@ -5,6 +5,15 @@
 <PropertyList>
  <path>m-50.ac</path>
 
+  <model>
+   <path>sw_m-50_ON.xml</path>
+   <offsets>
+    <x-m>0.007</x-m>
+    <y-m>-0.02</y-m>
+    <z-m>0.0236</z-m>
+   </offsets>
+  </model>
+
 <!-- Channel select -->
 
  <animation>
@@ -32,12 +41,30 @@
       <wrap>true</wrap>
      </binding>
     <binding>
+     <condition>
+      <equals>
+      <property>/an24/AZS/sw0516</property>
+      <value type="double">1.0</value>
+      </equals>
+      <equals>
+      <property>/an24/SP-50/on</property>
+      <value type="double">1.0</value>
+      </equals>
+     </condition>
       <command>nasal</command>
       <script>
-	var sp50course = ["108.3", "108.7", "109.1", "109.5", "109.9", "110.3"];
-	setprop("/instrumentation/nav/frequencies/selected-mhz", sp50course[getprop("/an24/SP-50/channel")] );
-	var sp50gs = ["332.6", "332.6", "333.8", "333.8", "335.0", "335.0"];
-	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", sp50gs[getprop("/an24/SP-50/channel")] );
+	if (getprop("/an24/SP-50/regime") == 0 ) {
+	var course_sp50 = ["103.3", "108.7", "109.1", "109.5", "109.9", "110.3"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz", course_sp50[getprop("/an24/SP-50/channel")] );
+	var gs_sp50 = ["332.6", "332.6", "333.8", "333.8", "335.0", "335.0"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_sp50[getprop("/an24/SP-50/channel")] );
+	}
+	else {
+	var course_ils = ["108.3", "108.7", "109.1", "109.5", "109.9", "110.3"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz", course_ils[getprop("/an24/SP-50/channel")] );
+	var gs_ils = ["332.6", "0", "333.8", "332.6", "333.8", "335.0"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_ils[getprop("/an24/SP-50/channel")] );
+	};
       </script>
     </binding>
     </action>
