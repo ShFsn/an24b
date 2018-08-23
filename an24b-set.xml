@@ -95,6 +95,7 @@
 
   <model>
    <path>Aircraft/an24b/Models/An-24B.xml</path>
+   <fallback-model-index type="int">153</fallback-model-index>
   </model>
 
   <status>early production</status>
@@ -896,6 +897,12 @@ alight GPK-52 with correct magnetic heading
     <file>Aircraft/an24b/Nasal/view.nas</file>
   </view>
 </nasal>
+
+<limits>
+  <mass-and-balance>
+    <maximum-takeoff-mass-lbs type="double">46297</maximum-takeoff-mass-lbs> <!-- 21 t -->
+  </mass-and-balance>
+</limits>
 
 <payload>
   <weight>
