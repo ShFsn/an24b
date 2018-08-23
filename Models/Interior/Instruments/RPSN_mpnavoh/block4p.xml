@@ -5,6 +5,11 @@
 <PropertyList>
  <path>block4p.ac</path>
 
+ <effect>
+  <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
+   <object-name>bracket</object-name>
+</effect>
+
  <animation>
    <type>slider</type>
    <object-name>bracket</object-name>

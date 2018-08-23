@@ -629,7 +629,24 @@
   </axis>
 </animation>
 
-<!-- Needle Timer -->
+<!-- Needle Timers -->
+
+<animation>
+  <type>rotate</type>
+  <object-name>timer_min_needle</object-name>
+  <property>an24/AChS/mp_stopwatch</property>
+  <factor>0.1</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0181</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
 
 <animation>
   <type>rotate</type>

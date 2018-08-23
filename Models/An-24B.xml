@@ -327,7 +327,7 @@
 
 <!-- Doors -->
 
-<animation>
+<!--animation>
   <type>pick</type>
   <object-name>cargodoor</object-name>
   <visible>true</visible>
@@ -375,7 +375,7 @@
     <y>0</y>
     <z>0</z>    
   </axis>
-</animation>
+</animation-->
 
 <!-- GEAR -->
 

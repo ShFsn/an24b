@@ -4,11 +4,23 @@
  <path>crewsection.ac</path>
 
   <effect>
-	<inherits-from>Effects/model-transparent</inherits-from>
-	<object-name>foil</object-name>
-   </effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <object-name>foil</object-name>
+  </effect>
+  <effect>
+   <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
+   <object-name>hull</object-name>
+   <object-name>emergency_hatch</object-name>
+   <object-name>fuses</object-name>
+   <object-name>engrack</object-name>
+   <object-name>KRP-FM</object-name>
+   <object-name>GRP-2M</object-name>
+   <object-name>APBK-M</object-name>
+   <object-name>AP_ILS-impl</object-name>
+   <object-name>US-8K_receiver</object-name>
+  </effect>
 
-<animation>
+<!--animation>
   <type>pick</type>
   <object-name>cockpitdoor</object-name>
   <visible>true</visible>
@@ -44,7 +56,7 @@
     <y>0</y>
     <z>-1</z>    
   </axis>
-</animation>
+</animation-->
 
 <animation>
   <type>pick</type>
