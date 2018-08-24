@@ -294,7 +294,7 @@
 <animation>
   <object-name>propL</object-name>
   <type>spin</type>
-  <property>fdm/jsbsim/propulsion/engine/propeller-rpm</property>
+  <property>engines/engine[0]/rpm</property>
   <factor>0.1</factor>
   <center>
    <x-m>0.0</x-m>
@@ -311,7 +311,7 @@
 <animation>
   <object-name>propR</object-name>
   <type>spin</type>
-  <property>fdm/jsbsim/propulsion/engine[1]/propeller-rpm</property>
+  <property>engines/engine[1]/rpm</property>
   <factor>0.1</factor>
   <center>
    <x-m>0.0</x-m>

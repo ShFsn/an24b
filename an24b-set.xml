@@ -330,14 +330,16 @@ alight GPK-52 with correct magnetic heading
 </sim>
 
 
- <engines>
+<engines>
   <engine n="0">
-   <running type="bool">false</running>
+    <running type="bool">false</running>
+    <rpm type="double" alias="/engines/engine[0]/thruster/rpm"/> <!-- transmitter over mp and used in animations -->
   </engine>
   <engine n="1">
-   <running type="bool">false</running>
+    <running type="bool">false</running>
+    <rpm type="double" alias="/engines/engine[1]/thruster/rpm"/> <!-- transmitter over mp and used in animations -->
   </engine>
- </engines>
+</engines>
 
 <input>
  <keyboard>
