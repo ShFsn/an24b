@@ -18,6 +18,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>PRF_up</tooltip-id>
+      <label>Retract PRF-4 Lights</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -40,6 +47,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>PRF_extend</tooltip-id>
+      <label>Extend PRF-4 Lights</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

@@ -31,6 +31,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>winheat_highL-on</tooltip-id>
+      <label>Window Heating high</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -48,6 +55,15 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>winheat_highL-off</tooltip-id>
+      <label>Window Heating high</label>
+      <property>an24/Anti-Ice/sw_window_heating-left-intense</property>
+      <mapping>on-off</mapping>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

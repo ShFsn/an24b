@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- EUP ON -->
+<!-- EUP turn coordinator ON -->
 
 <PropertyList>
  <path>../../../shared/switches/vg-15k.ac</path>
@@ -30,6 +30,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>eup-on</tooltip-id>
+      <label>EUP Turn Coordinator</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -52,6 +59,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>eup-off</tooltip-id>
+      <label>EUP Turn Coordinator</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

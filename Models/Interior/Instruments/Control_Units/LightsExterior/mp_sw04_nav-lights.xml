@@ -18,6 +18,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>BANO_on</tooltip-id>
+      <label>BANO NAV-Lights</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -40,6 +47,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>BANO_off</tooltip-id>
+      <label>BANO NAV-Lights</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

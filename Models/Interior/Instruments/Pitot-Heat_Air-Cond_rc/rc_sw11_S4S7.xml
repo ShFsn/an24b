@@ -31,6 +31,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat4on</tooltip-id>
+      <label>  Pitot Heating ON
+AP ALT-Correction/SDU</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -48,6 +56,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat4off</tooltip-id>
+      <label>  Pitot Heating OFF
+AP ALT-Correction/SDU</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -66,16 +82,31 @@
         </condition>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/pitot_S4S7", -1.0, 0.1 );
+	interpolate("an24/Anti-Ice/pitot_S4S7", -1.0, 0.1, -1.0, 2.0, 0.0, 0.1 );
       </script>
     </binding>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/sw_pitot_S4S7", -1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_pitot_S4S7", -1.0, 0.1 );
       </script>
     </binding>
+   <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Anti-Ice/sw_pitot_S4S7", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat4ctrl</tooltip-id>
+      <label>Control</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

@@ -22,6 +22,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>rtms_on</tooltip-id>
+      <label>RTMS Flowmeter ON</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
@@ -41,6 +48,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>rtms_off</tooltip-id>
+      <label>RTMS Flowmeter OFF</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>

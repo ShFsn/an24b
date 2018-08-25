@@ -31,6 +31,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>winheat_lowR-on</tooltip-id>
+      <label>Window Heating low</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -48,6 +55,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>winheat_lowR-off</tooltip-id>
+      <label>Window Heating low</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

@@ -19,6 +19,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>oil-coolLauto</tooltip-id>
+      <label>Oil-Cooler-Flaps AUTO</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
@@ -35,6 +42,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>oil-coolLman</tooltip-id>
+      <label>Oil-Cooler-Flaps MAN</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>

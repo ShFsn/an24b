@@ -72,6 +72,21 @@
       </script>
      </binding>
     </action>
+
+  <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotvalve1</tooltip-id>
+      <label>Pitot %s</label>
+      <property>an24/Pressure/pitotvalve1</property>
+      <mapping>nasal</mapping>
+      <script>
+        var modes1 = ['Closed', 'A1 Main', 'A2 Emergency'];
+        return modes1[arg[0]];
+      </script>
+    </binding>
+  </hovered>
+
  </animation>
 
  <animation>

@@ -27,6 +27,14 @@
     </binding>
     </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>ice-conrolL</tooltip-id>
+      <label>RIO Anti-Ice Control
+  Right System</label>
+    </binding>
+   </hovered>
  </animation>
 
 <animation>
@@ -57,6 +65,14 @@
     </binding>
     </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>ice-conrolR</tooltip-id>
+      <label>RIO Anti-Ice Control
+   Left System</label>
+    </binding>
+   </hovered>
  </animation>
 
  <animation>

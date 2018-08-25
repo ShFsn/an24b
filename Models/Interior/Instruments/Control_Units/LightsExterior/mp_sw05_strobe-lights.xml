@@ -18,6 +18,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>OSS_on</tooltip-id>
+      <label>OSS Strobe-Lights</label>
+    </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -34,6 +41,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>OSS_off</tooltip-id>
+      <label>OSS Strobe-Lights</label>
+    </binding>
+   </hovered>
  </animation>
 
  <animation>

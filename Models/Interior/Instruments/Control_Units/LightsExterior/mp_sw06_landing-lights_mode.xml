@@ -18,6 +18,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>PRF_landing</tooltip-id>
+      <label>PRF-4 T/O-Landing Mode</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -40,6 +47,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>PRF_taxi</tooltip-id>
+      <label>PRF-4 Taxi Mode</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

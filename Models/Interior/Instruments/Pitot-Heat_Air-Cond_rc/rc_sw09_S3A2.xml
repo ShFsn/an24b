@@ -31,6 +31,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat2on</tooltip-id>
+      <label>Pitot Heating FDR ON</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -43,11 +50,18 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/pitot_S3A2", 0.0, 0.1 );
+        setprop("an24/Anti-Ice/pitot_S3A2", 0.0 );
         interpolate("an24/Anti-Ice/sw_pitot_S3A2", 0.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat2off</tooltip-id>
+      <label>Pitot Heating FDR OFF</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -66,16 +80,31 @@
         </condition>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/pitot_S3A2", -1.0, 0.1 );
+	interpolate("an24/Anti-Ice/pitot_S3A2", -1.0, 0.1, -1.0, 2.0, 0.0, 0.1 );
       </script>
     </binding>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/sw_pitot_S3A2", -1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_pitot_S3A2", -1.0, 0.1 );
       </script>
     </binding>
+   <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Anti-Ice/sw_pitot_S3A2", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat2ctrl</tooltip-id>
+      <label>Control</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

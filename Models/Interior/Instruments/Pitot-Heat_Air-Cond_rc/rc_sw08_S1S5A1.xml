@@ -27,10 +27,19 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/sw_pitot_S1S5A1", 1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_pitot_S1S5A1", 1.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat1on</tooltip-id>
+      <label>Pitot Heating ON
+-Pilot's Instr.
+-AP-ALT Control</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -44,10 +53,19 @@
       <command>nasal</command>
       <script>
 	interpolate("an24/Anti-Ice/pitot_S1S5A1", 0.0, 0.1 );
-        interpolate("an24/Anti-Ice/sw_pitot_S1S5A1", 0.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_pitot_S1S5A1", 0.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat1off</tooltip-id>
+      <label>Pitot Heating OFF
+-Pilot's Instr.
+-AP-ALT Control</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -66,16 +84,31 @@
         </condition>
       <command>nasal</command>
       <script>
-	interpolate("an24/Anti-Ice/pitot_S1S5A1", -1.0, 0.1 );
+	interpolate("an24/Anti-Ice/pitot_S1S5A1", -1.0, 0.1, -1.0, 2.0, 0.0, 0.1 );
       </script>
     </binding>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/sw_pitot_S1S5A1", -1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_pitot_S1S5A1", -1.0, 0.1 );
       </script>
     </binding>
+   <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Anti-Ice/sw_pitot_S1S5A1", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitotheat1ctrl</tooltip-id>
+      <label>Control</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

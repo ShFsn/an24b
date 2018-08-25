@@ -32,6 +32,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>tg-16cutopen</tooltip-id>
+     <label>TG-16 APU Cutoff</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
@@ -52,6 +59,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>tg-16cutoff</tooltip-id>
+     <label>TG-16 APU Cutoff</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>

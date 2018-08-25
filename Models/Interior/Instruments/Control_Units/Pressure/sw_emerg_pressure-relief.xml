@@ -18,6 +18,10 @@
          <property>an24/AZS/sw0616</property>
          <value>1.0</value>
          </equals>
+         <equals>
+         <property>instrumentation/Pressure/cvr_press-relief</property>
+         <value>1.0</value>
+         </equals>
         </condition>
       <command>nasal</command>
       <script>
@@ -25,12 +29,26 @@
       </script>
    </binding>
    <binding>
+       <condition>
+         <equals>
+         <property>instrumentation/Pressure/cvr_press-relief</property>
+         <value>1.0</value>
+         </equals>
+        </condition>
       <command>nasal</command>
       <script>
         interpolate("instrumentation/Pressure/sw_press-relief", 1.0, 0.1 );
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>emergpressopen</tooltip-id>
+      <label>Open Emergency
+Pressure Relief</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
@@ -47,6 +65,10 @@
          <property>an24/AZS/sw0616</property>
          <value>1.0</value>
          </equals>
+         <equals>
+         <property>instrumentation/Pressure/cvr_press-relief</property>
+         <value>1.0</value>
+         </equals>
         </condition>
       <command>nasal</command>
       <script>
@@ -59,6 +81,14 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>emergpressopen</tooltip-id>
+      <label>Close Emergency
+ Pressure Relief</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>

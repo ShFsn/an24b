@@ -18,6 +18,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>propice_on</tooltip-id>
+      <label>Propeller Anti-Ice
+  Normal System</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -34,6 +42,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>propice_off</tooltip-id>
+      <label> Propeller Anti-Ice
+Emergency System</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

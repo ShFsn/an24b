@@ -19,6 +19,14 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>2ppt1R_on</tooltip-id>
+      <label> Right 2PPT1
+Fuelmeter ON</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
@@ -35,6 +43,14 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>2ppt1R_off</tooltip-id>
+      <label>  Right 2PPT1
+Fuelmeter OFF</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- CGV ON -->
+<!-- CGV Central Gyrovertical ON -->
 
 <PropertyList>
  <path>../../../shared/switches/vg-15k.ac</path>
@@ -26,10 +26,17 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/instrumentation/cgv", 1.0, 0.1 );
+        interpolate("an24/instrumentation/sw_cgv", 1.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cgv-on</tooltip-id>
+      <label>CGV Gyro-Vertical</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -48,16 +55,23 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/instrumentation/cgv", 0.0, 0.1 );
+        interpolate("an24/instrumentation/sw_cgv", 0.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cgv-off</tooltip-id>
+      <label>CGV Gyro-Vertical</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/instrumentation/cgv</property>
+   <property>an24/instrumentation/sw_cgv</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>30.0</dep></entry>

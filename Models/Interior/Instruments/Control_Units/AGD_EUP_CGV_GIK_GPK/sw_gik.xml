@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- GPK ON -->
+<!-- GIK Gyro Induction Compass ON -->
 
 <PropertyList>
  <path>../../../shared/switches/tv-1-4m.ac</path>
@@ -30,6 +30,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gik-on</tooltip-id>
+      <label>GIK Gyro-Induction Compass</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -52,6 +59,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gik-off</tooltip-id>
+      <label>GIK Gyro-Induction Compass</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

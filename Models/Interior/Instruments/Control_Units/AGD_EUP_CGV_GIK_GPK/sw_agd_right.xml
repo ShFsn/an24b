@@ -30,6 +30,13 @@
       </script>
     </binding>
   </action>
+    <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>agd-r-on</tooltip-id>
+      <label>AGD-1 AI F/O</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -47,6 +54,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>agd-r-off</tooltip-id>
+      <label>AGD-1 AI F/O</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

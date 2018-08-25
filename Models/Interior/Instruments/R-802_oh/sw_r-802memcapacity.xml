@@ -31,6 +31,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>r802-1caphi</tooltip-id>
+      <label>R-802 No.1 High Capacity</label>
+    </binding>
+  </hovered>
 </animation>
 
  <animation>
@@ -48,6 +55,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>r802-1caplo</tooltip-id>
+      <label>R-802 No.1 Low Capacity</label>
+    </binding>
+  </hovered>
 </animation>
 
  <animation>

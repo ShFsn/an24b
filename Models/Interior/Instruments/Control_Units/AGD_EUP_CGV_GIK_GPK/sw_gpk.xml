@@ -30,6 +30,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gpk-on</tooltip-id>
+      <label>GPK Gyro-Poly Compass</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -52,6 +59,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gpk-off</tooltip-id>
+      <label>GPK Gyro-Poly Compass</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

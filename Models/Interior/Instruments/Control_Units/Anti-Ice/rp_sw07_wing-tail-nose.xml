@@ -14,10 +14,18 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/wing-tail-nose_bleed", 1.0, 0.1 );
+        interpolate("an24/Anti-Ice/wing-tail_bleed", 1.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>wingtailheaton</tooltip-id>
+      <label> Engine Bleed to
+Wing-/Tail Edges</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -30,16 +38,24 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/wing-tail-nose_bleed", 0.0, 0.1 );
+        interpolate("an24/Anti-Ice/wing-tail_bleed", 0.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>wingtailheatoff</tooltip-id>
+      <label> Engine Bleed to
+Wing-/Tail Edges</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Anti-Ice/wing-tail-nose_bleed</property>
+   <property>an24/Anti-Ice/wing-tail_bleed</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>

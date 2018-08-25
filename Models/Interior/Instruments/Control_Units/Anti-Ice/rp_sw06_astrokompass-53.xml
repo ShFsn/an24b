@@ -12,18 +12,18 @@
   <action>
     <button>0</button>
     <repeatable>false</repeatable>
-    <binding>
-        <!--condition>
+    <!--binding>
+        <condition>
          <equals>
          <property>an24/AZS/sw0415</property>
          <value>1.0</value>
          </equals>
-        </condition-->
+        </condition>
       <command>nasal</command>
       <script>
         interpolate("an24/Anti-Ice/astrokompass-53", 1.0, 0.1 );
       </script>
-    </binding>
+    </binding-->
     <binding>
       <command>nasal</command>
       <script>
@@ -31,6 +31,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>astrocompheaton</tooltip-id>
+      <label>Astrocompass Heating
+  (None on Board)</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -43,11 +51,18 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/astrokompass-53", 0.0, 0.1 );
         interpolate("an24/Anti-Ice/sw06_astrokompass-53", 0.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>astrocompheatoff</tooltip-id>
+      <label>Astrocompass Heating
+  (None on Board)</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

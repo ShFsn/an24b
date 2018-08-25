@@ -19,6 +19,14 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>autofuel_on</tooltip-id>
+      <label>Automatic Fuel
+   Dosing ON</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
@@ -35,6 +43,14 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>autofuel_off</tooltip-id>
+      <label>Automatic Fuel
+   Dosing OFF</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>

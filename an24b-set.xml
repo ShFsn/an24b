@@ -829,9 +829,7 @@ alight GPK-52 with correct magnetic heading
       <prop-lock-left type="bool">false</prop-lock-left>
       <prop-lock-right type="bool">false</prop-lock-right>
     </prop-lock>
-    <eup type="double">0.0</eup>
   </instrumentation>
-
 
   <Pressure>
     <pitotvalve1 type="double">1.0</pitotvalve1>

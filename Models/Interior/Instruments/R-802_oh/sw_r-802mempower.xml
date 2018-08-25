@@ -31,6 +31,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>r802-1on</tooltip-id>
+      <label>R-802 No.1 ON</label>
+    </binding>
+  </hovered>
 </animation>
 
  <animation>
@@ -48,6 +55,13 @@
       </script>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>r802-1off</tooltip-id>
+      <label>R-802 No.1 OFF</label>
+    </binding>
+  </hovered>
 </animation>
 
  <animation>

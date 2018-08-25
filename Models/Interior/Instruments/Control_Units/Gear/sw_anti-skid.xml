@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Anti-Skid switch, below middle panel, switch 3 -->
+<!-- Anti-Skid ("Disbrake")switch, below middle panel, switch 3 -->
 
 <PropertyList>
  <path>../../../shared/switches/vg-15k.ac</path>
@@ -13,12 +13,18 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("autopilot/autobrake/engaged", 1.0, 0.1 );
-      </script>
+     <command>property-assign</command>
+      <property>controls/gear/antiskid</property>
+      <value>1</value>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>disbrake_on</tooltip-id>
+      <label>"Disbrake" Mode ON</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
@@ -29,18 +35,24 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("autopilot/autobrake/engaged", 0.0, 0.1 );
-      </script>
+     <command>property-assign</command>
+      <property>controls/gear/antiskid</property>
+      <value>0</value>
     </binding>
   </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>disbrake_off</tooltip-id>
+      <label>"Disbrake" Mode OFF</label>
+    </binding>
+  </hovered>
  </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>autopilot/autobrake/engaged</property>
+   <property>controls/gear/antiskid</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
