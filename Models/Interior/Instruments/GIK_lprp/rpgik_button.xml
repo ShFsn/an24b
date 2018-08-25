@@ -35,6 +35,13 @@
 		</binding>
 		</mod-up>
 	</action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gikright</tooltip-id>
+      <label>GIK Fast Alignment</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>

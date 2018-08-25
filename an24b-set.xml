@@ -838,8 +838,10 @@ alight GPK-52 with correct magnetic heading
   </Pressure>
 
   <R-802>
-   <sw_power-1 type="double">1.0</sw_power-1>
-   <sw_power-2 type="double">1.0</sw_power-2>
+   <sw_power-1 type="double">0.0</sw_power-1>
+   <sw_power-2 type="double">0.0</sw_power-2>
+   <power-1 type="double">0.0</power-1>
+   <power-2 type="double">0.0</power-2>
   </R-802>
 
   <R-836>

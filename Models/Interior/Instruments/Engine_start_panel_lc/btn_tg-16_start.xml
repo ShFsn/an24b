@@ -48,6 +48,13 @@
     </binding>
    </mod-up>
   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>TG-16 APU Start</label>
+       <tooltip-id>start_tg-16</tooltip-id>
+     </binding>
+   </hovered>
 </animation>
 
 <animation>

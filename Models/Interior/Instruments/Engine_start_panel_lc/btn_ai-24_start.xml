@@ -39,6 +39,13 @@
 	</binding>
       </mod-up>
   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>AI-24 Engine Start</label>
+       <tooltip-id>start_ai-24</tooltip-id>
+     </binding>
+   </hovered>
 </animation>
 
 <animation>

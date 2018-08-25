@@ -19,6 +19,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rollmodegik</tooltip-id>
+      <label>Roll Mode GIK</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -35,6 +42,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rollmodegpk</tooltip-id>
+      <label>Roll Mode GPK</label>
+    </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -51,6 +65,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rollmodegik</tooltip-id>
+      <label>Roll Mode ZK</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

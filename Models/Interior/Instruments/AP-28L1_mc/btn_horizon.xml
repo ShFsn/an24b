@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AP horizon (wing level) button -->
+<!-- AP horizon (wing level, neutral pitch) button -->
 
 <PropertyList>
  <path>../../shared/knobs_buttons/5k.ac</path>
@@ -21,6 +21,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>horizon</tooltip-id>
+      <label>Horizon</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>

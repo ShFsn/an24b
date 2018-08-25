@@ -29,6 +29,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>APon</tooltip-id>
+      <label>AP Power ON</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -56,6 +63,13 @@
       <value>0</value>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>APoff</tooltip-id>
+      <label>AP Power OFF</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

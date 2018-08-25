@@ -20,6 +20,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>AI-24 Engine Cold Start</label>
+       <tooltip-id>normal_ai-24</tooltip-id>
+     </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -37,6 +44,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>AI-24 Engine Normal Start</label>
+       <tooltip-id>cold_ai-24</tooltip-id>
+     </binding>
+   </hovered>
  </animation>
 
  <animation>

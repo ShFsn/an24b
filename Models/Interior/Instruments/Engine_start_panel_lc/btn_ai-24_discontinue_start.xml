@@ -25,6 +25,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>Discontinue AI-24 Engine Start</label>
+       <tooltip-id>disc_ai-24</tooltip-id>
+     </binding>
+   </hovered>
 </animation>
 
 <animation>

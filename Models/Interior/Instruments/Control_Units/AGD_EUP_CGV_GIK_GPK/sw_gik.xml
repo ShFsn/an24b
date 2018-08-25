@@ -12,12 +12,12 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-    <!--condition>
+    <condition>
      <equals>
-    	<property>an24/AZS/sw0703</property>
+    	<property>an24/AZS/sw0701</property>
      <value>1.0</value>
      </equals>
-    </condition-->
+    </condition>
       <command>nasal</command>
       <script>
         interpolate("an24/instrumentation/gik", 1.0, 0.1 );
@@ -50,11 +50,6 @@
       <command>nasal</command>
       <script>
         interpolate("an24/instrumentation/gik", 0.0, 0.1 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
         interpolate("an24/instrumentation/sw_gik", 0.0, 0.1 );
       </script>
     </binding>

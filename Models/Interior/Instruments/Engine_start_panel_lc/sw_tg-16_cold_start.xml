@@ -20,6 +20,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>TG-16 Cold Start</label>
+         <tooltip-id>cold_tg16</tooltip-id>
+       </binding>
+     </hovered>
  </animation>
 
  <animation>
@@ -43,6 +50,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>TG-16 Normal Start</label>
+         <tooltip-id>normal_tg16</tooltip-id>
+       </binding>
+     </hovered>
  </animation>
 
  <animation>

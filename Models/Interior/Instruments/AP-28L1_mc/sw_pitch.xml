@@ -18,6 +18,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitchon</tooltip-id>
+      <label>Pitch Channel ON</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -40,6 +47,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitchoff</tooltip-id>
+      <label>Pitch Channel OFF</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

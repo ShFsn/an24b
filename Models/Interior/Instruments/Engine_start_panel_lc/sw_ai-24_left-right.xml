@@ -21,6 +21,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Select Left AI-24 Engine</label>
+         <tooltip-id>ai24left</tooltip-id>
+       </binding>
+     </hovered>
  </animation>
 
  <animation>
@@ -45,6 +52,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Select Right AI-24 Engine</label>
+         <tooltip-id>ai24right</tooltip-id>
+       </binding>
+     </hovered>
  </animation>
 
  <animation>

@@ -403,4 +403,34 @@ var startup = func {
 		settimer(func {interpolate("an24/FuelControl/sw_TG-16_cutoff", 0.0, 0.1 );},0.2);
 	        interpolate("an24/FuelControl/TG-16_cutoff", 1.0, 0.2 );
 		}, t); t += 0.2;
+
+		settimer( func{
+		screen.log.write("SPU-7 Comm device and R-802 Radios ON and Volume set", 1, 1, 1);
+		setprop("an24/SPU-7/spu_radio_viewnr0", 0.0 );
+		interpolate("an24/SPU-7/sw_spu_radio_viewnr8", 0.0, 0.1 );
+		setprop("an24/SPU-7/spu_radio_viewnr0", 0.0 );
+		interpolate("an24/SPU-7/sw_spu_radio_viewnr8", 0.0, 0.1 );
+		setprop("an24/SPU-7/spu_radio_viewnr9", 1.0 );
+		interpolate("an24/SPU-7/sw_spu_radio_viewnr9", 1.0, 0.1 );
+		setprop("an24/SPU-7/spu_radio_viewnr10", 0.0 );
+		interpolate("an24/SPU-7/sw_spu_radio_viewnr10", 0.0, 0.1 );
+#
+		interpolate("an24/SPU-7/listen_viewnr0", 0.5, 0.4 );
+		interpolate("an24/SPU-7/listen_viewnr8", 0.5, 0.4 );
+		interpolate("an24/SPU-7/listen_viewnr9", 0.5, 0.4 );
+		interpolate("an24/SPU-7/listen_viewnr10", 0.5, 0.4 );
+		interpolate("an24/SPU-7/general_viewnr0", 1.0, 0.8 );
+		interpolate("an24/SPU-7/general_viewnr8", 1.0, 0.8 );
+		interpolate("an24/SPU-7/general_viewnr9", 1.0, 0.8 );
+		interpolate("an24/SPU-7/general_viewnr10", 1.0, 0.8 );
+		setprop("an24/SPU-7/nav_source", 4.0 );
+
+		setprop("an24/R-802/sw_power-1", 1.0 );
+		setprop("an24/R-802/sw_power-2", 1.0 );
+		setprop("an24/R-802/power-1", 1.0 );
+		setprop("an24/R-802/power-2", 1.0 );
+		interpolate("an24/R-802/volume-1", 1.0, 1.0 );
+		interpolate("an24/R-802/volume-2", 1.0, 1.0 );
+
+		}, t); t += 1.0;
 };

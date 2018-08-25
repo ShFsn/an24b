@@ -53,7 +53,7 @@
   </axis>
 </animation>
 
-<!-- Source selector, -->
+<!-- Source selector -->
 
  <animation>
    <type>knob</type>
@@ -95,16 +95,56 @@
    </hovered>
  </animation>
 
-<!-- "Listen" volume -->
+<!-- "General" (left) volume knob (volume of SELECTED by "SPU - Radio" switch)-->
+
+ <animation>
+   <type>knob</type>
+   <object-name>vol_general</object-name>
+   <property>an24/SPU-7/general_viewnr8</property>
+   <factor>-300</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.0327</y-m>
+   <z-m>0.0436</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/SPU-7/general_viewnr8</property>
+      <factor>-0.1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>General Volume %3d%%</label>
+         <measure-text>General Volume 100p</measure-text>
+         <tooltip-id>spu-gen-vol_rc</tooltip-id>
+         <mapping>percent</mapping>
+         <property>an24/SPU-7/general_viewnr8</property>
+       </binding>
+     </hovered>
+ </animation>
+
+
+<!-- "Listen" (right) volume knob (volume of NOT selected by "SPU - Radio" switch) -->
 
  <animation>
    <type>knob</type>
    <object-name>vol_listen</object-name>
    <property>an24/SPU-7/listen_viewnr8</property>
-   <factor>800</factor>
+   <factor>-300</factor>
   <center>
    <x-m>0.0</x-m>
-   <y-m>-0.0327</y-m>
+   <y-m>0.0327</y-m>
    <z-m>0.0436</z-m>
   </center>
   <axis>
@@ -125,8 +165,8 @@
    <hovered>
        <binding>
          <command>set-tooltip</command>
-         <label>Volume: %3d%%</label>
-         <measure-text>Volume: 100%</measure-text>
+         <label>Listen Volume %3d%%</label>
+         <measure-text>Listen Volume 100p</measure-text>
          <tooltip-id>spu-list-vol_rc</tooltip-id>
          <mapping>percent</mapping>
          <property>an24/SPU-7/listen_viewnr8</property>
@@ -134,80 +174,61 @@
      </hovered>
  </animation>
 
-<!-- "General" volume -->
+<!-- SPU - Radio switch -->
 
  <animation>
-   <type>knob</type>
-   <object-name>vol_general</object-name>
-   <property>an24/SPU-7/general_viewnr8</property>
-   <factor>800</factor>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>0.0327</y-m>
-   <z-m>0.0436</z-m>
-  </center>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("an24/SPU-7/spu_radio_viewnr8", 1.0 );
+	interpolate("an24/SPU-7/sw_spu_radio_viewnr8", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("an24/SPU-7/spu_radio_viewnr8", 0.0 );
+	interpolate("sw_an24/SPU-7/spu_radio_viewnr8", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>spu-lever</object-name>
+   <property>an24/SPU-7/spu_radio_viewnr8</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
   <axis>
-    <x>1.0</x>
-    <y>0.0</y>
+    <x>0.0</x>
+    <y>-1.0</y>
     <z>0.0</z>
   </axis>
-    <action>
-     <binding>
-      <command>property-adjust</command>
-      <property>/an24/SPU-7/general_viewnr8</property>
-      <factor>-0.1</factor>
-      <min>0</min>
-      <max>1</max>
-      <wrap>false</wrap>
-     </binding>
-    </action>
-   <hovered>
-       <binding>
-         <command>set-tooltip</command>
-         <label>Volume: %3d%%</label>
-         <measure-text>Volume: 100%</measure-text>
-         <tooltip-id>spu-gen-vol_rc</tooltip-id>
-         <mapping>percent</mapping>
-         <property>an24/SPU-7/general_viewnr8</property>
-       </binding>
-     </hovered>
- </animation>
-
-<!-- Network selector
-
- <animation>
-   <type>knob</type>
-   <object-name>vol_general</object-name>
-    <action>
-     <binding>
-      <command>property-adjust</command>
-      <property>an24/SPU-7/rc_vol_general</property>
-      <factor>-0.05</factor>
-      <min>0</min>
-      <max>1</max>                
-      <wrap>false</wrap>
-     </binding>
-    </action>
- </animation>
-
- <animation>
-  <object-name>vol_general</object-name>
-  <type>rotate</type>
-   <property>an24/SPU-7/rc_vol_general</property>
-   <factor>400</factor>
   <center>
-   <x-m>0.0</x-m>
-   <y-m>0.0327</y-m>
-   <z-m>0.0436</z-m>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.02162</z-m>
   </center>
-  <axis>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0.0</z>
-  </axis>
  </animation>
-
- -->
 
 <!-- TEXT OSG -->
 

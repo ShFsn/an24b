@@ -27,6 +27,13 @@
     </binding>
     </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitchdownl</tooltip-id>
+      <label>Pitch DOWN</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -58,6 +65,13 @@
     </binding>
     </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pitchupl</tooltip-id>
+      <label>Pitch UP</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

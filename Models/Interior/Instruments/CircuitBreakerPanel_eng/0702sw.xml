@@ -32,6 +32,7 @@
       <command>nasal</command>
       <script>
         interpolate("an24/AZS/sw0702", 0.0, 0.1 );
+        setprop("an24/instrumentation/gpk", 0.0 );
       </script>
     </binding>
   </action>

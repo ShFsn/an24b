@@ -20,6 +20,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>  AI-24 Engine
+in Air Start</label>
+       <tooltip-id>air_ai-24</tooltip-id>
+     </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -37,6 +45,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>  AI-24 Engine
+on Ground Start</label>
+       <tooltip-id>ground_ai-24</tooltip-id>
+     </binding>
+   </hovered>
  </animation>
 
  <animation>

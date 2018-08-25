@@ -21,13 +21,13 @@
         </condition>
       <command>nasal</command>
       <script>
-        setprop("an24/R-802/power-1", 1.0 );
+	interpolate("an24/R-802/power-1", 1.0, 0.8 );
       </script>
     </binding>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/R-802/sw_power-1", 1.0, 0.1 );
+	interpolate("an24/R-802/sw_power-1", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -50,8 +50,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        setprop("an24/R-802/power-1", 0.0 );
-        interpolate("an24/R-802/sw_power-1", 0.0, 0.1 );
+	interpolate("an24/R-802/power-1", 0.0, 0.8 );
+	interpolate("an24/R-802/sw_power-1", 0.0, 0.1 );
       </script>
     </binding>
   </action>
