@@ -680,8 +680,8 @@
 <!-- *************************************** -->
 
 <model>
-  <name>PG-5k</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/PG-5K_mp/pg-5k.xml</path>
+  <name>PG4-2</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/PG4-2_mp/pg4-2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2787</y-m>
@@ -1449,6 +1449,11 @@
 <model>
   <name>Bottom_mp</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Bottom_mp/bottom_mp.xml</path>
+</model>
+
+<model>
+  <name>DoorsHatches</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/DoorsHatches/doorshatches.xml</path>
 </model>
 
 <model>

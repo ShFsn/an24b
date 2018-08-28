@@ -213,7 +213,7 @@
  <animation>
    <type>rotate</type>
    <object-name>spu-lever</object-name>
-   <property>spu_radio_viewnr9</property>
+   <property>an24/SPU-7/sw_spu_radio_viewnr9</property>
   <interpolation>
     <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
     <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>

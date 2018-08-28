@@ -105,7 +105,7 @@
   <offsets>
     <x-m>3.25</x-m>
     <y-m>-0.95</y-m>
-    <z-m>0.81</z-m>
+    <z-m>0.78</z-m>
     <roll-deg>30</roll-deg>
   </offsets>
 </model>
@@ -127,7 +127,7 @@
   <offsets>
     <x-m>3.8803</x-m>
     <y-m>-0.887</y-m>
-    <z-m>0.8906</z-m>
+    <z-m>0.8606</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -138,7 +138,7 @@
   <offsets>
     <x-m>3.794</x-m>
     <y-m>-0.80</y-m>
-    <z-m>1.195</z-m>
+    <z-m>1.165</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>130</pitch-deg>
   </offsets>
@@ -150,7 +150,7 @@
   <offsets>
     <x-m>3.7641</x-m>
     <y-m>-0.714</y-m>
-    <z-m>1.302</z-m>
+    <z-m>1.272</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>40</pitch-deg>
   </offsets>
@@ -162,7 +162,7 @@
   <offsets>
     <x-m>3.576</x-m>
     <y-m>-0.80</y-m>
-    <z-m>1.195</z-m>
+    <z-m>1.165</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>130</pitch-deg>
   </offsets>
@@ -174,7 +174,7 @@
   <offsets>
     <x-m>3.6823</x-m>
     <y-m>-0.714</y-m>
-    <z-m>1.302</z-m>
+    <z-m>1.272</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>40</pitch-deg>
   </offsets>
@@ -186,7 +186,7 @@
   <offsets>
     <x-m>3.691</x-m>
     <y-m>-0.887</y-m>
-    <z-m>1.0012</z-m>
+    <z-m>0.9712</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -197,7 +197,7 @@
   <offsets>
     <x-m>3.7966</x-m>
     <y-m>-0.894</y-m>
-    <z-m>0.8905</z-m>
+    <z-m>0.8605</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -208,7 +208,7 @@
   <offsets>
     <x-m>3.5735</x-m>
     <y-m>-0.89</y-m>
-    <z-m>0.8466</z-m>
+    <z-m>0.8166</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -219,7 +219,7 @@
   <offsets>
     <x-m>3.5738</x-m>
     <y-m>-0.892</y-m>
-    <z-m>0.9404</z-m>
+    <z-m>0.9104</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -230,7 +230,7 @@
   <offsets>
     <x-m>3.8803</x-m>
     <y-m>-0.877</y-m>
-    <z-m>0.9769</z-m>
+    <z-m>0.9469</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>

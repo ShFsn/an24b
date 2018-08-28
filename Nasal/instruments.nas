@@ -405,19 +405,19 @@ nav_wtimer.start();
 ## 2PPT1-4 Fuel Level Indicator
 #
 
-setprop("an24/PG5and2PPT1/selected-ind", 0.0 );
+setprop("an24/PG4and2PPT1/selected-ind", -50.0 );
 setprop("an24/FuelControl/fuel-meter-l", 0.0 );
 setprop("an24/FuelControl/fuel-meter-r", 0.0 );
 var fuelind = func {
-	if ( getprop("an24/PG5and2PPT1/selected-ind") == 1.0 ) {
+	if ( getprop("an24/PG4and2PPT1/selected-ind") == -18.0 ) {
         var indicatedl = (getprop("/consumables/fuel/tank[0]/level-kg") + getprop("/consumables/fuel/tank[1]/level-kg") + getprop("/consumables/fuel/tank[2]/level-kg")) * 2 / 3;
         var indicatedr = (getprop("/consumables/fuel/tank[3]/level-kg") + getprop("/consumables/fuel/tank[4]/level-kg") + getprop("/consumables/fuel/tank[5]/level-kg")) * 2 / 3;
 	}
-	else if ( getprop("an24/PG5and2PPT1/selected-ind") == 2.0 ) {
+	else if ( getprop("an24/PG4and2PPT1/selected-ind") == 18.0 ) {
         var indicatedl = getprop("/consumables/fuel/tank[0]/level-kg") + getprop("/consumables/fuel/tank[1]/level-kg");
         var indicatedr = getprop("/consumables/fuel/tank[4]/level-kg") + getprop("/consumables/fuel/tank[5]/level-kg");
 	}
-	else if ( getprop("an24/PG5and2PPT1/selected-ind") == 3.0 ) {
+	else if ( getprop("an24/PG4and2PPT1/selected-ind") == 50.0 ) {
         var indicatedl = getprop("/consumables/fuel/tank[2]/level-kg");
         var indicatedr = getprop("/consumables/fuel/tank[3]/level-kg");
 	}
@@ -425,11 +425,11 @@ var fuelind = func {
         var indicatedl = 0.0;
         var indicatedr = 0.0;
 	}
-	interpolate("an24/PG5and2PPT1/indicatedl", indicatedl * getprop("an24/FuelControl/fuel-meter-l"), 0.8 );
-	interpolate("an24/PG5and2PPT1/indicatedr", indicatedr * getprop("an24/FuelControl/fuel-meter-r"), 0.8 );
+	interpolate("an24/PG4and2PPT1/indicatedl", indicatedl * getprop("an24/FuelControl/fuel-meter-l"), 0.8 );
+	interpolate("an24/PG4and2PPT1/indicatedr", indicatedr * getprop("an24/FuelControl/fuel-meter-r"), 0.8 );
 	settimer(fuelind, 23);
 }
 
- setlistener("an24/PG5and2PPT1/selected-ind", fuelind);
+ setlistener("an24/PG4and2PPT1/selected-ind", fuelind);
  setlistener("an24/FuelControl/fuel-meter-l", fuelind);
  setlistener("an24/FuelControl/fuel-meter-r", fuelind);

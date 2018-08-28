@@ -130,7 +130,7 @@
       <command>nasal</command>
       <script>
         interpolate("/instrumentation/gpk-52/left-right-slew", -1.0, 1.2 );
-        interpolate("/instrumentation/gpk-52/switches/l_r_knob", -1.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", -1.0, 0.2 );
       </script>
     </binding>
     <mod-up>
@@ -138,10 +138,24 @@
       <command>nasal</command>
       <script>
         interpolate("/instrumentation/gpk-52/left-right-slew", 0.0, 1.2 );
-        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.2 );
       </script>
     </binding>
     </mod-up>
+
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+        interpolate("/instrumentation/gpk-52/left-right-slew", -5.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", -2.0, 0.4 );
+      </script>
+    </binding>
   </action>
  </animation>
 
@@ -156,7 +170,7 @@
       <command>nasal</command>
       <script>
         interpolate("/instrumentation/gpk-52/left-right-slew", 1.0, 1.2 );
-        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 1.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 1.0, 0.2 );
       </script>
     </binding>
     <mod-up>
@@ -164,10 +178,24 @@
       <command>nasal</command>
       <script>
         interpolate("/instrumentation/gpk-52/left-right-slew", 0.0, 1.2 );
-        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.2 );
       </script>
     </binding>
     </mod-up>
+
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+        interpolate("/instrumentation/gpk-52/left-right-slew", 5.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 2.0, 0.4 );
+      </script>
+    </binding>
   </action>
 </animation>
 

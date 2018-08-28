@@ -23,7 +23,7 @@
 <animation>
   <object-name>needle_L</object-name>
   <type>rotate</type>
-  <property>an24/PG5and2PPT1/indicatedl</property>
+  <property>an24/PG4and2PPT1/indicatedl</property>
   <factor>-0.1875</factor> <!-- inner scale, outer scale-factor by nasal -->
   <offset-deg>60</offset-deg>
   <center>
@@ -41,7 +41,7 @@
 <animation>
   <object-name>needle_R</object-name>
   <type>rotate</type>
-  <property>an24/PG5and2PPT1/indicatedr</property>
+  <property>an24/PG4and2PPT1/indicatedr</property>
   <factor>-0.1875</factor> <!-- inner scale, outer scale-factor by nasal -->
   <offset-deg>60</offset-deg>
   <center>

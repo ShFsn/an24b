@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<!-- Test button of "Doors and Hatches open" panel on back of overhead -->
+
+<PropertyList>
+ <path>../../../shared/knobs_buttons/5k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+  <binding>
+   <command>nasal</command>
+    <script>
+	interpolate("an24/doorshatches/test-btn", 1.0, 0.1 );
+    </script>
+  </binding>
+ <mod-up>
+  <binding>
+   <command>nasal</command>
+    <script>
+	interpolate("an24/doorshatches/test-btn", 0.0, 0.1 );
+    </script>
+  </binding>
+ </mod-up>
+   </action>
+
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Doors/hatches Open
+  Lights Control</label>
+         <tooltip-id>spu-gen-vol_eng</tooltip-id>
+       </binding>
+     </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/doorshatches/test-btn</property>
+  <factor>0.005</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+ </animation>
+
+</PropertyList>
