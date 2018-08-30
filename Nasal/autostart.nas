@@ -425,6 +425,10 @@ var startup = func {
 		interpolate("an24/SPU-7/general_viewnr10", 1.0, 0.8 );
 		setprop("an24/SPU-7/nav_source", 4.0 );
 
+		setprop("an24/ARK-11/mode-1", 1.0 );
+		setprop("/instrumentation/adf/mode", "adf" );
+		setprop("/instrumentation/adf[2]/mode", "off" );
+
 		setprop("an24/R-802/sw_power-1", 1.0 );
 		setprop("an24/R-802/sw_power-2", 1.0 );
 		setprop("an24/R-802/power-1", 1.0 );

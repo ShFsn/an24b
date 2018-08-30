@@ -793,6 +793,19 @@ alight GPK-52 with correct magnetic heading
     </internal>
   </AP-28l1>
 
+ <ARK-11>
+  <panel_nav_oh type="double">0.0</panel_nav_oh>
+   <mem1>
+    <fixp type="double">0.0</fixp>
+    <fixpressed type="int">1</fixpressed>
+    <fixohpressed type="int">1</fixohpressed>
+   </mem1>
+   <mem2>
+    <fixp type="double">0.0</fixp>
+    <fixpressed type="int">1</fixpressed>
+   </mem2>
+ </ARK-11>
+
  <FuelControl>
   <anim-flow-meter type="double">0</anim-flow-meter>
   <cutoff-l-by-sw type="double">1</cutoff-l-by-sw>

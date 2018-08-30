@@ -193,7 +193,7 @@ var ark1audible = func {
 	var volumeknob = getprop("an24/SPU-7/general_viewnr" ~ viewnr ~ "")
 	}
 	if ( (getprop("an24/SPU-7/lc_source") == 4.0 and viewnr == 0 ) or (getprop("an24/SPU-7/rc_source") == 4.0 and viewnr == 8 ) or (getprop("an24/SPU-7/eng_source") == 4.0 and viewnr == 9 ) or (getprop("an24/SPU-7/nav_source") == 4.0 and viewnr == 10 ) ) {
-	var toheadset = volumeknob * getprop("an24/ARK-11/vol-1") * getprop("an24/AZS/sw0512") * getprop("an24/AZS/sw0513") ;
+	var toheadset = volumeknob * getprop("an24/ARK-11/vol-1") ;
 	interpolate("/instrumentation/adf[0]/volume-norm", toheadset, 0.2 );
 	interpolate("/instrumentation/adf[2]/volume-norm", toheadset, 0.2 );
 	}
@@ -205,6 +205,8 @@ var ark1audible = func {
 
  setlistener("/sim/current-view/view-number", ark1audible);
  setlistener("an24/ARK-11/vol-1", ark1audible);
+ setlistener("an24/ARK-11/mode-1", ark1audible);
+ setlistener("an24/ARK-11/mode-oh", ark1audible);
  setlistener("an24/SPU-7/listen_viewnr0", ark1audible);
  setlistener("an24/SPU-7/listen_viewnr8", ark1audible);
  setlistener("an24/SPU-7/listen_viewnr9", ark1audible);
@@ -221,8 +223,6 @@ var ark1audible = func {
  setlistener("an24/SPU-7/rc_source", ark1audible);
  setlistener("an24/SPU-7/eng_source", ark1audible);
  setlistener("an24/SPU-7/nav_source", ark1audible);
- setlistener("an24/AZS/sw0512", ark1audible);
- setlistener("an24/AZS/sw0513", ark1audible);
 
 setprop("an24/AZS/sw0514", 0.0);
 setprop("an24/AZS/sw0515", 0.0);
