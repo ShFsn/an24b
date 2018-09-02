@@ -581,6 +581,13 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
     </binding>
    </mod-up>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Switch Control over here</label>
+         <tooltip-id>arkoh-panelswitch</tooltip-id>
+       </binding>
+     </hovered>
 </animation>
 
 <animation>

@@ -76,7 +76,7 @@
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">UZI-3 oil/fuel ind</text>
+    <text type="string">UIZ-3 Oil/Fuel ind</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>
