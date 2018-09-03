@@ -527,12 +527,17 @@ alight GPK-52 with correct magnetic heading
        <binding>
           <command>property-assign</command>
           <property>/sim/current-view/y-offset-m</property>
-          <value>0.954385</value>
+          <value>1.954385</value>
        </binding>
        <binding>
           <command>property-assign</command>
           <property>/sim/current-view/z-offset-m</property>
           <value>-6.0119247</value>
+       </binding>
+       <binding>
+          <command>property-assign</command>
+          <property>/sim/current-view/heading-offset-deg</property>
+          <value>0.0</value>
        </binding>
        <mod-up>
        <binding>

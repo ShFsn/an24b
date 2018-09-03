@@ -51,14 +51,6 @@ var gik_update = func(period) {
 
 gik_update(0); #run GIK-1 at framerate rate
 
-
-#save sound volume and deny sound for startup
-
-var vol = getprop("/sim/sound/volume");
-	  setprop("an24/volume", vol);  
-	  setprop("/sim/sound/volume", 0.0);
-print("PNK started");
-
 #set parking brake after simulator start-up
 
 var parkBrakeSet = func {
