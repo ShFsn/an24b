@@ -622,21 +622,9 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 	if ( getprop("an24/ARK-11/panel_nav_oh") == 0.0 or getprop("an24/ARK-11/mode-oh") == 0.0) {
         settimer(func {interpolate("an24/ARK-11/mem1/animfixoh" ~ buttonnr ~ "", 0.0, 0.1 );},0.1);
 	}
-
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid1.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst1.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra1.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid1.setText("");
-		stations.textst1.setText("");
-		stations.textra1.setText("");
-		}
 }
       </script>
     </binding>
@@ -673,21 +661,9 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 	if ( getprop("an24/ARK-11/panel_nav_oh") == 0.0 or getprop("an24/ARK-11/mode-oh") == 0.0) {
         settimer(func {interpolate("an24/ARK-11/mem1/animfixoh" ~ buttonnr ~ "", 0.0, 0.1 );},0.1);
 	}
-
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid2.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst2.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra2.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid2.setText("");
-		stations.textst2.setText("");
-		stations.textra2.setText("");
-		}
 }
       </script>
     </binding>
@@ -728,17 +704,6 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid3.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst3.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra3.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid3.setText("");
-		stations.textst3.setText("");
-		stations.textra3.setText("");
-		}
 }
       </script>
     </binding>
@@ -779,17 +744,6 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid4.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst4.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra4.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid4.setText("");
-		stations.textst4.setText("");
-		stations.textra4.setText("");
-		}
 }
       </script>
     </binding>
@@ -830,17 +784,6 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid5.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst5.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra5.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid5.setText("");
-		stations.textst5.setText("");
-		stations.textra5.setText("");
-		}
 }
       </script>
     </binding>
@@ -881,17 +824,6 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid6.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst6.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra6.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid6.setText("");
-		stations.textst6.setText("");
-		stations.textra6.setText("");
-		}
 }
       </script>
     </binding>
@@ -932,17 +864,6 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid7.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst7.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra7.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid7.setText("");
-		stations.textst7.setText("");
-		stations.textra7.setText("");
-		}
 }
       </script>
     </binding>
@@ -983,17 +904,6 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid8.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst8.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra8.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid8.setText("");
-		stations.textst8.setText("");
-		stations.textra8.setText("");
-		}
 }
       </script>
     </binding>
@@ -1034,17 +944,6 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0
 if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-oh") != 0.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
 	interpolate("an24/ARK-11/sub-band-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "sb"), 2.0 );
 	interpolate("an24/ARK-11/fine-khz-1", getprop("an24/ARK-11/mem1/fix" ~ buttonnr ~ "ff"), 2.4 );
-	var navaid = findNDBByFrequencyKHz( getprop("/instrumentation/adf[0]/frequencies/selected-khz") );
-		if (navaid != nil) {
-		stations.textid9.setText(sprintf("%.5s\n", navaid.name ));
-		stations.textst9.setText(sprintf("%.1f", getprop("/instrumentation/adf[0]/frequencies/selected-khz")));
-		stations.textra9.setText(sprintf("%.i", navaid.range_nm * 1.85 ));
-		}
-		else {
-		stations.textid9.setText("");
-		stations.textst9.setText("");
-		stations.textra9.setText("");
-		}
 }
       </script>
     </binding>

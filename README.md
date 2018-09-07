@@ -60,12 +60,12 @@ QUICK IMPORTANT INSTRUMENTS GUIDE
 
 - SPU-7 Communication device:
   - Located at all four workplaces; what and who you listen to on your headphones, who you speak to on your mic (workplace specific)
-  - "General"-volume knob adjusts volume of selected "SPU" (=Intercomm) or "Radio" (=selected source) mode
-  - "Listen"-volume knob adjusts volume of NOT selected "SPU" or "Radio" mode
+  - "General"-volume knob adjusts volume of SELECTED "SPU"- (=Intercomm) or "Radio"- (=selected source) mode
+  - "Listen"-volume knob adjusts volume of NOT selected "SPU"- or "Radio"-mode
   - set desired source on central knob:
     - "UKR" and "DR": R-802 I* and R-802 II*; VHF
     - "SR" and "KR": US-8k*, R-836*; HF/VHF
-    - "RK1" and "RK2": Radiocompass ARK-11 I*, Radiocompass ARK-11 II*/RSBN; "ADF"
+    - "RK1" and "RK2": Radiocompass ARK-11 I*, Radiocompass ARK-11 II*/RSBN
 * Current configuration 
 
 - R-802 VHF
@@ -86,6 +86,7 @@ QUICK IMPORTANT INSTRUMENTS GUIDE
     - "Comp. 1" and "Comp. 2": like "ADF" mode, frame/loop antenna turns automatically, to/from known
     - "Ant.": guess!
     - "Frame": manual turning of frame/loop antenna by l-r-antenna switch, volume and instrument above indicate direction, to/from unknown
+  - You can switch between the navigator's and the pilots' (overhead) control panel by pressing the lower right button
 * Not as in RL; see R-802
 
 - AP-28l1 Autopilot

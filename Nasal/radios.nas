@@ -61,6 +61,7 @@ var addfreqs1 = func {
 #  adf[2] serves as background reference
 setprop("an24/ARK-11/mode-1", 0.0 );
 setprop("an24/ARK-11/volumeknob-1", 0.0 );
+setprop("an24/ARK-11/volumeknob-oh", 0.0 );
 setprop("an24/ARK-11/vol-1", 0.0 );
 setprop("/instrumentation/adf[0]/mode", "off" );
 setprop("/instrumentation/adf[0]/indicated-bearing-deg", 180.0 );
