@@ -1159,6 +1159,17 @@
   </offsets>
 </model>
 
+<model>
+  <name>UZP-1</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/UZP-1_mc/uzp-1.xml</path>
+  <offsets>
+    <x-m>2.1914</x-m>
+    <y-m>-0.0456</y-m>
+    <z-m>0.6397</z-m>
+    <pitch-deg>-70</pitch-deg>
+  </offsets>
+</model>
+
 <!--************************** RIGHT CONSOLE ***************************-->
 
 <model>

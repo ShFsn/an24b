@@ -76,7 +76,7 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/AP-28l1/switches/roll-control</property>
-      <factor>-1</factor>
+      <factor>-2.5</factor>
       <min>-30</min>
       <max>30</max>                
       <wrap>false</wrap>
@@ -88,7 +88,7 @@
   <object-name>rollknob</object-name>
   <type>rotate</type>
    <property>an24/AP-28l1/switches/roll-control</property>
-   <factor>4</factor>
+   <factor>1</factor>
    <axis>
     <x>0</x>
     <y>0</y>
