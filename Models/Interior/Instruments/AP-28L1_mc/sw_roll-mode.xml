@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Roll-mode GIK(1)/GPK(0)/ZK(-1) -->
+<!-- Roll-mode GIK(1)/GPK(0)/Roll knob(-1) -->
 
 <PropertyList>
  <path>../../shared/switches/switch02.ac</path>
@@ -68,8 +68,8 @@
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>rollmodegik</tooltip-id>
-      <label>Roll Mode ZK</label>
+      <tooltip-id>rollmodeknob</tooltip-id>
+      <label>Roll by Knob</label>
     </binding>
    </hovered>
 </animation>

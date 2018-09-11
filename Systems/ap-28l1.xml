@@ -585,11 +585,11 @@
 				<or>
 					<equals>
 						<property>/an24/AP-28l1/switches/roll-mode</property>
-						<value>1</value>
+						<value>0</value>
 					</equals>
 					<equals>
 						<property>/an24/AP-28l1/switches/roll-mode</property>
-						<value>0</value>
+						<value>-1</value>
 					</equals>
 				</or>
 			</condition>
@@ -600,7 +600,7 @@
 				<and>
 					<equals>
 						<property>/an24/AP-28l1/switches/roll-mode</property>
-						<value>-1</value>
+						<value>1</value>
 					</equals>
 					<not><property>/an24/AP-28l1/internal/horizon-mode</property></not>
 				</and>
@@ -737,13 +737,13 @@
 						<not>
 							<equals>
 								<property>/an24/AP-28l1/switches/roll-mode</property>
-								<value>-1</value>
+								<value>1</value>
 							</equals>
 						</not>
 					</and>
 					<equals>
 						<property>/an24/AP-28l1/switches/roll-mode</property>
-						<value>-1</value>
+						<value>1</value>
 					</equals>
 				</or>
 			</condition>
@@ -754,7 +754,7 @@
 				<and>
 					<equals>
 						<property>/an24/AP-28l1/switches/roll-mode</property>
-						<value>0</value>
+						<value>-1</value>
 					</equals>
 					<equals>
 						<property>/an24/AP-28l1/switches/roll-control</property>
