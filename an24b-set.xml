@@ -95,7 +95,7 @@
 
   <model>
    <path>Aircraft/an24b/Models/An-24B.xml</path>
-   <fallback-model-index type="int">153</fallback-model-index>
+   <fallback-model-index type="int">217</fallback-model-index>
   </model>
 
   <status>early production</status>
