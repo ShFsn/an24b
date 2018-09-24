@@ -301,9 +301,23 @@ alight GPK-52 with correct magnetic heading
             </script>
           </binding>
         </item>
+        <item>
+          <label>Equipment</label>
+          <binding>
+            <command>nasal</command>
+            <script>
+              var equip = gui.Dialog.new("/sim/gui/dialogs/an-24b/menu/dialog","Aircraft/an24b/Dialogs/equipment.xml");
+              equip.open();
+            </script>
+          </binding>
+        </item>
       </menu>
     </default>
   </menubar>
+
+  <aircraft-data>
+   <path>an24/radio-equip</path>
+  </aircraft-data>
 
   <flaps>
 	  <setting>0.0</setting>

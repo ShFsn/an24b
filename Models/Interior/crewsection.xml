@@ -18,6 +18,8 @@
    <object-name>APBK-M</object-name>
    <object-name>AP_ILS-impl</object-name>
    <object-name>US-8K_receiver</object-name>
+   <object-name>servo_unit_amp</object-name>
+   <object-name>tube</object-name>
   </effect>
 
 <!--animation>

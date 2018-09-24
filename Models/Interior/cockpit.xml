@@ -1309,6 +1309,31 @@
 
 <!--********************************************-->
 
+<!--Select animation-->
+
+<animation>
+  <type>select</type>
+  <object-name>overhead1</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+   </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>overhead2</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+   </condition>
+</animation>
+
+
 <model>
   <name>ARK-11</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-11.xml</path>
@@ -1322,12 +1347,35 @@
 
 <model>
   <name>ARK-Indicator</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-ind.xml</path>
   <offsets>
     <x-m>2.7547</x-m>
     <y-m>-0.2336</y-m>
     <z-m>1.434</z-m>
-    <pitch-deg>80</pitch-deg>
+    <pitch-deg>79.5</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>ARK-Indicator</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-ind.xml</path>
+  <offsets>
+    <x-m>2.747</x-m>
+    <y-m>-0.2922</y-m>
+    <z-m>1.428</z-m>
+    <pitch-deg>79.5</pitch-deg>
   </offsets>
 </model>
 
@@ -1413,8 +1461,16 @@
   </offsets>
 </model>
 
+<!--********************************************-->
+
 <model>
   <name>M-50</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/SP-50_oh/m-50.xml</path>
   <offsets>
     <x-m>2.9625</x-m>
@@ -1423,6 +1479,61 @@
     <pitch-deg>80</pitch-deg>
   </offsets>
 </model>
+
+<!--********************************************-->
+
+<model>
+  <name>Kurs-MP_a</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/ils-sp50_switchbox.xml</path>
+  <offsets>
+    <x-m>2.962</x-m>
+    <y-m>-0.133</y-m>
+    <z-m>1.461</z-m>
+    <pitch-deg>-10.5</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>Kurs-MP_b</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/ubm_balance-unit.xml</path>
+  <offsets>
+    <x-m>2.86</x-m>
+    <y-m>-0.065</y-m>
+    <z-m>1.447</z-m>
+    <pitch-deg>-10.5</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>Kurs-MP_c</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/zpznk_markermodebox.xml</path>
+  <offsets>
+    <x-m>2.86</x-m>
+    <y-m>-0.173</y-m>
+    <z-m>1.443</z-m>
+    <pitch-deg>-10.5</pitch-deg>
+  </offsets>
+</model>
+
+<!--********************************************-->
 
 <model>
   <name>RPSN_ctrl</name>
@@ -1435,7 +1546,7 @@
   </offsets>
 </model>
 
-<!--****************** Everything in "Contol_Units" *****************-->
+<!--****************** Everything in "Control_Units" *****************-->
 
 <model>
   <name>Above_AGD</name>

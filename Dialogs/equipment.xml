@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>equip</name>
+  <layout>vbox</layout>
+  <draggable>true</draggable>
+  <resizable>true</resizable>
+
+  <group>
+    <layout>hbox</layout>
+    <text>
+      <label>Choose Radio Equipment</label>
+    </text>
+
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+
+    <button>
+      <legend/>
+      <key>Esc</key>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+  <hrule/>
+
+   <combo>
+        <row>2</row>
+        <col>1</col>
+        <name>radio-equip</name>
+        <halign>left</halign>
+        <stretch>true</stretch>
+        <pref-width>200</pref-width>
+        <property>an24/radio-equip</property>
+	<value>Kurs-MP</value>
+	<value>Standard</value>
+        <binding>
+          <command>dialog-apply</command>
+          <object-name>radio-equip</object-name>
+        </binding>
+      </combo>
+
+  <hrule/>
+
+</PropertyList>
