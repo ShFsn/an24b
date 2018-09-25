@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<!-- Balance zero-indication of glidepath/course -->
+
+<PropertyList>
+
+ <path>ubm_balance-unit.ac</path>
+
+ <animation>
+   <type>knob</type>
+   <object-name>balance_glide</object-name>
+   <property>an24/Kurs-MP/glide-balance</property>
+   <factor>37</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0141</y-m>
+    <z-m>0.0</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Kurs-MP/glide-balance</property>
+      <factor>-0.2</factor>
+      <min>-10</min>
+      <max>10</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>balance_course</object-name>
+   <property>an24/Kurs-MP/course-balance</property>
+   <factor>37</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0141</y-m>
+    <z-m>0.0</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Kurs-MP/course-balance</property>
+      <factor>0.2</factor>
+      <min>-10</min>
+      <max>10</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+</PropertyList>
