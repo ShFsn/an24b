@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Documents, Outside, PAX, toilet and cargosection check skipped
+-->
+
+<PropertyList>
+  <name>Preflight by Engineer</name>
+  <description>The Preflight-Check and -Preparations in the Crew Cabin, performed by the Engineer</description>
+  <interval>0</interval>
+
+  <init>
+    <set>
+      <property>/sim/current-view/view-number</property>
+      <value>0</value>
+    </set>
+  </init>
+
+  <step>
+    <message>
+      INSTRUMENT PANELS: Fixated and sturdy
+    </message>
+    <view>
+      <heading-offset-deg>10</heading-offset-deg>
+      <pitch-offset-deg>-3.5</pitch-offset-deg>
+      <field-of-view>80</field-of-view>
+    </view>
+    <exit>
+    </exit>
+  </step>
+  <step>
+    <message>
+    </message>
+    <view>
+      <heading-offset-deg>10</heading-offset-deg>
+      <pitch-offset-deg>12</pitch-offset-deg>
+      <field-of-view>80</field-of-view>
+    </view>
+    <exit>
+    </exit>
+  </step>
+  <step>
+    <message>
+    </message>
+    <view>
+      <heading-offset-deg>50</heading-offset-deg>
+      <pitch-offset-deg>-12</pitch-offset-deg>
+      <field-of-view>80</field-of-view>
+    </view>
+    <exit>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+      Check correct position of all SWITCHES and FUSES on FUSE and CIRCUIT BREAKER PANELS
+    </message>
+    <view>
+      <heading-offset-deg>260</heading-offset-deg>
+      <pitch-offset-deg>-3.5</pitch-offset-deg>
+      <field-of-view>54</field-of-view>
+    </view>
+  </step>
+
+  <step>
+    <message>
+      Switch on ALL CIRCUIT BREAKERS on AZS PANEL
+(by clicking the hotspots to the right of each row)
+    </message>
+
+    <exit>
+      <condition>
+        <property>an24/AZS/sw0101</property>
+        <property>an24/AZS/sw0102</property>
+        <property>an24/AZS/sw0103</property>
+        <property>an24/AZS/sw0104</property>
+        <property>an24/AZS/sw0105</property>
+        <property>an24/AZS/sw0106</property>
+
+        <property>an24/AZS/sw0108</property>
+        <property>an24/AZS/sw0109</property>
+        <property>an24/AZS/sw0110</property>
+        <property>an24/AZS/sw0111</property>
+        <property>an24/AZS/sw0112</property>
+        <property>an24/AZS/sw0113</property>
+        <property>an24/AZS/sw0114</property>
+        <property>an24/AZS/sw0115</property>
+        <property>an24/AZS/sw0116</property>
+        <property>an24/AZS/sw0117</property>
+        <property>an24/AZS/sw0118</property>
+
+        <property>an24/AZS/sw0201</property>
+        <property>an24/AZS/sw0202</property>
+        <property>an24/AZS/sw0203</property>
+        <property>an24/AZS/sw0204</property>
+        <property>an24/AZS/sw0205</property>
+        <property>an24/AZS/sw0206</property>
+        <property>an24/AZS/sw0207</property>
+        <property>an24/AZS/sw0208</property>
+        <property>an24/AZS/sw0209</property>
+        <property>an24/AZS/sw0210</property>
+        <property>an24/AZS/sw0211</property>
+        <property>an24/AZS/sw0212</property>
+        <property>an24/AZS/sw0213</property>
+        <property>an24/AZS/sw0214</property>
+        <property>an24/AZS/sw0215</property>
+        <property>an24/AZS/sw0216</property>
+        <property>an24/AZS/sw0217</property>
+        <property>an24/AZS/sw0218</property>
+
+        <property>an24/AZS/sw0301</property>
+        <property>an24/AZS/sw0302</property>
+        <property>an24/AZS/sw0303</property>
+        <property>an24/AZS/sw0304</property>
+        <property>an24/AZS/sw0305</property>
+        <property>an24/AZS/sw0306</property>
+
+        <property>an24/AZS/sw0308</property>
+        <property>an24/AZS/sw0309</property>
+        <property>an24/AZS/sw0310</property>
+
+        <property>an24/AZS/sw0312</property>
+        <property>an24/AZS/sw0313</property>
+        <property>an24/AZS/sw0314</property>
+        <property>an24/AZS/sw0315</property>
+        <property>an24/AZS/sw0316</property>
+        <property>an24/AZS/sw0317</property>
+        <property>an24/AZS/sw0318</property>
+
+        <property>an24/AZS/sw0401</property>
+        <property>an24/AZS/sw0402</property>
+        <property>an24/AZS/sw0403</property>
+        <property>an24/AZS/sw0404</property>
+
+        <property>an24/AZS/sw0406</property>
+        <property>an24/AZS/sw0407</property>
+        <property>an24/AZS/sw0408</property>
+        <property>an24/AZS/sw0409</property>
+        <property>an24/AZS/sw0410</property>
+        <property>an24/AZS/sw0411</property>
+        <property>an24/AZS/sw0412</property>
+        <property>an24/AZS/sw0413</property>
+        <property>an24/AZS/sw0414</property>
+        <property>an24/AZS/sw0415</property>
+        <property>an24/AZS/sw0416</property>
+        <property>an24/AZS/sw0417</property>
+        <property>an24/AZS/sw0418</property>
+
+        <property>an24/AZS/sw0504</property>
+
+        <property>an24/AZS/sw0506</property>
+        <property>an24/AZS/sw0507</property>
+        <property>an24/AZS/sw0508</property>
+        <property>an24/AZS/sw0509</property>
+        <property>an24/AZS/sw0510</property>
+        <property>an24/AZS/sw0511</property>
+        <property>an24/AZS/sw0512</property>
+        <property>an24/AZS/sw0513</property>
+        <property>an24/AZS/sw0514</property>
+        <property>an24/AZS/sw0515</property>
+        <property>an24/AZS/sw0516</property>
+        <property>an24/AZS/sw0517</property>
+        <property>an24/AZS/sw0518</property>
+
+        <property>an24/AZS/sw0602</property>
+        <property>an24/AZS/sw0603</property>
+        <property>an24/AZS/sw0604</property>
+        <property>an24/AZS/sw0605</property>
+
+
+        <property>an24/AZS/sw0608</property>
+        <property>an24/AZS/sw0609</property>
+        <property>an24/AZS/sw0610</property>
+        <property>an24/AZS/sw0611</property>
+        <property>an24/AZS/sw0612</property>
+        <property>an24/AZS/sw0613</property>
+        <property>an24/AZS/sw0614</property>
+        <property>an24/AZS/sw0615</property>
+        <property>an24/AZS/sw0616</property>
+        <property>an24/AZS/sw0617</property>
+        <property>an24/AZS/sw0618</property>
+
+        <property>an24/AZS/sw0701</property>
+        <property>an24/AZS/sw0702</property>
+        <property>an24/AZS/sw0703</property>
+        <property>an24/AZS/sw0704</property>
+        <property>an24/AZS/sw0705</property>
+        <property>an24/AZS/sw0706</property>
+        <property>an24/AZS/sw0707</property>
+        <property>an24/AZS/sw0708</property>
+        <property>an24/AZS/sw0709</property>
+        <property>an24/AZS/sw0710</property>
+        <property>an24/AZS/sw0711</property>
+        <property>an24/AZS/sw0712</property>
+        <property>an24/AZS/sw0713</property>
+        <property>an24/AZS/sw0714</property>
+        <property>an24/AZS/sw0715</property>
+        <property>an24/AZS/sw0716</property>
+        <property>an24/AZS/sw0717</property>
+        <property>an24/AZS/sw0718</property>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+      CIRCUIT BREAKERS: checked
+    </message>
+    <view>
+      <heading-offset-deg>-43</heading-offset-deg>
+      <pitch-offset-deg>-22</pitch-offset-deg>
+      <field-of-view>21</field-of-view>
+    </view>
+
+    <exit>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+      PARKING BRAKE: set
+    </message>
+    <view>
+      <heading-offset-deg>-14</heading-offset-deg>
+      <pitch-offset-deg>-36</pitch-offset-deg>
+      <field-of-view>20</field-of-view>
+    </view>
+
+    <exit>
+      <condition>
+        <property>controls/gear/brake-parking</property>
+      </condition>
+    </exit>
+  </step>
+</PropertyList>

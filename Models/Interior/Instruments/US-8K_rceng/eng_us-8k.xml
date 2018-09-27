@@ -17,12 +17,6 @@
 </model>
 
  <animation>
-  <type>pick</type>
-  <object-name>back</object-name>
-  <visible>false</visible>
- </animation>
-
- <animation>
    <type>material</type>
    <object-name>lightplate</object-name>
    <emission>

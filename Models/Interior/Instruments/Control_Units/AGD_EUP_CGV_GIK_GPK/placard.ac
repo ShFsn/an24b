@@ -4,7 +4,7 @@ OBJECT world
 kids 1
 OBJECT poly
 name "placard"
-loc 2.09425 0.870424 0.668508
+loc 2.09425 0.830424 0.668508
 texture "agd_eup_cgv_off.png"
 crease 30.000000
 numvert 64

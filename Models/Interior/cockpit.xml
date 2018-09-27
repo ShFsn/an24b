@@ -7,9 +7,20 @@
 
  <effect>
   <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
-   <object-name>c_window_left</object-name>
-   <object-name>cockpitframe</object-name>
-   <object-name>roof_windows</object-name>
+   <object-name>hull</object-name>
+   <object-name>lining</object-name>
+   <object-name>fabric</object-name>
+   <object-name>speaker_panel</object-name>
+   <object-name>c-frameL</object-name>
+   <object-name>c-frameR</object-name>
+   <object-name>topwinframe</object-name>
+   <object-name>railer</object-name>
+   <object-name>screws</object-name>
+ </effect>
+ <effect>
+  <inherits-from>Effects/model-transparent</inherits-from>
+  <object-name>screenfoil</object-name>
+  <object-name>foil</object-name>
  </effect>
 
  <animation>
@@ -22,15 +33,6 @@
      <factor-prop>/controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
-
-  <effect>
-	<inherits-from>Effects/model-transparent</inherits-from>
-	<object-name>foil</object-name>
-   </effect>
-  <effect>
-	<inherits-from>Effects/model-transparent</inherits-from>
-	<object-name>screenfoil</object-name>
-   </effect>
 
  <animation>
    <type>slider</type>
@@ -98,8 +100,8 @@
   <offset-deg>0.0</offset-deg>
   <center>
     <x-m>0.0</x-m>
-    <y-m>-0.4788</y-m>
-    <z-m>0.8728</z-m>
+    <y-m>-0.4738</y-m>
+    <z-m>0.8278</z-m>
   </center>
   <axis>
     <x>-1</x>
@@ -137,8 +139,8 @@
   <offset-deg>0.0</offset-deg>
   <center>
     <x-m>0.0</x-m>
-    <y-m>0.4788</y-m>
-    <z-m>0.8728</z-m>
+    <y-m>0.4738</y-m>
+    <z-m>0.8278</z-m>
   </center>
   <axis>
     <x>-1</x>
@@ -310,7 +312,7 @@
   <center>
     <x-m>2.3025</x-m>
     <y-m>0.0</y-m>
-    <z-m>0.615</z-m>
+    <z-m>0.575</z-m>
   </center>
   <axis>
     <x>0</x>
@@ -329,7 +331,7 @@
   <offsets>
     <x-m>2.098</x-m>
     <y-m>-0.48718</y-m>
-    <z-m>1.01027</z-m>
+    <z-m>0.9703</z-m>
   </offsets>
 </model>
 
@@ -341,7 +343,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>-0.538</y-m>
-    <z-m>0.937</z-m>
+    <z-m>0.897</z-m>
     <pitch-deg>90</pitch-deg>
   </offsets>
 </model>
@@ -354,7 +356,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5977</y-m>
-    <z-m>0.8106</z-m>
+    <z-m>0.7706</z-m>
   </offsets>
 </model>
 
@@ -364,7 +366,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5977</y-m>
-    <z-m>0.8106</z-m>
+    <z-m>0.7706</z-m>
   </offsets>
 </model>
 
@@ -376,7 +378,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6907</y-m>
-    <z-m>0.9621</z-m>
+    <z-m>0.9221</z-m>
   </offsets>
 </model>
 
@@ -386,7 +388,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6907</y-m>
-    <z-m>0.9621</z-m>
+    <z-m>0.9221</z-m>
   </offsets>
 </model>
 
@@ -399,7 +401,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6906</y-m>
-    <z-m>0.8683</z-m>
+    <z-m>0.8283</z-m>
   </offsets>
 </model>
 
@@ -412,7 +414,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5974</y-m>
-    <z-m>1.0044</z-m>
+    <z-m>0.9644</z-m>
   </offsets>
 </model>
 
@@ -422,7 +424,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5974</y-m>
-    <z-m>1.0044</z-m>
+    <z-m>0.9644</z-m>
   </offsets>
 </model>
 
@@ -434,7 +436,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5978</y-m>
-    <z-m>0.9086</z-m>
+    <z-m>0.8686</z-m>
   </offsets>
 </model>
 
@@ -444,7 +446,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5978</y-m>
-    <z-m>0.9086</z-m>
+    <z-m>0.8686</z-m>
   </offsets>
 </model>
 
@@ -457,7 +459,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6975</y-m>
-    <z-m>0.785</z-m>
+    <z-m>0.745</z-m>
   </offsets>
 </model>
 
@@ -469,7 +471,7 @@
   <offsets>
     <x-m>2.093</x-m>
     <y-m>-0.235</y-m>
-    <z-m>0.8376</z-m>
+    <z-m>0.7976</z-m>
   </offsets>
 </model>
 
@@ -481,7 +483,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.0543</y-m>
-    <z-m>0.9636</z-m>
+    <z-m>0.9236</z-m>
   </offsets>
 </model>
 
@@ -491,7 +493,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.0543</y-m>
-    <z-m>0.9636</z-m>
+    <z-m>0.9236</z-m>
   </offsets>
 </model>
 
@@ -503,7 +505,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.0323</y-m>
-    <z-m>0.9636</z-m>
+    <z-m>0.9236</z-m>
   </offsets>
 </model>
 
@@ -513,7 +515,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.0323</y-m>
-    <z-m>0.9636</z-m>
+    <z-m>0.9236</z-m>
   </offsets>
 </model>
 
@@ -525,7 +527,7 @@
   <offsets>
     <x-m>2.092</x-m>
     <y-m>-0.0176</y-m>
-    <z-m>0.8856</z-m>
+    <z-m>0.8456</z-m>
   </offsets>
 </model>
 
@@ -535,7 +537,7 @@
   <offsets>
     <x-m>2.092</x-m>
     <y-m>0.0311</y-m>
-    <z-m>0.8856</z-m>
+    <z-m>0.8456</z-m>
   </offsets>
 </model>
 
@@ -545,9 +547,9 @@
   <name>ui1-240_main_and_emerg</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_ui1-240.xml</path>
   <offsets>
-    <x-m>2.092</x-m>
+    <x-m>2.094</x-m>
     <y-m>-0.3851</y-m>
-    <z-m>0.8405</z-m>
+    <z-m>0.801</z-m>
   </offsets>
 </model>
 
@@ -557,7 +559,7 @@
   <offsets>
     <x-m>2.092</x-m>
     <y-m>-0.3256</y-m>
-    <z-m>0.8491</z-m>
+    <z-m>0.8091</z-m>
   </offsets>
 </model>
 
@@ -569,7 +571,7 @@
   <offsets>
     <x-m>2.092</x-m>
     <y-m>-0.3989</y-m>
-    <z-m>0.7684</z-m>
+    <z-m>0.7284</z-m>
   </offsets>
 </model>
 
@@ -581,7 +583,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.15</y-m>
-    <z-m>0.904</z-m>
+    <z-m>0.864</z-m>
   </offsets>
 </model>
 
@@ -593,7 +595,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1339</y-m>
-    <z-m>0.8069</z-m>
+    <z-m>0.7669</z-m>
   </offsets>
 </model>
 
@@ -603,7 +605,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1339</y-m>
-    <z-m>0.8069</z-m>
+    <z-m>0.7669</z-m>
   </offsets>
 </model>
 
@@ -615,7 +617,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.151</y-m>
-    <z-m>0.88586</z-m>
+    <z-m>0.8459</z-m>
   </offsets>
 </model>
 
@@ -628,7 +630,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.07854</y-m>
-    <z-m>0.88586</z-m>
+    <z-m>0.8459</z-m>
   </offsets>
 </model>
 
@@ -641,7 +643,7 @@
   <offsets>
     <x-m>2.092</x-m>
     <y-m>-0.3441</y-m>
-    <z-m>1.0196</z-m>
+    <z-m>0.9796</z-m>
   </offsets>
 </model>
 
@@ -651,7 +653,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.3441</y-m>
-    <z-m>1.0196</z-m>
+    <z-m>0.9796</z-m>
   </offsets>
 </model>
 
@@ -663,7 +665,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2669</y-m>
-    <z-m>1.0485</z-m>
+    <z-m>1.0085</z-m>
   </offsets>
 </model>
 
@@ -673,19 +675,19 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2669</y-m>
-    <z-m>1.0485</z-m>
+    <z-m>1.0085</z-m>
   </offsets>
 </model>
 
 <!-- *************************************** -->
 
 <model>
-  <name>PG4-2</name>
+  <name>PG-5k</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/PG4-2_mp/pg4-2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2787</y-m>
-    <z-m>0.8719</z-m>
+    <z-m>0.8319</z-m>
   </offsets>
 </model>
 
@@ -698,7 +700,7 @@
   <offsets>
     <x-m>2.095</x-m>
     <y-m>-0.305</y-m>
-    <z-m>0.751</z-m>
+    <z-m>0.711</z-m>
   </offsets>
 </model>
 
@@ -710,7 +712,7 @@
   <offsets>
     <x-m>1.93</x-m>
     <y-m>0.0</y-m>
-    <z-m>1.22</z-m>
+    <z-m>1.175</z-m>
     <pitch-deg>-10</pitch-deg>
   </offsets>
 </model>
@@ -723,7 +725,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.04722</y-m>
-    <z-m>0.80686</z-m>
+    <z-m>0.7669</z-m>
   </offsets>
 </model>
 
@@ -733,7 +735,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.04722</y-m>
-    <z-m>0.80686</z-m>
+    <z-m>0.7669</z-m>
   </offsets>
 </model>
 
@@ -743,7 +745,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.03923</y-m>
-    <z-m>0.80686</z-m>
+    <z-m>0.7669</z-m>
   </offsets>
 </model>
 
@@ -753,7 +755,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.03923</y-m>
-    <z-m>0.80686</z-m>
+    <z-m>0.7669</z-m>
   </offsets>
 </model>
 
@@ -765,7 +767,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.25672</y-m>
-    <z-m>1.01966</z-m>
+    <z-m>0.98</z-m>
   </offsets>
 </model>
 
@@ -777,7 +779,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.25672</y-m>
-    <z-m>0.931</z-m>
+    <z-m>0.891</z-m>
   </offsets>
 </model>
 
@@ -789,7 +791,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.3441</y-m>
-    <z-m>0.931</z-m>
+    <z-m>0.891</z-m>
   </offsets>
 </model>
 
@@ -799,7 +801,7 @@
   <offsets>
     <x-m>2.09</x-m>
     <y-m>-0.3441</y-m>
-    <z-m>0.931</z-m>
+    <z-m>0.891</z-m>
   </offsets>
 </model>
 
@@ -811,7 +813,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1407</y-m>
-    <z-m>0.9636</z-m>
+    <z-m>0.9236</z-m>
   </offsets>
 </model>
 
@@ -821,7 +823,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1407</y-m>
-    <z-m>0.9636</z-m>
+    <z-m>0.9236</z-m>
   </offsets>
 </model>
 
@@ -833,7 +835,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3005</y-m>
-    <z-m>0.7826</z-m>
+    <z-m>0.7426</z-m>
   </offsets>
 </model>
 
@@ -843,7 +845,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3005</y-m>
-    <z-m>0.7826</z-m>
+    <z-m>0.7426</z-m>
   </offsets>
 </model>
 
@@ -855,7 +857,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3871</y-m>
-    <z-m>0.7926</z-m>
+    <z-m>0.7526</z-m>
   </offsets>
 </model>
 
@@ -865,7 +867,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3871</y-m>
-    <z-m>0.7926</z-m>
+    <z-m>0.7526</z-m>
   </offsets>
 </model>
 
@@ -877,7 +879,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>0.9602</z-m>
+    <z-m>0.9202</z-m>
   </offsets>
 </model>
 
@@ -887,7 +889,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>0.9602</z-m>
+    <z-m>0.9202</z-m>
   </offsets>
 </model>
 
@@ -899,7 +901,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2124</y-m>
-    <z-m>0.794</z-m>
+    <z-m>0.754</z-m>
   </offsets>
 </model>
 
@@ -909,7 +911,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2124</y-m>
-    <z-m>0.794</z-m>
+    <z-m>0.754</z-m>
   </offsets>
 </model>
 
@@ -921,7 +923,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>1.0485</z-m>
+    <z-m>1.0085</z-m>
   </offsets>
 </model>
 
@@ -931,7 +933,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>1.0485</z-m>
+    <z-m>1.0085</z-m>
   </offsets>
 </model>
 
@@ -943,7 +945,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.1269</y-m>
-    <z-m>0.794</z-m>
+    <z-m>0.754</z-m>
   </offsets>
 </model>
 
@@ -953,7 +955,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.1269</y-m>
-    <z-m>0.794</z-m>
+    <z-m>0.754</z-m>
   </offsets>
 </model>
 
@@ -965,7 +967,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2668</y-m>
-    <z-m>0.9602</z-m>
+    <z-m>0.9202</z-m>
   </offsets>
 </model>
 
@@ -975,7 +977,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2668</y-m>
-    <z-m>0.9602</z-m>
+    <z-m>0.9202</z-m>
   </offsets>
 </model>
 
@@ -985,7 +987,7 @@
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3489</y-m>
-    <z-m>0.8719</z-m>
+    <z-m>0.8319</z-m>
   </offsets>
 </model>
 
@@ -997,7 +999,7 @@
   <offsets>
     <x-m>2.108</x-m>
     <y-m>0.7209</y-m>
-    <z-m>0.8988</z-m>
+    <z-m>0.8588</z-m>
     <roll-deg>40</roll-deg>
   </offsets>
 </model>
@@ -1008,7 +1010,7 @@
   <offsets>
     <x-m>2.098</x-m>
     <y-m>0.48718</y-m>
-    <z-m>1.01027</z-m>
+    <z-m>0.9703</z-m>
   </offsets>
 </model>
 
@@ -1018,7 +1020,7 @@
   <offsets>
     <x-m>2.098</x-m>
     <y-m>0.5352</y-m>
-    <z-m>0.941</z-m>
+    <z-m>0.901</z-m>
     <pitch-deg>90</pitch-deg>
   </offsets>
 </model>
@@ -1029,7 +1031,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.6009</y-m>
-    <z-m>0.9965</z-m>
+    <z-m>0.9565</z-m>
   </offsets>
 </model>
 
@@ -1039,7 +1041,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.8111</y-m>
-    <z-m>0.8302</z-m>
+    <z-m>0.7902</z-m>
   </offsets>
 </model>
 
@@ -1049,7 +1051,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.644</y-m>
-    <z-m>0.7739</z-m>
+    <z-m>0.7339</z-m>
   </offsets>
 </model>
 
@@ -1059,7 +1061,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.6</y-m>
-    <z-m>0.9</z-m>
+    <z-m>0.86</z-m>
   </offsets>
 </model>
 
@@ -1069,18 +1071,18 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.6</y-m>
-    <z-m>0.9</z-m>
+    <z-m>0.86</z-m>
   </offsets>
 </model>
 
-<!--************************** left console ***************************-->
+<!--************************** Left Console ***************************-->
 <model>
   <name>SPU-7</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/SPU-7_lcrcnaveng/lcspu-7.xml</path>
   <offsets>
     <x-m>2.463</x-m>
-    <y-m>-0.98</y-m>
-    <z-m>0.719</z-m>
+    <y-m>-0.975</y-m>
+    <z-m>0.684</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1093,7 +1095,7 @@
   <offsets>
     <x-m>2.2945</x-m>
     <y-m>-0.95</y-m>
-    <z-m>0.5712</z-m>
+    <z-m>0.5462</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1105,8 +1107,8 @@
   <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/lc_uiz-3.xml</path>
   <offsets>
     <x-m>2.6123</x-m>
-    <y-m>-1.0</y-m>
-    <z-m>0.5776</z-m>
+    <y-m>-0.998</y-m>
+    <z-m>0.5526</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1116,8 +1118,8 @@
   <path>Aircraft/an24b/Models/Interior/Instruments/TV-1_mprp/lc_tv-1.xml</path>
   <offsets>
     <x-m>2.544</x-m>
-    <y-m>-0.99</y-m>
-    <z-m>0.5457</z-m>
+    <y-m>-0.988</y-m>
+    <z-m>0.5207</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1129,7 +1131,7 @@
   <offsets>
     <x-m>2.47</x-m>
     <y-m>-0.985</y-m>
-    <z-m>0.575</z-m>
+    <z-m>0.55</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1142,7 +1144,7 @@
   <offsets>
     <x-m>2.44</x-m>
     <y-m>-0.83</y-m>
-    <z-m>0.472</z-m>
+    <z-m>0.447</z-m>
     <heading-deg>176</heading-deg>
   </offsets>
 </model>
@@ -1155,7 +1157,7 @@
   <offsets>
     <x-m>2.645</x-m>
     <y-m>0.0</y-m>
-    <z-m>0.63</z-m>
+    <z-m>0.59</z-m>
   </offsets>
 </model>
 
@@ -1165,7 +1167,7 @@
   <offsets>
     <x-m>2.1914</x-m>
     <y-m>-0.0456</y-m>
-    <z-m>0.6397</z-m>
+    <z-m>0.5997</z-m>
     <pitch-deg>-70</pitch-deg>
   </offsets>
 </model>
@@ -1178,7 +1180,7 @@
   <offsets>
     <x-m>2.5618</x-m>
     <y-m>0.9189</y-m>
-    <z-m>0.478</z-m>
+    <z-m>0.438</z-m>
   </offsets>
 </model>
 
@@ -1188,7 +1190,7 @@
   <offsets>
     <x-m>2.7</x-m>
     <y-m>1.02</y-m>
-    <z-m>0.7</z-m>
+    <z-m>0.66</z-m>
     <heading-deg>10.5</heading-deg>
   </offsets>
 </model>
@@ -1199,7 +1201,7 @@
   <offsets>
     <x-m>2.179</x-m>
     <y-m>0.928</y-m>
-    <z-m>0.666</z-m>
+    <z-m>0.62</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
@@ -1210,7 +1212,7 @@
   <offsets>
     <x-m>2.475</x-m>
     <y-m>0.984</y-m>
-    <z-m>0.7153</z-m>
+    <z-m>0.67</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
@@ -1221,7 +1223,7 @@
   <offsets>
     <x-m>2.487</x-m>
     <y-m>0.99</y-m>
-    <z-m>0.6051</z-m>
+    <z-m>0.5451</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
@@ -1232,7 +1234,7 @@
   <offsets>
     <x-m>2.324</x-m>
     <y-m>0.95</y-m>
-    <z-m>0.642</z-m>
+    <z-m>0.602</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
@@ -1244,9 +1246,9 @@
   <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/rc_pitot-heat_air-cond.xml</path>
   <offsets>
     <heading-deg>10.5</heading-deg>
-    <x-m>2.270</x-m>
+    <x-m>2.2698</x-m>
     <y-m>0.8741</y-m>
-    <z-m>0.5486</z-m>
+    <z-m>0.503</z-m>
   </offsets>
 </model>
 
@@ -1259,7 +1261,7 @@
     <heading-deg>10.5</heading-deg>
     <x-m>2.681</x-m>
     <y-m>1.022</y-m>
-    <z-m>0.608</z-m>
+    <z-m>0.568</z-m>
   </offsets>
 </model>
 
@@ -1293,21 +1295,7 @@
   </offsets>
 </model>
 
-<!--********************************************-->
-
-<model>
-  <name>FireandFeather</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/FireandFeatherPanel_oh/fireandfeather.xml</path>
-  <offsets>
-    <x-m>2.16</x-m>
-    <y-m>0.0</y-m>
-    <z-m>1.31</z-m>
-    <roll-deg>0</roll-deg>
-    <pitch-deg>75</pitch-deg>
-  </offsets>
-</model>
-
-<!--********************************************-->
+<!--*************** Overhead back *****************-->
 
 <!--Select animation-->
 
@@ -1333,15 +1321,14 @@
    </condition>
 </animation>
 
-
 <model>
   <name>ARK-11</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-11.xml</path>
   <offsets>
-    <x-m>2.612</x-m>
-    <y-m>-0.1905</y-m>
-    <z-m>1.412</z-m>
-    <pitch-deg>-190</pitch-deg>
+    <x-m>2.662</x-m>
+    <y-m>-0.186</y-m>
+    <z-m>1.393</z-m>
+    <pitch-deg>169.5</pitch-deg>
   </offsets>
 </model>
 
@@ -1355,9 +1342,9 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-ind.xml</path>
   <offsets>
-    <x-m>2.7547</x-m>
-    <y-m>-0.2336</y-m>
-    <z-m>1.434</z-m>
+    <x-m>2.804</x-m>
+    <y-m>-0.2289</y-m>
+    <z-m>1.416</z-m>
     <pitch-deg>79.5</pitch-deg>
   </offsets>
 </model>
@@ -1372,79 +1359,10 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-ind.xml</path>
   <offsets>
-    <x-m>2.747</x-m>
-    <y-m>-0.2922</y-m>
-    <z-m>1.428</z-m>
+    <x-m>2.8166</x-m>
+    <y-m>-0.2875</y-m>
+    <z-m>1.416</z-m>
     <pitch-deg>79.5</pitch-deg>
-  </offsets>
-</model>
-
-<!--********************************************-->
-
-<model>
-  <name>R-802_I</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
-  <offsets>
-    <x-m>2.35</x-m>
-    <y-m>-0.2236</y-m>
-    <z-m>1.376</z-m>
-    <pitch-deg>66</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>R-802mempower</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
-  <offsets>
-    <x-m>2.36</x-m>
-    <y-m>-0.1552</y-m>
-    <z-m>1.376</z-m>
-    <pitch-deg>77</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>R-802memcapacity</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
-  <offsets>
-    <x-m>2.36</x-m>
-    <y-m>-0.1182</y-m>
-    <z-m>1.376</z-m>
-    <pitch-deg>77</pitch-deg>
-  </offsets>
-</model>
-
-
-<model>
-  <name>R-802_II</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802sel.xml</path>
-  <offsets>
-    <x-m>2.35</x-m>
-    <y-m>0.2236</y-m>
-    <z-m>1.376</z-m>
-    <pitch-deg>77</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>R-802selpower</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
-  <offsets>
-    <x-m>2.36</x-m>
-    <y-m>0.1552</y-m>
-    <z-m>1.376</z-m>
-    <pitch-deg>77</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>R-802selcapacity</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
-  <offsets>
-    <x-m>2.36</x-m>
-    <y-m>0.1182</y-m>
-    <z-m>1.376</z-m>
-    <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
 
@@ -1454,14 +1372,12 @@
   <name>SO-63</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/SOM-64_oh/so-63.xml</path>
   <offsets>
-    <x-m>2.96</x-m>
+    <x-m>3.025</x-m>
     <y-m>-0.42</y-m>
-    <z-m>1.475</z-m>
-    <pitch-deg>80</pitch-deg>
+    <z-m>1.463</z-m>
+    <pitch-deg>79.5</pitch-deg>
   </offsets>
 </model>
-
-<!--********************************************-->
 
 <model>
   <name>M-50</name>
@@ -1473,10 +1389,10 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/SP-50_oh/m-50.xml</path>
   <offsets>
-    <x-m>2.9625</x-m>
-    <y-m>-0.0938</y-m>
-    <z-m>1.4651</z-m>
-    <pitch-deg>80</pitch-deg>
+    <x-m>3.0117</x-m>
+    <y-m>-0.0891</y-m>
+    <z-m>1.45</z-m>
+    <pitch-deg>79.5</pitch-deg>
   </offsets>
 </model>
 
@@ -1492,9 +1408,9 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/ils-sp50_switchbox.xml</path>
   <offsets>
-    <x-m>2.962</x-m>
+    <x-m>3.01</x-m>
     <y-m>-0.133</y-m>
-    <z-m>1.461</z-m>
+    <z-m>1.4486</z-m>
     <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
@@ -1509,9 +1425,9 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/ubm_balance-unit.xml</path>
   <offsets>
-    <x-m>2.86</x-m>
+    <x-m>2.9</x-m>
     <y-m>-0.065</y-m>
-    <z-m>1.447</z-m>
+    <z-m>1.4296</z-m>
     <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
@@ -1526,23 +1442,106 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/zpznk_markermodebox.xml</path>
   <offsets>
-    <x-m>2.86</x-m>
+    <x-m>2.9</x-m>
     <y-m>-0.173</y-m>
-    <z-m>1.443</z-m>
+    <z-m>1.4258</z-m>
     <pitch-deg>-10.5</pitch-deg>
+  </offsets>
+</model>
+
+<!--*************** Overhead middle *****************-->
+
+<model>
+  <name>RPSN_ctrl</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/RPSN_mpnavoh/controlpanel_oh.xml</path>
+  <offsets>
+    <x-m>2.4018</x-m>
+    <y-m>0.0</y-m>
+    <z-m>1.357</z-m>
+    <pitch-deg>77</pitch-deg>
   </offsets>
 </model>
 
 <!--********************************************-->
 
 <model>
-  <name>RPSN_ctrl</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/RPSN_mpnavoh/controlpanel.xml</path>
+  <name>R-802_I</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
   <offsets>
-    <x-m>2.3607</x-m>
-    <y-m>0.0</y-m>
-    <z-m>1.375</z-m>
+    <x-m>2.3908</x-m>
+    <y-m>-0.2235</y-m>
+    <z-m>1.354</z-m>
+    <pitch-deg>65</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802mempower</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
+  <offsets>
+    <x-m>2.4035</x-m>
+    <y-m>-0.1551</y-m>
+    <z-m>1.361</z-m>
     <pitch-deg>77</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802memcapacity</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
+  <offsets>
+    <x-m>2.4035</x-m>
+    <y-m>-0.1182</y-m>
+    <z-m>1.361</z-m>
+    <pitch-deg>77</pitch-deg>
+  </offsets>
+</model>
+
+
+<model>
+  <name>R-802_II</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802sel.xml</path>
+  <offsets>
+    <x-m>2.3908</x-m>
+    <y-m>0.2235</y-m>
+    <z-m>1.354</z-m>
+    <pitch-deg>65</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802selpower</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
+  <offsets>
+    <x-m>2.4035</x-m>
+    <y-m>0.1551</y-m>
+    <z-m>1.361</z-m>
+    <pitch-deg>77</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802selcapacity</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
+  <offsets>
+    <x-m>2.4035</x-m>
+    <y-m>0.1182</y-m>
+    <z-m>1.361</z-m>
+    <pitch-deg>77</pitch-deg>
+  </offsets>
+</model>
+
+<!--*************** Overhead front *****************-->
+
+<model>
+  <name>FireandFeather</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/FireandFeatherPanel_oh/fireandfeather.xml</path>
+  <offsets>
+    <x-m>2.195</x-m>
+    <y-m>0.0</y-m>
+    <z-m>1.3</z-m>
+    <roll-deg>0</roll-deg>
+    <pitch-deg>68</pitch-deg>
   </offsets>
 </model>
 

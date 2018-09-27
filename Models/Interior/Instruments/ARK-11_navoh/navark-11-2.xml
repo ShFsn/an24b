@@ -640,7 +640,7 @@ if ( getprop("an24/AZS/sw0514") == 1.0 and getprop("an24/ARK-11/mode-2") != 0.0 
 	var pressed = getprop("an24/ARK-11/mem2/fixpressed");
 	setprop("an24/ARK-11/mem2/animfix" ~ pressed ~ "", 0.0 );
 	setprop("an24/ARK-11/mem2/fixpressed", buttonnr );
-	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 getprop("an24/ARK-11/mode-2") == 0.0) {
+	if ( getprop("an24/ARK-11/mem2/fixp") == 1.0 or getprop("an24/ARK-11/mode-2") == 0.0) {
         settimer(func {interpolate("an24/ARK-11/mem2/animfix" ~ buttonnr ~ "", 0.0, 0.1 );},0.1);
 	}
 

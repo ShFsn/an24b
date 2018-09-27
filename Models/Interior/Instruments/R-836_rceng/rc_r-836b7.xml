@@ -17,7 +17,7 @@
 
 <model>
   <name>lamp_console-inclusion</name>
-  <path>rc_sl_console-incl.xml</path>
+  <path>rc_sl_freq-adjust.xml</path>
   <offsets>
     <x-m>-0.005</x-m>
     <y-m>-0.0004</y-m>

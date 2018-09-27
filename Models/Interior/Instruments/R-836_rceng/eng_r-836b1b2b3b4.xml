@@ -555,6 +555,12 @@
 	setprop("/an24/R-836/b2_d12", d12[getprop("/an24/R-836/b2_knob_D")] );
       </script>
     </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	interpolate("an24/R-836/adjust-in-progress", 1.0, 0.2, 0.0, 5.0);
+       </script>
+     </binding>
     </action>
  </animation>
 

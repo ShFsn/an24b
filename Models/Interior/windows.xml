@@ -4,13 +4,6 @@
 
  <path>windows.ac</path>
 
-<!--effect>
- <inherits-from>Effects/model-transparent</inherits-from>
-  <object-name>Lwindow_ice</object-name>
-  <object-name>Cwindow_ice</object-name>
-  <object-name>Rwindow_ice</object-name>
-</effect-->
-
 <!--animation>
   <type>translate</type>
   <object-name>ice-layer</object-name>
@@ -26,9 +19,9 @@
 
 <effect>
    <inherits-from>Effects/model-transparent</inherits-from>
-   <object-name>crew_windows</object-name>
-   <object-name>c_glass_left</object-name>
-   <object-name>c_glass_right</object-name>
+   <object-name>windows</object-name>
+   <object-name>c-windowL</object-name>
+   <object-name>c-windowR</object-name>
    <object-name>Lwindow_ice</object-name>
    <object-name>Cwindow_ice</object-name>
    <object-name>Rwindow_ice</object-name>
@@ -44,7 +37,6 @@
    </greater-than>
   </condition>
 </animation>
-
 
 <animation>
   <type>blend</type>

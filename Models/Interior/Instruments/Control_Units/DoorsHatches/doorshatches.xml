@@ -5,65 +5,65 @@
 <PropertyList>
 
 
-<!-- 5 green  signal lights -->
+<!-- 5 green  signal lights, 1 test button 5k -->
 
 <model>
  <path>oh_sl01_frontcargo.xml</path>
   <offsets>
-    <x-m>3.042</x-m>
+    <x-m>3.089</x-m>
     <y-m>0.105</y-m>
-    <z-m>1.555</z-m>
-    <pitch-deg>-10</pitch-deg>
+    <z-m>1.542</z-m>
+    <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
 
 <model>
  <path>oh_sl02_rearcargo.xml</path>
   <offsets>
-    <x-m>3.042</x-m>
+    <x-m>3.089</x-m>
     <y-m>0.1275</y-m>
-    <z-m>1.555</z-m>
-    <pitch-deg>-10</pitch-deg>
+    <z-m>1.542</z-m>
+    <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
 
 <model>
  <path>oh_sl03_stringer40.xml</path>
   <offsets>
-    <x-m>3.042</x-m>
+    <x-m>3.089</x-m>
     <y-m>0.15</y-m>
-    <z-m>1.555</z-m>
-    <pitch-deg>-10</pitch-deg>
+    <z-m>1.542</z-m>
+    <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
 
 <model>
  <path>oh_sl04_exitdoor.xml</path>
   <offsets>
-    <x-m>3.042</x-m>
+    <x-m>3.089</x-m>
     <y-m>0.1725</y-m>
-    <z-m>1.555</z-m>
-    <pitch-deg>-10</pitch-deg>
+    <z-m>1.542</z-m>
+    <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
 
 <model>
  <path>oh_sl05_general.xml</path>
   <offsets>
-    <x-m>3.042</x-m>
+    <x-m>3.089</x-m>
     <y-m>0.195</y-m>
-    <z-m>1.555</z-m>
-    <pitch-deg>-10</pitch-deg>
+    <z-m>1.542</z-m>
+    <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
 
 <model>
  <path>oh_btn_test.xml</path>
   <offsets>
-    <x-m>3.042</x-m>
+    <x-m>3.092</x-m>
     <y-m>0.15</y-m>
-    <z-m>1.535</z-m>
-    <pitch-deg>80</pitch-deg>
+    <z-m>1.5197</z-m>
+    <pitch-deg>79.5</pitch-deg>
   </offsets>
 </model>
 

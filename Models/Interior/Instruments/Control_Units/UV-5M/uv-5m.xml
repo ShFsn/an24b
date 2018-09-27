@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Radar alt ON/OFF, "Height" warning lamp -->
+<!-- Radar Alt ON/OFF, "Height" warning lamp -->
 
 <PropertyList>
 
@@ -9,7 +9,7 @@
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.7628</y-m>
-    <z-m>0.8475</z-m>
+    <z-m>0.8075</z-m>
   </offsets>
 </model>
 
@@ -18,7 +18,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>-0.756</y-m>
-    <z-m>0.9</z-m>
+    <z-m>0.86</z-m>
   </offsets>
 </model>
 
@@ -27,7 +27,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.69</y-m>
-    <z-m>1.0</z-m>
+    <z-m>0.94</z-m>
   </offsets>
 </model>
 

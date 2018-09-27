@@ -12,7 +12,7 @@
     <pitch-deg>-43</pitch-deg>
     <x-m>2.633</x-m>
     <y-m>0.111</y-m>
-    <z-m>0.56</z-m>
+    <z-m>0.52</z-m>
   </offsets>
 </model>
 
@@ -22,7 +22,7 @@
     <pitch-deg>43</pitch-deg>
     <x-m>2.633</x-m>
     <y-m>0.111</y-m>
-    <z-m>0.56</z-m>
+    <z-m>0.52</z-m>
   </offsets>
 </model>
 
@@ -34,7 +34,7 @@
     <pitch-deg>-25</pitch-deg>
     <x-m>2.125</x-m>
     <y-m>-0.86256</y-m>
-    <z-m>0.668</z-m>
+    <z-m>0.628</z-m>
   </offsets>
 </model>
 
@@ -43,7 +43,7 @@
   <offsets>
     <x-m>2.102</x-m>
     <y-m>-0.885</y-m>
-    <z-m>0.715</z-m>
+    <z-m>0.675</z-m>
   </offsets>
 </model>
 
@@ -52,7 +52,7 @@
   <offsets>
     <x-m>2.102</x-m>
     <y-m>-0.86</y-m>
-    <z-m>0.715</z-m>
+    <z-m>0.675</z-m>
   </offsets>
 </model>
 
@@ -61,7 +61,7 @@
   <offsets>
     <x-m>2.102</x-m>
     <y-m>-0.835</y-m>
-    <z-m>0.715</z-m>
+    <z-m>0.675</z-m>
   </offsets>
 </model>
 
@@ -72,7 +72,7 @@
   <offsets>
     <x-m>2.6</x-m>
     <y-m>-0.87</y-m>
-    <z-m>0.538</z-m>
+    <z-m>0.518</z-m>
   </offsets>
 </model>
 
@@ -84,7 +84,7 @@
     <pitch-deg>-25</pitch-deg>
     <x-m>2.115</x-m>
     <y-m>-0.2744</y-m>
-    <z-m>0.683</z-m>
+    <z-m>0.643</z-m>
   </offsets>
 </model>
 
@@ -94,7 +94,7 @@
   <pitch-deg>-25</pitch-deg>
     <x-m>2.117</x-m>
     <y-m>-0.296</y-m>
-    <z-m>0.685</z-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
 
@@ -104,7 +104,7 @@
   <pitch-deg>-25</pitch-deg>
     <x-m>2.117</x-m>
     <y-m>-0.252</y-m>
-    <z-m>0.685</z-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
 
