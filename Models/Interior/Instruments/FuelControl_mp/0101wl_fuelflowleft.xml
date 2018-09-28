@@ -16,7 +16,7 @@
  <type>select</type>
  <condition>
    <greater-than>
-    <property>/fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-pps</property>
+    <property>fdm/jsbsim/propulsion/engine[0]/fuel-flow-rate-pps</property>
     <!-- reasonable value needed -->
     <value>0.1</value>
    </greater-than>

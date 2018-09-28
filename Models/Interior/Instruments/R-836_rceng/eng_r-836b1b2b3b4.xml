@@ -39,7 +39,7 @@
    <property>an24/R-836/b1_hood_anim1</property>
     <condition>
      <!--equals>
-      <property>/devices/status/keyboard/shift</property>
+      <property>devices/status/keyboard/shift</property>
       <value>1</value>
      </equals-->
      <equals>
@@ -265,7 +265,7 @@
    <property>an24/R-836/b2_hood_anim1</property>
     <condition>
      <!--equals>
-      <property>/devices/status/keyboard/shift</property>
+      <property>devices/status/keyboard/shift</property>
       <value>1</value>
      </equals-->
      <equals>
@@ -488,7 +488,7 @@
  <animation>
    <type>knob</type>
    <object-name>b2_knobD</object-name>
-   <property>/an24/R-836/b2_knob_D</property>
+   <property>an24/R-836/b2_knob_D</property>
     <condition>
      <property>an24/R-836/b2_lockD</property>
     </condition>
@@ -509,7 +509,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/an24/R-836/b2_knob_D</property>
+      <property>an24/R-836/b2_knob_D</property>
       <factor>-1</factor>
       <min>0</min>
       <max>12</max>                
@@ -568,7 +568,7 @@
    <type>knob</type>
    <object-name>b2_lockD</object-name>
      <!--condition>
-       <property>/devices/status/keyboard/shift</property>
+       <property>devices/status/keyboard/shift</property>
      </condition-->
    <property>an24/R-836/b2_lockD</property>
    <factor>52</factor>
@@ -597,7 +597,7 @@
  <animation>
    <type>rotate</type>
    <object-name>b2_lockD</object-name>
-   <property>/an24/R-836/b2_knob_D</property>
+   <property>an24/R-836/b2_knob_D</property>
    <factor>30</factor>
   <center>
    <x-m>0.0</x-m>

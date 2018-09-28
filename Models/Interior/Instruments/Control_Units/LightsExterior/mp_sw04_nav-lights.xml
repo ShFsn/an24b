@@ -59,7 +59,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>/controls/lighting/ext_nav-lights</property>
+   <property>controls/lighting/ext_nav-lights</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>

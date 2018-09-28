@@ -23,7 +23,7 @@
        <binding>
          <command>set-tooltip</command>
          <label>%s Sensitivity</label>
-         <property>/instrumentation/transponder/inputs/sensitivity</property>
+         <property>instrumentation/transponder/inputs/sensitivity</property>
          <tooltip-id>so-63-sense</tooltip-id>
          <mapping>nasal</mapping>
          <script>
@@ -52,7 +52,7 @@
        <binding>
          <command>set-tooltip</command>
          <label>%s Sensitivity</label>
-         <property>/instrumentation/transponder/inputs/sensitivity</property>
+         <property>instrumentation/transponder/inputs/sensitivity</property>
          <tooltip-id>so-63-sense</tooltip-id>
          <mapping>nasal</mapping>
          <script>
@@ -66,7 +66,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>/instrumentation/transponder/inputs/sensitivity</property>
+   <property>instrumentation/transponder/inputs/sensitivity</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>

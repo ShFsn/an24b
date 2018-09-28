@@ -9,7 +9,7 @@
   <type>select</type>
   <condition>
    <not>
-    <property>/sim/signals/fdm-initialized</property>
+    <property>sim/signals/fdm-initialized</property>
    </not>
   </condition>
   <object-name>subband_handle_oh</object-name>
@@ -31,7 +31,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/nav_panel_instr_red</factor-prop>
+     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -44,7 +44,7 @@
      <red>0.25</red>
      <green>0.2</green>
      <blue>0.1</blue>
-     <factor-prop>/controls/lighting/nav_panel_red</factor-prop>
+     <factor-prop>controls/lighting/nav_panel_red</factor-prop>
    </emission>
  </animation>
 
@@ -376,7 +376,7 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-1") != 0.0 
 <!-- Mode "Frame" -->
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/adf[0]/indicated-bearing-deg</property>
+      <property>instrumentation/adf[0]/indicated-bearing-deg</property>
        <condition>
         <and>
         <equals>
@@ -492,7 +492,7 @@ if ( getprop("an24/AZS/sw0512") == 1.0 and getprop("an24/ARK-11/mode-1") != 0.0 
 <!-- Mode "Frame" -->
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/adf[0]/indicated-bearing-deg</property>
+      <property>instrumentation/adf[0]/indicated-bearing-deg</property>
        <condition>
         <and>
         <equals>

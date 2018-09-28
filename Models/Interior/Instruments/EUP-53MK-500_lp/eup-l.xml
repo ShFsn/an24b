@@ -15,7 +15,7 @@
      <red>1.0</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/panel-l_red</factor-prop>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
 </animation>
 
@@ -55,7 +55,7 @@
 <animation>
   <type>rotate</type>
   <object-name>ball</object-name>
-  <property>/fdm/jsbsim/instrumentation/slip-skid-indicator/slip-skid-deg</property>
+  <property>fdm/jsbsim/instrumentation/slip-skid-indicator/slip-skid-deg</property>
   <interpolation>
     <entry><ind>	-10.0</ind>	<dep>	-10.0</dep></entry>
     <entry><ind>	10.0</ind>	<dep>	10.0</dep></entry>

@@ -8,7 +8,7 @@
  <animation>
    <type>rotate</type>
    <object-name>tiller</object-name>
-   <property>/fdm/jsbsim/fcs/tiller-cmd-norm</property>
+   <property>fdm/jsbsim/fcs/tiller-cmd-norm</property>
     <factor>45</factor>
   <axis>
     <x>0.0</x>

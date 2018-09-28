@@ -17,10 +17,10 @@
  <type>select</type>
  <condition>
   <less-than>
-   <property>/instrumentation/radar-altimeter/radar-altitude-ft</property>
+   <property>instrumentation/radar-altimeter/radar-altitude-ft</property>
   <expression>
   <table>
-    <property>/instrumentation/radar-altimeter/pointer-anim</property>
+    <property>instrumentation/radar-altimeter/pointer-anim</property>
       <entry><ind>	 0.0</ind>	<dep>	0.0</dep></entry>
       <entry><ind>	 0.5</ind>	<dep> 328.1</dep></entry>
       <entry><ind>	 1.0</ind>	<dep> 2460.6</dep></entry>
@@ -28,7 +28,7 @@
   </expression>
   </less-than>
   <equals>
-   <property>/instrumentation/radar-altimeter/sw-on</property>
+   <property>instrumentation/radar-altimeter/sw-on</property>
    <value>1.0</value>
   </equals>
   <equals>

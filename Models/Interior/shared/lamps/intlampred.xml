@@ -20,7 +20,7 @@
    <object-name>whitefilter</object-name>
   <condition>
    <not>
-    <property>/sim/signals/fdm-initialized</property>
+    <property>sim/signals/fdm-initialized</property>
    </not>
   </condition>
  </animation>
@@ -32,7 +32,7 @@
   <object-name>redfilter</object-name>
   <condition>
    <equals>
-    <property>/controls/lighting/main-emerg</property>
+    <property>controls/lighting/main-emerg</property>
     <value>-1</value>
    </equals>
   </condition>

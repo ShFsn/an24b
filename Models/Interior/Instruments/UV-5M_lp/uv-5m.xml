@@ -17,7 +17,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/panel-l_red</factor-prop>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
  </animation>
 
@@ -28,7 +28,7 @@
      <red>0.5</red>
      <green>0.2</green>
      <blue>0.2</blue>
-     <factor-prop>/controls/lighting/panel-l_red</factor-prop>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
  </animation>
 
@@ -36,9 +36,9 @@
   <type>rotate</type>
   <object-name>needle</object-name>
  <condition>
-    <property>/instrumentation/radar-altimeter/sw-on</property>
+    <property>instrumentation/radar-altimeter/sw-on</property>
  </condition>
-  <property>/instrumentation/radar-altimeter/radar-altitude-ft</property>
+  <property>instrumentation/radar-altimeter/radar-altitude-ft</property>
   <interpolation>
     <entry><ind>	0.0</ind>	<dep>    0.0</dep></entry>
     <entry><ind>      328.1</ind>	<dep>  150.0</dep></entry>
@@ -57,7 +57,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/radar-altimeter/pointer-anim</property>
+      <property>instrumentation/radar-altimeter/pointer-anim</property>
       <factor>-0.0125</factor> 
       <min>0</min>
       <max>1</max>                
@@ -69,7 +69,7 @@
 <animation>
   <type>rotate</type>
   <object-name>pointer</object-name>
-  <property>/instrumentation/radar-altimeter/pointer-anim</property>
+  <property>instrumentation/radar-altimeter/pointer-anim</property>
   <interpolation>
     <entry><ind>	0.0</ind>	<dep>    0.0</dep></entry>
     <entry><ind>      0.5</ind>	        <dep>  150.0</dep></entry>
@@ -85,7 +85,7 @@
 <animation>
   <type>translate</type>
   <object-name>flag</object-name>
-  <property>/instrumentation/radar-altimeter/sw-on</property>
+  <property>instrumentation/radar-altimeter/sw-on</property>
   <factor>0.01</factor>
   <axis>
     <x>0.0</x>

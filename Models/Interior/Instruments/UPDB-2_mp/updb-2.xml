@@ -14,7 +14,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -22,7 +22,7 @@
 <animation>
     <object-name>needle1</object-name>
     <type>rotate</type>
-    <property>/instrumentation/adf/indicated-bearing-deg</property>
+    <property>instrumentation/adf/indicated-bearing-deg</property>
     <axis>
       <x>-1.0</x>
       <y>0.0</y>
@@ -44,7 +44,7 @@
 <animation>
     <object-name>needle2</object-name>
     <type>rotate</type>
-    <property>/instrumentation/adf[1]/indicated-bearing-deg</property>
+    <property>instrumentation/adf[1]/indicated-bearing-deg</property>
     <axis>
       <x>-1.0</x>
       <y>0.0</y>

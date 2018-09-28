@@ -15,7 +15,7 @@
 <animation>
   <type>select</type>
   <condition>
-    <property>/engines/engine[2]/starter</property>
+    <property>engines/engine[2]/starter</property>
     <value>1</value>
   </condition>
   <object-name>lampon</object-name>

@@ -19,7 +19,7 @@
  <animation>
    <type>knob</type>
    <object-name>m-50_channel</object-name>
-   <property>/an24/SP-50/channel</property>
+   <property>an24/SP-50/channel</property>
    <factor>60</factor>
   <center>
    <x-m>0.0</x-m>
@@ -34,7 +34,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/an24/SP-50/channel</property>
+      <property>an24/SP-50/channel</property>
       <factor>-1</factor>
       <min>0</min>
       <max>6</max>                
@@ -43,11 +43,11 @@
     <binding>
      <condition>
       <equals>
-      <property>/an24/AZS/sw0516</property>
+      <property>an24/AZS/sw0516</property>
       <value type="double">1.0</value>
       </equals>
       <equals>
-      <property>/an24/SP-50/on</property>
+      <property>an24/SP-50/on</property>
       <value type="double">1.0</value>
       </equals>
      </condition>
@@ -74,7 +74,7 @@
    <type>knob</type>
    <object-name>m-50_cheat</object-name>
    <visible>false</visible>
-   <property>/instrumentation/nav/frequencies/selected-mhz</property>
+   <property>instrumentation/nav/frequencies/selected-mhz</property>
   <center>
    <x-m>0.0</x-m>
    <y-m>0.0316</y-m>
@@ -88,7 +88,7 @@
     <action>
     <binding>
      <command>property-adjust</command>
-      <property>/instrumentation/nav/frequencies/selected-mhz</property>
+      <property>instrumentation/nav/frequencies/selected-mhz</property>
       <factor>-0.05</factor>
       <min>108.1</min>
       <max>111.95</max>                

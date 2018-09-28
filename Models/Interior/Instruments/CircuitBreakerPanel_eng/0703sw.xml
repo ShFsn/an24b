@@ -21,7 +21,7 @@
     <binding>
      <condition>
       <equals>
-    	<property>/an24/instrumentation/sw_agd-l</property>
+    	<property>an24/instrumentation/sw_agd-l</property>
       <value>1.0</value>
       </equals>
      </condition>
@@ -53,7 +53,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>/an24/AZS/sw0703</property>
+   <property>an24/AZS/sw0703</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>

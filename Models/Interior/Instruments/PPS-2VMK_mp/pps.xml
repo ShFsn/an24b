@@ -12,7 +12,7 @@
     <condition>
      <or>
      <less-than>
-      <property>/gear/gear[0]/position-norm</property>
+      <property>gear/gear[0]/position-norm</property>
       <value>0.1</value>
      </less-than>
      <equals>
@@ -35,7 +35,7 @@
     <condition>
     <or>
      <less-than>
-      <property>/gear/gear[1]/position-norm</property>
+      <property>gear/gear[1]/position-norm</property>
       <value>0.1</value>
      </less-than>
      <equals>
@@ -58,7 +58,7 @@
     <condition>
     <or>
      <less-than>
-      <property>/gear/gear[2]/position-norm</property>
+      <property>gear/gear[2]/position-norm</property>
       <value>0.1</value>
      </less-than>
      <equals>
@@ -81,7 +81,7 @@
     <condition>
     <or>
      <greater-than>
-      <property>/gear/gear[0]/position-norm</property>
+      <property>gear/gear[0]/position-norm</property>
       <value>0.9</value>
      </greater-than>
      <equals>
@@ -104,7 +104,7 @@
     <condition>
     <or>
      <greater-than>
-      <property>/gear/gear[1]/position-norm</property>
+      <property>gear/gear[1]/position-norm</property>
       <value>0.9</value>
      </greater-than>
      <equals>
@@ -127,7 +127,7 @@
     <condition>
     <or>
      <greater-than>
-      <property>/gear/gear[2]/position-norm</property>
+      <property>gear/gear[2]/position-norm</property>
       <value>0.9</value>
      </greater-than>
      <equals>
@@ -151,27 +151,27 @@
     <or>
     <and>
      <not-equals>
-      <property>/gear/gear[0]/position-norm</property>
+      <property>gear/gear[0]/position-norm</property>
       <value>1.0</value>
      </not-equals>
      <not-equals>
-      <property>/gear/gear[0]/position-norm</property>
+      <property>gear/gear[0]/position-norm</property>
       <value>0.0</value>
      </not-equals>
      <not-equals>
-      <property>/gear/gear[1]/position-norm</property>
+      <property>gear/gear[1]/position-norm</property>
       <value>1.0</value>
      </not-equals>
      <not-equals>
-      <property>/gear/gear[1]/position-norm</property>
+      <property>gear/gear[1]/position-norm</property>
       <value>0.0</value>
      </not-equals>
      <not-equals>
-      <property>/gear/gear[2]/position-norm</property>
+      <property>gear/gear[2]/position-norm</property>
       <value>1.0</value>
      </not-equals>
      <not-equals>
-      <property>/gear/gear[2]/position-norm</property>
+      <property>gear/gear[2]/position-norm</property>
       <value>0.0</value>
      </not-equals>
     </and>
@@ -195,7 +195,7 @@
     <condition>
     <or>
      <not-equals>
-      <property>/surface-positions/flap-pos-norm</property>
+      <property>surface-positions/flap-pos-norm</property>
       <value>0.0</value>
      </not-equals>
      <equals>
@@ -219,15 +219,15 @@
     <or>
     <and>
      <equals>
-      <property>/gear/gear[0]/position-norm</property>
+      <property>gear/gear[0]/position-norm</property>
       <value>0.0</value>
      </equals>
      <equals>
-      <property>/gear/gear[1]/position-norm</property>
+      <property>gear/gear[1]/position-norm</property>
       <value>0.0</value>
      </equals>
      <equals>
-      <property>/gear/gear[2]/position-norm</property>
+      <property>gear/gear[2]/position-norm</property>
       <value>0.0</value>
      </equals>
     </and>

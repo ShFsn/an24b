@@ -15,14 +15,14 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.4</blue>
-     <factor-prop>/controls/lighting/panel-l_red</factor-prop>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
   </animation>
   
   <animation>
     <type>rotate</type>
     <object-name>short_needle</object-name>
-    <property>/instrumentation/airspeed-indicator[0]/true-speed-kt</property>
+    <property>instrumentation/airspeed-indicator[0]/true-speed-kt</property>
     <interpolation>
       <entry><ind>	199.0</ind>	<dep>	180.0</dep></entry>
       <entry><ind>	215.98</ind>	<dep>	196.0</dep></entry>

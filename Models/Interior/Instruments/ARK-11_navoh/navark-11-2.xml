@@ -9,7 +9,7 @@
   <type>select</type>
   <condition>
    <not>
-    <property>/sim/signals/fdm-initialized</property>
+    <property>sim/signals/fdm-initialized</property>
    </not>
   </condition>
   <object-name>subband_handle_oh</object-name>
@@ -32,7 +32,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/nav_panel_instr_red</factor-prop>
+     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -45,7 +45,7 @@
      <red>0.25</red>
      <green>0.2</green>
      <blue>0.1</blue>
-     <factor-prop>/controls/lighting/nav_panel_red</factor-prop>
+     <factor-prop>controls/lighting/nav_panel_red</factor-prop>
    </emission>
  </animation>
 
@@ -367,7 +367,7 @@
 <!-- Mode "Frame" -->
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/adf[1]/indicated-bearing-deg</property>
+      <property>instrumentation/adf[1]/indicated-bearing-deg</property>
        <condition>
         <and>
         <equals>
@@ -471,7 +471,7 @@
 <!-- Mode "Frame" -->
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/adf[1]/indicated-bearing-deg</property>
+      <property>instrumentation/adf[1]/indicated-bearing-deg</property>
        <condition>
         <and>
         <equals>

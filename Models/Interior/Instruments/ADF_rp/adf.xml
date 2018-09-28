@@ -12,7 +12,7 @@
      <red>1.0</red>
      <green>0.2</green>
      <blue>0.2</blue>
-     <factor-prop>/controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
    </emission>
  </animation>
  <animation>
@@ -22,7 +22,7 @@
      <red>0.3</red>
      <green>0.1</green>
      <blue>0.1</blue>
-     <factor-prop>/controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
    </emission>
  </animation>
 

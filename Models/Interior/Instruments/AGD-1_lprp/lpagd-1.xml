@@ -15,7 +15,7 @@
      <red>1.0</red>
      <green>0.5</green>
      <blue>0.5</blue>
-     <factor-prop>/controls/lighting/panel-l_red</factor-prop>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
  </animation>
 
@@ -31,14 +31,14 @@
      <red>0.2</red>
      <green>0.2</green>
      <blue>0.2</blue>
-     <factor-prop>/controls/lighting/panel-l_red</factor-prop>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
  </animation>
 
  <animation>
     <type>textranslate</type>
     <object-name>PitchScale</object-name>
-    <property>/instrumentation/agd-l/indicated-pitch-deg</property>
+    <property>instrumentation/agd-l/indicated-pitch-deg</property>
     <interpolation>
       <entry><ind>	-80.0</ind>	<dep>	-0.437</dep></entry>
       <entry><ind>	-70.0</ind>	<dep>	-0.383</dep></entry>
@@ -89,7 +89,7 @@
 <animation>
   <type>rotate</type>
   <object-name>skid_ball</object-name>
-  <property>/fdm/jsbsim/instrumentation/slip-skid-indicator/slip-skid-deg</property>
+  <property>fdm/jsbsim/instrumentation/slip-skid-indicator/slip-skid-deg</property>
   <factor>1</factor>
   <max-deg>20.0</max-deg>
   <min-deg>-20.0</min-deg>

@@ -13,14 +13,14 @@
      <red>1.0</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/console-l_red</factor-prop>
+     <factor-prop>controls/lighting/console-l_red</factor-prop>
    </emission>
  </animation>
 
 <animation>
   <type>rotate</type>
   <object-name>needle_pax_cabin_temp</object-name>
-  <property>/environment/temperature-degc</property>
+  <property>environment/temperature-degc</property>
   <interpolation>
     <entry><ind>-60.0</ind><dep>-90.0</dep></entry>
     <entry><ind>0.0</ind><dep>10.0</dep></entry>

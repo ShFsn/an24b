@@ -21,7 +21,7 @@
     <binding>
      <condition>
       <equals>
-    	<property>/an24/instrumentation/sw_agd-r</property>
+    	<property>an24/instrumentation/sw_agd-r</property>
       <value>1.0</value>
       </equals>
      </condition>

@@ -14,14 +14,14 @@
      <red>0.1</red>
      <green>0.02</green>
      <blue>0.02</blue>
-   <factor-prop>/controls/lighting/nav_panel_instr_red</factor-prop>
+   <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
 <animation>
   <type>rotate</type>
   <object-name>needle_1</object-name>
-  <property>/instrumentation/gik-1/indicated-heading</property>
+  <property>instrumentation/gik-1/indicated-heading</property>
    <axis>
     <x>-1</x>
     <y>0</y>

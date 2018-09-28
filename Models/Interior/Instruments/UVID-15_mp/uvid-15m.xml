@@ -9,7 +9,7 @@
      <red>1.0</red>
      <green>0.5</green>
      <blue>0.4</blue>
-     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -26,7 +26,7 @@
      <red>0.8</red>
      <green>0.4</green>
      <blue>0.4</blue>
-     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -217,7 +217,7 @@
 <animation>
   <type>rotate</type>
   <object-name>dig_p_ones</object-name>
-  <property>/instrumentation/altimeter[0]/setting-hpa</property>
+  <property>instrumentation/altimeter[0]/setting-hpa</property>
   <factor>27.0088845014</factor>
   <center>
     <x-m>-0.0158</x-m>
@@ -238,7 +238,7 @@
     <table>
       <mod>
         <product>
-          <property>/instrumentation/altimeter[0]/setting-hpa</property>
+          <property>instrumentation/altimeter[0]/setting-hpa</property>
           <value>0.7500616827</value>
         </product>
         <value>100</value>
@@ -285,7 +285,7 @@
     <table>
       <mod>
         <product>
-          <property>/instrumentation/altimeter[0]/setting-hpa</property>
+          <property>instrumentation/altimeter[0]/setting-hpa</property>
           <value>0.7500616827</value>
         </product>
         <value>1000</value>

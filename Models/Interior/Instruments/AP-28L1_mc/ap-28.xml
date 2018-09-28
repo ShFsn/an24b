@@ -76,7 +76,7 @@
      <binding>
       <condition>
        <equals>
-       <property>/an24/AP-28l1/switches/roll-mode</property>
+       <property>an24/AP-28l1/switches/roll-mode</property>
        <value>-1</value>
        </equals>
       </condition>

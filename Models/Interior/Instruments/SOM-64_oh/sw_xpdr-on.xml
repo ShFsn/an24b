@@ -42,7 +42,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>/instrumentation/transponder/serviceable</property>
+   <property>instrumentation/transponder/serviceable</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>

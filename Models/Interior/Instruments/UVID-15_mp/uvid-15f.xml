@@ -10,7 +10,7 @@
      <red>0.8</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -29,7 +29,7 @@
      <red>0.7</red>
      <green>0.2</green>
      <blue>0.2</blue>
-     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
 </animation>
 
@@ -38,7 +38,7 @@
 <animation>
     <type>rotate</type>
     <object-name>needle</object-name>
-    <property>/instrumentation/altimeter[1]/indicated-altitude-ft</property>
+    <property>instrumentation/altimeter[1]/indicated-altitude-ft</property>
     <factor>0.36</factor>
     <axis>
       <x>-1.0</x>
@@ -52,7 +52,7 @@
 <animation>
   <type>rotate</type>
   <object-name>dig_a_dec</object-name>
-  <property>/instrumentation/altimeter[1]/indicated-altitude-ft</property>
+  <property>instrumentation/altimeter[1]/indicated-altitude-ft</property>
   <factor>3.6</factor>
   <center>
     <x-m>-0.0222</x-m>
@@ -71,7 +71,7 @@
   <expression>
     <table>
       <mod>
-        <property>/instrumentation/altimeter[1]/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter[1]/indicated-altitude-ft</property>
         <value>1000</value>
       </mod>
       <entry><ind>	  0</ind>	<dep>	0</dep></entry>
@@ -115,7 +115,7 @@
   <expression>
     <table>
       <mod>
-        <property>/instrumentation/altimeter[1]/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter[1]/indicated-altitude-ft</property>
         <value>10000</value>
       </mod>
       <entry><ind>	   0</ind>	<dep>	0</dep></entry>
@@ -159,7 +159,7 @@
   <expression>
     <table>
       <mod>
-        <property>/instrumentation/altimeter[1]/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter[1]/indicated-altitude-ft</property>
         <value>100000</value>
       </mod>
       <entry><ind>	    0</ind>	<dep>	0</dep></entry>
@@ -205,7 +205,7 @@
   <expression>
     <table>
      <mod>
-     <property>/instrumentation/altimeter[0]/setting-inhg</property>
+     <property>instrumentation/altimeter[0]/setting-inhg</property>
       <value>100.0</value>
      </mod>
       <entry><ind>	0</ind>		<dep>	0</dep></entry>
@@ -248,7 +248,7 @@
   <expression>
     <table>
      <mod>
-     <property>/instrumentation/altimeter[0]/setting-inhg</property>
+     <property>instrumentation/altimeter[0]/setting-inhg</property>
       <value>10.0</value>
      </mod>
       <entry><ind>	0</ind>		<dep>	0</dep></entry>
@@ -291,7 +291,7 @@
   <expression>
     <table>
      <mod>
-     <property>/instrumentation/altimeter[0]/setting-inhg</property>
+     <property>instrumentation/altimeter[0]/setting-inhg</property>
       <value>1.0</value>
      </mod>
       <entry><ind>	0</ind>		<dep>	0</dep></entry>
@@ -331,7 +331,7 @@
 <animation>
   <type>rotate</type>
   <object-name>dig_p_ones</object-name>
-     <property>/instrumentation/altimeter[0]/setting-inhg</property>
+     <property>instrumentation/altimeter[0]/setting-inhg</property>
    <factor>3600</factor>
   <center>
     <x-m>-0.0133</x-m>

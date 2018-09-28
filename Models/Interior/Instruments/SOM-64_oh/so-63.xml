@@ -26,7 +26,7 @@
  <animation>
    <type>knob</type>
    <object-name>xponder_mode</object-name>
-    <property>/instrumentation/transponder/inputs/anim-knob-mode</property>
+    <property>instrumentation/transponder/inputs/anim-knob-mode</property>
    <factor>30</factor>
   <center>
    <x-m>0.0</x-m>
@@ -41,7 +41,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/transponder/inputs/anim-knob-mode</property>
+      <property>instrumentation/transponder/inputs/anim-knob-mode</property>
       <factor>-1</factor>
       <min>0</min>
       <max>3</max>                
@@ -59,7 +59,7 @@
        <binding>
          <command>set-tooltip</command>
          <label>%s</label>
-         <property>/instrumentation/transponder/inputs/anim-knob-mode</property>
+         <property>instrumentation/transponder/inputs/anim-knob-mode</property>
          <tooltip-id>so-63-mode</tooltip-id>
          <mapping>nasal</mapping>
          <script>
@@ -103,9 +103,9 @@
 <animation>
  <type>select</type>
  <condition>
-    <property>/instrumentation/transponder/serviceable</property>
-    <property>/instrumentation/transponder/inputs/serviceable</property>
-    <property>/instrumentation/transponder/inputs/anim-test-btn</property>
+    <property>instrumentation/transponder/serviceable</property>
+    <property>instrumentation/transponder/inputs/serviceable</property>
+    <property>instrumentation/transponder/inputs/anim-test-btn</property>
   </condition>
  <object-name>lampon</object-name>
 </animation>
@@ -113,7 +113,7 @@
 <animation>
   <type>translate</type>
   <object-name>btn_test</object-name>
-  <property>/instrumentation/transponder/inputs/anim-test-btn</property>
+  <property>instrumentation/transponder/inputs/anim-test-btn</property>
   <factor>0.003</factor>
   <axis>
     <x>-1</x>
@@ -155,7 +155,7 @@
        <label>Ident %s</label>
        <mapping>on-off</mapping>
        <tooltip-id>so-63-ident</tooltip-id>
-       <property>/instrumentation/transponder/ident</property>
+       <property>instrumentation/transponder/ident</property>
      </binding>
   </hovered>
 </animation>
@@ -163,7 +163,7 @@
 <animation>
   <type>translate</type>
   <object-name>btn_ident</object-name>
-  <property>/instrumentation/transponder/inputs/anim-ident-btn</property>
+  <property>instrumentation/transponder/inputs/anim-ident-btn</property>
   <factor>0.003</factor>
   <axis>
     <x>-1</x>
@@ -177,7 +177,7 @@
  <animation>
    <type>knob</type>
    <object-name>squawk1</object-name>
-    <property>/instrumentation/transponder/inputs/digit[3]</property>
+    <property>instrumentation/transponder/inputs/digit[3]</property>
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
@@ -192,7 +192,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/transponder/inputs/digit[3]</property>
+      <property>instrumentation/transponder/inputs/digit[3]</property>
       <factor>-1</factor>
       <min>0</min>
       <max>7</max>                
@@ -204,7 +204,7 @@
          <command>set-tooltip</command>
          <label>Squawk %d</label>
          <tooltip-id>so-63-1</tooltip-id>
-         <property>/instrumentation/transponder/id-code</property>
+         <property>instrumentation/transponder/id-code</property>
        </binding>
     </hovered>
  </animation>
@@ -212,7 +212,7 @@
  <animation>
    <type>knob</type>
    <object-name>squawk2</object-name>
-    <property>/instrumentation/transponder/inputs/digit[2]</property>
+    <property>instrumentation/transponder/inputs/digit[2]</property>
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
@@ -227,7 +227,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/transponder/inputs/digit[2]</property>
+      <property>instrumentation/transponder/inputs/digit[2]</property>
       <factor>-1</factor>
       <min>0</min>
       <max>7</max>                
@@ -239,7 +239,7 @@
          <command>set-tooltip</command>
          <label>Squawk %d</label>
          <tooltip-id>so-63-2</tooltip-id>
-         <property>/instrumentation/transponder/id-code</property>
+         <property>instrumentation/transponder/id-code</property>
        </binding>
     </hovered>
  </animation>
@@ -247,7 +247,7 @@
  <animation>
    <type>knob</type>
    <object-name>squawk3</object-name>
-    <property>/instrumentation/transponder/inputs/digit[1]</property>
+    <property>instrumentation/transponder/inputs/digit[1]</property>
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
@@ -262,7 +262,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/transponder/inputs/digit[1]</property>
+      <property>instrumentation/transponder/inputs/digit[1]</property>
       <factor>-1</factor>
       <min>0</min>
       <max>7</max>                
@@ -274,7 +274,7 @@
          <command>set-tooltip</command>
          <label>Squawk %d</label>
          <tooltip-id>so-63-3</tooltip-id>
-         <property>/instrumentation/transponder/id-code</property>
+         <property>instrumentation/transponder/id-code</property>
        </binding>
     </hovered>
  </animation>
@@ -282,7 +282,7 @@
  <animation>
    <type>knob</type>
    <object-name>squawk4</object-name>
-    <property>/instrumentation/transponder/inputs/digit[0]</property>
+    <property>instrumentation/transponder/inputs/digit[0]</property>
    <factor>-30</factor>
   <center>
    <x-m>0.0</x-m>
@@ -297,7 +297,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/transponder/inputs/digit[0]</property>
+      <property>instrumentation/transponder/inputs/digit[0]</property>
       <factor>-1</factor>
       <min>0</min>
       <max>7</max>                
@@ -309,7 +309,7 @@
          <command>set-tooltip</command>
          <label>Squawk %d</label>
          <tooltip-id>so-63-4</tooltip-id>
-         <property>/instrumentation/transponder/id-code</property>
+         <property>instrumentation/transponder/id-code</property>
        </binding>
     </hovered>
  </animation>

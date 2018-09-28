@@ -23,7 +23,7 @@
      <!-- uv-style red>0.1</red>
      <green>1.0</green>
      <blue>0.9</blue-->
-     <factor-prop>/controls/lighting/nav_panel_instr_red</factor-prop>
+     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -62,7 +62,7 @@
          </equals>
         </condition>
         <command>property-adjust</command>
-        <property>/instrumentation/clock[2]/offset-sec</property>
+        <property>instrumentation/clock[2]/offset-sec</property>
           <factor>-60</factor>
         </binding>
 <!-- Pulled out + Red flag: Clock time + flight time adjust -->
@@ -491,7 +491,7 @@
 <animation>
   <type>rotate</type>
   <object-name>hour_needle</object-name>
-  <property>/instrumentation/clock[2]/indicated-min</property>
+  <property>instrumentation/clock[2]/indicated-min</property>
     <condition>
       <equals>
        <property>an24/AChS/nav_running</property>
@@ -509,7 +509,7 @@
 <animation>
   <type>rotate</type>
   <object-name>hour_needle</object-name>
-  <property>/instrumentation/clock[2]/indicated-hour</property>
+  <property>instrumentation/clock[2]/indicated-hour</property>
     <condition>
       <equals>
        <property>an24/AChS/nav_running</property>
@@ -527,7 +527,7 @@
 <animation>
   <type>rotate</type>
   <object-name>min_needle</object-name>
-  <property>/instrumentation/clock[2]/indicated-sec</property>
+  <property>instrumentation/clock[2]/indicated-sec</property>
     <condition>
       <equals>
        <property>an24/AChS/nav_running</property>
