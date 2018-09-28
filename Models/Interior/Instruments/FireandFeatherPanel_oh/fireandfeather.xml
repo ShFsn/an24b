@@ -11,7 +11,7 @@
    <red>1.0</red>
    <green>0.9</green>
    <blue>0.5</blue>
-   <factor-prop>/controls/lighting/overhead_instr</factor-prop>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
   </emission>
  </animation>
 
@@ -155,7 +155,7 @@
    <red>1.0</red>
    <green>0.2</green>
    <blue>0.2</blue>
-   <factor-prop>/controls/lighting/overhead_instr</factor-prop>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
   </emission>
  </animation>
 

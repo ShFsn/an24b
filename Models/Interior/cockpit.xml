@@ -34,7 +34,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -99,7 +99,7 @@
   <object-name>radio_press_me_l</object-name>
   <object-name>spu_base_l</object-name>
   <object-name>spu_press_me_l</object-name>
-  <property>/controls/flight/aileron</property>
+  <property>controls/flight/aileron</property>
   <factor>90.0</factor>
   <offset-deg>0.0</offset-deg>
   <center>
@@ -121,7 +121,7 @@
   <object-name>radio_press_me_l</object-name>
   <object-name>spu_base_l</object-name>
   <object-name>spu_press_me_l</object-name>
-  <property>/controls/flight/elevator</property>
+  <property>controls/flight/elevator</property>
   <factor>0.08</factor>
   <offset-deg>0.0</offset-deg>
   <axis>
@@ -138,7 +138,7 @@
   <object-name>radio_press_me_r</object-name>
   <object-name>spu_base_r</object-name>
   <object-name>spu_press_me_r</object-name>
-  <property>/controls/flight/aileron</property>
+  <property>controls/flight/aileron</property>
   <factor>90.0</factor>
   <offset-deg>0.0</offset-deg>
   <center>
@@ -160,7 +160,7 @@
   <object-name>radio_press_me_r</object-name>
   <object-name>spu_base_r</object-name>
   <object-name>spu_press_me_r</object-name>
-  <property>/controls/flight/elevator</property>
+  <property>controls/flight/elevator</property>
   <factor>0.08</factor>
   <offset-deg>0.0</offset-deg>
   <axis>
@@ -310,7 +310,7 @@
 <animation>
   <type>rotate</type>
   <object-name>trimwheel</object-name>
-  <property>/controls/flight/elevator-trim</property>
+  <property>controls/flight/elevator-trim</property>
   <factor>2000.0</factor>
   <offset-deg>0.0</offset-deg>
   <center>
