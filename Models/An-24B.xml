@@ -237,8 +237,8 @@
 <animation>
   <type>rotate</type>
   <object-name>flapinnerL</object-name>  
-  <property>fdm/jsbsim/fcs/flap-pos-deg</property>
-  <factor>1.0</factor>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>38.0</factor>
   <center>
     <x-m>10.43</x-m>
     <y-m>0.0</y-m>
@@ -254,8 +254,8 @@
 <animation>
   <type>rotate</type>
   <object-name>flapinnerR</object-name>  
-  <property>fdm/jsbsim/fcs/flap-pos-deg</property>
-  <factor>1.0</factor>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>38.0</factor>
   <center>
     <x-m>10.43</x-m>
     <y-m>0.0</y-m>
@@ -271,8 +271,8 @@
 <animation>
   <type>rotate</type>
   <object-name>flapcenterL</object-name>  
-  <property>fdm/jsbsim/fcs/flap-pos-deg</property>
-  <factor>1.0</factor>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>38.0</factor>
   <center>
     <x-m>10.66</x-m>
     <y-m>0.0</y-m>
@@ -288,8 +288,8 @@
 <animation>
   <type>rotate</type>
   <object-name>flapcenterR</object-name>  
-  <property>fdm/jsbsim/fcs/flap-pos-deg</property>
-  <factor>1.0</factor>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>38.0</factor>
   <center>
     <x-m>10.66</x-m>
     <y-m>0.0</y-m>
