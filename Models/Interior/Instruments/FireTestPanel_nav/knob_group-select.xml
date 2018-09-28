@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Switch to select group -->
+<!-- Knob to select group -->
 
 <PropertyList>
  <path>../../shared/knobs_buttons/11p1n.ac</path>
@@ -15,11 +15,6 @@
     <y>0</y>
     <z>0</z>
    </axis>
-   <!--center>
-    <x-m>0.0</x-m>
-    <y-m>0.0</y-m>
-    <z-m>0.0027</z-m>
-   </center-->
     <action>
      <binding>
       <command>property-adjust</command>
@@ -30,5 +25,11 @@
       <wrap>true</wrap>
      </binding>
     </action>
+     <binding>
+      <command>property-assign</command>
+      <property>an24/FireFeather/mainresetdone</property>
+      <value>0</value>
+     </binding>
  </animation>
+
 </PropertyList>

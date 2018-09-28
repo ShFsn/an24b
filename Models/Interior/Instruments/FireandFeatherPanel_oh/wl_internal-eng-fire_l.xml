@@ -15,7 +15,12 @@
 <animation>
  <type>select</type>
  <condition>
-   <or>
+  <and>
+  <or>
+   <equals>
+    <property>an24/FireTest/selection</property>
+    <value>1</value>
+   </equals>
    <equals>
     <property>an24/FireTest/selection</property>
     <value>2</value>
@@ -24,11 +29,32 @@
     <property>an24/FireTest/selection</property>
     <value>3</value>
    </equals>
-   </or>
+   <equals>
+    <property>an24/FireTest/selection</property>
+    <value>4</value>
+   </equals>
+   <equals>
+    <property>an24/FireTest/selection</property>
+    <value>5</value>
+   </equals>
+   <equals>
+    <property>an24/FireTest/selection</property>
+    <value>1</value>
+   </equals>
+   <equals>
+    <property>an24/FireTest/selection</property>
+    <value>1</value>
+   </equals>
+   <equals>
+    <property>an24/FireTest/selection</property>
+    <value>1</value>
+   </equals>
+  </or>
    <equals>
     <property>an24/FireTest/push-to-test</property>
     <value>1</value>
    </equals>
+  </and>
   </condition>
  <object-name>lampon</object-name>
 </animation>

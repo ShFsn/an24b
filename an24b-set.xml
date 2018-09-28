@@ -269,9 +269,9 @@ alight GPK-52 with correct magnetic heading
     </text>
   </help>
 
-  <!--tutorials>
+  <tutorials>
    <tutorial include="Tutorials/Engineer-Preflight.xml"/>
-  </tutorials-->
+  </tutorials>
 
   <menubar>
     <default>
@@ -839,6 +839,10 @@ alight GPK-52 with correct magnetic heading
    </mem2>
  </ARK-11>
 
+ <FireTest>
+  <mainresetdone type="bool">1.0</mainresetdone>
+ </FireTest>
+
  <FuelControl>
   <anim-flow-meter type="double">0</anim-flow-meter>
   <cutoff-l-by-sw type="double">1</cutoff-l-by-sw>
@@ -859,32 +863,11 @@ alight GPK-52 with correct magnetic heading
   <sw0407 type="double">0</sw0407>
  </FuelControl>
 
- <animations>
-  <gear type="double">1.0</gear>
-  <gear-bigdoors type="double">0.0</gear-bigdoors>
-  <gear-smalldoors type="double">1.0</gear-smalldoors>
-  <nose type="double">1.0</nose>
- </animations>
-
-  <gear>
-    <steer_mode type="double">2.0</steer_mode>
-  </gear>
-
-  <instrumentation>
-    <idle-lock>
-      <idle-lock>0.0</idle-lock>
-    </idle-lock>
-    <prop-lock>
-      <prop-lock-left type="bool">false</prop-lock-left>
-      <prop-lock-right type="bool">false</prop-lock-right>
-    </prop-lock>
-  </instrumentation>
-
-  <Pressure>
-    <pitotvalve1 type="double">1.0</pitotvalve1>
-    <pitotvalve2 type="double">1.0</pitotvalve2>
-    <pitotvalve3 type="double">1.0</pitotvalve3>
-  </Pressure>
+ <Pressure>
+  <pitotvalve1 type="double">1.0</pitotvalve1>
+  <pitotvalve2 type="double">1.0</pitotvalve2>
+  <pitotvalve3 type="double">1.0</pitotvalve3>
+ </Pressure>
 
   <R-802>
    <sw_power-1 type="double">0.0</sw_power-1>
@@ -907,6 +890,28 @@ alight GPK-52 with correct magnetic heading
    <channel type="int">6</channel>
    <regime type="int">1</regime> <!-- 0=SP-50, 1=ILS -->
   </SP-50>
+
+ <animations>
+  <gear type="double">1.0</gear>
+  <gear-bigdoors type="double">0.0</gear-bigdoors>
+  <gear-smalldoors type="double">1.0</gear-smalldoors>
+  <gear-lever type="double">0.0</gear-lever>
+  <nose type="double">1.0</nose>
+ </animations>
+
+  <gear>
+    <steer_mode type="double">2.0</steer_mode>
+  </gear>
+
+  <instrumentation>
+    <idle-lock>
+      <idle-lock>0.0</idle-lock>
+    </idle-lock>
+    <prop-lock>
+      <prop-lock-left type="bool">false</prop-lock-left>
+      <prop-lock-right type="bool">false</prop-lock-right>
+    </prop-lock>
+  </instrumentation>
 
 </an24>
 

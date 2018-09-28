@@ -3,6 +3,10 @@
 <PropertyList>
  <path>cockpit.ac</path>
 
+  <model>
+   <path>Aircraft/Generic/marker.xml</path>
+  </model>
+
 <!--Cockpit animations-->
 
  <effect>
@@ -30,7 +34,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>/controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -95,7 +99,7 @@
   <object-name>radio_press_me_l</object-name>
   <object-name>spu_base_l</object-name>
   <object-name>spu_press_me_l</object-name>
-  <property>controls/flight/aileron</property>
+  <property>/controls/flight/aileron</property>
   <factor>90.0</factor>
   <offset-deg>0.0</offset-deg>
   <center>
@@ -117,7 +121,7 @@
   <object-name>radio_press_me_l</object-name>
   <object-name>spu_base_l</object-name>
   <object-name>spu_press_me_l</object-name>
-  <property>controls/flight/elevator</property>
+  <property>/controls/flight/elevator</property>
   <factor>0.08</factor>
   <offset-deg>0.0</offset-deg>
   <axis>
@@ -134,7 +138,7 @@
   <object-name>radio_press_me_r</object-name>
   <object-name>spu_base_r</object-name>
   <object-name>spu_press_me_r</object-name>
-  <property>controls/flight/aileron</property>
+  <property>/controls/flight/aileron</property>
   <factor>90.0</factor>
   <offset-deg>0.0</offset-deg>
   <center>
@@ -156,7 +160,7 @@
   <object-name>radio_press_me_r</object-name>
   <object-name>spu_base_r</object-name>
   <object-name>spu_press_me_r</object-name>
-  <property>controls/flight/elevator</property>
+  <property>/controls/flight/elevator</property>
   <factor>0.08</factor>
   <offset-deg>0.0</offset-deg>
   <axis>
@@ -306,7 +310,7 @@
 <animation>
   <type>rotate</type>
   <object-name>trimwheel</object-name>
-  <property>controls/flight/elevator-trim</property>
+  <property>/controls/flight/elevator-trim</property>
   <factor>2000.0</factor>
   <offset-deg>0.0</offset-deg>
   <center>
@@ -682,7 +686,7 @@
 <!-- *************************************** -->
 
 <model>
-  <name>PG-5k</name>
+  <name>PG4-2_fuel indication</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/PG4-2_mp/pg4-2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
@@ -724,7 +728,7 @@
   <path>Aircraft/an24b/Models/Interior/Instruments/RTMS-0.85-B1_mp/rtms_1.xml</path>
   <offsets>
     <x-m>2.088</x-m>
-    <y-m>-0.04722</y-m>
+    <y-m>-0.0472</y-m>
     <z-m>0.7669</z-m>
   </offsets>
 </model>
@@ -734,7 +738,7 @@
   <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
-    <y-m>-0.04722</y-m>
+    <y-m>-0.0472</y-m>
     <z-m>0.7669</z-m>
   </offsets>
 </model>

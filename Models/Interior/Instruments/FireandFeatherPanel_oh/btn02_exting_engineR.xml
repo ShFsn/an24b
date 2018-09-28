@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Button -->
+<!-- Release fire extinguishers in right engine -->
 
 <PropertyList>
  <path>../../shared/knobs_buttons/205k.ac</path>
@@ -15,26 +15,21 @@
     <binding>
      <condition>
      <equals>
-      <property>an24/animations/FireFeather/cover01</property>
+      <property>an24/FireFeather/cover_btn02</property>
       <value>1</value>
      </equals>
      </condition>
       <command>nasal</command>
       <script>
-        interpolate("an24/Start-Panel/timerapd", 30.0, 30.0, 0.0, 3.0 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/animations/Start-Panel/startai24-btn", 1.0, 0.1 );
+        setprop("an24/FireFeather/exting_engR", 1.0 );
+	interpolate("an24/FireFeather/btn_exting_engR", 1.0, 0.1 );
       </script>
     </binding>
       <mod-up>
 	<binding>
 	<command>nasal</command>
 	<script>
-	interpolate("an24/animations/Start-Panel/startai24-btn", 0.0, 0.1 );
+	interpolate("an24/FireFeather/btn_exting_engR", 0.0, 0.1 );
 	</script>
 	</binding>
       </mod-up>
@@ -44,7 +39,7 @@
 <animation>
   <type>translate</type>
   <object-name>press_me</object-name>
-  <property>an24/animations/Start-Panel/startai24-btn</property>
+  <property>an24/FireFeather/btn_exting_engR</property>
   <factor>0.005</factor>
   <axis>
     <x>0</x>

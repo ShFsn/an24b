@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Turnable switch bottom right -->
+<!-- Fire extinguishing and signaling main switch bottom right -->
 
 <PropertyList>
  <path>../../shared/switches/3ppntk.ac</path>
@@ -18,12 +18,12 @@
         interpolate("an24/FireFeather/main", 1.0, 0.1 );
       </script>
     </binding>
-    <binding>
+    <!--binding>
       <command>nasal</command>
       <script>
         interpolate("an24/FireFeather/sw_main", 1.0, 0.1 );
       </script>
-    </binding>
+    </binding-->
   </action>
  </animation>
 
@@ -38,14 +38,15 @@
       <command>nasal</command>
       <script>
         interpolate("an24/FireFeather/main", 0.0, 0.1 );
+        setprop("an24/FireFeather/mainresetdone", 1.0 );
       </script>
     </binding>
-    <binding>
+    <!--binding>
       <command>nasal</command>
       <script>
         interpolate("an24/FireFeather/sw_main", 0.0, 0.1 );
       </script>
-    </binding>
+    </binding-->
   </action>
  </animation>
 
@@ -60,21 +61,22 @@
       <command>nasal</command>
       <script>
         interpolate("an24/FireFeather/main", -1.0, 0.1 );
+        setprop("an24/FireFeather/mainresetdone", 1.0 );
       </script>
     </binding>
-    <binding>
+    <!--binding>
       <command>nasal</command>
       <script>
         interpolate("an24/FireFeather/sw_main", -1.0, 0.1 );
       </script>
-    </binding>
+    </binding-->
   </action>
  </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/FireFeather/sw_main</property>
+   <property>an24/FireFeather/main</property>
   <interpolation>
     <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>30.0</dep></entry>

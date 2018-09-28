@@ -11,7 +11,7 @@
    <red>1.0</red>
    <green>0.9</green>
    <blue>0.5</blue>
-   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   <factor-prop>/controls/lighting/overhead_instr</factor-prop>
   </emission>
  </animation>
 
@@ -155,12 +155,13 @@
    <red>1.0</red>
    <green>0.2</green>
    <blue>0.2</blue>
-   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   <factor-prop>/controls/lighting/overhead_instr</factor-prop>
   </emission>
  </animation>
 
+<!-- Main switch + lever lock -->
 <model>
- <path>sw_main.xml</path>
+ <path>sw_fire_main.xml</path>
   <offsets>
     <x-m>-0.009</x-m>
     <y-m>0.2671</y-m>
@@ -168,9 +169,26 @@
   </offsets>
 </model>
 
+ <animation>
+   <type>rotate</type>
+   <object-name>lever-lock</object-name>
+   <property>an24/FireFeather/main</property>
+    <factor>90</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.2671</y-m>
+    <z-m>-0.0395</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation> 
+
 <!-- Left engine fire extinguishers -->
 <model>
- <path>btn01.xml</path>
+ <path>btn01_exting_engineL.xml</path>
   <offsets>
     <x-m>-0.0136</x-m>
     <y-m>0.0467</y-m>
@@ -189,11 +207,11 @@
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/animations/FireFeather/cover01" ) == 1.0 ){
-        interpolate("an24/animations/FireFeather/cover01", 0.0, 0.2 );
+        if( getprop("an24/FireFeather/cover_btn01" ) == 1.0 ){
+        interpolate("an24/FireFeather/cover_btn01", 0.0, 0.2 );
         }
         else {
-        interpolate("an24/animations/FireFeather/cover01", 1.0, 0.2 );
+        interpolate("an24/FireFeather/cover_btn01", 1.0, 0.2 );
         }
       </script>
     </binding>
@@ -203,7 +221,7 @@
  <animation>
    <type>rotate</type>
    <object-name>cover01</object-name>
-   <property>an24/animations/FireFeather/cover01</property>
+   <property>an24/FireFeather/cover_btn01</property>
    <factor>80</factor>
   <center>
     <x-m>0.0047</x-m>
@@ -219,7 +237,7 @@
 
 <!-- Right engine fire extinguishers -->
 <model>
- <path>btn02.xml</path>
+ <path>btn02_exting_engineR.xml</path>
   <offsets>
     <x-m>-0.0136</x-m>
     <y-m>0.0902</y-m>
@@ -238,11 +256,11 @@
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/animations/FireFeather/cover02" ) == 1.0 ){
-        interpolate("an24/animations/FireFeather/cover02", 0.0, 0.2 );
+        if( getprop("an24/FireFeather/cover_btn02" ) == 1.0 ){
+        interpolate("an24/FireFeather/cover_btn02", 0.0, 0.2 );
         }
         else {
-        interpolate("an24/animations/FireFeather/cover02", 1.0, 0.2 );
+        interpolate("an24/FireFeather/cover_btn02", 1.0, 0.2 );
         }
       </script>
     </binding>
@@ -252,7 +270,7 @@
  <animation>
    <type>rotate</type>
    <object-name>cover02</object-name>
-   <property>an24/animations/FireFeather/cover02</property>
+   <property>an24/FireFeather/cover_btn02</property>
    <factor>80</factor>
   <center>
     <x-m>0.0047</x-m>
@@ -268,7 +286,7 @@
 
 <!-- Surfaces and nacelles fire extinguishers, second group -->
 <model>
- <path>btn03.xml</path>
+ <path>btn03_exting_wings.xml</path>
   <offsets>
     <x-m>-0.0136</x-m>
     <y-m>0.218</y-m>
@@ -287,11 +305,11 @@
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/animations/FireFeather/cover03" ) == 1.0 ){
-        interpolate("an24/animations/FireFeather/cover03", 0.0, 0.2 );
+        if( getprop("an24/FireFeather/cover_btn03" ) == 1.0 ){
+        interpolate("an24/FireFeather/cover_btn03", 0.0, 0.2 );
         }
         else {
-        interpolate("an24/animations/FireFeather/cover03", 1.0, 0.2 );
+        interpolate("an24/FireFeather/cover_btn03", 1.0, 0.2 );
         }
       </script>
     </binding>
@@ -301,7 +319,7 @@
  <animation>
    <type>rotate</type>
    <object-name>cover03</object-name>
-   <property>an24/animations/FireFeather/cover03</property>
+   <property>an24/FireFeather/cover_btn03</property>
    <factor>80</factor>
   <center>
     <x-m>0.0047</x-m>
@@ -314,7 +332,6 @@
     <z>0</z>
   </axis>
  </animation>
-
 
 <!-- -->
 
