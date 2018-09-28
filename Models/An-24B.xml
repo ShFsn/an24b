@@ -11,6 +11,22 @@
       <z-m>0</z-m>
     </offsets>
 
+  <nasal>
+    <load><![CDATA[
+# Receive generic properties sent by the remote An-24b and alias them to properties used in animations.
+# The properties used in animations are all under /ai/models/multiplayer[*]/, which is the root of the
+# property tree of the remote An-24b and, represented below by cmdarg().
+var rplayer = cmdarg();
+rplayer.getNode("an24/animations/nose", 1).
+alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
+rplayer.getNode("an24/animations/gear", 1).
+alias(rplayer.getNode("sim/multiplay/generic/float[1]"));
+rplayer.getNode("an24/animations/gear-smalldoors", 1).
+alias(rplayer.getNode("sim/multiplay/generic/float[2]"));
+rplayer.getNode("an24/animations/gear-bigdoors", 1).
+alias(rplayer.getNode("sim/multiplay/generic/float[3]"));
+    ]]></load>
+  </nasal>
 <effect>
    <inherits-from>Effects/model-transparent</inherits-from>
    <object-name>paxwindows</object-name>
@@ -153,9 +169,11 @@
 <animation>
   <type>rotate</type>
   <object-name>aileronL</object-name>  
-  <property>fdm/jsbsim/fcs/left-aileron-pos-deg</property>
-  <factor>1.0</factor>
-  <offset-deg>0.0</offset-deg>
+  <property>surface-positions/left-aileron-pos-norm</property>
+  <interpolation>
+    <entry><ind>-1</ind><dep>-24</dep></entry> <!-- matches the -0.419 radians in the FDM -->
+    <entry><ind> 1</ind><dep> 16</dep></entry> <!-- matches the 0.279 radians in the FDM -->
+  </interpolation>
   <axis>
     <x1-m>10.7169</x1-m>
     <y1-m>-14.4454</y1-m>
@@ -169,9 +187,11 @@
 <animation>
   <type>rotate</type>
   <object-name>aileronR</object-name>  
-  <property>fdm/jsbsim/fcs/right-aileron-pos-deg</property>
-  <factor>1.0</factor>
-  <offset-deg>0.0</offset-deg>
+  <property>surface-positions/right-aileron-pos-norm</property>
+  <interpolation>
+    <entry><ind>-1</ind><dep>-24</dep></entry>
+    <entry><ind> 1</ind><dep> 16</dep></entry>
+  </interpolation>
   <axis>
     <x1-m>10.7169</x1-m>
     <y1-m>14.4454</y1-m>
@@ -186,8 +206,8 @@
 <animation>
   <type>rotate</type>
   <object-name>rudder</object-name>  
-  <property>fdm/jsbsim/fcs/rudder-pos-deg</property> <!-- <property>controls/flight/rudder</property> -->
-  <factor>-1.0</factor> <!-- 35 -->
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>25</factor> <!-- matches the 0.436 radians in the FDM -->
   <offset-deg>0.0</offset-deg>
   <axis>
     <x1-m>21.7706</x1-m>

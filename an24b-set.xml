@@ -42,7 +42,7 @@
      <name>Adrian</name>
      <email>euer.maerchenprinz@arcor.de</email>
    </maintainer>
-  </maintainers >
+  </maintainers>
 
   <tags>
    <tag>passenger</tag>
@@ -97,6 +97,15 @@
    <path>Aircraft/an24b/Models/An-24B.xml</path>
    <fallback-model-index type="int">153</fallback-model-index>
   </model>
+
+  <multiplay>
+    <generic>
+      <float n="0" alias="/an24/animations/nose"/>
+      <float n="1" alias="/an24/animations/gear"/>
+      <float n="2" alias="/an24/animations/gear-smalldoors"/>
+      <float n="3" alias="/an24/animations/gear-bigdoors"/>
+    </generic>
+  </multiplay>
 
   <status>early production</status>
 
@@ -351,11 +360,11 @@ alight GPK-52 with correct magnetic heading
 <engines>
   <engine n="0">
     <running type="bool">false</running>
-    <rpm type="double" alias="/engines/engine[0]/thruster/rpm"/> <!-- transmitter over mp and used in animations -->
+    <rpm type="double" alias="/engines/engine[0]/thruster/rpm"/> <!-- transmitted over mp and used in animations -->
   </engine>
   <engine n="1">
     <running type="bool">false</running>
-    <rpm type="double" alias="/engines/engine[1]/thruster/rpm"/> <!-- transmitter over mp and used in animations -->
+    <rpm type="double" alias="/engines/engine[1]/thruster/rpm"/> <!-- transmitted over mp and used in animations -->
   </engine>
 </engines>
 
