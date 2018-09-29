@@ -3,18 +3,21 @@
 <!-- Gear lever lock on middle console -->
 
 <PropertyList>
- <path>gear-lever-lock.ac</path>
+  <path>gear-lever-lock.ac</path>
 
- <animation>
-   <type>rotate</type>
-   <object-name>gear-lever-lock</object-name>
-   <property>an24/animations/gear-lever</property>
-    <factor>90</factor>
-  <axis>
-    <x>0.0</x>
-    <y>0.0</y>
-    <z>-1.0</z>
-  </axis>
- </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>gear-lever-lock</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-90</dep></entry>
+      <entry><ind>1</ind><dep> 90</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1.0</z>
+    </axis>
+  </animation>
 
 </PropertyList>

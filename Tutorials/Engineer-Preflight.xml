@@ -357,7 +357,7 @@
     <exit>
       <condition>
        <equals>
-        <property>an24/animations/gear-lever</property>
+        <property>gear/gear[0]/position-norm</property>
 	<value>0.0</value>
        </equals>
       </condition>

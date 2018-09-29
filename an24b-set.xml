@@ -101,9 +101,6 @@
   <multiplay>
     <generic>
       <float n="0" alias="/an24/animations/nose"/>
-      <float n="1" alias="/an24/animations/gear"/>
-      <float n="2" alias="/an24/animations/gear-smalldoors"/>
-      <float n="3" alias="/an24/animations/gear-bigdoors"/>
     </generic>
   </multiplay>
 
@@ -481,40 +478,6 @@ alight GPK-52 with correct magnetic heading
           </binding>
         </mod-up>
       </key>
-
-<!-- For gear animation only -->
-
-     <key n="103">
-      <name>g</name>
-      <binding>
-       <command>nasal</command>
-       <script>
-	controls.gearDown(-1);
-	if (getprop("an24/animations/gear") == 1.0 ) {
-        interpolate("an24/animations/gear-lever", -1.0, 0.2, -1.0, 5.0, 0.0, 0.2 );
-	interpolate("an24/animations/gear", 1.0, 0.5, 0.0, 5.0 );
-	interpolate("an24/animations/gear-bigdoors", 1.0, 0.8, 1.0, 4.0, 0.0, 0.8 );
-	interpolate("an24/animations/gear-smalldoors", 1.0, 5.5, 0.0, 0.4 );
-	}
-       </script>
-      </binding>
-     </key>
-
-     <key n="71">
-      <name>G</name>
-      <binding>
-       <command>nasal</command>
-       <script>
-	controls.gearDown(1);
-	if (getprop("an24/animations/gear") == 0.0 ) {
-	interpolate("an24/animations/gear-lever", 1.0, 0.2, 1.0, 5.0, 0.0, 0.2 );
-	interpolate("an24/animations/gear", 0.0, 0.5, 1.0, 5.0 );
-	interpolate("an24/animations/gear-bigdoors", 1.0, 0.8, 1.0, 4.0, 0.0, 0.8 );
-	interpolate("an24/animations/gear-smalldoors", 1.0, 0.5 );
-	}
-       </script>
-      </binding>
-     </key>
 
       <key n="100">
       <name>d</name>
@@ -901,10 +864,6 @@ alight GPK-52 with correct magnetic heading
   </SP-50>
 
  <animations>
-  <gear type="double">1.0</gear>
-  <gear-bigdoors type="double">0.0</gear-bigdoors>
-  <gear-smalldoors type="double">1.0</gear-smalldoors>
-  <gear-lever type="double">0.0</gear-lever>
   <nose type="double">1.0</nose>
  </animations>
 
