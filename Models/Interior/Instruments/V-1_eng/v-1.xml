@@ -8,7 +8,7 @@
  <animation>
    <type>material</type>
    <object-name>housing</object-name>
-   <object-name>needle</object-name>
+   <object-name>v-1_needle</object-name>
    <emission>
      <red>1.0</red>
      <green>0.7</green>
@@ -17,21 +17,66 @@
    </emission>
  </animation>
 
-<!--animation>
+<animation>
   <type>rotate</type>
-  <object-name>needle_1</object-name>
-  <property>fdm/jsbsim/propulsion/engine[0]/propeller-rpm</property>
-  <interpolation>
-    <entry><ind>	0.0</ind>	<dep>	46.9</dep></entry>
-    <entry><ind>       1245</ind>	<dep>  360.0</dep></entry>
-    <entry><ind>       1370</ind>	<dep>  391.3</dep></entry>
-  </interpolation>
+  <object-name>v-1_needle</object-name>
+  <expression>
+    <table>
+      <mod>
+      <sum>
+       <product>
+        <property>an24/Electrical_Panel/v-1_ar1</property>
+        <property>an24/Electrics/DC_AUX_ShRAP500a_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_ar2</property>
+        <property>an24/Electrics/DC_AUX_ShRAP500b_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_akk1</property>
+        <property>an24/Electrics/DC_Batt_12SAM1_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_akk2</property>
+        <property>an24/Electrics/DC_Batt_12SAM2_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_gs-24</property>
+        <property>an24/Electrics/DC_Gen_GS-24_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_stg18l</property>
+        <property>an24/Electrics/DC_Gen_18TMOl_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_stg18r</property>
+        <property>an24/Electrics/DC_Gen_18TMOr_V</property>
+       </product>
+       <!--product>
+        <property>an24/Electrical_Panel/v-1_tsrul</property>
+        <property>an24/Electrics/aerodrome_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_tsrur</property>
+        <property>an24/Electrics/aerodrome_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/v-1_emerg</property>
+        <property>an24/Electrics/aerodrome_V</property>
+       </product-->
+      </sum>
+        <value>120.0</value>
+      </mod>
+    <entry><ind>  0.0</ind>	<dep>-120</dep></entry>
+    <entry><ind> 30.0</ind>	<dep>120</dep></entry>
+    </table>
+  </expression>
   <axis>
     <x>-1.0</x>
     <y>0.0</y>
     <z>0.0</z>
   </axis>
-</animation-->
+</animation>
 
 <!-- TEXT OSG -->
 

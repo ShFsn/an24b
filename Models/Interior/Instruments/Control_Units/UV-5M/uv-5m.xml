@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Radar Alt ON/OFF, "Height" warning lamp -->
+<!-- Radar Alt ON/OFF, "Height" warning lamps -->
 
 <PropertyList>
 
@@ -26,8 +26,8 @@
  <path>rp_wl_uv-5m.xml</path>
   <offsets>
     <x-m>2.1</x-m>
-    <y-m>0.69</y-m>
-    <z-m>0.94</z-m>
+    <y-m>0.6733</y-m>
+    <z-m>0.9641</z-m>
   </offsets>
 </model>
 

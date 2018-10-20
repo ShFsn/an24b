@@ -318,6 +318,89 @@
   </offsets>
 </model>
 
+<!-- STG-18TMO Voltage Regulators VS-25B -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>stg-18l_voltreg</object-name>
+   <property>an24/Electrical_Panel/stg-18l_voltreg</property>
+   <factor>-16</factor>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0781</y-m>
+    <z-m>-0.1256</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Electrical_Panel/stg-18l_voltreg</property>
+      <factor>-0.2</factor>
+      <min>-10</min>
+      <max>10</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>stg-18r_voltreg</object-name>
+   <property>an24/Electrical_Panel/stg-18r_voltreg</property>
+   <factor>-16</factor>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0194</y-m>
+    <z-m>-0.1256</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Electrical_Panel/stg-18r_voltreg</property>
+      <factor>-0.2</factor>
+      <min>-10</min>
+      <max>10</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>gs-24_voltreg</object-name>
+   <property>an24/Electrical_Panel/gs-24_voltreg</property>
+   <factor>-16</factor>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0458</y-m>
+    <z-m>-0.1256</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Electrical_Panel/gs-24_voltreg</property>
+      <factor>-0.4</factor>
+      <min>-20</min>
+      <max>20</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
 <!-- Include AC-Generators GO-16 -->
 
 <model>

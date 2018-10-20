@@ -30,6 +30,237 @@
       <max>10</max>                
       <wrap>false</wrap>
      </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>0</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>1</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>2</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>3</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>4</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>5</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>6</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>7</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>8</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>9</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 0.0, 0.7 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/dc_ind_source</property>
+       <value>10</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/v-1_ar1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_ar2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_akk1", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_akk2", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_gs-24", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_stg18r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrul", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/v-1_tsrur", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/v-1_emerg", 1.0, 0.7 );
+       </script>
+     </binding>
     </action>
  </animation>
 

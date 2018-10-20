@@ -38,6 +38,35 @@
   </offsets>
 </model>
 
+<!-- Right panel, center -->
+
+<model>
+ <path>rp_sw_rio-signalisation.xml</path>
+  <offsets>
+    <x-m>2.0965</x-m>
+    <y-m>0.6741</y-m>
+    <z-m>0.7313</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>rp_sw_vna-heat_l.xml</path>
+  <offsets>
+    <x-m>2.0965</x-m>
+    <y-m>0.7082</y-m>
+    <z-m>0.7191</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>rp_sw_vna-heat_r.xml</path>
+  <offsets>
+    <x-m>2.0965</x-m>
+    <y-m>0.7401</y-m>
+    <z-m>0.7191</z-m>
+  </offsets>
+</model>
+
 
 <!-- 3 Ice signalisation lamps, red -->
 

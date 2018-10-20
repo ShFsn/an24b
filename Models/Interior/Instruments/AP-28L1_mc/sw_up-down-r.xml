@@ -15,7 +15,7 @@
       <command>nasal</command>
       <script>
         interpolate("an24/AP-28l1/switches/up-down-r", 1.0, 0.1 );
-        setprop("/an24/AP-28l1/internal/kv", 0);
+        setprop("an24/AP-28l1/internal/kv", 0);
       </script>
     </binding>
     <mod-up>
@@ -53,7 +53,7 @@
       <command>nasal</command>
       <script>
         interpolate("an24/AP-28l1/switches/up-down-r", -1, 0.1 );
-        setprop("/an24/AP-28l1/internal/kv", 0);
+        setprop("an24/AP-28l1/internal/kv", 0);
       </script>
     </binding>
     <mod-up>

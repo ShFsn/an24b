@@ -1,9 +1,11 @@
 # sources
 setprop("an24/Electrics/DC_Gen_18TMOl_V", 0.0 );
 setprop("an24/Electrics/DC_Gen_18TMOr_V", 0.0 );
+setprop("an24/Electrics/DC_Gen_GS-24_V", 0.0 );
 setprop("an24/Electrics/AC_Gen_GO16l_V", 0.0 );
 setprop("an24/Electrics/AC_Gen_GO16r_V", 0.0 );
-setprop("an24/Electrics/DC_Batt_12SAM_V", 24.8 );
+setprop("an24/Electrics/DC_Batt_12SAM1_V", 24.8 );
+setprop("an24/Electrics/DC_Batt_12SAM2_V", 24.8 );
 setprop("an24/Electrics/DC_AUX_ShRAP500a_V", 0.0 ); # ?V DC AUX
 setprop("an24/Electrics/DC_AUX_ShRAP500b_V", 0.0 ); 
 setprop("an24/Electrics/AC_AUX_ShRAP200_V", 0.0 ); # 115V AC AUX
@@ -16,24 +18,63 @@ setprop("an24/Electrics/emerg-bus_V", 102.0 );
 
 setprop("an24/Electrical_Panel/go-16l_voltreg", 0.0 );
 setprop("an24/Electrical_Panel/go-16r_voltreg", 0.0 );
+setprop("an24/Electrical_Panel/stg-18l_voltreg", 0.0 );
+setprop("an24/Electrical_Panel/stg-18r_voltreg", 0.0 );
+setprop("an24/Electrical_Panel/gs-24_voltreg", 0.0 );
 
 setprop("engines/engine[0]/n1", 0.0 );
 setprop("engines/engine[1]/n1", 0.0 );
+setprop("engines/engine[2]/n1", 0.0 );
 
-## Battery discharge
-var batt_discharge = maketimer(20, func(){
+# DC Sources
+## Battery discharge (totally simplified!)
+var batt1_discharge = maketimer(20, func(){
 	var speedup = getprop("/sim/speed-up");
-	var voltage = getprop("an24/Electrics/DC_Batt_12SAM_V");
-	var charging = getprop("an24/Electrics/DC_Batt_12SAM_V");
+	var voltage = getprop("an24/Electrics/DC_Batt_12SAM1_V");
 	if ( voltage > 0 ) {
 	var voltage = voltage - (speedup * 0.001);
-	setprop("an24/Electrics/DC_Batt_12SAM_V", voltage);
+	setprop("an24/Electrics/DC_Batt_12SAM1_V", voltage);
 	}
 	else {
 	batt_discharge.stop();
 	}
 });
-batt_discharge.start();
+batt1_discharge.start();
+
+var batt2_discharge = maketimer(20, func(){
+	var speedup = getprop("/sim/speed-up");
+	var voltage = getprop("an24/Electrics/DC_Batt_12SAM2_V");
+	if ( voltage > 0 ) {
+	var voltage = voltage - (speedup * 0.001);
+	setprop("an24/Electrics/DC_Batt_12SAM2_V", voltage);
+	}
+	else {
+	batt_discharge.stop();
+	}
+});
+batt2_discharge.start();
+
+## STG-18 DC Generators
+var stg18l = maketimer(1.0, func(){
+	var enginel_n1 = getprop("engines/engine[0]/n1");
+	var vs25l = getprop("an24/Electrical_Panel/stg-18l_voltreg");
+	interpolate("an24/Electrics/DC_Gen_18TMOl_V", 0.275 * enginel_n1 + vs25l, 1.0 );
+});
+stg18l.start();
+
+var stg18r = maketimer(1.0, func(){
+	var enginer_n1 = getprop("engines/engine[1]/n1");
+	var vs25r = getprop("an24/Electrical_Panel/stg-18r_voltreg");
+	interpolate("an24/Electrics/DC_Gen_18TMOr_V", 0.275 * enginer_n1 + vs25r, 1.0 );
+});
+stg18r.start();
+
+var gs24 = maketimer(1.0, func(){
+	var gs24_n1 = getprop("engines/engine[2]/n1");
+	var vs25gs = getprop("an24/Electrical_Panel/gs-24_voltreg");
+	interpolate("an24/Electrics/DC_Gen_GS-24_V", 0.4 * gs24_n1 + vs25gs, 1.0 );
+});
+gs24.start();
 
 ## GO-16 AC Generators
 var go16l = maketimer(1.0, func(){
@@ -49,19 +90,3 @@ var go16r = maketimer(1.0, func(){
 	interpolate("an24/Electrics/AC_Gen_GO16R_V", 1.2 * enginer_n1 + vs33r, 1.0 );
 });
 go16r.start();
-
-#var go16l_ind = func {
-#	if ( getprop("an24/Electrical_Panel/knob_ac_ind_sel") == 4 ) {
-#	interpolate("an24/Electrical_Panel/vf-150", getprop("an24/Electrics/AC_Gen_GO16l_V") * getprop("an24/Electrical_Panel/ac_ind_anim"), 1.6 );
-#	}
-#}
-#setlistener("an24/Electrical_Panel/knob_ac_ind_sel", go16l_ind, 0, 0);
-#var go16check = {
-#	if ( enginel_n1 > 50 ) {	
-#	var enginel_n1 = getprop("engines/engine[0]/n1");
-#	go16.start();
-#	else {
-#	go16.stop();
-#	}
-
-#setlistener("an24/Electrical_Panel/sw_stgl_coupled", bus_36V_AC_V);

@@ -1050,16 +1050,6 @@
 </model>
 
 <model>
-  <name>TV-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TV-1_mprp/rptv-1.xml</path>
-  <offsets>
-    <x-m>2.096</x-m>
-    <y-m>0.644</y-m>
-    <z-m>0.7339</z-m>
-  </offsets>
-</model>
-
-<model>
   <name>ZK-2</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/ZK_mprpnav/rp_ush.xml</path>
   <offsets>
@@ -1253,6 +1243,17 @@
     <x-m>2.2698</x-m>
     <y-m>0.8741</y-m>
     <z-m>0.503</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>ARD-207</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/ARD-207_rc/ard-207.xml</path>
+  <offsets>
+    <heading-deg>10.5</heading-deg>
+    <x-m>2.77</x-m>
+    <y-m>0.945</y-m>
+    <z-m>0.47</z-m>
   </offsets>
 </model>
 
