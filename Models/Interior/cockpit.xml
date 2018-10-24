@@ -1134,7 +1134,7 @@
 
 <model>
   <name>Engine_start_panel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Engine_start_panel_lc/engine_start_panel.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/Engine_start_panel_lc/engine_start_panel.xml</path>
   <offsets>
     <x-m>2.44</x-m>
     <y-m>-0.83</y-m>
@@ -1540,7 +1540,7 @@
 
 <model>
   <name>FireandFeather</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/FireandFeatherPanel_oh/fireandfeather.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/FireandFeatherPanel_oh/fireandfeather.xml</path>
   <offsets>
     <x-m>2.195</x-m>
     <y-m>0.0</y-m>

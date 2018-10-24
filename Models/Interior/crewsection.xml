@@ -30,46 +30,6 @@
   <object-name>fuses</object-name>
  </animation>
 
-
-<animation>
-  <type>pick</type>
-  <object-name>RK_hood</object-name>
-  <visible>true</visible>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        if( getprop("an24/animations/RK_hood" ) == 1.0 ){
-        interpolate("an24/animations/RK_hood", 0.0, 0.5 );
-        }
-        else {
-        interpolate("an24/animations/RK_hood", 1.0, 0.5 );
-        }
-      </script>
-    </binding>
-  </action>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>RK_hood</object-name>
-  <property>an24/animations/RK_hood</property>
-  <factor>76.0</factor>
-  <center>
-    <x-m>0.0</x-m>
-    <y-m>0.968</y-m>
-    <z-m>0.015</z-m>    
-  </center>
-  <axis>
-    <x>1</x>
-    <y>0</y>
-    <z>0</z>    
-  </axis>
-</animation>
-
-
 <!-- Navigator's Panel -->
 
 <model>
@@ -210,7 +170,7 @@
 
 <model>
   <name>FireTestPanel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/FireTestPanel_nav/firetestpanel.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/FireTestPanel_nav/firetestpanel.xml</path>
   <offsets>
     <x-m>3.238</x-m>
     <y-m>-0.71</y-m>
@@ -268,7 +228,7 @@
 
 <model>
   <name>115_36VAC_Panel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/115_36VAC_panel_eng/115_36vac.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/115_36VAC_panel_eng/115_36vac.xml</path>
   <offsets>
     <x-m>3.768</x-m>
     <y-m>1.057</y-m>
@@ -279,7 +239,7 @@
 
 <model>
   <name>Electrical_Panel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Electrical_Panel_eng/electrical_panel.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/Electrical_Panel_eng/electrical_panel.xml</path>
   <offsets>
     <x-m>3.899</x-m>
     <y-m>0.4698</y-m>
@@ -290,7 +250,7 @@
 
 <model>
   <name>CircuitBreakerPanel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/CircuitBreakerPanel_eng/circuitbreakerpanel.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/CircuitBreakerPanel_eng/circuitbreakerpanel.xml</path>
   <offsets>
     <x-m>3.334</x-m>
     <y-m>0.886</y-m>
@@ -298,6 +258,29 @@
     <heading-deg>4</heading-deg>
     <roll-deg>32</roll-deg>
     <pitch-deg>-2</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>RKDIM</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/RK_DIM_eng/rkdim.xml</path>
+  <offsets>
+    <x-m>3.306</x-m>
+    <y-m>0.6956</y-m>
+    <z-m>1.4319</z-m>
+    <heading-deg>1.6</heading-deg>
+    <roll-deg>61.8</roll-deg>
+    <pitch-deg>-2</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>RKCrewCabin</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/RKCrewCabin_eng/rkcrewcabin.xml</path>
+  <offsets>
+    <x-m>3.193</x-m>
+    <y-m>1.08</y-m>
+    <z-m>0.1644</z-m>
   </offsets>
 </model>
 

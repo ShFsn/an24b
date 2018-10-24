@@ -10,71 +10,9 @@ ASI - helijah
 Artwork - Orvil
 Some 3D instruments were taken from Tu-154B-2 by Yurik and Yak-40 by Specter.
 
-=====================================================================================
-QUICK STARTUP-GUIDE (to be improved (with pictures (and such (like, as pdf))))
-
-- On AZS(circuit-breaker)-Panel (big panel with MANY switches at right side of crewsection):
-  - Close ALL circuit-breakers (best by clicking the "all-on"-clickspots to the right of each row)
-
-- On Fuel-Control-Panel (extra-panel on pilots' middle panel):
-  - Turn on all switches at the bottom, except middle one (cross-feed, optional)
-
-- On Left Horizontal Console:
-  - Turn up TG-16 APU cut-off switch next to green and red lamps
-
-- On Engine-Start-Panel (sunk panel on pilot's left console):
-  - Press TG-16 APU Start button, wait for TG-16 run-up, indicated by green lamp and tachometer
-  - Put Engine select switch to "Left" and Press AI-24 Engine Start button
-    - left engine should spool up and start
-  - Put Engine select switch to "Right" and Press AI-24 Engine Start button
-    - guess what's supposed to happen!
-  - Press Discontinue TG-16 Start, APU stops
-
-- On Left Horizontal Console:
-  - Turn down cut-off switch next to green and red lamps
-
-- Below pilot's left panel:
-  - Put on switches "AGD", "EUP", "CGV"; watch left AGD (AI) and EUP spin up
-
-- Below F/O's right panel:
-  - Put on switches "AGD", "GIK", "GPK"; watch right AGD (AI) and compasses spin up
-
-- On pilot's left panel:
-  - Press GIK Fast Alignment button below AI until indicator of KPPM (HSI) doesn't move anymore
-
-- On F/O's right console:
-  - Look out for a big compass rose and a device with two knobs above it
-  - Set latitude on right knob and use left knob to turn big compass rose to heading indicated by KPPM
-
-- On middle console:
-  - Put on second switch of AP-control, wait for orange light ("AP ready")
-
-- Below pilot's left panel: 
-  - Left 3-way switch: choose appropriate steering setting (up: taxi, middle: OFF, down: takeoff/landing) 
-
-- In GUI "an24b":
-  - Select "Realism setting" and/or "Tiller steering"
-
 =================================
 QUICK IMPORTANT INSTRUMENTS GUIDE
-
-- SPU-7 Communication device:
-  - Located at all four workplaces; what and who you listen to on your headphones, who you speak to on your mic (workplace specific)
-  - "General"-volume knob adjusts volume of SELECTED "SPU"- (=Intercomm) or "Radio"- (=selected source) mode
-  - "Listen"-volume knob adjusts volume of NOT selected "SPU"- or "Radio"-mode
-  - set desired source on central knob:
-    - "UKR" and "DR": R-802 I* and R-802 II*; VHF
-    - "SR" and "KR": US-8k*, R-836*; HF/VHF
-    - "RK1" and "RK2": Radiocompass ARK-11 I*, Radiocompass ARK-11 II*/RSBN
-* Current configuration 
-
-- R-802 VHF
-  - Located middle overhead left (I) and right (II) side; I is memory device, II is frequency select device
-    - Turn one or both R-802 power switches (overhead) to position "ON"
-    - Turn up volume knob
-    - Set desired frequency on II, store this frequency in I by clicking screw in I -> frequency will be stored in I at currently set channel*
-    - Set channel on I, click screw on II -> II will tune to currently selected channel on I*
-* Not as in RL; in RL, memory of I is "programmed" preflight and has no influence to II nor is influenced by II
+(look at QuickStartUpGuide.pdf too)
     
 - ARK-11 ADF:
   - I and II located at Navigator's workplace, second I on overhead; like R-802 with memory device (buttons 1-9)
