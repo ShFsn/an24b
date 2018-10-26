@@ -619,31 +619,11 @@
 			</condition>
 		</enable>
 		<input>
-			<condition>
-				<not>
-					<equals>
-						<property>an24/AP-28l1/switches/up-down-r</property>
-						<value>0</value>
-					</equals>
-				</not>
-			</condition>
 			<expression>
 				<difference>
 					<property>/an24/AP-28l1/internal/target-pitch</property>
 					<product>
-						<property>an24/AP-28l1/switches/up-down-r</property>
-						<value>0.7</value>
-						<property>/fdm/jsbsim/simulation/dt</property>
-					</product>
-				</difference>
-			</expression>
-		</input>
-		<input>
-			<expression>
-				<difference>
-					<property>/an24/AP-28l1/internal/target-pitch</property>
-					<product>
-						<property>an24/AP-28l1/switches/up-down-l</property>
+						<property>an24/AP-28l1/internal/pitch-switch</property>
 						<value>0.7</value>
 						<property>/fdm/jsbsim/simulation/dt</property>
 					</product>

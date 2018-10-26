@@ -213,8 +213,16 @@
 	    <desc>Release Idle Lock (press for release)</desc>
 	   </key>
    	   <key>
-	    <name>Del</name>
+	    <name>F2</name>
 	    <desc>Toggles Propeller Pitch Lock (UPOR VINTA)</desc>
+	   </key>
+   	   <key>
+	    <name>F3</name>
+	    <desc>AP Target Pitch UP</desc>
+	   </key>
+   	   <key>
+	    <name>F4</name>
+	    <desc>AP Target Pitch Down</desc>
 	   </key>
    	   <key>
 	    <name>-</name>
@@ -265,13 +273,8 @@
 	    <desc>200 km/h (flaps 38)</desc>
 	   </key>
     <text>
-Quick start guide:
-- turn on all switches at the bottom of the panels
-- press and hold big round button near yoke until heading indicator move
-(this is quick alignment of magnetic compass)
-- switch to co-pilot's view (key 2), turn your head to the right and
-alight GPK-52 with correct magnetic heading
-- use flaps 15 for takeoff or 5 in case of long and solid runway
+For a quick start guide, please read section 1 of the
+QuickStartUpGuide.pdf
     </text>
   </help>
 
@@ -377,6 +380,23 @@ alight GPK-52 with correct magnetic heading
        </binding>
      </key>
 
+     <key n="257">
+       <name>F1</name>
+       <desc>Idle lock</desc>
+       <binding>
+          <command>property-assign</command>
+          <property>/an24/instrumentation/idle-lock/idle-lock</property>
+          <value>1</value>
+       </binding>
+       <mod-up>
+         <binding>
+           <command>property-assign</command>
+           <property>/an24/instrumentation/idle-lock/idle-lock</property>
+           <value>0</value>
+         </binding>            
+       </mod-up>
+     </key>
+
      <key n="258">
        <name>F2</name>
        <desc>Prop pitch lock</desc>
@@ -402,22 +422,51 @@ alight GPK-52 with correct magnetic heading
        </binding>
      </key>
 
-     <key n="257">
-       <name>F1</name>
-       <desc>Idle lock</desc>
+      <key n="259">
+      <name>F3</name>
+      <desc>AP Pitch UP</desc>
+      <repeatable>true</repeatable>
        <binding>
-          <command>property-assign</command>
-          <property>/an24/instrumentation/idle-lock/idle-lock</property>
-          <value>1</value>
+       <command>nasal</command>
+        <script>
+	if( getprop("an24/AP-28l1/internal/engaged" ) == 1.0 ){
+	interpolate("an24/AP-28l1/internal/pitch-switch", 1.0, 0.1 );
+	setprop("an24/AP-28l1/internal/kv", 0);
+	}
+        </script>
        </binding>
-       <mod-up>
-         <binding>
-           <command>property-assign</command>
-           <property>/an24/instrumentation/idle-lock/idle-lock</property>
-           <value>0</value>
-         </binding>            
-       </mod-up>
-     </key>
+      <mod-up>
+       <binding>
+       <command>nasal</command>
+        <script>
+	interpolate("an24/AP-28l1/internal/pitch-switch", 0.0, 0.1 );
+        </script>
+       </binding>
+      </mod-up>
+      </key>
+
+      <key n="260">
+      <name>F4</name>
+      <desc>AP Pitch Down</desc>
+      <repeatable>true</repeatable>
+       <binding>
+       <command>nasal</command>
+        <script>
+	if( getprop("an24/AP-28l1/internal/engaged" ) == 1.0 ){
+	interpolate("an24/AP-28l1/internal/pitch-switch", -1.0, 0.1 );
+	setprop("an24/AP-28l1/internal/kv", 0);
+	}
+        </script>
+       </binding>
+      <mod-up>
+       <binding>
+       <command>nasal</command>
+        <script>
+	interpolate("an24/AP-28l1/internal/pitch-switch", 0.0, 0.1 );
+        </script>
+       </binding>
+      </mod-up>
+      </key>
 
       <key n="45">
       <name>minus</name>
@@ -481,19 +530,19 @@ alight GPK-52 with correct magnetic heading
 
       <key n="100">
       <name>d</name>
-      <desc>AP (DIS-)CONNECT</desc>
+      <desc>AP (DIS-)ENGAGE</desc>
       <repeatable>false</repeatable>
        <binding>
        <command>nasal</command>
         <script>
-         if( getprop("an24/AP-28l1/internal/engaged" ) == 0.0 ){
-         instruments.engage_ap();
-         }
-         else {
-         setprop("an24/AP-28l1/internal/kv", 0.0 );
-         setprop("an24/AP-28l1/internal/horizon-mode", 0.0 );
-         setprop("an24/AP-28l1/internal/engaged", 0.0 );
-         }	
+	if( getprop("an24/AP-28l1/internal/engaged" ) == 0.0 ){
+	instruments.engage_ap();
+	}
+	else {
+	setprop("an24/AP-28l1/internal/kv", 0.0 );
+	setprop("an24/AP-28l1/internal/horizon-mode", 0.0 );
+	setprop("an24/AP-28l1/internal/engaged", 0.0 );
+	}
         </script>
        </binding>
       </key>
