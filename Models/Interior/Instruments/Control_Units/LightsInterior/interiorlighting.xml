@@ -74,9 +74,9 @@
  <path>knob_overhead_instr.xml</path>
   <offsets>
     <pitch-deg>79.5</pitch-deg>
-    <x-m>2.6</x-m>
+    <x-m>2.62</x-m>
     <y-m>-0.06</y-m>
-    <z-m>1.37</z-m>
+    <z-m>1.376</z-m>
   </offsets>
 </model>
 
@@ -84,9 +84,9 @@
  <path>knob_overhead_panel.xml</path>
   <offsets>
     <pitch-deg>79.5</pitch-deg>
-    <x-m>2.66</x-m>
+    <x-m>2.7</x-m>
     <y-m>-0.06</y-m>
-    <z-m>1.38</z-m>
+    <z-m>1.391</z-m>
   </offsets>
 </model>
 

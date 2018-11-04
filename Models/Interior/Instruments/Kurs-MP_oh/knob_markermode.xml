@@ -9,7 +9,7 @@
    <type>knob</type>
    <object-name>11p1n</object-name>
    <property>an24/Kurs-MP/markermode</property>
-   <factor>-16</factor>
+   <factor>-60</factor>
   <axis>
     <x>1.0</x>
     <y>0.0</y>
@@ -21,7 +21,7 @@
       <property>an24/Kurs-MP/markermode</property>
       <factor>-1</factor>
       <min>0</min>
-      <max>2</max>                
+      <max>3</max>                
       <wrap>false</wrap>
      </binding>
     </action>

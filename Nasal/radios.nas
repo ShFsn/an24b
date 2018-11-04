@@ -53,7 +53,6 @@ var addfreqs1 = func {
  setprop("/instrumentation/adf[0]/frequencies/selected-khz", finalfreq);
  setprop("/instrumentation/adf[2]/frequencies/selected-khz", finalfreq);
 }
-
  setlistener("an24/ARK-11/sub-band-khz-1", addfreqs1);
  setlistener("an24/ARK-11/fine-khz-1", addfreqs1);
 
@@ -90,7 +89,6 @@ var arkoutput1 = func {
 		setprop("an24/ARK-11/vol-1", volume_knob * getprop("an24/AZS/sw0512") * getprop("an24/AZS/sw0513") );
 		}
 }
-
  setlistener("an24/ARK-11/volumeknob-1", arkoutput1);
  setlistener("an24/ARK-11/volumeknob-oh", arkoutput1);
  setlistener("an24/ARK-11/panel_nav_oh", arkoutput1);
@@ -115,7 +113,6 @@ var addfreqs2 = func {
  setprop("/instrumentation/adf[1]/frequencies/selected-khz", finalfreq);
  setprop("/instrumentation/adf[3]/frequencies/selected-khz", finalfreq);
 }
-
  setlistener("an24/ARK-11/sub-band-khz-2", addfreqs2);
  setlistener("an24/ARK-11/fine-khz-2", addfreqs2);
 
@@ -145,7 +142,6 @@ var arkoutput2 = func {
 	setprop("an24/ARK-11/vol-2", volume_knob  * getprop("an24/AZS/sw0514") * getprop("an24/AZS/sw0515") );
 	}
 }
-
  setlistener("an24/ARK-11/volumeknob-2", arkoutput2);
  setlistener("an24/ARK-11/mode-2", arkoutput2);
  setlistener("/instrumentation/adf[1]/indicated-bearing-deg", arkoutput2);
@@ -174,7 +170,6 @@ var add802freqs = func {
  setprop("an24/R-802/finalfreq", final802freq);
  setprop("/instrumentation/comm[1]/frequencies/selected-mhz", final802freq);
 }
-
  setlistener("an24/R-802/dial100", add802freqs);
  setlistener("an24/R-802/dial10", add802freqs);
  setlistener("an24/R-802/dial1", add802freqs);
@@ -199,7 +194,6 @@ var curfreq = getprop("an24/R-802/finalfreq");
 setprop("an24/R-802/memory/num[" ~ channel ~ "]", curfreq);
 setprop("/instrumentation/comm[0]/frequencies/selected-mhz", curfreq );
 }
-
  setlistener("an24/R-802/memscrew", freqmem);
 
 #  R-802 Remember frequencies
@@ -212,7 +206,6 @@ interpolate("an24/R-802/dial1", (storedfreq - int(storedfreq)) * 10, 0.6 );
 setprop("an24/R-802/finalfreq", storedfreq);
 setprop("/instrumentation/comm[1]/frequencies/selected-mhz", storedfreq);
 }
-
  setlistener("an24/R-802/rememscrew", freqremem);
 
 #  R-802 Choose Channel
@@ -221,6 +214,27 @@ var channel = getprop("an24/R-802/channel");
 var storedfreq = getprop("an24/R-802/memory/num[" ~ channel ~ "]");
 setprop("/instrumentation/comm[0]/frequencies/selected-mhz", storedfreq );
 }
-
  setlistener("an24/R-802/channel", freqchoice);
  setlistener("an24/R-802/rememscrew", freqchoice);
+
+# Kurs-MP No.1
+var mp1freq = func {
+ var mhz1 = getprop("an24/Kurs-MP/mhz1");
+ var dec1 = getprop("an24/Kurs-MP/dec1");
+ var finalmp1freq = 108 + mhz1 + dec1;
+ setprop("/instrumentation/nav[0]/frequencies/selected-mhz", finalmp1freq);
+}
+ setlistener("an24/Kurs-MP/mhz1", mp1freq);
+ setlistener("an24/Kurs-MP/dec1", mp1freq);
+
+# Kurs-MP No.2
+var mp2freq = func {
+ var mhz2 = getprop("an24/Kurs-MP/mhz2");
+	if ( mhz2 == 10.0 ) mhz2 = 0.0;
+ var dec2 = getprop("an24/Kurs-MP/dec2");
+	if ( dec2 == 1.0 ) dec2 = 0.0;
+ var finalmp2freq = 108 + mhz2 + dec2;
+ setprop("/instrumentation/nav[1]/frequencies/selected-mhz", finalmp2freq);
+}
+ setlistener("an24/Kurs-MP/mhz2", mp2freq);
+ setlistener("an24/Kurs-MP/dec2", mp2freq);

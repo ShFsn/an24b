@@ -79,7 +79,7 @@
 
 <model>
   <name>ARK-Indicator-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/navark-ind-1.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/M5-2_navoh/navm5-2-1.xml</path>
   <offsets>
     <x-m>3.8141</x-m>
     <y-m>-0.747</y-m>
@@ -103,7 +103,7 @@
 
 <model>
   <name>ARK-Indicator-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/navark-ind-2.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/M5-2_navoh/navm5-2-2.xml</path>
   <offsets>
     <x-m>3.7324</x-m>
     <y-m>-0.747</y-m>

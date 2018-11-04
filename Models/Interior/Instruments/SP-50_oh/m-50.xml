@@ -68,6 +68,14 @@
       </script>
     </binding>
     </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Freq SP-50 %3.2fMHz</label>
+         <tooltip-id>sp-50_freq</tooltip-id>
+         <property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+       </binding>
+    </hovered>
  </animation>
 
  <animation>

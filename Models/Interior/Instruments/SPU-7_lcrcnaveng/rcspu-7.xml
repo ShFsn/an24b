@@ -116,7 +116,7 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/SPU-7/general_viewnr8</property>
-      <factor>-0.1</factor>
+      <factor>-0.05</factor>
       <min>0</min>
       <max>1</max>
       <wrap>false</wrap>
@@ -156,7 +156,7 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/SPU-7/listen_viewnr8</property>
-      <factor>-0.1</factor>
+      <factor>-0.05</factor>
       <min>0</min>
       <max>1</max>
       <wrap>false</wrap>

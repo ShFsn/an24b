@@ -8,7 +8,7 @@ var startup = func {
 
 		screen.log.write("AZS circuit-breaker panel", 1, 1, 1);
 		setprop("an24/RKCrew/sw01_batt1", 1.0 );
-		setprop("an24/RKCrew/sw01_batt2", 1.0 );
+		setprop("an24/RKCrew/sw02_batt2", 1.0 );
 		setprop("an24/AZS/sw0101", 1.0 );
 		setprop("an24/AZS/sw0102", 1.0 );
 		setprop("an24/AZS/sw0103", 1.0 );

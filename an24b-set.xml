@@ -758,6 +758,11 @@ QuickStartUpGuide.pdf
     <audio-btn type="bool">false</audio-btn>
     <volume type="double">0.0</volume>
   </marker-beacon>
+  <nav>
+   <frequencies>
+    <selected-mhz type="double">108.0</selected-mhz>
+   </frequencies>
+  </nav>
   <radar-altimeter>
     <serviceable type="bool">true</serviceable>
     <sw-on type="double">0.0</sw-on>
@@ -883,6 +888,13 @@ QuickStartUpGuide.pdf
   <sw0406 type="double">0</sw0406>
   <sw0407 type="double">0</sw0407>
  </FuelControl>
+
+ <Kurs-MP>
+  <mhz1 type="double">0.0</mhz1>
+  <dec1 type="double">0.0</dec1>
+  <mhz2 type="double">0.0</mhz2>
+  <dec2 type="double">0.0</dec2>
+ </Kurs-MP>
 
  <Pressure>
   <pitotvalve1 type="double">1.0</pitotvalve1>

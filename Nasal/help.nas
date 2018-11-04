@@ -1,26 +1,4 @@
-##
-    #############################################################################
-    #    Copyright 								#
-    #									   	#
-    #    (C) 2010 by Yurik V. Nikiforoff - FDM, 3d instruments, animations, 	#
-    #    systems and over.   							#
-    #		yurik@megasignal.com					   	#
-    #                                                                          	#
-    #    This program is free software; you can redistribute it and#or modify  	#
-    #    it under the terms of the GNU General Public License as published by  	#
-    #    the Free Software Foundation; either version 2 of the License, or     	#
-    #    (at your option) any later version.                                   	#
-    #                                                                          	#
-    #    This program is distributed in the hope that it will be useful,       	#
-    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
-    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
-    #    GNU General Public License for more details.                          	#
-    #                                                                          	#
-    #    You should have received a copy of the GNU General Public License     	#
-    #    along with this program; if not, write to the                         	#
-    #    Free Software Foundation, Inc.,                                       	#
-    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
-    #############################################################################
+
 
 var help_win = screen.window.new( 0, 0, 1, 3 );
 help_win.fg = [0,1,1,1];
@@ -74,15 +52,6 @@ var mass_info = func {
       help_win.write(sprintf("Total mass: %.0f kg, CAX: %.1f%%, Total fuel: %.0f kg, Vref: %.0f km/h", mass_kg, cax, fuel_kg, vref) );
    }
 }
-
-# Printing SP-50 channel/frequency
-var sp_50 = func {
-   var sp_freq = getprop("/instrumentation/nav/frequencies/selected-mhz");
-   help_win.write(sprintf("Frequency: %.2f MHz", sp_freq) );
-}
-
-setlistener( "/instrumentation/nav/frequencies/selected-mhz", sp_50 );
-
 
 var messenger = func{
 help_win.write(arg[0]);

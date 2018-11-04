@@ -60,7 +60,7 @@
   <object-name>gardine</object-name>
   <property>an24/animations/gardine</property>
    <center>
-   <x-m>2.055</x-m>
+   <x-m>0.0</x-m>
    <y-m>0.0</y-m>
    <z-m>1.3317</z-m>
   </center>
@@ -79,9 +79,9 @@
   <factor>200.0</factor>
   <offset-deg>25</offset-deg>
   <center>
-    <x-m>2.0468</x-m>
-    <y-m>-0.4788</y-m>
-    <z-m>1.3319</z-m>
+    <x-m>2.068</x-m>
+    <y-m>0.0</y-m>
+    <z-m>1.332</z-m>
   </center>
   <axis>
     <x>0</x>
@@ -166,6 +166,46 @@
   <axis>
     <x>-1</x>
     <y>0</y>
+    <z>0</z>    
+  </axis>
+</animation>
+
+<!-- Levers -->
+
+<animation>
+  <type>rotate</type>
+  <object-name>thrustleverL</object-name>
+  <object-name>reverseL</object-name>
+  <property>fdm/jsbsim/fcs/throttle-pos-norm[0]</property>
+  <factor>70.0</factor>
+  <offset-deg>-40.0</offset-deg>
+  <center>
+    <x-m>2.475</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.53</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>    
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>thrustleverR</object-name>
+  <object-name>reverseR</object-name>
+  <property>fdm/jsbsim/fcs/throttle-pos-norm[1]</property>
+  <factor>70.0</factor>
+  <offset-deg>-40.0</offset-deg>
+  <center>
+    <x-m>2.475</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.53</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
     <z>0</z>    
   </axis>
 </animation>
@@ -1345,7 +1385,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-ind.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/M5-2_navoh/ohm5-2.xml</path>
   <offsets>
     <x-m>2.804</x-m>
     <y-m>-0.2289</y-m>
@@ -1362,7 +1402,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-ind.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/M5-2_navoh/ohm5-2.xml</path>
   <offsets>
     <x-m>2.8166</x-m>
     <y-m>-0.2875</y-m>
@@ -1415,7 +1455,7 @@
   <offsets>
     <x-m>3.01</x-m>
     <y-m>-0.133</y-m>
-    <z-m>1.4486</z-m>
+    <z-m>1.4495</z-m>
     <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
@@ -1447,12 +1487,47 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/zpznk_markermodebox.xml</path>
   <offsets>
-    <x-m>2.9</x-m>
+    <x-m>2.915</x-m>
     <y-m>-0.173</y-m>
-    <z-m>1.4258</z-m>
+    <z-m>1.4285</z-m>
     <pitch-deg>-10.5</pitch-deg>
   </offsets>
 </model>
+
+<model>
+  <name>Kurs-MP_d1</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/um_freq-adjust_1.xml</path>
+  <offsets>
+    <x-m>2.82</x-m>
+    <y-m>-0.21</y-m>
+    <z-m>1.417</z-m>
+    <pitch-deg>-10.5</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>Kurs-MP_d2</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/um_freq-adjust_2.xml</path>
+  <offsets>
+    <x-m>2.82</x-m>
+    <y-m>-0.125</y-m>
+    <z-m>1.417</z-m>
+    <pitch-deg>-10.5</pitch-deg>
+  </offsets>
+</model>
+
 
 <!--*************** Overhead middle *****************-->
 
