@@ -21,22 +21,6 @@
   </action>
  </animation>
 
- <!--animation>
-  <type>pick</type>
-  <object-name>clickspot_middle</object-name>
-  <visible>false</visible>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/Electrical_Panel/sw_pt-1000", 0.0, 0.1 );
-      </script>
-    </binding>
-  </action>
- </animation-->
-
  <animation>
   <type>pick</type>
   <object-name>clickspot_down</object-name>

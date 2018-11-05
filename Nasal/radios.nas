@@ -40,8 +40,9 @@ setprop("an24/ARK-11/mem2/fix9ff", 0.0);
 setprop("an24/ARK-11/signal-1", 0.0);
 setprop("an24/ARK-11/signal-2", 0.0);
 
+#####################################################################
 ## ARK-11 No. 1
-#
+#####################################################################
 # ARK No. 1 Summing up frequencies
 setprop("an24/ARK-11/sub-band-khz-1", 120.0);
 setprop("an24/ARK-11/fine-khz-1", 0.0);
@@ -56,8 +57,10 @@ var addfreqs1 = func {
  setlistener("an24/ARK-11/sub-band-khz-1", addfreqs1);
  setlistener("an24/ARK-11/fine-khz-1", addfreqs1);
 
+#######################################
 #  ARK No. 1 output volume (lowest is best-> antenna at 90° (indication 0°) to source, least interference)
 #  adf[2] serves as background reference
+#######################################
 setprop("an24/ARK-11/mode-1", 0.0 );
 setprop("an24/ARK-11/volumeknob-1", 0.0 );
 setprop("an24/ARK-11/volumeknob-oh", 0.0 );
@@ -71,6 +74,8 @@ setprop("/instrumentation/adf[2]/indicated-bearing-deg", 0.0 );
 setprop("/instrumentation/adf[2]/ident-audible", "true" );
 setprop("/instrumentation/adf[2]/serviceable", 1.0 );
 setprop("/instrumentation/adf[2]/volume-norm", 1.0 );
+setprop("an24/AZS/sw0512", 0.0);
+setprop("an24/AZS/sw0513", 0.0);
 
 var arkoutput1 = func {
 	if ( getprop("an24/ARK-11/panel_nav_oh") == 0.0 ) {
@@ -99,9 +104,9 @@ var arkoutput1 = func {
  setlistener("an24/AZS/sw0512", arkoutput1);
  setlistener("an24/AZS/sw0513", arkoutput1);
 
-
+#####################################################################
 ## ARK-11 No. 2
-#
+#####################################################################
 # Summing up frequencies
 setprop("an24/ARK-11/sub-band-khz-2", 120.0);
 setprop("an24/ARK-11/fine-khz-2", 0.0);
@@ -116,8 +121,10 @@ var addfreqs2 = func {
  setlistener("an24/ARK-11/sub-band-khz-2", addfreqs2);
  setlistener("an24/ARK-11/fine-khz-2", addfreqs2);
 
+#######################################
 #  ARK No. 2 output volume (lowest is best-> antenna at 90° (indication 0°) to source, least interference)
 #  adf[3] serves as background reference
+#######################################
 setprop("an24/ARK-11/mode-2", 0.0 );
 setprop("an24/ARK-11/volumeknob-2", 0.0 );
 setprop("an24/ARK-11/vol-2", 0.0 );
@@ -130,6 +137,8 @@ setprop("/instrumentation/adf[3]/indicated-bearing-deg", 0.0 );
 setprop("/instrumentation/adf[3]/ident-audible", "true" );
 setprop("/instrumentation/adf[3]/serviceable", 1.0 );
 setprop("/instrumentation/adf[3]/volume-norm", 1.0 );
+setprop("an24/AZS/sw0514", 0.0);
+setprop("an24/AZS/sw0515", 0.0);
 
 var arkoutput2 = func {
 	var volume_knob = getprop("an24/ARK-11/volumeknob-2");
@@ -150,8 +159,9 @@ var arkoutput2 = func {
  setlistener("an24/AZS/sw0515", arkoutput2);
 
 
-
-##  R-802 Stuff
+#####################################################################
+# R-802 Stuff
+#####################################################################
 setprop("an24/R-802/volume-1", 0.0);
 setprop("an24/R-802/volume-2", 0.0);
 
@@ -217,7 +227,9 @@ setprop("/instrumentation/comm[0]/frequencies/selected-mhz", storedfreq );
  setlistener("an24/R-802/channel", freqchoice);
  setlistener("an24/R-802/rememscrew", freqchoice);
 
+#####################################################################
 # Kurs-MP No.1
+#####################################################################
 var mp1freq = func {
  var mhz1 = getprop("an24/Kurs-MP/mhz1");
  var dec1 = getprop("an24/Kurs-MP/dec1");
@@ -227,7 +239,9 @@ var mp1freq = func {
  setlistener("an24/Kurs-MP/mhz1", mp1freq);
  setlistener("an24/Kurs-MP/dec1", mp1freq);
 
+#####################################################################
 # Kurs-MP No.2
+#####################################################################
 var mp2freq = func {
  var mhz2 = getprop("an24/Kurs-MP/mhz2");
 	if ( mhz2 == 10.0 ) mhz2 = 0.0;

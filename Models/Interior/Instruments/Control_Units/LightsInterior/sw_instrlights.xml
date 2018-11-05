@@ -18,6 +18,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cablightmain</tooltip-id>
+      <label>Cabin Light Main</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
@@ -50,6 +57,13 @@
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>cablightmain</tooltip-id>
+      <label>Cabin Light Emergency</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>

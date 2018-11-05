@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
-<!-- Knob to select marker modes, box -->
+<!-- Sensitivity switch MRP-ZP type ZPZN-K,
+changes receiver sensitivity ("Route" = high sensitivity)-->
 
 <PropertyList>
  <path>zpznk_markermodebox.ac</path>

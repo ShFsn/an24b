@@ -1528,6 +1528,22 @@
   </offsets>
 </model>
 
+<model>
+  <name>Kurs-MP_e</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/switchpanel.xml</path>
+  <offsets>
+    <x-m>3.014</x-m>
+    <y-m>-0.2315</y-m>
+    <z-m>1.452</z-m>
+    <pitch-deg>169.5</pitch-deg>
+  </offsets>
+</model>
 
 <!--*************** Overhead middle *****************-->
 

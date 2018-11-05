@@ -894,6 +894,10 @@ QuickStartUpGuide.pdf
   <dec1 type="double">0.0</dec1>
   <mhz2 type="double">0.0</mhz2>
   <dec2 type="double">0.0</dec2>
+  <vor1-ark1 type="double">-1.0</vor1-ark1>
+  <vor2-ark2 type="double">-1.0</vor2-ark2>
+  <vor1on type="double">0.0</vor1on>
+  <vor2on type="double">0.0</vor2on>
  </Kurs-MP>
 
  <Pressure>
@@ -971,6 +975,8 @@ QuickStartUpGuide.pdf
     <file>Aircraft/an24b/Nasal/gpk-52.nas</file>
     <file>Aircraft/an24b/Nasal/ap-28l1.nas</file>
     <file>Aircraft/an24b/Nasal/radios.nas</file>
+    <file>Aircraft/an24b/Nasal/achs.nas</file>
+    <file>Aircraft/an24b/Nasal/spu-7.nas</file>
   </instruments>
   <pitotstatic>
     <file>Aircraft/an24b/Nasal/pitotstatic.nas</file>

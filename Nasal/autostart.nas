@@ -430,6 +430,7 @@ var startup = func {
 		setprop("an24/ARK-11/mode-1", 1.0 );
 		setprop("/instrumentation/adf/mode", "adf" );
 		setprop("/instrumentation/adf[2]/mode", "off" );
+		interpolate("an24/ARK-11/vol-1", 1.0, 0.2 );
 
 		setprop("an24/R-802/sw_power-1", 1.0 );
 		setprop("an24/R-802/sw_power-2", 1.0 );
