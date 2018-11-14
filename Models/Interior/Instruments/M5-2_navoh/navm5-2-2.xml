@@ -42,7 +42,7 @@
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">ARK Indi- cator</text>
+    <text type="string">M5-2 ARK II Indicator</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>
@@ -57,10 +57,9 @@
     <alignment>center-center</alignment>
     <offsets>
       <x-m>  0.005 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.000 </z-m>
+      <y-m>  0.0 </y-m>
+      <z-m>  0.01 </z-m>
     </offsets>
   </text>
-
 
 </PropertyList>

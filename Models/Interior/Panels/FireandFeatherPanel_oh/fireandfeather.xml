@@ -15,6 +15,30 @@
   </emission>
  </animation>
 
+ <animation>
+  <type>material</type>
+  <object-name>kfl-37l</object-name>
+  <object-name>kfl-37r</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.0</green>
+   <blue>0.0</blue>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+  </emission>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>kfl-37lbulb</object-name>
+  <object-name>kfl-37rbulb</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.4</green>
+   <blue>0.0</blue>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+  </emission>
+ </animation>
+
 <!-- For future use (bluish cockpit layout) -->
 
  <!--animation>
@@ -145,6 +169,74 @@
     <z-m>-0.015</z-m>
   </offsets>
 </model>
+
+<animation>
+  <type>pick</type>
+  <object-name>kfl-37l</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if (getprop("an24/FireFeather/feather-by-kfl_l") == 0.0 ) {
+        interpolate("an24/FireFeather/feather-by-kfl_l", 1.0, 0.2 );
+	}
+	else {
+        interpolate("an24/FireFeather/feather-by-kfl_l", 0.0, 0.2 );
+	}
+      </script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>kfl-37l</object-name>
+  <object-name>kfl-37lbulb</object-name>
+  <property>an24/FireFeather/feather-by-kfl_l</property>
+  <factor>0.018</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>kfl-37r</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if (getprop("an24/FireFeather/feather-by-kfl_r") == 0.0 ) {
+        interpolate("an24/FireFeather/feather-by-kfl_r", 1.0, 0.2 );
+	}
+	else {
+        interpolate("an24/FireFeather/feather-by-kfl_r", 0.0, 0.2 );
+	}
+      </script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>kfl-37r</object-name>
+  <object-name>kfl-37rbulb</object-name>
+  <property>an24/FireFeather/feather-by-kfl_r</property>
+  <factor>0.018</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+</animation>
 
 <!-- ************ Fire section *********** -->
 

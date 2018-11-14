@@ -2730,7 +2730,7 @@ refs 3
 10 0.735326 0.443509
 kids 0
 OBJECT poly
-name "gear_moving"
+name "move-gear"
 loc -0.00280786 0.015319 0
 texture "pps.png"
 crease 45.000000

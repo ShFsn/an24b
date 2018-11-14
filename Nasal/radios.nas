@@ -62,6 +62,7 @@ var addfreqs1 = func {
 #  adf[2] serves as background reference
 #######################################
 setprop("an24/ARK-11/mode-1", 0.0 );
+setprop("an24/ARK-11/mode-oh", 0.0 );
 setprop("an24/ARK-11/volumeknob-1", 0.0 );
 setprop("an24/ARK-11/volumeknob-oh", 0.0 );
 setprop("an24/ARK-11/vol-1", 0.0 );
@@ -80,18 +81,31 @@ setprop("an24/AZS/sw0513", 0.0);
 var arkoutput1 = func {
 	if ( getprop("an24/ARK-11/panel_nav_oh") == 0.0 ) {
 	var volume_knob = getprop("an24/ARK-11/volumeknob-1");
+		if ( getprop("an24/ARK-11/mode-1") != 0.0 ) {
+		var powered = getprop("an24/AZS/sw0512") * getprop("an24/AZS/sw0513");
+		}
+		else {
+		var powered = 0.0;
+		}
 	}
 	else {
 	var volume_knob = getprop("an24/ARK-11/volumeknob-oh");
+		if ( getprop("an24/ARK-11/mode-oh") != 0.0 ) {
+		var powered = getprop("an24/AZS/sw0512") * getprop("an24/AZS/sw0513");
+		}
+		else {
+		var powered = 0.0;
+		}
 	}
+#
 	var signalstrength = abs(math.cos( 0.017453 * ( 90 + getprop("/instrumentation/adf[2]/indicated-bearing-deg") - getprop("/instrumentation/adf[0]/indicated-bearing-deg") ) ) );
 	interpolate("an24/ARK-11/signal-1", signalstrength, 0.4 );
 
 	if ( (getprop("an24/ARK-11/panel_nav_oh") == 0.0 and getprop("an24/ARK-11/mode-1") == 3.0 ) or (getprop("an24/ARK-11/panel_nav_oh") == 1.0 and getprop("an24/ARK-11/mode-oh") == 3.0 ) ) {
-	setprop("an24/ARK-11/vol-1", signalstrength * getprop("an24/AZS/sw0512") * getprop("an24/AZS/sw0513") );
+	setprop("an24/ARK-11/vol-1", signalstrength * powered );
 		}
 		else {
-		setprop("an24/ARK-11/vol-1", volume_knob * getprop("an24/AZS/sw0512") * getprop("an24/AZS/sw0513") );
+		setprop("an24/ARK-11/vol-1", volume_knob * powered );
 		}
 }
  setlistener("an24/ARK-11/volumeknob-1", arkoutput1);
@@ -142,13 +156,19 @@ setprop("an24/AZS/sw0515", 0.0);
 
 var arkoutput2 = func {
 	var volume_knob = getprop("an24/ARK-11/volumeknob-2");
+	if ( getprop("an24/ARK-11/mode-2") != 0.0 ) {
+	var powered = getprop("an24/AZS/sw0514") * getprop("an24/AZS/sw0515");
+	}
+	else {
+	var powered = 0.0;
+	}
 	var signalstrength = abs(math.cos( 0.017453 * ( 90 + getprop("/instrumentation/adf[3]/indicated-bearing-deg") - getprop("/instrumentation/adf[1]/indicated-bearing-deg") ) ) );
 	interpolate("an24/ARK-11/signal-2", signalstrength, 0.4 );
 	if ( getprop("an24/ARK-11/mode-2") == 3.0 ) {
-	setprop("an24/ARK-11/vol-2", signalstrength  * getprop("an24/AZS/sw0514") * getprop("an24/AZS/sw0515") );
+	setprop("an24/ARK-11/vol-2", signalstrength  * powered );
 	}
 	else {
-	setprop("an24/ARK-11/vol-2", volume_knob  * getprop("an24/AZS/sw0514") * getprop("an24/AZS/sw0515") );
+	setprop("an24/ARK-11/vol-2", volume_knob  * powered );
 	}
 }
  setlistener("an24/ARK-11/volumeknob-2", arkoutput2);
@@ -239,6 +259,14 @@ var mp1freq = func {
  setlistener("an24/Kurs-MP/mhz1", mp1freq);
  setlistener("an24/Kurs-MP/dec1", mp1freq);
 
+var mp1azimut = func {
+ var azim1 = getprop("instrumentation/nav/radials/selected-deg");
+ var finalmp1azim10 = int(azim1/10);
+ setprop("an24/Kurs-MP/azim1_10", finalmp1azim10);
+ setprop("an24/Kurs-MP/azim1_100", int(finalmp1azim10/10) );
+}
+ setlistener("instrumentation/nav/radials/selected-deg", mp1azimut);
+
 #####################################################################
 # Kurs-MP No.2
 #####################################################################
@@ -252,3 +280,11 @@ var mp2freq = func {
 }
  setlistener("an24/Kurs-MP/mhz2", mp2freq);
  setlistener("an24/Kurs-MP/dec2", mp2freq);
+
+var mp2azimut = func {
+ var azim2 = getprop("instrumentation/nav[1]/radials/selected-deg");
+ var finalmp2azim10 = int(azim2/10);
+ setprop("an24/Kurs-MP/azim2_10", finalmp2azim10);
+ setprop("an24/Kurs-MP/azim2_100", int(finalmp2azim10/10) );
+}
+ setlistener("instrumentation/nav[1]/radials/selected-deg", mp2azimut);

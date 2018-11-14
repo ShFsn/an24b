@@ -736,6 +736,7 @@ QuickStartUpGuide.pdf
 
 
 <instrumentation>
+  <!--adf n="0" on by default-->
   <adf n="1">
     <serviceable type="bool">true</serviceable>
   </adf>
@@ -758,7 +759,12 @@ QuickStartUpGuide.pdf
     <audio-btn type="bool">false</audio-btn>
     <volume type="double">0.0</volume>
   </marker-beacon>
-  <nav>
+  <nav n="0">
+   <frequencies>
+    <selected-mhz type="double">108.0</selected-mhz>
+   </frequencies>
+  </nav>
+  <nav n="1">
    <frequencies>
     <selected-mhz type="double">108.0</selected-mhz>
    </frequencies>
@@ -868,6 +874,11 @@ QuickStartUpGuide.pdf
  <FireTest>
   <mainresetdone type="bool">1.0</mainresetdone>
  </FireTest>
+
+ <FireFeather>
+  <feather-by-kfl_l type="double">0.0</feather-by-kfl_l>
+  <feather-by-kfl_r type="double">0.0</feather-by-kfl_r>
+ </FireFeather>
 
  <FuelControl>
   <anim-flow-meter type="double">0</anim-flow-meter>

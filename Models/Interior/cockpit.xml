@@ -20,6 +20,7 @@
    <object-name>topwinframe</object-name>
    <object-name>railer</object-name>
    <object-name>screws</object-name>
+   <object-name>oh_middle20deg</object-name>
  </effect>
  <effect>
   <inherits-from>Effects/model-transparent</inherits-from>
@@ -1404,7 +1405,7 @@
     </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/M5-2_navoh/ohm5-2.xml</path>
   <offsets>
-    <x-m>2.8166</x-m>
+    <x-m>2.795</x-m>
     <y-m>-0.2875</y-m>
     <z-m>1.416</z-m>
     <pitch-deg>79.5</pitch-deg>
@@ -1423,6 +1424,8 @@
     <pitch-deg>79.5</pitch-deg>
   </offsets>
 </model>
+
+<!--********************************************-->
 
 <model>
   <name>M-50</name>
@@ -1551,10 +1554,114 @@
   <name>RPSN_ctrl</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/RPSN_mpnavoh/controlpanel_oh.xml</path>
   <offsets>
-    <x-m>2.4018</x-m>
+    <x-m>2.4068</x-m>
     <y-m>0.0</y-m>
     <z-m>1.357</z-m>
-    <pitch-deg>77</pitch-deg>
+    <pitch-deg>70</pitch-deg>
+  </offsets>
+</model>
+
+<!--Select animation-->
+
+<animation>
+  <type>select</type>
+  <object-name>oh_middle1</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+   </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>oh_middle2</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+   </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>placards_standard</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+   </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>placards_kurs-mp</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+   </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>attachment_kursmp</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+   </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>attachment_standard</object-name>
+   <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+   </condition>
+</animation>
+
+<!--*** With "Kurs-MP"-Equipment ***-->
+
+<model>
+  <name>Kurs-MP_f1</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/azimut-adjust_1.xml</path>
+  <offsets>
+    <x-m>2.438</x-m>
+    <y-m>-0.144</y-m>
+    <z-m>1.368</z-m>
+    <pitch-deg>-20</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>Kurs-MP_f2</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/azimut-adjust_2.xml</path>
+  <offsets>
+    <x-m>2.438</x-m>
+    <y-m>0.144</y-m>
+    <z-m>1.368</z-m>
+    <pitch-deg>-20</pitch-deg>
   </offsets>
 </model>
 
@@ -1562,68 +1669,208 @@
 
 <model>
   <name>R-802_I</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
   <offsets>
-    <x-m>2.3908</x-m>
-    <y-m>-0.2235</y-m>
+    <x-m>2.3958</x-m>
+    <y-m>-0.2535</y-m>
     <z-m>1.354</z-m>
-    <pitch-deg>65</pitch-deg>
+    <pitch-deg>58</pitch-deg>
   </offsets>
 </model>
-
-<model>
-  <name>R-802mempower</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
-  <offsets>
-    <x-m>2.4035</x-m>
-    <y-m>-0.1551</y-m>
-    <z-m>1.361</z-m>
-    <pitch-deg>77</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>R-802memcapacity</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
-  <offsets>
-    <x-m>2.4035</x-m>
-    <y-m>-0.1182</y-m>
-    <z-m>1.361</z-m>
-    <pitch-deg>77</pitch-deg>
-  </offsets>
-</model>
-
 
 <model>
   <name>R-802_II</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802sel.xml</path>
   <offsets>
-    <x-m>2.3908</x-m>
-    <y-m>0.2235</y-m>
+    <x-m>2.3958</x-m>
+    <y-m>0.2535</y-m>
     <z-m>1.354</z-m>
-    <pitch-deg>65</pitch-deg>
+    <pitch-deg>58</pitch-deg>
   </offsets>
 </model>
 
 <model>
-  <name>R-802selpower</name>
+  <name>R-802_Ipower</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
+  <offsets>
+    <x-m>2.337</x-m>
+    <y-m>-0.1925</y-m>
+    <z-m>1.336</z-m>
+    <pitch-deg>70</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802_Icapacity</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
+  <offsets>
+    <x-m>2.337</x-m>
+    <y-m>-0.1554</y-m>
+    <z-m>1.336</z-m>
+    <pitch-deg>70</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802_IIpower</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
   <offsets>
-    <x-m>2.4035</x-m>
-    <y-m>0.1551</y-m>
-    <z-m>1.361</z-m>
-    <pitch-deg>77</pitch-deg>
+    <x-m>2.337</x-m>
+    <y-m>0.1925</y-m>
+    <z-m>1.336</z-m>
+    <pitch-deg>70</pitch-deg>
   </offsets>
 </model>
 
 <model>
-  <name>R-802selcapacity</name>
+  <name>R-802_IIcapacity</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
   <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
   <offsets>
-    <x-m>2.4035</x-m>
+    <x-m>2.337</x-m>
+    <y-m>0.1554</y-m>
+    <z-m>1.336</z-m>
+    <pitch-deg>70</pitch-deg>
+  </offsets>
+</model>
+
+
+<!--*** With "Standard"-Equipment ***-->
+
+<model>
+  <name>R-802_I</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
+  <offsets>
+    <x-m>2.3958</x-m>
+    <y-m>-0.2335</y-m>
+    <z-m>1.354</z-m>
+    <pitch-deg>58</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802_II</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802sel.xml</path>
+  <offsets>
+    <x-m>2.3958</x-m>
+    <y-m>0.2335</y-m>
+    <z-m>1.354</z-m>
+    <pitch-deg>58</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802_Ipower</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
+  <offsets>
+    <x-m>2.4085</x-m>
+    <y-m>-0.1551</y-m>
+    <z-m>1.363</z-m>
+    <pitch-deg>70</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802_Icapacity</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
+  <offsets>
+    <x-m>2.4085</x-m>
+    <y-m>-0.1182</y-m>
+    <z-m>1.363</z-m>
+    <pitch-deg>70</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802_IIpower</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
+  <offsets>
+    <x-m>2.4085</x-m>
+    <y-m>0.1551</y-m>
+    <z-m>1.363</z-m>
+    <pitch-deg>70</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>R-802_IIcapacity</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
+  <offsets>
+    <x-m>2.4085</x-m>
     <y-m>0.1182</y-m>
-    <z-m>1.361</z-m>
-    <pitch-deg>77</pitch-deg>
+    <z-m>1.363</z-m>
+    <pitch-deg>70</pitch-deg>
   </offsets>
 </model>
 
@@ -1633,11 +1880,10 @@
   <name>FireandFeather</name>
   <path>Aircraft/an24b/Models/Interior/Panels/FireandFeatherPanel_oh/fireandfeather.xml</path>
   <offsets>
-    <x-m>2.195</x-m>
+    <x-m>2.215</x-m>
     <y-m>0.0</y-m>
-    <z-m>1.3</z-m>
-    <roll-deg>0</roll-deg>
-    <pitch-deg>68</pitch-deg>
+    <z-m>1.29</z-m>
+    <pitch-deg>60</pitch-deg>
   </offsets>
 </model>
 

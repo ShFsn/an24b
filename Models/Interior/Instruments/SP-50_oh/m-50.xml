@@ -55,15 +55,15 @@
       <script>
 	if (getprop("/an24/SP-50/regime") == 0 ) {
 	var course_sp50 = ["103.3", "108.7", "109.1", "109.5", "109.9", "110.3"];
-	setprop("/instrumentation/nav/frequencies/selected-mhz", course_sp50[getprop("/an24/SP-50/channel")] );
+	setprop("/instrumentation/nav/frequencies/selected-mhz", course_sp50[getprop("an24/SP-50/channel")] );
 	var gs_sp50 = ["332.6", "332.6", "333.8", "333.8", "335.0", "335.0"];
-	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_sp50[getprop("/an24/SP-50/channel")] );
+	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_sp50[getprop("an24/SP-50/channel")] );
 	}
 	else {
 	var course_ils = ["108.3", "108.7", "109.1", "109.5", "109.9", "110.3"];
-	setprop("/instrumentation/nav/frequencies/selected-mhz", course_ils[getprop("/an24/SP-50/channel")] );
+	setprop("/instrumentation/nav/frequencies/selected-mhz", course_ils[getprop("an24/SP-50/channel")] );
 	var gs_ils = ["332.6", "0", "333.8", "332.6", "333.8", "335.0"];
-	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_ils[getprop("/an24/SP-50/channel")] );
+	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_ils[getprop("an24/SP-50/channel")] );
 	};
       </script>
     </binding>
@@ -104,6 +104,42 @@
      </binding>
     </action>
  </animation>
+
+<!-- Balance knob to adjust null position of horizontal situation needle on KPPM -->
+
+<animation>
+  <type>knob</type>
+  <object-name>balance-knob</object-name>
+  <property>an24/SP-50/hs-needle-offset</property>  
+  <factor>-5</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0226</y-m>
+    <z-m>-0.0183</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <condition>
+      <equals>
+      <property>an24/SP-50/on</property>
+      <value>1.0</value>
+      </equals>
+     </condition>
+      <binding>
+        <command>property-adjust</command>
+        <property>an24/SP-50/hs-needle-offset</property>
+        <factor>-0.01</factor>
+        <min>-1</min>
+        <max>1</max>                
+        <wrap>false</wrap>
+      </binding>
+    </action>
+</animation>
+
 
 <!-- TEXT OSG -->
 

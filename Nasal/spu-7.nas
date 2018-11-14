@@ -113,7 +113,7 @@ var ark1audible = func {
 	var volumeknob = getprop("an24/SPU-7/general_viewnr" ~ viewnr ~ "")
 	}
 	if ( getprop("an24/Kurs-MP/vor1-ark1") == -1.0 and ((getprop("an24/SPU-7/lc_source") == 4.0 and viewnr == 0 ) or (getprop("an24/SPU-7/rc_source") == 4.0 and viewnr == 8 ) or (getprop("an24/SPU-7/eng_source") == 4.0 and viewnr == 9 ) or (getprop("an24/SPU-7/nav_source") == 4.0 and viewnr == 10 )) ) {
-	var toheadset = volumeknob * getprop("an24/ARK-11/vol-1") * getprop("an24/AZS/sw0512") * getprop("an24/AZS/sw0513");
+	var toheadset = volumeknob * getprop("an24/ARK-11/vol-1");
 	interpolate("/instrumentation/adf[0]/volume-norm", toheadset, 0.2 );
 	interpolate("/instrumentation/adf[2]/volume-norm", toheadset, 0.2 );
 	}
@@ -122,7 +122,6 @@ var ark1audible = func {
 	interpolate("/instrumentation/adf[2]/volume-norm", 0.0, 0.2 );
 	}
 }
-
  setlistener("/sim/current-view/view-number", ark1audible);
  setlistener("an24/ARK-11/vol-1", ark1audible);
  setlistener("an24/ARK-11/mode-1", ark1audible);
@@ -143,8 +142,8 @@ var ark1audible = func {
  setlistener("an24/SPU-7/rc_source", ark1audible);
  setlistener("an24/SPU-7/eng_source", ark1audible);
  setlistener("an24/SPU-7/nav_source", ark1audible);
- setlistener("an24/AZS/sw0512", ark1audible);
- setlistener("an24/AZS/sw0513", ark1audible);
+# setlistener("an24/AZS/sw0512", ark1audible);
+# setlistener("an24/AZS/sw0513", ark1audible);
  setlistener("an24/Kurs-MP/vor1-ark1", ark1audible);
 
 #########################################################################
@@ -159,7 +158,7 @@ var ark2audible = func {
 	var volumeknob = getprop("an24/SPU-7/general_viewnr" ~ viewnr ~ "")
 	}
 	if ( getprop("an24/Kurs-MP/vor2-ark2") == -1.0 and ((getprop("an24/SPU-7/lc_source") == 5.0 and viewnr == 0 ) or (getprop("an24/SPU-7/rc_source") == 5.0 and viewnr == 8 ) or (getprop("an24/SPU-7/eng_source") == 5.0 and viewnr == 9 ) or (getprop("an24/SPU-7/nav_source") == 5.0 and viewnr == 10 )) ) {
-	var toheadset = volumeknob * getprop("an24/ARK-11/vol-2") * getprop("an24/AZS/sw0514") * getprop("an24/AZS/sw0515") ;
+	var toheadset = volumeknob;
 	interpolate("/instrumentation/adf[1]/volume-norm", toheadset, 0.2 );
 	interpolate("/instrumentation/adf[3]/volume-norm", toheadset, 0.2 );
 	}
@@ -168,7 +167,6 @@ var ark2audible = func {
 	interpolate("/instrumentation/adf[3]/volume-norm", 0.0, 0.2 );
 	}
 }
-
  setlistener("/sim/current-view/view-number", ark2audible);
  setlistener("an24/ARK-11/vol-2", ark2audible);
  setlistener("an24/SPU-7/listen_viewnr0", ark2audible);
@@ -187,8 +185,8 @@ var ark2audible = func {
  setlistener("an24/SPU-7/rc_source", ark2audible);
  setlistener("an24/SPU-7/eng_source", ark2audible);
  setlistener("an24/SPU-7/nav_source", ark2audible);
- setlistener("an24/AZS/sw0514", ark2audible);
- setlistener("an24/AZS/sw0515", ark2audible);
+# setlistener("an24/AZS/sw0514", ark2audible);
+# setlistener("an24/AZS/sw0515", ark2audible);
  setlistener("an24/Kurs-MP/vor2-ark2", ark2audible);
 
 #########################################################################
@@ -210,7 +208,6 @@ var kursmp1audible = func {
 	interpolate("/instrumentation/nav[0]/volume", 0.0, 0.2 );
 	}
 }
-
  setlistener("/sim/current-view/view-number", kursmp1audible);
  setlistener("an24/SPU-7/general_viewnr0", kursmp1audible);
  setlistener("an24/SPU-7/listen_viewnr0", kursmp1audible);
@@ -250,7 +247,6 @@ var kursmp2audible = func {
 	interpolate("/instrumentation/nav[1]/volume", 0.0, 0.2 );
 	}
 }
-
  setlistener("/sim/current-view/view-number", kursmp2audible);
  setlistener("an24/SPU-7/general_viewnr0", kursmp2audible);
  setlistener("an24/SPU-7/listen_viewnr0", kursmp2audible);

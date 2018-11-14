@@ -5,11 +5,22 @@
 <PropertyList>
  <path>um_freq-adjust.ac</path>
 
+ <animation>
+   <type>material</type>
+   <object-name>mhzdisc</object-name>
+   <object-name>khzdisc</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   </emission>
+ </animation>
+
  <!-- MHz 108.0-117.9 -->
 
  <animation>
    <type>knob</type>
-   <object-name>mhzdisc</object-name>
    <object-name>mhzknob</object-name>
    <property>an24/Kurs-MP/mhz2</property>
    <factor>36.0</factor>
@@ -37,6 +48,18 @@
        </binding>
     </hovered>
  </animation>
+
+<animation>
+    <type>rotate</type>
+   <object-name>mhzdisc</object-name>
+    <property>an24/Kurs-MP/mhz2</property>
+    <factor>36.0</factor>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1.0</z>
+    </axis>
+</animation>
 
 <!-- Decimals -->
 

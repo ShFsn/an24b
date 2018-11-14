@@ -5,7 +5,7 @@ srand();
 # Creating random offsets on left and right KPPM
 var kppm_init = func(i) {
 	var kppm_start_offset = int(360*rand());
-	setprop("/instrumentation/kppm["~i~"]/scale-offset", kppm_start_offset);
+#	setprop("/instrumentation/kppm["~i~"]/scale-offset", kppm_start_offset);
 	setprop("/instrumentation/nav["~i~"]/radials/selected-deg", kppm_start_offset);
 }
 

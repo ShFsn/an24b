@@ -5,7 +5,7 @@ MATERIAL "ac3dmat13" rgb 0.533333 0.533333 0.533333  amb 1 1 1  emis 0 0 0  spec
 MATERIAL "ac3dmat12" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 1 1 1  shi 8  trans 0
 MATERIAL "ac3dmat14" rgb 0.706 0.706 0.706  amb 0.706 0.706 0.706  emis 0 0 0  spec 0.706 0.706 0.706  shi 13  trans 0
 OBJECT world
-kids 6
+kids 5
 OBJECT poly
 name "jack"
 loc 0.00134397 0.0235676 0.0252583
@@ -764,11 +764,6 @@ refs 4
 77 0 0
 kids 0
 OBJECT poly
-name "object"
-loc -0.139545 0.0577596 0.227967
-crease 45.000000
-kids 0
-OBJECT poly
 name "sp-50"
 loc 0.000856684 0.00154825 -1.86265e-09
 texture "m-50.png"
@@ -1238,7 +1233,7 @@ refs 4
 57 0.0546315 0.893762
 kids 0
 OBJECT poly
-name "disk"
+name "balance-knob"
 loc 0.0122666 -0.0182511 0.0225729
 crease 45.000000
 numvert 402

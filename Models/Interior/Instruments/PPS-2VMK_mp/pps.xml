@@ -146,34 +146,22 @@
 
  <animation>
   <type>material</type>
-  <object-name>gear_moving</object-name>
+  <object-name>move-gear</object-name>
     <condition>
     <or>
     <and>
-     <not-equals>
-      <property>gear/gear[0]/position-norm</property>
-      <value>1.0</value>
-     </not-equals>
-     <not-equals>
-      <property>gear/gear[0]/position-norm</property>
+     <equals>
+      <property>fdm/jsbsim/fcs/gear-control</property>
       <value>0.0</value>
-     </not-equals>
-     <not-equals>
-      <property>gear/gear[1]/position-norm</property>
-      <value>1.0</value>
-     </not-equals>
-     <not-equals>
-      <property>gear/gear[1]/position-norm</property>
-      <value>0.0</value>
-     </not-equals>
-     <not-equals>
-      <property>gear/gear[2]/position-norm</property>
-      <value>1.0</value>
-     </not-equals>
-     <not-equals>
-      <property>gear/gear[2]/position-norm</property>
-      <value>0.0</value>
-     </not-equals>
+     </equals>
+      <less-than>
+       <property>fdm/jsbsim/fcs/throttle-cmd-norm[0]</property>
+       <value>0.08</value><!-- for the "dirty" joysticks, otherwise 0.0-->
+      </less-than>
+      <less-than>
+       <property>fdm/jsbsim/fcs/throttle-cmd-norm[1]</property>
+       <value>0.08</value>
+      </less-than>
     </and>
      <equals>
       <property>an24/PPS/light-test-knob</property>
@@ -212,7 +200,8 @@
    </emission>
  </animation>
 
- <animation>
+<!-- Not used on AN-24s -->
+ <!--animation>
   <type>material</type>
   <object-name>gear-doors_closed</object-name>
     <condition>
@@ -243,7 +232,7 @@
      <blue>1.0</blue>
      <factor-prop>an24/PPS/lighting</factor-prop>
    </emission>
- </animation>
+ </animation-->
 
  <animation>
    <type>knob</type>

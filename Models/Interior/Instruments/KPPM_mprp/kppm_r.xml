@@ -27,30 +27,37 @@
 </animation>
 
 <animation>
-	<type>rotate</type>
-	<object-name>needle</object-name>
-        <expression>
-          <dif>
-	    <property>instrumentation/gik-1/indicated-heading</property>
-            <property>instrumentation/kppm[1]/scale-offset</property>
-          </dif>
-        </expression>
-	<axis>
-		<x>-1</x>
-		<y>0</y>
-		<z>0</z>
-	</axis>
+ <type>rotate</type>
+ <object-name>needle</object-name>
+  <expression>
+  <dif>
+   <property>instrumentation/gik-1/indicated-heading</property>
+   <property>instrumentation/nav[1]/radials/selected-deg</property>
+  </dif>
+  </expression>
+  <!--expression>
+  <dif>
+   <property>instrumentation/gik-1/indicated-heading</property>
+   <property>instrumentation/kppm/scale-offset</property>
+  </dif>
+  </expression-->
+ <axis>
+  <x>-1</x>
+  <y>0</y>
+  <z>0</z>
+ </axis>
 </animation>
 
 <animation>
-	<type>rotate</type>
-	<object-name>scale</object-name>
-	<property>instrumentation/kppm[1]/scale-offset</property>
-	<axis>
-		<x>1</x>
-		<y>0</y>
-		<z>0</z>
-	</axis>
+ <type>rotate</type>
+ <object-name>scale</object-name>
+   <property>instrumentation/nav[1]/radials/selected-deg</property>
+  <!--property>instrumentation/kppm[1]/scale-offset</property-->
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
 </animation>
 
 <animation>
@@ -110,7 +117,7 @@
 <animation>
   <type>knob</type>
   <object-name>knob</object-name>
-  <property>instrumentation/kppm[1]/scale-offset</property>  
+  <property>instrumentation/nav[1]/radials/selected-deg</property>  
   <factor>-5</factor>
   <center>
     <x-m>0.0</x-m>
@@ -131,14 +138,14 @@
         <max>360</max>                
         <wrap>true</wrap>
       </binding>
-      <binding>
+      <!--binding>
         <command>property-adjust</command>
         <property>instrumentation/kppm[1]/scale-offset</property>
         <factor>-1</factor>
         <min>0</min>
         <max>360</max>                
         <wrap>true</wrap>
-      </binding>
+      </binding-->
     </action>
 </animation>
 
