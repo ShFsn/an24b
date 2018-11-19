@@ -182,6 +182,7 @@ var startup = func {
 		settimer( func{
 		setprop("an24/AZS/sw0516", 1.0 );
 		setprop("an24/AZS/sw0517", 1.0 );
+		setprop("instrumentation/marker-beacon/serviceable", 1.0 );
 		setprop("an24/AZS/sw0518", 1.0 );
 		}, t); t += 0.1;
 #

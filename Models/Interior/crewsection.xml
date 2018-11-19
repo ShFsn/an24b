@@ -60,7 +60,7 @@
   <offsets>
     <x-m>3.9303</x-m>
     <y-m>-0.917</y-m>
-    <z-m>0.8606</z-m>
+    <z-m>0.8706</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -130,7 +130,7 @@
   <offsets>
     <x-m>3.8466</x-m>
     <y-m>-0.924</y-m>
-    <z-m>0.8605</z-m>
+    <z-m>0.8705</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -140,8 +140,8 @@
   <path>Aircraft/an24b/Models/Interior/Instruments/KUS-730_lpmpnav/navkus730_1100.xml</path>
   <offsets>
     <x-m>3.6235</x-m>
-    <y-m>-0.92</y-m>
-    <z-m>0.8166</z-m>
+    <y-m>-0.921</y-m>
+    <z-m>0.817</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -163,7 +163,18 @@
   <offsets>
     <x-m>3.9303</x-m>
     <y-m>-0.903</y-m>
-    <z-m>0.9469</z-m>
+    <z-m>0.957</z-m>
+    <heading-deg>90</heading-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>TNV-1</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/TNV-1_rp/tnv-1.xml</path>
+  <offsets>
+    <x-m>3.938</x-m>
+    <y-m>-0.921</y-m>
+    <z-m>0.7956</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
 </model>
@@ -223,6 +234,17 @@
     <y-m>0.7361</y-m>
     <z-m>0.6516</z-m>
     <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>SVB-5</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/SVB-5_eng/medium_wave_block.xml</path>
+  <offsets>
+    <x-m>3.815</x-m>
+    <y-m>0.44</y-m>
+    <z-m>1.4</z-m>
+    <heading-deg>-90</heading-deg>
   </offsets>
 </model>
 

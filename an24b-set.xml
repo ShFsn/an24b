@@ -757,12 +757,19 @@ QuickStartUpGuide.pdf
   </kppm>-->
   <marker-beacon>
     <audio-btn type="bool">false</audio-btn>
+    <serviceable type="bool">false</serviceable>
     <volume type="double">0.0</volume>
   </marker-beacon>
   <nav n="0">
+   <cdi>
+    <serviceable type="bool">false</serviceable>
+   </cdi>
    <frequencies>
     <selected-mhz type="double">108.0</selected-mhz>
    </frequencies>
+   <gs>
+    <serviceable type="bool">false</serviceable>
+   </gs>
   </nav>
   <nav n="1">
    <frequencies>

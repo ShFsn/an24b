@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AZS-2; Unknown -->
+<!-- AZS-2 (2823); MRP-56P Marker Receiver -->
 
 <PropertyList>
  <path>../../shared/switches/azs.ac</path>
@@ -16,6 +16,7 @@
       <command>nasal</command>
       <script>
         interpolate("an24/AZS/sw0517", 1.0, 0.1 );
+        setprop("instrumentation/marker-beacon/serviceable", 1.0 );
       </script>
     </binding>
   </action>
@@ -32,6 +33,7 @@
       <command>nasal</command>
       <script>
         interpolate("an24/AZS/sw0517", 0.0, 0.1 );
+        setprop("instrumentation/marker-beacon/serviceable", 0.0 );
       </script>
     </binding>
   </action>

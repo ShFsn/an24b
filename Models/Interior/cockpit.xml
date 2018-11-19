@@ -1028,7 +1028,7 @@
 
 <model>
   <name>TV-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TV-1_mprp/mptv-1.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/TV-1_mp/tv-1.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3489</y-m>
@@ -1081,8 +1081,8 @@
 </model>
 
 <model>
-  <name>TNV-15</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TNV-15_rp/tnv-15.xml</path>
+  <name>TNV-1</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/TNV-1_rp/tnv-1.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.8111</y-m>
@@ -1125,8 +1125,8 @@
 <!--********************************************-->
 
 <model>
-  <name>TCT</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TCT_lc/tct.xml</path>
+  <name>MES</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/MES-1857V_lc/mes.xml</path>
   <offsets>
     <x-m>2.2945</x-m>
     <y-m>-0.95</y-m>
@@ -1141,20 +1141,20 @@
   <name>UIZ-3-TG-16</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/lc_uiz-3.xml</path>
   <offsets>
-    <x-m>2.6123</x-m>
-    <y-m>-0.998</y-m>
-    <z-m>0.5526</z-m>
+    <x-m>2.616</x-m>
+    <y-m>-0.997</y-m>
+    <z-m>0.5576</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
 
 <model>
-  <name>TV-1_TG-16</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TV-1_mprp/lc_tv-1.xml</path>
+  <name>TCT-2</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/TCT-2_lc/tct-2.xml</path>
   <offsets>
-    <x-m>2.544</x-m>
-    <y-m>-0.988</y-m>
-    <z-m>0.5207</z-m>
+    <x-m>2.5485</x-m>
+    <y-m>-0.981</y-m>
+    <z-m>0.5237</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1164,7 +1164,7 @@
   <name>TE-40M</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/TE-40M_lc/te-40.xml</path>
   <offsets>
-    <x-m>2.47</x-m>
+    <x-m>2.465</x-m>
     <y-m>-0.985</y-m>
     <z-m>0.55</z-m>
     <heading-deg>82</heading-deg>
@@ -1639,7 +1639,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/azimut-adjust_1.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/sk-azimut-selector_1.xml</path>
   <offsets>
     <x-m>2.438</x-m>
     <y-m>-0.144</y-m>
@@ -1656,7 +1656,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/azimut-adjust_2.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/sk-azimut-selector_2.xml</path>
   <offsets>
     <x-m>2.438</x-m>
     <y-m>0.144</y-m>

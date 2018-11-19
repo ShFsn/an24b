@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AZS-2; Temperature sensor OAT -->
+<!-- AZS-2; Temperature sensor OAT (TNV-15 complex)-->
 
 <PropertyList>
  <path>../../shared/switches/azs.ac</path>

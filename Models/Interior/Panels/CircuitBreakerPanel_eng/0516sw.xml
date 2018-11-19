@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AZR-6; SP-50 receiver (GRP/KRP) -->
+<!-- AZR-6; SP-50 glidepath/course receiver (GRP/KRP) -->
 
 <PropertyList>
  <path>../../shared/switches/azr.ac</path>
@@ -32,6 +32,8 @@
       <command>nasal</command>
       <script>
         interpolate("an24/AZS/sw0516", -1.0, 0.1 );
+	setprop("instrumentation/nav/cdi/serviceable", 0.0 );
+	setprop("instrumentation/nav/gs/serviceable", 0.0 );
       </script>
     </binding>
   </action>
