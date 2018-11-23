@@ -6,7 +6,7 @@
  <path>so-63.ac</path>
 
 <model>
- <path>sw_xpdr-on.xml</path>
+ <path>so-63_sw_xpdr-on.xml</path>
   <offsets>
     <x-m>-0.0011</x-m>
     <y-m>0.0215</y-m>
@@ -15,7 +15,7 @@
 </model>
 
 <model>
- <path>sw_sensitivity.xml</path>
+ <path>so-63_sw_sensitivity.xml</path>
   <offsets>
     <x-m>0.0012</x-m>
     <y-m>-0.0322</y-m>

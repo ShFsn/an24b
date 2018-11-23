@@ -21,6 +21,16 @@
    <object-name>railer</object-name>
    <object-name>screws</object-name>
    <object-name>oh_middle20deg</object-name>
+   <object-name>leftpanel</object-name>
+   <object-name>middlepanel</object-name>
+   <object-name>bottompanel25deg</object-name>
+   <object-name>rightpanel</object-name>
+   <object-name>leftconsole</object-name>
+   <object-name>leftconsole02</object-name>
+   <object-name>middleconsole</object-name>
+   <object-name>rightconsole</object-name>
+   <object-name>overhead1</object-name>
+   <object-name>overhead2</object-name>
  </effect>
  <effect>
   <inherits-from>Effects/model-transparent</inherits-from>
@@ -1348,6 +1358,7 @@
 <animation>
   <type>select</type>
   <object-name>overhead1</object-name>
+  <object-name>023_blind</object-name>
    <condition>
     <equals>
     <property>an24/radio-equip</property>
@@ -1366,6 +1377,8 @@
     </equals>
    </condition>
 </animation>
+
+<!--******************************-->
 
 <model>
   <name>ARK-11</name>
@@ -1412,7 +1425,7 @@
   </offsets>
 </model>
 
-<!--********************************************-->
+<!--************* Transponder **************-->
 
 <model>
   <name>SO-63</name>
@@ -1425,7 +1438,41 @@
   </offsets>
 </model>
 
-<!--********************************************-->
+<model>
+  <name>023a</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Standard</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/SOM-64_oh/023_controlpanel.xml</path>
+  <offsets>
+    <x-m>2.9905</x-m>
+    <y-m>-0.246</y-m>
+    <z-m>1.452</z-m>
+    <pitch-deg>169.5</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>023b</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/SOM-64_oh/023_controlpanel.xml</path>
+  <offsets>
+    <x-m>2.99</x-m>
+    <y-m>0.4226</y-m>
+    <z-m>1.463</z-m>
+    <pitch-deg>169.5</pitch-deg>
+  </offsets>
+</model>
+
+<!--*************** SP-50 *****************-->
 
 <model>
   <name>M-50</name>
@@ -1444,7 +1491,7 @@
   </offsets>
 </model>
 
-<!--********************************************-->
+<!--************* Kurs-MP ***************-->
 
 <model>
   <name>Kurs-MP_a</name>
@@ -1544,6 +1591,23 @@
     <x-m>3.014</x-m>
     <y-m>-0.2315</y-m>
     <z-m>1.452</z-m>
+    <pitch-deg>169.5</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>Kurs-MP_f</name>
+    <condition>
+    <equals>
+    <property>an24/radio-equip</property>
+    <value>Kurs-MP</value>
+    </equals>
+    </condition>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/sdu-source.xml</path>
+  <offsets>
+    <x-m>2.79</x-m>
+    <y-m>-0.047</y-m>
+    <z-m>1.41</z-m>
     <pitch-deg>169.5</pitch-deg>
   </offsets>
 </model>

@@ -23,7 +23,7 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>nav1ark1a</tooltip-id>
-      <label>Audio Source Kurs-MP</label>
+      <label>Indicator-Source Kurs-MP</label>
     </binding>
    </hovered>
  </animation>
@@ -46,7 +46,7 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>nav1ark1b</tooltip-id>
-      <label>Audio Source ARK</label>
+      <label>Indicator-Source ARK</label>
     </binding>
    </hovered>
  </animation>

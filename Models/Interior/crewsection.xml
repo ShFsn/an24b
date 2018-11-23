@@ -19,6 +19,11 @@
    <object-name>APBK-M</object-name>
    <object-name>AP_ILS-impl</object-name>
    <object-name>US-8K_receiver</object-name>
+   <object-name>servo_unit_amp</object-name>
+   <object-name>altimetric_corrector</object-name>
+   <object-name>undertable2</object-name>
+   <object-name>auasp</object-name>
+   <object-name>navtable_rack</object-name>
   </effect>
 
  <animation>

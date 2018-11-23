@@ -262,10 +262,11 @@ var mp1freq = func {
 var mp1azimut = func {
  var azim1 = getprop("instrumentation/nav/radials/selected-deg");
  var finalmp1azim10 = int(azim1/10);
- setprop("an24/Kurs-MP/azim1_10", finalmp1azim10);
- setprop("an24/Kurs-MP/azim1_100", int(finalmp1azim10/10) );
+ interpolate("an24/Kurs-MP/azim1_10", finalmp1azim10, 0.1);
+ interpolate("an24/Kurs-MP/azim1_100", int(finalmp1azim10/10), 0.1);
 }
  setlistener("instrumentation/nav/radials/selected-deg", mp1azimut);
+ setlistener("sim/signals/fdm-initialized", mp1azimut);
 
 #####################################################################
 # Kurs-MP No.2
@@ -284,7 +285,8 @@ var mp2freq = func {
 var mp2azimut = func {
  var azim2 = getprop("instrumentation/nav[1]/radials/selected-deg");
  var finalmp2azim10 = int(azim2/10);
- setprop("an24/Kurs-MP/azim2_10", finalmp2azim10);
- setprop("an24/Kurs-MP/azim2_100", int(finalmp2azim10/10) );
+ interpolate("an24/Kurs-MP/azim2_10", finalmp2azim10, 0.1);
+ interpolate("an24/Kurs-MP/azim2_100", int(finalmp2azim10/10), 0.1);
 }
  setlistener("instrumentation/nav[1]/radials/selected-deg", mp2azimut);
+ setlistener("sim/signals/fdm-initialized", mp2azimut);

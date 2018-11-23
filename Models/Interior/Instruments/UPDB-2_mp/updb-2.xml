@@ -8,8 +8,10 @@
  <animation>
    <type>material</type>
    <object-name>housing</object-name>
-   <object-name>needle1</object-name>
-   <object-name>needle2</object-name>
+   <object-name>needle1ark</object-name>
+   <object-name>needle2ark</object-name>
+   <object-name>needle1nav</object-name>
+   <object-name>needle2nav</object-name>
    <emission>
      <red>1.0</red>
      <green>0.4</green>
@@ -19,10 +21,22 @@
  </animation>
 
 <!--Needles-->
+
 <animation>
-    <object-name>needle1</object-name>
+  <type>select</type>
+  <object-name>needle1nav</object-name>
+    <condition>
+     <equals>
+      <property>an24/Kurs-MP/vor1-ark1</property>
+      <value>1.0</value>
+     </equals>
+    </condition>
+</animation>
+
+<animation>
     <type>rotate</type>
-    <property>instrumentation/adf/indicated-bearing-deg</property>
+    <object-name>needle1nav</object-name>
+    <property>instrumentation/nav/heading-deg</property>
     <axis>
       <x>-1.0</x>
       <y>0.0</y>
@@ -31,7 +45,42 @@
 </animation>
 
 <animation>
-    <object-name>needle1</object-name>
+    <type>rotate</type>
+    <object-name>needle1nav</object-name>
+    <property>orientation/heading-deg</property>
+    <axis>
+      <x>-1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>needle1ark</object-name>
+    <condition>
+     <equals>
+      <property>an24/Kurs-MP/vor1-ark1</property>
+      <value>-1.0</value>
+     </equals>
+    </condition>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>needle1ark</object-name>
+    <property>instrumentation/adf/indicated-bearing-deg</property>
+  <factor>1</factor>
+
+    <axis>
+      <x>-1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+
+<animation>
+    <object-name>needle1ark</object-name>
     <type>rotate</type>
     <property>an24/ARK-11/frame-offset-1</property>
     <axis>
@@ -42,7 +91,51 @@
 </animation>
 
 <animation>
-    <object-name>needle2</object-name>
+  <type>select</type>
+  <object-name>needle2nav</object-name>
+    <condition>
+     <equals>
+      <property>an24/Kurs-MP/vor2-ark2</property>
+      <value>1.0</value>
+     </equals>
+    </condition>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>needle2nav</object-name>
+    <property>instrumentation/nav[1]/heading-deg</property>
+    <axis>
+      <x>-1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>needle2nav</object-name>
+    <property>orientation/heading-deg</property>
+    <axis>
+      <x>-1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>needle1ark</object-name>
+    <condition>
+     <equals>
+      <property>an24/Kurs-MP/vor2-ark2</property>
+      <value>-1.0</value>
+     </equals>
+    </condition>
+</animation>
+
+<animation>
+    <object-name>needle2ark</object-name>
     <type>rotate</type>
     <property>instrumentation/adf[1]/indicated-bearing-deg</property>
     <axis>
@@ -53,7 +146,7 @@
 </animation>
 
 <animation>
-    <object-name>needle2</object-name>
+    <object-name>needle2ark</object-name>
     <type>rotate</type>
     <property>an24/ARK-11/frame-offset-2</property>
     <axis>

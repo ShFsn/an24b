@@ -912,6 +912,8 @@ QuickStartUpGuide.pdf
   <dec1 type="double">0.0</dec1>
   <mhz2 type="double">0.0</mhz2>
   <dec2 type="double">0.0</dec2>
+  <sw_to-from1 type="double">1.0</sw_to-from1>
+  <sw_to-from2 type="double">1.0</sw_to-from2>
   <vor1-ark1 type="double">-1.0</vor1-ark1>
   <vor2-ark2 type="double">-1.0</vor2-ark2>
   <vor1on type="double">0.0</vor1on>
