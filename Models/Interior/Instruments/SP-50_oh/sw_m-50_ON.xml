@@ -27,6 +27,7 @@
       <script>
         interpolate("an24/SP-50/on", 1.0, 0.1 );
 	if (getprop("an24/AZS/sw0516") == 1.0 ) {
+	setprop("instrumentation/nav/serviceable", 1.0 );
 	setprop("instrumentation/nav/cdi/serviceable", 1.0 );
 	setprop("instrumentation/nav/gs/serviceable", 1.0 );
 	}

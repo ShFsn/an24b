@@ -1,6 +1,23 @@
-##
-# ARK-11 stuff
+####################################################################
+# Reset radio settings when swapping SP-50 <-> Kurs-MP
+####################################################################
+var resetradios = func {
+	setprop("an24/SP-50/on", 0.0 );
+	setprop("instrumentation/nav/serviceable", 0.0 );
+	setprop("instrumentation/nav[1]/serviceable", 0.0 );
+	setprop("instrumentation/nav/cdi/serviceable", 0.0 );
+	setprop("instrumentation/nav/gs/serviceable", 0.0 );
+	setprop("an24/Kurs-MP/vor1-ark1", -1.0 );
+	setprop("an24/Kurs-MP/vor2-ark2", -1.0 );
+	setprop("an24/Kurs-MP/sw_vor1on", 0.0 );
+	setprop("an24/Kurs-MP/sw_vor2on", 0.0 );
+	setprop("an24/Kurs-MP/signalisation", 0.0 );
+}
+ setlistener("an24/radio-equip", resetradios);
 
+####################################################################
+# ARK-11 stuff
+####################################################################
 setprop("an24/ARK-11/mem1/fix1sb", 120.0);
 setprop("an24/ARK-11/mem1/fix2sb", 120.0);
 setprop("an24/ARK-11/mem1/fix3sb", 120.0);

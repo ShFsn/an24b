@@ -15,7 +15,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Kurs-MP/vor2on", 1.0, 0.1 );
+        interpolate("an24/Kurs-MP/sw_vor2on", 1.0, 0.1 );
+	setprop("instrumentation/nav[1]/serviceable", 1.0 );
       </script>
     </binding>
   </action>
@@ -38,7 +39,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Kurs-MP/vor2on", 0.0, 0.1 );
+        interpolate("an24/Kurs-MP/sw_vor2on", 0.0, 0.1 );
+	setprop("instrumentation/nav[1]/serviceable", 0.0 );
       </script>
     </binding>
   </action>
@@ -54,7 +56,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Kurs-MP/vor2on</property>
+   <property>an24/Kurs-MP/sw_vor2on</property>
   <interpolation>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>

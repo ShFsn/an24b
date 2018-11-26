@@ -186,7 +186,7 @@
     <config>
       <from-model type="bool">true</from-model>
       <x-offset-m type="double" >-0.33</x-offset-m>
-      <y-offset-m type="double" >1.10</y-offset-m>
+      <y-offset-m type="double" >1.15</y-offset-m>
       <z-offset-m type="double" >-4.87</z-offset-m>
       <pitch-offset-deg type="double">0.0</pitch-offset-deg>
       <from-model-idx type="int">0</from-model-idx>
@@ -651,8 +651,9 @@ QuickStartUpGuide.pdf
 
 <controls>
   <gear>
-    <steering>10.0</steering>
+    <brake-parking type="bool">true</brake-parking>
     <nose-wheel-steering type="bool">true</nose-wheel-steering>
+    <steering>10.0</steering>
   </gear>
 </controls>
 
@@ -752,15 +753,13 @@ QuickStartUpGuide.pdf
   <heading-indicator-fg>
     <serviceable type="bool">true</serviceable>
   </heading-indicator-fg>
-  <!--<kppm n="0">
-    <scale-offset type="double">0</scale-offset>
-  </kppm>-->
   <marker-beacon>
     <audio-btn type="bool">false</audio-btn>
     <serviceable type="bool">false</serviceable>
     <volume type="double">0.0</volume>
   </marker-beacon>
   <nav n="0">
+   <serviceable type="bool">false</serviceable>
    <cdi>
     <serviceable type="bool">false</serviceable>
    </cdi>
@@ -772,6 +771,7 @@ QuickStartUpGuide.pdf
    </gs>
   </nav>
   <nav n="1">
+   <serviceable type="bool">false</serviceable>
    <frequencies>
     <selected-mhz type="double">108.0</selected-mhz>
    </frequencies>
@@ -946,6 +946,8 @@ QuickStartUpGuide.pdf
   <SP-50>
    <channel type="int">6</channel>
    <regime type="int">1</regime> <!-- 0=SP-50, 1=ILS -->
+   <hs-needle-offset type="double">0.0</hs-needle-offset>
+   <gs-needle-offset type="double">0.0</gs-needle-offset>
   </SP-50>
 
  <animations>

@@ -35,12 +35,6 @@
    <property>instrumentation/nav/radials/selected-deg</property>
   </dif>
   </expression>
-  <!--expression>
-  <dif>
-   <property>instrumentation/gik-1/indicated-heading</property>
-   <property>instrumentation/kppm/scale-offset</property>
-  </dif>
-  </expression-->
  <axis>
   <x>-1</x>
   <y>0</y>
@@ -52,7 +46,6 @@
   <type>rotate</type>
   <object-name>scale</object-name>
    <property>instrumentation/nav/radials/selected-deg</property>
-  <!--property>instrumentation/kppm/scale-offset</property-->
    <axis>
     <x>1</x>
     <y>0</y>
@@ -61,46 +54,69 @@
 </animation>
 
 <animation>
-	<type>translate</type>
-	<object-name>hs_needle</object-name>
-	<property>instrumentation/nav/heading-needle-deflection-norm</property>
-	<interpolation>
-		<entry><ind>-1</ind><dep>-0.019</dep></entry>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1</ind><dep>0.019</dep></entry>
-	</interpolation>
-	<axis>
-		<x>0.0</x>
-		<y>1.0</y>
-		<z>0.0</z>
-	</axis>
+ <type>translate</type>
+ <object-name>hs_needle</object-name>
+  <expression>
+    <table>
+      <mod>
+       <sum>
+   <property>an24/SP-50/hs-needle-offset</property>
+   <property>instrumentation/nav/heading-needle-deflection-norm</property>
+       </sum>
+        <value>2.0</value>
+      </mod>
+      <entry><ind>-2.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>-1.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>0.0</ind>	<dep>0</dep></entry>
+      <entry><ind>1.0</ind>	<dep>0.019</dep></entry>
+      <entry><ind>2.0</ind>	<dep>0.019</dep></entry>
+    </table>
+  </expression>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
 </animation>
 
 <animation>
-	<type>translate</type>
-	<object-name>gs_needle</object-name>
-	<property>instrumentation/nav/gs-needle-deflection</property>
-	<interpolation>
-		<!--<entry><ind>-9999.0</ind><dep>-0.0213</dep></entry>-->
-		<entry><ind>-3.5</ind><dep>-0.019</dep></entry>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>3.5</ind><dep>0.019</dep></entry>
-		<!--<entry><ind>9999.0</ind><dep>0.0213</dep></entry>-->
-	</interpolation>
-	<axis>
-		<x>0.0</x>
-		<y>0.0</y>
-		<z>1.0</z>
-	</axis>
+ <type>translate</type>
+ <object-name>gs_needle</object-name>
+  <expression>
+    <table>
+      <mod>
+       <sum>
+   <property>an24/SP-50/gs-needle-offset</property>
+   <property>instrumentation/nav/gs-needle-deflection-norm</property>
+       </sum>
+        <value>2.0</value>
+      </mod>
+      <entry><ind>-2.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>-1.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>0.0</ind>	<dep>0</dep></entry>
+      <entry><ind>1.0</ind>	<dep>0.019</dep></entry>
+      <entry><ind>2.0</ind>	<dep>0.019</dep></entry>
+    </table>
+  </expression>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
 </animation>
 
 <animation>
     <type>select</type>
     <object-name>gs_blenker</object-name>
     <condition>
-	<not>
-	<property>instrumentation/nav/has-gs</property>
-	</not>
+    <or>
+     <not>
+      <property>instrumentation/nav/has-gs</property>
+     </not>
+     <not>
+      <property>instrumentation/nav/in-range</property>
+     </not>
+    </or>
     </condition>
 </animation>
 
@@ -108,9 +124,14 @@
     <type>select</type>
     <object-name>hs_blenker</object-name>
     <condition>
-		<not>
-			<property>instrumentation/nav/nav-loc</property>
-		</not>
+    <or>
+     <not>
+      <property>instrumentation/nav/nav-loc</property>
+     </not>
+     <not>
+      <property>instrumentation/nav/in-range</property>
+     </not>
+    </or>
     </condition>
 </animation>
 
@@ -138,14 +159,6 @@
         <max>360</max>                
         <wrap>true</wrap>
       </binding>
-      <!--binding>
-        <command>property-adjust</command>
-        <property>instrumentation/kppm/scale-offset</property>
-        <factor>-1</factor>
-        <min>0</min>
-        <max>360</max>                
-        <wrap>true</wrap>
-      </binding-->
     </action>
 </animation>
 

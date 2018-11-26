@@ -317,6 +317,12 @@ var startup = func {
 		setprop("an24/instrumentation/eup", 1.0 );
 		setprop("an24/instrumentation/sw_eup", 1.0 );
 		setprop("an24/SP-50/on", 1.0 );
+		setprop("instrumentation/nav/serviceable", 1.0 );
+		setprop("instrumentation/nav/cdi/serviceable", 1.0 );
+		setprop("instrumentation/nav/gs/serviceable", 1.0 );
+		if (getprop("an24/radio-equip") == "Kurs-MP" ) {
+		setprop("an24/Kurs-MP/sw_vor1on", 1.0 );
+		}
 		}, t); t += 0.2;
 
 		settimer( func{

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AZR-6; SP-50 glidepath/course receiver (GRP/KRP) -->
+<!-- AZR-6 (461); SP-50 glidepath/course receiver (GRP/KRP) -->
 
 <PropertyList>
  <path>../../shared/switches/azr.ac</path>

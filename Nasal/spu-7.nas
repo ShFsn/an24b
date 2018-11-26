@@ -11,14 +11,6 @@ setprop("an24/SPU-7/general_viewnr8", 0.0);
 setprop("an24/SPU-7/general_viewnr9", 0.0);
 setprop("an24/SPU-7/general_viewnr10", 0.0);
 
-var equipselect = func {
-	if ( getprop("an24/radio-equip") == "Standard" ) {
-	setprop("an24/Kurs-MP/vor1-ark1", -1.0);
-	setprop("an24/Kurs-MP/vor2-ark2", -1.0);
-	}
-}
- setlistener("an24/radio-equip", equipselect);
-
 #########################################################################
 # R-802 No.1
 #########################################################################
@@ -201,7 +193,7 @@ var kursmp1audible = func {
 	var volumeknob = getprop("an24/SPU-7/general_viewnr" ~ viewnr ~ "")
 	}
 	if ( getprop("an24/Kurs-MP/vor1-ark1") == 1.0 and ((getprop("an24/SPU-7/lc_source") == 4.0 and viewnr == 0 ) or (getprop("an24/SPU-7/rc_source") == 4.0 and viewnr == 8 ) or (getprop("an24/SPU-7/eng_source") == 4.0 and viewnr == 9 ) or (getprop("an24/SPU-7/nav_source") == 4.0 and viewnr == 10 )) ) {
-	var toheadset = volumeknob * getprop("an24/Kurs-MP/vor1on") ;
+	var toheadset = volumeknob * getprop("instrumentation/nav[0]/serviceable") ;
 	interpolate("/instrumentation/nav[0]/volume", toheadset, 0.2 );
 	}
 	else {
@@ -226,7 +218,7 @@ var kursmp1audible = func {
  setlistener("an24/SPU-7/eng_source", kursmp1audible);
  setlistener("an24/SPU-7/nav_source", kursmp1audible);
  setlistener("an24/Kurs-MP/vor1-ark1", kursmp1audible);
- setlistener("an24/Kurs-MP/vor1on", kursmp1audible);
+ setlistener("instrumentation/nav[0]/serviceable", kursmp1audible);
 
 #########################################################################
 # KURS-MP No.2
@@ -240,7 +232,7 @@ var kursmp2audible = func {
 	var volumeknob = getprop("an24/SPU-7/general_viewnr" ~ viewnr ~ "")
 	}
 	if ( getprop("an24/Kurs-MP/vor2-ark2") == 1.0 and ((getprop("an24/SPU-7/lc_source") == 5.0 and viewnr == 0 ) or (getprop("an24/SPU-7/rc_source") == 5.0 and viewnr == 8 ) or (getprop("an24/SPU-7/eng_source") == 5.0 and viewnr == 9 ) or (getprop("an24/SPU-7/nav_source") == 5.0 and viewnr == 10 )) ) {
-	var toheadset = volumeknob * getprop("an24/Kurs-MP/vor2on") ;
+	var toheadset = volumeknob * getprop("instrumentation/nav[1]/serviceable") ;
 	interpolate("/instrumentation/nav[1]/volume", toheadset, 0.2 );
 	}
 	else {
@@ -265,4 +257,4 @@ var kursmp2audible = func {
  setlistener("an24/SPU-7/eng_source", kursmp2audible);
  setlistener("an24/SPU-7/nav_source", kursmp2audible);
  setlistener("an24/Kurs-MP/vor2-ark2", kursmp2audible);
- setlistener("an24/Kurs-MP/vor2on", kursmp2audible);
+ setlistener("instrumentation/nav[1]/serviceable", kursmp2audible);
