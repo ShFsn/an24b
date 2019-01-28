@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AZS-2; Distributor valves of panel heating channels -->
+<!-- AZS-2; Distributor valves of PAX cabin heating/cooling channels (racks/lower panels) -->
 
 <PropertyList>
  <path>../../shared/switches/azs.ac</path>

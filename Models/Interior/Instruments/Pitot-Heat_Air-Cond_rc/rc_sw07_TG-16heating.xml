@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Switch for air conditioning air supply to turbogenerator TG-16 -->
+<!-- Switch for hot air supply to turbogenerator TG-16 -->
 
 <PropertyList>
  <path>../../shared/switches/vng-15.ac</path>
@@ -12,37 +12,32 @@
   <action>
     <button>0</button>
     <repeatable>false</repeatable>
-    <!--binding>
+    <binding>
         <condition>
          <equals>
-         <property>an24/AZS/sw0411</property>
+         <property>an24/AZS/sw0614</property>
          <value>1.0</value>
          </equals>
         </condition>
       <command>nasal</command>
       <script>
-        interpolate("an24/Air-Cond/left-system", 1.0, 0.1 );
+        setprop("an24/Air-Cond/TG-16heating", 1.0 );
       </script>
     </binding>
     <binding>
-        <condition>
-         <equals>
-         <property>an24/AZS/sw0411</property>
-         <value>0.0</value>
-         </equals>
-        </condition>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/pitot_S1S5A1", 0.0, 0.1 );
-      </script>
-    </binding-->
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/Air-Cond/TG-16heating", 1.0, 0.1 );
+        interpolate("an24/Air-Cond/sw_TG-16heating", 1.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>tg16heaton</tooltip-id>
+      <label>TG-16 Heating ON</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
@@ -52,43 +47,27 @@
   <action>
     <button>0</button>
     <repeatable>false</repeatable>
-    <!--binding>
-        <condition>
-         <equals>
-         <property>an24/AZS/sw0411</property>
-         <value>1.0</value>
-         </equals>
-        </condition>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/Anti-Ice/pitot_S1S5A1", -1.0, 0.1 );
-      </script>
-    </binding>
-    <binding>
-        <condition>
-         <equals>
-         <property>an24/AZS/sw0411</property>
-         <value>0.0</value>
-         </equals>
-        </condition>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/Anti-Ice/pitot_S1S5A1", 0.0, 0.1 );
-      </script>
-    </binding-->
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Air-Cond/TG-16heating", -1.0, 0.1 );
+        interpolate("an24/Air-Cond/sw_TG-16heating", -1.0, 0.1 );
+        setprop("an24/Air-Cond/TG-16heating", 0.0 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>tg16heatoff</tooltip-id>
+      <label>TG-16 Heating OFF</label>
+    </binding>
+   </hovered>
 </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Air-Cond/TG-16heating</property>
+   <property>an24/Air-Cond/sw_TG-16heating</property>
   <interpolation>
     <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
     <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>

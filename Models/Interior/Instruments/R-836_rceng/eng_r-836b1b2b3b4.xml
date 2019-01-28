@@ -27,12 +27,50 @@
    <object-name>b2_lockD</object-name>
    <object-name>b2_knobE</object-name>
    <object-name>b2_lockE</object-name>
+   <object-name>b3</object-name>
    <object-name>b4</object-name>
    <object-name>undercarriage</object-name>
 </effect>
 
-<!-- B1 Hood animation open part 1 (open)-->
+<animation>
+  <type>noshadow</type>
+  <object-name>tubes</object-name>
+ </animation>
 
+ <animation>
+   <type>material</type>
+   <object-name>tubes</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+   </emission>
+ </animation>
+
+<model>
+  <name>baro-check</name>
+  <path>sl_baro-check.xml</path>
+  <offsets>
+    <x-m>-0.117</x-m>
+    <y-m>0.293</y-m>
+    <z-m>-0.043</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>thermostat</name>
+  <path>sl_thermostat.xml</path>
+  <offsets>
+    <x-m>-0.12</x-m>
+    <y-m>0.27</y-m>
+    <z-m>-0.043</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<!-- B1 Hood animation open part 1 (open)-->
  <animation>
    <type>slider</type>
    <object-name>b1_hood</object-name>
@@ -498,7 +536,95 @@
   </condition>
  </animation>
 
-<!--********** Knobs **********-->
+<!--********** Knobs B1 **********-->
+
+ <animation>
+   <type>knob</type>
+   <object-name>b1_knobA</object-name>
+   <property>an24/R-836/b1_knob_A</property>
+    <condition>
+     <property>an24/R-836/b1_lockA</property>
+    </condition>
+    <condition>
+     <property>an24/R-836/b1_anim</property>
+    </condition>
+   <factor>1.8</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.094</y-m>
+   <z-m>-0.0715</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_knob_A</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>200</max>                
+      <wrap>true</wrap>
+     </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	interpolate("an24/R-836/adjust-in-progress", 1.0, 0.2, 0.0, 5.0);
+       </script>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b1_lockA</object-name>
+     <!--condition>
+       <property>devices/status/keyboard/shift</property>
+     </condition-->
+   <property>an24/R-836/b1_lockA</property>
+   <factor>52</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.094</y-m>
+   <z-m>-0.0715</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_lockA</property>
+      <factor>1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_lockA</object-name>
+   <property>an24/R-836/b1_knob_A</property>
+   <factor>1.8</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.094</y-m>
+   <z-m>-0.0715</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+<!--********** Knobs B2 **********-->
 
  <animation>
    <type>knob</type>
@@ -624,6 +750,91 @@
     <y>0.0</y>
     <z>0.0</z>
   </axis>
+ </animation>
+
+<!--********** Knobs B3 **********-->
+
+ <animation>
+   <type>knob</type>
+   <object-name>b3_knobA</object-name>
+   <property>an24/R-836/b3_knob_A</property>
+   <factor>-30</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.2766</y-m>
+   <z-m>0.0739</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b3_knob_A</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>9</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b3_knobB</object-name>
+   <property>an24/R-836/b3_knob_B</property>
+   <factor>-70</factor>
+   <offset-deg>35</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.2766</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b3_knob_B</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b3_knobC</object-name>
+   <property>an24/R-836/b3_knob_C</property>
+   <factor>-20</factor>
+   <offset-deg>20</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.2766</y-m>
+   <z-m>-0.0753</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b3_knob_C</property>
+      <factor>-1</factor>
+      <min>1</min>
+      <max>19</max>                
+      <wrap>true</wrap>
+     </binding>
+    </action>
  </animation>
 
  <!-- Text OSG -->

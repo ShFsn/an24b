@@ -1298,6 +1298,16 @@
 </model>
 
 <model>
+ <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/rc_sw12_turbo-cooler.xml</path>
+  <offsets>
+    <x-m>2.3965</x-m>
+    <y-m>0.969</y-m>
+    <z-m>0.72</z-m>
+    <heading-deg>-79.5</heading-deg>
+  </offsets>
+</model>
+
+<model>
   <name>ARD-207</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/ARD-207_rc/ard-207.xml</path>
   <offsets>
@@ -1965,7 +1975,7 @@
 
 <model>
   <name>Anti-Ice</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Anti-Ice/lprp_anti-ice.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Anti-Ice/lprprc_anti-ice.xml</path>
 </model>
 
 <model>
@@ -1976,6 +1986,11 @@
 <model>
   <name>Bottom_mp</name>
   <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Bottom_mp/bottom_mp.xml</path>
+</model>
+
+<model>
+  <name>PAXsign</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/PAXsigns/PAXsigns.xml</path>
 </model>
 
 <model>

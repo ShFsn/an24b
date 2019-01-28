@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Pitot heat panel (and Air cond?) -->
+<!-- Pitot heat and air conditioning panel; "Ан-24. ИНСТРУКЦИЯ ПО ТЕХНИЧЕСКОЙ ЭКСПЛУАТАЦИИ. КНИГА II", pp. 107 -->
 
 <PropertyList>
 
@@ -30,7 +30,7 @@
 </model>
 
 <model>
- <path>rc_sw02_cabintemp_hotcold_manualL.xml</path>
+ <path>rc_sw02_valve_compressor-airL.xml</path>
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.1015</x-m>
@@ -40,7 +40,7 @@
 </model>
 
 <model>
- <path>rc_sw03_cabintemp_hotcold_manualR.xml</path>
+ <path>rc_sw03_valve_compressor-airR.xml</path>
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.1015</x-m>
@@ -50,7 +50,7 @@
 </model>
 
 <model>
- <path>rc_sw04_aircondLsystem.xml</path>
+ <path>rc_sw04_mix-valveL.xml</path>
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.067</x-m>
@@ -60,7 +60,7 @@
 </model>
 
 <model>
- <path>rc_sw05_aircondRsystem.xml</path>
+ <path>rc_sw05_mix-valveR.xml</path>
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.067</x-m>
@@ -128,6 +128,18 @@
     <z-m>0.024</z-m>
   </offsets>
 </model>
+
+<!-- Turbo cooler switch in cockpit.xml
+<model>
+ <path>rc_sw12_turbo-cooler.xml</path>
+  <offsets>
+    <x-m>2.3965</x-m>
+    <y-m>0.968</y-m>
+    <z-m>0.7115</z-m>
+    <heading-deg>-79.5</heading-deg>
+  </offsets>
+</model-->
+
 
 <!-- Lamps -->
 

@@ -12,7 +12,6 @@
 </aircraft>
 
  <sim>
-
   <description>Antonov An-24B</description>
   <long-description>The Antonov An-24 was basically built as regional airliner from 1959-1978 in the USSR. Having many variants, the An-24 also served, and serves, e.g. as transport, reconnaissance, fire fighter, or even as navigator training plane. It's derivatives, the An-26, An-30 and An-32 are used for military purposes. 
   </long-description>
@@ -353,7 +352,6 @@ QuickStartUpGuide.pdf
       <path>Aircraft/an24b/Systems/ap-28l1.xml</path>
     </autopilot>
   </systems>
-
 </sim>
 
 
@@ -370,7 +368,6 @@ QuickStartUpGuide.pdf
 
 <input>
  <keyboard>
-
      <key n="115">
        <name>s</name>
        <desc>Autostart</desc>
@@ -645,7 +642,6 @@ QuickStartUpGuide.pdf
         <script>view.forceView(3);</script>
       </binding>
     </key>
-
   </keyboard>
 </input>
 
@@ -655,6 +651,9 @@ QuickStartUpGuide.pdf
     <nose-wheel-steering type="bool">true</nose-wheel-steering>
     <steering>10.0</steering>
   </gear>
+  <lighting>
+    <sw_nosmoking type="double">-1.0</sw_nosmoking>
+  </lighting>
 </controls>
 
 <consumables>
@@ -809,6 +808,19 @@ QuickStartUpGuide.pdf
 </systems>
 
 <an24>
+ <Air-Cond>
+  <TG-16heating type="double">0.0</TG-16heating>
+  <sw_TG-16heating type="double">-1.0</sw_TG-16heating>
+  <sw_rack-panel type="double">-1.0</sw_rack-panel>
+  <sw_turbo-cooler_valve type="double">-1.0</sw_turbo-cooler_valve>
+  <temp_auto-manual type="double">-1.0</temp_auto-manual>
+  <turbo-cooler_valve type="double">0.0</turbo-cooler_valve>
+ </Air-Cond>
+
+ <Anti-Ice>
+  <sw_clockheat type="double">-1.0</sw_clockheat>
+ </Anti-Ice>
+
   <AP-28l1>
     <coefficients> <!-- coefficients are taken from book An-24. Technical description.-->
       <roll-angle type="double">0.52</roll-angle>
@@ -912,6 +924,7 @@ QuickStartUpGuide.pdf
   <dec1 type="double">0.0</dec1>
   <mhz2 type="double">0.0</mhz2>
   <dec2 type="double">0.0</dec2>
+  <sp-50_ILS type="double">1.0</sp-50_ILS>
   <sw_to-from1 type="double">1.0</sw_to-from1>
   <sw_to-from2 type="double">1.0</sw_to-from2>
   <vor1-ark1 type="double">-1.0</vor1-ark1>
@@ -936,6 +949,8 @@ QuickStartUpGuide.pdf
   <R-836>
    <b1_hood_anim2 type="double">0</b1_hood_anim2>
    <b2_hood_anim2 type="double">0</b2_hood_anim2>
+   <b1_knob_A type="double">0</b1_knob_A>
+   <b2_knob_D type="double">0</b2_knob_D>
   </R-836>
 
   <RTMS>
@@ -951,6 +966,7 @@ QuickStartUpGuide.pdf
   </SP-50>
 
  <animations>
+  <RK_hood type="double">0.0</RK_hood>
   <nose type="double">1.0</nose>
  </animations>
 
@@ -967,13 +983,15 @@ QuickStartUpGuide.pdf
       <prop-lock-right type="bool">false</prop-lock-right>
     </prop-lock>
   </instrumentation>
-
 </an24>
 
 <nasal>
   <autostart>
     <file>Aircraft/an24b/Nasal/autostart.nas</file>
   </autostart>
+  <conditioning>
+    <file>Aircraft/an24b/Nasal/conditioning.nas</file>
+  </conditioning>
   <electrical>
     <file>Aircraft/an24b/Nasal/elect.nas</file>
   </electrical>

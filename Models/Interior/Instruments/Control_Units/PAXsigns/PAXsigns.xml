@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!-- PAX signs' switches -->
+
+<PropertyList>
+
+<!-- Right console -->
+<model>
+ <path>rc_sw_dontsmoke.xml</path>
+  <offsets>
+    <x-m>2.198</x-m>
+    <y-m>0.932</y-m>
+    <z-m>0.7275</z-m>
+    <heading-deg>-79.5</heading-deg>
+  </offsets>
+</model>
+
+</PropertyList>

@@ -32,6 +32,7 @@
       <command>nasal</command>
       <script>
         interpolate("an24/AZS/sw0613", -1.0, 0.1 );
+	setprop("an24/Air-Cond/turbo-cooler_valve", 0.0 );
       </script>
     </binding>
   </action>
