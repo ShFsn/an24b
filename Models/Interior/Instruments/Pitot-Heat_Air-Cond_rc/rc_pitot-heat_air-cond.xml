@@ -17,13 +17,42 @@
   </emission>
  </animation-->
 
+<!-- Temperature pre-select knob -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>temp_preselect</object-name>
+   <property>an24/Air-Cond/auto_temp-c</property>
+   <factor>-6</factor>
+  <center>
+    <x-m>0.1035</x-m>
+    <y-m>-0.026</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Air-Cond/auto_temp-c</property>
+      <factor>-1.0</factor>
+      <min>0</min>
+      <max>50</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
 <!-- Switches -->
 
 <model>
  <path>rc_sw01_cabintemp_auto.xml</path>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>0.1015</x-m>
+    <x-m>0.1066</x-m>
     <y-m>0.0082</y-m>
     <z-m>-0.043</z-m>
   </offsets>
@@ -33,8 +62,8 @@
  <path>rc_sw02_valve_compressor-airL.xml</path>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>0.1015</x-m>
-    <y-m>0.0293</y-m>
+    <x-m>0.1066</x-m>
+    <y-m>0.035</y-m>
     <z-m>-0.043</z-m>
   </offsets>
 </model>
@@ -43,8 +72,8 @@
  <path>rc_sw03_valve_compressor-airR.xml</path>
   <offsets>
     <pitch-deg>-90</pitch-deg>
-    <x-m>0.1015</x-m>
-    <y-m>0.0496</y-m>
+    <x-m>0.1066</x-m>
+    <y-m>0.0585</y-m>
     <z-m>-0.043</z-m>
   </offsets>
 </model>
@@ -64,7 +93,7 @@
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.067</x-m>
-    <y-m>-0.0136</y-m>
+    <y-m>-0.01</y-m>
     <z-m>-0.043</z-m>
   </offsets>
 </model>
@@ -74,7 +103,7 @@
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.067</x-m>
-    <y-m>0.0156</y-m>
+    <y-m>0.026</y-m>
     <z-m>-0.043</z-m>
   </offsets>
 </model>
@@ -84,7 +113,7 @@
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.067</x-m>
-    <y-m>0.0454</y-m>
+    <y-m>0.057</y-m>
     <z-m>-0.043</z-m>
   </offsets>
 </model>
@@ -94,7 +123,7 @@
   <offsets>
     <pitch-deg>-60</pitch-deg>
     <x-m>-0.0148</x-m>
-    <y-m>-0.0408</y-m>
+    <y-m>-0.0436</y-m>
     <z-m>-0.0232</z-m>
   </offsets>
 </model>
@@ -104,7 +133,7 @@
   <offsets>
     <pitch-deg>-60</pitch-deg>
     <x-m>-0.0148</x-m>
-    <y-m>0.0</y-m>
+    <y-m>-0.0096</y-m>
     <z-m>-0.0232</z-m>
   </offsets>
 </model>
@@ -114,7 +143,7 @@
   <offsets>
     <pitch-deg>-60</pitch-deg>
     <x-m>-0.0148</x-m>
-    <y-m>0.0358</y-m>
+    <y-m>0.025</y-m>
     <z-m>-0.0232</z-m>
   </offsets>
 </model>
@@ -143,7 +172,7 @@
 
 <!-- Lamps -->
 
-<!-- Bottom row, left to right, static pitots -->
+<!-- Bottom row, left to right, static pitots and TG-16 heating-->
 
 <model>
  <path>rc_sl01_static1.xml</path>
@@ -170,7 +199,7 @@
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.033</x-m>
-    <y-m>0.0</y-m>
+    <y-m>-0.009</y-m>
     <z-m>-0.045</z-m>
   </offsets>
 </model>
@@ -180,7 +209,7 @@
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.033</x-m>
-    <y-m>0.03</y-m>
+    <y-m>0.016</y-m>
     <z-m>-0.045</z-m>
   </offsets>
 </model>
@@ -190,7 +219,17 @@
   <offsets>
     <pitch-deg>-90</pitch-deg>
     <x-m>0.033</x-m>
-    <y-m>0.052</y-m>
+    <y-m>0.038</y-m>
+    <z-m>-0.045</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>rc_sl05a_tg-16heat.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.036</x-m>
+    <y-m>0.057</y-m>
     <z-m>-0.045</z-m>
   </offsets>
 </model>
@@ -202,7 +241,7 @@
   <offsets>
     <pitch-deg>-60</pitch-deg>
     <x-m>-0.043</x-m>
-    <y-m>-0.039</y-m>
+    <y-m>-0.041</y-m>
     <z-m>-0.006</z-m>
   </offsets>
 </model>
@@ -212,7 +251,7 @@
   <offsets>
     <pitch-deg>-60</pitch-deg>
     <x-m>-0.043</x-m>
-    <y-m>0.0</y-m>
+    <y-m>-0.009</y-m>
     <z-m>-0.006</z-m>
   </offsets>
 </model>
@@ -222,7 +261,7 @@
   <offsets>
     <pitch-deg>-60</pitch-deg>
     <x-m>-0.043</x-m>
-    <y-m>0.039</y-m>
+    <y-m>0.027</y-m>
     <z-m>-0.006</z-m>
   </offsets>
 </model>
@@ -233,7 +272,7 @@
  <path>rc_sl09_static4.xml</path>
   <offsets>
     <pitch-deg>-60</pitch-deg>
-    <x-m>-0.07</x-m>
+    <x-m>-0.072</x-m>
     <y-m>0.014</y-m>
     <z-m>0.013</z-m>
   </offsets>
@@ -243,7 +282,7 @@
  <path>rc_sl10_static7.xml</path>
   <offsets>
     <pitch-deg>-60</pitch-deg>
-    <x-m>-0.07</x-m>
+    <x-m>-0.072</x-m>
     <y-m>0.037</y-m>
     <z-m>0.013</z-m>
   </offsets>

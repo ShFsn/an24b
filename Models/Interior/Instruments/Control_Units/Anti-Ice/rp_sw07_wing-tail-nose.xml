@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- Air bleed from left/right engine for wing and tail nose heating (book "FZH", pp. 125/126, change 5) -->
+<!-- Switch 813 Air bleed from left/right engine for wing and tail nose heating (book "FZH", pp. 125/126, change 5) -->
 
 <PropertyList>
- <path>../../../shared/switches/vng-15.ac</path>
+ <path>../../../shared/switches/2ppg-15k.ac</path>
  <animation>
   <type>pick</type>
   <object-name>clickspot_up</object-name>

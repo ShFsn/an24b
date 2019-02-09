@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- VG-16K; Emergency pressure-relief -->
+<!-- Switch 855; Emergency pressure-relief by valves 527/556-->
 
 <PropertyList>
  <path>../../../shared/switches/vg-15k.ac</path>

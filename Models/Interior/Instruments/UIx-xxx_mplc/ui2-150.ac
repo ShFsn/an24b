@@ -3237,7 +3237,6 @@ kids 0
 OBJECT poly
 name "left_needle"
 loc -0.00655943 0.00987308 0.00987308
-texture "ui2-150.png"
 crease 30.000000
 numvert 8
 0.000783534 -0.00319746 -0.0046943
@@ -3274,7 +3273,6 @@ kids 0
 OBJECT poly
 name "right_needle"
 loc -0.00655943 -0.00987307 -0.00987307
-texture "ui2-150.png"
 crease 30.000000
 numvert 8
 0.000783534 0.00319751 0.00469433

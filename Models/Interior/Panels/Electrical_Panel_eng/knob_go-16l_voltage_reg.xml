@@ -9,7 +9,10 @@
    <type>knob</type>
    <object-name>11p1n</object-name>
    <property>an24/Electrical_Panel/go-16l_voltreg</property>
-   <factor>-16</factor>
+  <interpolation>
+    <entry><ind>0.91</ind>	<dep>160.0</dep></entry>
+    <entry><ind>1.1</ind>	<dep>-160.0</dep></entry>
+  </interpolation>
   <axis>
     <x>1.0</x>
     <y>0.0</y>
@@ -19,9 +22,9 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/Electrical_Panel/go-16l_voltreg</property>
-      <factor>-0.2</factor>
-      <min>-10</min>
-      <max>10</max>
+      <factor>-0.005</factor>
+      <min>0.91</min>
+      <max>1.1</max>
       <wrap>false</wrap>
      </binding>
     </action>

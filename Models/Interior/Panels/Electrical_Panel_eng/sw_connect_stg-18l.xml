@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- Include APU generator -->
+<!-- Left STG-18 generator CONNECT -->
 
 <PropertyList>
- <path>../../shared/switches/ppng-15k.ac</path>
+ <path>../../shared/switches/png-15k.ac</path>
 
  <animation>
   <type>pick</type>
@@ -15,26 +15,19 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Electrical_Panel/sw_pt-1000", 1.0, 0.1 );
+        interpolate("an24/Electrical_Panel/sw_stg18l", 1.0, 0.1 );
+	settimer(func {electrical.stg18l.start();}, 1.0);
       </script>
     </binding>
   </action>
- </animation>
-
- <animation>
-  <type>pick</type>
-  <object-name>clickspot_middle</object-name>
-  <visible>false</visible>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
+   <hovered>
     <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/Electrical_Panel/sw_pt-1000", 0.0, 0.1 );
-      </script>
+      <command>set-tooltip</command>
+      <tooltip-id>stg18lon</tooltip-id>
+      <label>Left Generator
+  STG-18 ON</label>
     </binding>
-  </action>
+   </hovered>
  </animation>
 
  <animation>
@@ -47,19 +40,28 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Electrical_Panel/sw_pt-1000", -1.0, 0.1 );
+        interpolate("an24/Electrical_Panel/sw_stg18l", 0.0, 0.1 );
+	settimer(func {electrical.stg18l.stop();}, 1.0);
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stg18loff</tooltip-id>
+      <label>Left Generator
+  STG-18 OFF</label>
+    </binding>
+   </hovered>
  </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Electrical_Panel/sw_pt-1000</property>
+   <property>an24/Electrical_Panel/sw_stg18l</property>
   <interpolation>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
-    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>

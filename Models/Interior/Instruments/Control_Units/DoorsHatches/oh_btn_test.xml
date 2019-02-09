@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- Test button of "Doors and Hatches open" panel on back of overhead -->
+<!-- Test button 8981 of "Doors and Hatches open" panel on back of overhead -->
 
 <PropertyList>
- <path>../../../shared/knobs_buttons/5k.ac</path>
+ <path>../../../shared/knobs_buttons/5k.ac</path><!--5ks-->
 
  <animation>
   <type>pick</type>

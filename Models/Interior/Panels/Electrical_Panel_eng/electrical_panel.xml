@@ -324,7 +324,7 @@
    <type>knob</type>
    <object-name>stg-18l_voltreg</object-name>
    <property>an24/Electrical_Panel/stg-18l_voltreg</property>
-   <factor>-16</factor>
+   <factor>-2000</factor>
   <axis>
     <x>1.0</x>
     <y>0.0</y>
@@ -339,9 +339,9 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/Electrical_Panel/stg-18l_voltreg</property>
-      <factor>-0.2</factor>
-      <min>-10</min>
-      <max>10</max>
+      <factor>-0.01</factor>
+      <min>0.83</min>
+      <max>1.23</max>
       <wrap>false</wrap>
      </binding>
     </action>
@@ -351,7 +351,7 @@
    <type>knob</type>
    <object-name>stg-18r_voltreg</object-name>
    <property>an24/Electrical_Panel/stg-18r_voltreg</property>
-   <factor>-16</factor>
+   <factor>-2000</factor>
   <axis>
     <x>1.0</x>
     <y>0.0</y>
@@ -366,9 +366,9 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/Electrical_Panel/stg-18r_voltreg</property>
-      <factor>-0.2</factor>
-      <min>-10</min>
-      <max>10</max>
+      <factor>-0.01</factor>
+      <min>0.83</min>
+      <max>1.23</max>
       <wrap>false</wrap>
      </binding>
     </action>
@@ -377,8 +377,8 @@
  <animation>
    <type>knob</type>
    <object-name>gs-24_voltreg</object-name>
-   <property>an24/Electrical_Panel/gs-24_voltreg</property>
-   <factor>-16</factor>
+   <property>an24/Electrical_Panel/gs24_voltreg</property>
+   <factor>-2000</factor>
   <axis>
     <x>1.0</x>
     <y>0.0</y>
@@ -392,10 +392,10 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>an24/Electrical_Panel/gs-24_voltreg</property>
-      <factor>-0.4</factor>
-      <min>-20</min>
-      <max>20</max>
+      <property>an24/Electrical_Panel/gs24_voltreg</property>
+      <factor>-0.01</factor>
+      <min>0.83</min>
+      <max>1.23</max>
       <wrap>false</wrap>
      </binding>
     </action>

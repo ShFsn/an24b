@@ -483,6 +483,30 @@ QuickStartUpGuide.pdf
       </binding>
      </key>
 
+     <key n="71">
+        <name>G</name>
+        <desc>Gear UP</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+		settimer(func {controls.gearDown(1);}, 0.45);
+		interpolate("an24/gear/sw_gear", -3.0, 3.0, 0.0, 3.0 );
+          </script>
+        </binding>
+     </key>
+
+     <key n="103">
+        <name>g</name>
+        <desc>Gear DOWN</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+		settimer(func {controls.gearDown(-1);}, 0.45);
+		interpolate("an24/gear/sw_gear", 3.0, 3.0, 0.0, 3.0 );
+          </script>
+        </binding>
+     </key>
+
      <key n="91">
         <name>[</name>
         <desc>Decrease flaps</desc>
@@ -890,6 +914,14 @@ QuickStartUpGuide.pdf
    </mem2>
  </ARK-11>
 
+ <Electrical_Panel>
+  <go-16l_voltreg type="double">0.99</go-16l_voltreg>
+  <go-16r_voltreg type="double">1.01</go-16r_voltreg>
+  <stg-18l_voltreg type="double">1.0</stg-18l_voltreg>
+  <stg-18r_voltreg type="double">1.0</stg-18r_voltreg>
+  <gs24_voltreg type="double">1.0</gs24_voltreg>
+ </Electrical_Panel>
+
  <FireTest>
   <mainresetdone type="bool">1.0</mainresetdone>
  </FireTest>
@@ -972,6 +1004,7 @@ QuickStartUpGuide.pdf
 
   <gear>
     <steer_mode type="double">2.0</steer_mode>
+    <sw_gear type="double">0.0</sw_gear>
   </gear>
 
   <instrumentation>
@@ -993,7 +1026,7 @@ QuickStartUpGuide.pdf
     <file>Aircraft/an24b/Nasal/conditioning.nas</file>
   </conditioning>
   <electrical>
-    <file>Aircraft/an24b/Nasal/elect.nas</file>
+    <file>Aircraft/an24b/Nasal/electrical.nas</file>
   </electrical>
   <engines>
     <file>Aircraft/an24b/Nasal/enginestart.nas</file>

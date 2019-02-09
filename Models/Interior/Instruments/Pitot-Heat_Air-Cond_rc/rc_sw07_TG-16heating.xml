@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- Switch for hot air supply to turbogenerator TG-16 -->
+<!-- Switch 2580 for heating (hot air supply to) turbogenerator TG-16 -->
 
 <PropertyList>
- <path>../../shared/switches/vng-15.ac</path>
+ <path>../../shared/switches/vg-15k.ac</path>
 
 <animation>
   <type>pick</type>

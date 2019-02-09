@@ -1583,7 +1583,6 @@ name "needle"
 loc -0.00328348 0.00235073 0
 data 11
 long_needle
-texture "ui1-100.png"
 crease 30.000002
 numvert 18
 0.000915361 0.0131365 0

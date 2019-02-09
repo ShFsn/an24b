@@ -52,7 +52,7 @@
         <property>an24/Electrical_Panel/v-1_stg18r</property>
         <property>an24/Electrics/DC_Gen_18TMOr_V</property>
        </product>
-       <!--product>
+       <product>
         <property>an24/Electrical_Panel/v-1_tsrul</property>
         <property>an24/Electrics/aerodrome_V</property>
        </product>
@@ -63,7 +63,7 @@
        <product>
         <property>an24/Electrical_Panel/v-1_emerg</property>
         <property>an24/Electrics/aerodrome_V</property>
-       </product-->
+       </product>
       </sum>
         <value>120.0</value>
       </mod>
