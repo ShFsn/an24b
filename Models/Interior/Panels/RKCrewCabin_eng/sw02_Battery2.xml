@@ -16,9 +16,18 @@
       <command>nasal</command>
       <script>
         interpolate("an24/RKCrew/sw02_batt2", 1.0, 0.1 );
+        interpolate("an24/Electrics/DC_Batt_12SAM2_V_out", getprop("an24/Electrics/DC_Batt_12SAM2_V"), 1.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>akk2on</tooltip-id>
+      <label>Include
+Battery 2</label>
+    </binding>
+   </hovered>
  </animation>
 
 <animation>
@@ -32,6 +41,7 @@
       <command>nasal</command>
       <script>
         interpolate("an24/RKCrew/sw02_batt2", 0.0, 0.1 );
+        interpolate("an24/Electrics/DC_Batt_12SAM2_V_out", 0.0, 0.5 );
       </script>
     </binding>
   </action>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Voltage regulation of left (reserve) GO-16 AC-Generator -->
+<!-- Voltage regulation of left (main) GO-16 AC-Generator -->
 
 <PropertyList>
  <path>../../shared/knobs_buttons/vs-33.ac</path>
@@ -28,6 +28,14 @@
       <wrap>false</wrap>
      </binding>
     </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>go16regl</tooltip-id>
+      <label>Regulate GO-16
+      Voltage</label>
+    </binding>
+   </hovered>
  </animation>
 
 </PropertyList>

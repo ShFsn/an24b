@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AZR-30; GO-16 wake-up, right -->
+<!-- Switch 972; AZR-30; GO-16 wake-up, right -->
 
 <PropertyList>
  <path>../../shared/switches/azr.ac</path>

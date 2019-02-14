@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- -->
+<!-- GO-16 AC generator failure warning light -->
 
 <PropertyList>
  <path>../../../shared/lamps/sltsn.ac</path>
@@ -15,10 +15,10 @@
 <animation>
  <type>select</type>
  <condition>
-   <equals>
-    <property>an24/lights/instrlights</property>
-    <value>1</value>
-   </equals>
+   <less-than>
+    <property>an24/Electrics/AC_Gen_GO16l_V_out</property>
+    <value>70.0</value>
+   </less-than>
   </condition>
  <object-name>lampon</object-name>
 </animation>

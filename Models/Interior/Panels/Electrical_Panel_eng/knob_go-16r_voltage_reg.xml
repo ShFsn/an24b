@@ -28,6 +28,14 @@
       <wrap>false</wrap>
      </binding>
     </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>go16regr</tooltip-id>
+      <label>Regulate GO-16
+      Voltage</label>
+    </binding>
+   </hovered>
  </animation>
 
 </PropertyList>

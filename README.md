@@ -5,7 +5,7 @@ An-24B for FlightGear flight simulator
 
 Credits:
 FDM and systems, programming - Michael Soitanen (soitanen.michael@gmail.com)
-Initial 3D model and texture, some systems and programming - Adrian
+3D model and textures, systems and programming - Adrian aka Maerchenprinz
 ASI - helijah
 Artwork - Orvil
 Some 3D instruments were taken from Tu-154B-2 by Yurik and Yak-40 by Specter.

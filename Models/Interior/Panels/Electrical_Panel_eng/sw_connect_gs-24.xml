@@ -24,8 +24,8 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>gs24on</tooltip-id>
-      <label>APU Generator
-    GS-24 ON</label>
+      <label>      Include
+APU Generator</label>
     </binding>
    </hovered>
  </animation>
@@ -49,8 +49,8 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>gs24off</tooltip-id>
-      <label>APU Generator
-    GS-24 OFF</label>
+      <label>      Exclude
+APU Generator</label>
     </binding>
    </hovered>
  </animation>

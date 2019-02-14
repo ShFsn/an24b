@@ -262,6 +262,19 @@
        </script>
      </binding>
     </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>dcvoltsel</tooltip-id>
+      <label>%s</label>
+      <property>an24/Electrical_Panel/dc_ind_source</property>
+      <mapping>nasal</mapping>
+      <script>
+        var dcvoltsel = ['None', 'AR 1', 'AR 2', 'Battery 1', 'Battery 2', 'Gen GS-24', 'Gen STG-18 L', 'Gen STG-18 R', 'TsRU L', 'TsRU R', 'Emergency Bus'];
+        return dcvoltsel[arg[0]];
+      </script>
+    </binding>
+   </hovered>
  </animation>
 
 </PropertyList>

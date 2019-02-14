@@ -6,9 +6,11 @@ var startup = func {
 	 	step = 1;
 	 	t = 0.0;
 
-		screen.log.write("AZS circuit-breaker panel", 1, 1, 1);
+		screen.log.write("AZS circuit-breaker panel and batteries", 1, 1, 1);
 		setprop("an24/RKCrew/sw01_batt1", 1.0 );
+		setprop("an24/Electrics/DC_Batt_12SAM1_V_out", getprop("an24/Electrics/DC_Batt_12SAM1_V") );
 		setprop("an24/RKCrew/sw02_batt2", 1.0 );
+		setprop("an24/Electrics/DC_Batt_12SAM2_V_out", getprop("an24/Electrics/DC_Batt_12SAM2_V") );
 		setprop("an24/AZS/sw0101", 1.0 );
 		setprop("an24/AZS/sw0102", 1.0 );
 		setprop("an24/AZS/sw0103", 1.0 );
@@ -301,6 +303,9 @@ var startup = func {
 		setprop("/controls/engines/engine[2]/cutoff", 1.0);
 		setprop("an24/Start-Panel/discontinuestarttg", 0.0 );
 		setprop("/controls/engines/engine[2]/starter", 1.0 );
+		setprop("an24/FuelControl/TG-16_cutoff", 0.0 );
+		setprop("an24/Electrical_Panel/sw_gs24", 1.0 );
+		electrical.gs24.start();
 		}, t); t += 0.3;
 
 		settimer( func{
@@ -310,7 +315,7 @@ var startup = func {
 		setprop("an24/instrumentation/agd-r", 5.0 );
 		setprop("an24/instrumentation/sw_agd-r", 1.0 );
 		interpolate("an24/PPS/light-test-knob", 1.0, 0.2, 1.0, 0.3, 0.0, 0.2 );
-		interpolate("an24/PPS/lighting", 1.0, 0.2, 1.0, 0.3, 0.0, 0.2 );
+		interpolate("an24/PPS/lighting", 1.0, 0.2, 1.0, 0.3, 0.0, 0.2, 0.0, 0.4, 1.0, 0.4 );
 		}, t); t += 0.2;
 
 		settimer( func{
@@ -344,12 +349,24 @@ var startup = func {
 		settimer( func{
 		screen.log.write("Now aligning GIK...", 1, 1, 1);
 		interpolate("/instrumentation/gik-1/indicated-heading", getprop("/orientation/heading-magnetic-deg"), 5.0 );
+# needs some tricking here
+		setprop("an24/Electrics/AC_Gen_GO16l_V_out", 115.0 );
+		setprop("an24/Electrical_Panel/add_go16l", 1.0 );
 		}, t); t += 2.0;
 
 		settimer( func{
 		screen.log.write("...and align GPK with GIK heading and set latitude", 1, 1, 1);
 		interpolate("/instrumentation/gpk-52/offset-deg", 0.0, 8.0 );
 		interpolate("/instrumentation/gpk-52/lat-nut", getprop("position/latitude-deg"), 8.0 );
+# and do some electrical panel stuff
+		setprop("an24/Electrical_Panel/sw_stg18l", 1.0 );
+		setprop("an24/Electrical_Panel/sw_stg18r", 1.0 );
+		electrical.stg18l.start();
+		electrical.stg18r.start();
+		setprop("an24/Electrical_Panel/sw_go16l", 1.0 );
+		setprop("an24/Electrical_Panel/sw_go16r", 1.0 );
+#		electrical.go16l.start(); needs to be at the end
+		electrical.go16r.start();
 		}, t); t += 2.0;
 
 		settimer( func{
@@ -411,6 +428,9 @@ var startup = func {
 		interpolate("an24/FuelControl/sw_TG-16_cutoff", -1.0, 0.2 );
 		settimer(func {interpolate("an24/FuelControl/sw_TG-16_cutoff", 0.0, 0.1 );},0.2);
 	        interpolate("an24/FuelControl/TG-16_cutoff", 1.0, 0.2 );
+		setprop("an24/Electrical_Panel/sw_gs24", 0.0 );
+		electrical.gs24.stop();
+		interpolate("an24/Electrics/DC_Gen_GS-24_V", 0.0, 1.0 );
 		}, t); t += 0.2;
 
 		settimer( func{
@@ -445,6 +465,6 @@ var startup = func {
 		setprop("an24/R-802/power-2", 1.0 );
 		interpolate("an24/R-802/volume-1", 1.0, 1.0 );
 		interpolate("an24/R-802/volume-2", 1.0, 1.0 );
-
+		electrical.go16l.start();
 		}, t); t += 1.0;
 };

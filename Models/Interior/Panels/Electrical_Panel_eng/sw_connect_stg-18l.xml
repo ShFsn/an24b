@@ -24,8 +24,8 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>stg18lon</tooltip-id>
-      <label>Left Generator
-  STG-18 ON</label>
+      <label>    Include
+Left STG-18</label>
     </binding>
    </hovered>
  </animation>
@@ -49,8 +49,8 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>stg18loff</tooltip-id>
-      <label>Left Generator
-  STG-18 OFF</label>
+      <label>    Exclude
+Left STG-18</label>
     </binding>
    </hovered>
  </animation>

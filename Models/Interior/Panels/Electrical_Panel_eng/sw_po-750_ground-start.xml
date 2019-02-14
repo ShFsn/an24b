@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- PO-750 on/ off/ AUX 115V/400Hz -->
+<!-- Switch 978; PO-750 on/ off/ AUX 115V/400Hz -->
 
 <PropertyList>
  <path>../../shared/switches/ppng-15k.ac</path>

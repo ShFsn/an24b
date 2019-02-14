@@ -38,7 +38,7 @@
        </product>
        <product>
         <property>an24/Electrical_Panel/vf-150_emerg-bus</property>
-        <property>an24/Electrics/emerg-bus_V</property>
+        <property>an24/Electrics/AC_Bus_115V_emerg</property>
        </product>
        <product>
         <property>an24/Electrical_Panel/vf-150_prop-heat</property>
@@ -46,7 +46,7 @@
        </product>
        <product>
         <property>an24/Electrical_Panel/vf-150_main-bus</property>
-        <property>an24/Electrics/main-bus_V</property>
+        <property>an24/Electrics/AC_Bus_115V_main</property>
        </product>
        <product>
         <property>an24/Electrical_Panel/vf-150_aerodrome</property>

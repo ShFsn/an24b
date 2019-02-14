@@ -25,99 +25,7 @@
    </emission>
  </animation>
 
- <animation>
-   <type>material</type>
-   <object-name>ar1_light</object-name>
-    <condition>
-    <equals>
-    <property>an24/Electrical_Panel/sw_pt-1000</property>
-    <value>1.0</value>
-    </equals>
-    </condition>
-   <diffuse>
-     <red>1.0</red>
-     <green>0.0</green>
-     <blue>0.0</blue>
-   </diffuse>
-   <ambient>
-     <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-   </ambient>
-   <emission>
-     <red>1.0</red>
-     <green>0.0</green>
-     <blue>0.0</blue>
-   </emission>
-   <specular>
-     <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-   </specular>
- </animation>
-
- <animation>
-   <type>material</type>
-   <object-name>ar2_light</object-name>
-    <condition>
-    <equals>
-    <property>an24/Electrical_Panel/sw_pt-1000</property>
-    <value>1.0</value>
-    </equals>
-    </condition>
-   <diffuse>
-     <red>1.0</red>
-     <green>0.0</green>
-     <blue>0.0</blue>
-   </diffuse>
-   <ambient>
-     <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-   </ambient>
-   <emission>
-     <red>1.0</red>
-     <green>0.0</green>
-     <blue>0.0</blue>
-   </emission>
-   <specular>
-     <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-   </specular>
- </animation>
-
- <animation>
-   <type>material</type>
-   <object-name>gs24_light</object-name>
-    <condition>
-    <equals>
-    <property>an24/Electrical_Panel/sw_pt-1000</property>
-    <value>1.0</value>
-    </equals>
-    </condition>
-   <diffuse>
-     <red>1.0</red>
-     <green>0.0</green>
-     <blue>0.0</blue>
-   </diffuse>
-   <ambient>
-     <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-   </ambient>
-   <emission>
-     <red>1.0</red>
-     <green>0.0</green>
-     <blue>0.0</blue>
-   </emission>
-   <specular>
-     <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-   </specular>
- </animation>
-
+<!--******************* 36V Section *******************************-->
 <!-- VP-46 Voltmeter -->
 
 <model>
@@ -151,7 +59,8 @@
   </offsets>
 </model>
 
-<!-- GF-400 Hertzmeter (fake atm!) -->
+<!--******************* 115V AC Section *******************************-->
+<!-- GF-400 Hertzmeter -->
 
 <model>
  <path>../../Instruments/GF-400_eng/gf-400.xml</path>
@@ -224,7 +133,115 @@
   </offsets>
 </model>
 
-<!-- Signal lamps AR-1/2 working -->
+<!-- AC-Generators GO-16 ON/OFF -->
+
+<model>
+ <path>sw_go-16l_on.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.0374</y-m>
+    <z-m>0.0426</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>sw_go-16r_on.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.06</y-m>
+    <z-m>0.0426</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>btn_add_go16l.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.121</y-m>
+    <z-m>0.033</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+ <animation>
+   <type>material</type>
+   <object-name>incl_go16l</object-name>
+    <condition>
+    <equals>
+    <property>an24/Electrical_Panel/add_go16l</property>
+    <value>0.0</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </ambient>
+   <emission>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </specular>
+ </animation>
+
+<!-- AC Voltage indication source select -->
+
+<model>
+ <path>knob_ac-volt-sel.xml</path>
+  <offsets>
+    <x-m>0.003</x-m>
+    <y-m>-0.015</y-m>
+    <z-m>0.041</z-m>
+  </offsets>
+</model>
+
+<!--******************* 27V DC Section *******************************-->
+<!-- Signal lamps GS-24, AR-1/2 working/warning -->
+
+ <animation>
+   <type>material</type>
+   <object-name>gs24_light</object-name>
+    <condition>
+    <equals>
+    <property>an24/Electrical_Panel/sw_gs24</property>
+    <value>1.0</value>
+    </equals>
+    <greater-than>
+    <property>an24/Electrics/DC_Gen_GS-24_V</property>
+    <value>24.0</value>
+    </greater-than>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </ambient>
+   <emission>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </specular>
+ </animation>
 
 <model>
  <path>sl_ar-1_working.xml</path>
@@ -235,6 +252,37 @@
   </offsets>
 </model>
 
+ <animation>
+   <type>material</type>
+   <object-name>ar1_light</object-name>
+    <condition>
+    <equals>
+    <property>an24/Electrical_Panel/sw_stg18l</property>
+    <value>0.0</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </ambient>
+   <emission>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </specular>
+ </animation>
+
 <model>
  <path>sl_ar-2_working.xml</path>
   <offsets>
@@ -243,6 +291,37 @@
     <z-m>-0.0156</z-m>
   </offsets>
 </model>
+
+ <animation>
+   <type>material</type>
+   <object-name>ar2_light</object-name>
+    <condition>
+    <equals>
+    <property>an24/Electrical_Panel/sw_stg18r</property>
+    <value>0.0</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </ambient>
+   <emission>
+     <red>1.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </specular>
+ </animation>
 
 <!-- A-Z Amperemeter STG L and R and GS-24 -->
 
@@ -295,29 +374,6 @@
   </offsets>
 </model>
 
-<!-- AC Voltage indication source select -->
-
-<model>
- <path>knob_ac-volt-sel.xml</path>
-  <offsets>
-    <x-m>0.003</x-m>
-    <y-m>-0.015</y-m>
-    <z-m>0.041</z-m>
-  </offsets>
-</model>
-
-<!-- DC Voltage indication source select -->
-
-<model>
- <path>knob_dc-volt-sel.xml</path>
-  <offsets>
-    <x-m>0.002</x-m>
-    <y-m>0.107</y-m>
-    <z-m>-0.139</z-m>
-    <roll-deg>150</roll-deg>
-  </offsets>
-</model>
-
 <!-- STG-18TMO Voltage Regulators VS-25B -->
 
  <animation>
@@ -345,6 +401,14 @@
       <wrap>false</wrap>
      </binding>
     </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stg18regl</tooltip-id>
+      <label>Regulate STG-18
+    Voltage</label>
+    </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -372,6 +436,14 @@
       <wrap>false</wrap>
      </binding>
     </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stg18regr</tooltip-id>
+      <label>Regulate STG-18
+    Voltage</label>
+    </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -399,25 +471,25 @@
       <wrap>false</wrap>
      </binding>
     </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stg18regr</tooltip-id>
+      <label>Regulate GS-24
+    Voltage</label>
+    </binding>
+   </hovered>
  </animation>
 
-<!-- Include AC-Generators GO-16 -->
+<!-- DC Voltage indication source select -->
 
 <model>
- <path>sw_go-16l_on.xml</path>
+ <path>knob_dc-volt-sel.xml</path>
   <offsets>
-    <x-m>-0.002</x-m>
-    <y-m>0.0374</y-m>
-    <z-m>0.0426</z-m>
-  </offsets>
-</model>
-
-<model>
- <path>sw_go-16r_on.xml</path>
-  <offsets>
-    <x-m>-0.002</x-m>
-    <y-m>0.06</y-m>
-    <z-m>0.0426</z-m>
+    <x-m>0.002</x-m>
+    <y-m>0.107</y-m>
+    <z-m>-0.139</z-m>
+    <roll-deg>150</roll-deg>
   </offsets>
 </model>
 
@@ -460,6 +532,46 @@
     <x-m>-0.005</x-m>
     <y-m>-0.035</y-m>
     <z-m>-0.2066</z-m>
+  </offsets>
+</model>
+
+<!-- STG-18 Emergency Shut-Off -->
+
+<model>
+ <path>cvr_emerg_shutoff_stg-18l.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.023</y-m>
+    <z-m>-0.203</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>btn_emerg_shutoff_stg-18l.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.023</y-m>
+    <z-m>-0.203</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>cvr_emerg_shutoff_stg-18r.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.059</y-m>
+    <z-m>-0.203</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>btn_emerg_shutoff_stg-18r.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.059</y-m>
+    <z-m>-0.203</z-m>
+    <pitch-deg>90</pitch-deg>
   </offsets>
 </model>
 

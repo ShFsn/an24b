@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Switch (under cover) "Check autofeather by IKM" -->
+<!-- Switch (should be a 2V-45) "Autofeather by IKM" -->
 
 <PropertyList>
  <path>../../shared/switches/vng-15.ac</path>

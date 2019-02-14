@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Switch (under cover) "Check autofeather by thrust" -->
+<!-- Switch (should be a VN-45M) "Autofeather by (negative) thrust" -->
 
 <PropertyList>
  <path>../../shared/switches/vng-15.ac</path>

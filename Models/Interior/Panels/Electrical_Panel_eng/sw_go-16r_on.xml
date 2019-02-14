@@ -41,7 +41,8 @@
       <command>nasal</command>
       <script>
         interpolate("an24/Electrical_Panel/sw_go16r", 0.0, 0.1 );
-	settimer(func {electrical.go16r.stop();}, 1.0);
+#	setprop("an24/Electrical_Panel/add_go16r", 0.0 );
+	settimer(func {electrical.go16r.stop();}, 2.0);
       </script>
     </binding>
   </action>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- AZS-2; PO-750 inverter outboard -->
+<!-- Switch 977; AZS-2; PO-750 inverter -->
 
 <PropertyList>
  <path>../../shared/switches/azs.ac</path>

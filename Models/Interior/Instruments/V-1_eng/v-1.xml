@@ -34,11 +34,11 @@
        </product>
        <product>
         <property>an24/Electrical_Panel/v-1_akk1</property>
-        <property>an24/Electrics/DC_Batt_12SAM1_V</property>
+        <property>an24/Electrics/DC_Batt_12SAM1_V_out</property>
        </product>
        <product>
         <property>an24/Electrical_Panel/v-1_akk2</property>
-        <property>an24/Electrics/DC_Batt_12SAM2_V</property>
+        <property>an24/Electrics/DC_Batt_12SAM2_V_out</property>
        </product>
        <product>
         <property>an24/Electrical_Panel/v-1_gs-24</property>
