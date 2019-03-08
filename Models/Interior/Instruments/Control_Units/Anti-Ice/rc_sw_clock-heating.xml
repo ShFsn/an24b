@@ -50,7 +50,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/sw_clockheat", -1.0, 0.1 );
+        interpolate("an24/Anti-Ice/sw_clockheat", 0.0, 0.1 );
         setprop("an24/Anti-Ice/clockheat", 0.0 );
       </script>
     </binding>
@@ -69,7 +69,7 @@
    <object-name>lever</object-name>
    <property>an24/Anti-Ice/sw_clockheat</property>
   <interpolation>
-    <entry><ind>-1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>30.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>-30.0</dep></entry>
   </interpolation>
   <axis>

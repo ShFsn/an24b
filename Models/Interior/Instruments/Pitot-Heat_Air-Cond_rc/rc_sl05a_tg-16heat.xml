@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Signal light of heating of static pitot A1 -->
+<!-- Signal light of heating of TG-16 APU -->
 
 <PropertyList>
  <path>../../shared/lamps/warninglamp02.ac</path>
@@ -15,16 +15,10 @@
 <animation>
  <type>select</type>
  <condition>
-   <or>
    <equals>
-    <property>an24/Anti-Ice/pitot_S1S5A1</property>
-    <value>-1.0</value>
+    <property>an24/Air-Cond/TG-16heating</property>
+    <value>1.0</value>
    </equals>
-   <equals>
-    <property>an24/Anti-Ice/pitot_S1S5A1</property>
-    <value>1.0</value> <!--iced condition-->
-   </equals>
-   </or>
   </condition>
  <object-name>lampon</object-name>
 </animation>

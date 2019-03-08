@@ -24,17 +24,7 @@
   </offsets>
 </model-->
 
-<!--model>
-  <name>lamp_console-inclusion</name>
-  <path>eng_sl_freq-adjust.xml</path>
-  <offsets>
-    <x-m>-0.005</x-m>
-    <y-m>-0.0004</y-m>
-    <z-m>0.0385</z-m>
-  </offsets>
-</model>
-
- <animation>
+ <!--animation>
    <type>material</type>
    <object-name>lightplate</object-name>
    <emission>
@@ -43,88 +33,158 @@
      <blue>0.4</blue>
      <factor-prop>controls/lighting/radio_panel_instr</factor-prop>
    </emission>
- </animation>
+ </animation-->
 
  <animation>
    <type>knob</type>
-   <object-name>vol_knob</object-name>
-   <property>an24/R-836/eng_volume</property>
-   <factor>130</factor>
-  <center>
-   <x-m>0.0</x-m>
-   <y-m>0.0336</y-m>
-   <z-m>-0.0286</z-m>
-  </center>
-  <axis>
-    <x>-1.0</x>
-    <y>0.0</y>
-    <z>0.0</z>
-  </axis>
-    <action>
-     <binding>
-      <command>property-adjust</command>
-      <property>an24/R-836/eng_volume</property>
-      <factor>-0.1</factor>
-      <min>0</min>
-      <max>1</max>
-      <wrap>false</wrap>
-     </binding>
-    </action>
- </animation>
-
- <animation>
-   <type>knob</type>
-   <object-name>mode_knob</object-name>
-   <property>an24/R-836/eng_mode</property>
-   <factor>35</factor>
+   <object-name>antvoltage_knob</object-name>
+   <property>an24/SVB-5/weirdo</property>
+   <factor>2</factor>
    <axis>
-    <x>-1</x>
-    <y>0</y>
+    <x>0</x>
+    <y>-1</y>
     <z>0</z>
    </axis>
    <center>
     <x-m>0.0</x-m>
-    <y-m>0.0336</y-m>
-    <z-m>0.0253</z-m>
+    <y-m>0.0</y-m>
+    <z-m>0.049</z-m>
    </center>
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>an24/R-836/eng_mode</property>
-      <factor>-1</factor>
+      <property>an24/SVB-5/weirdo</property>
+      <factor>-5</factor>
       <min>0</min>
-      <max>2</max>                
-      <wrap>false</wrap>
-     </binding>
-    </action>
- </animation>
-
- <animation>
-   <type>knob</type>
-   <object-name>channel_knob</object-name>
-   <property>an24/R-836/eng_channel</property>
-   <factor>20</factor>
-   <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-   </axis>
-   <center>
-    <x-m>0.0</x-m>
-    <y-m>-0.0363</y-m>
-    <z-m>-0.0284</z-m>
-   </center>
-    <action>
-     <binding>
-      <command>property-adjust</command>
-      <property>an24/R-836/eng_channel</property>
-      <factor>-1</factor>
-      <min>0</min>
-      <max>18</max>                
+      <max>141</max>            
       <wrap>true</wrap>
      </binding>
     </action>
- </animation-->
+ </animation>
+
+<animation>
+  <type>rotate</type>
+        <condition>
+         <equals>
+         <property>sim/current-view/view-number</property>
+         <value>8</value>
+         </equals>
+        </condition>
+  <object-name>voltmeter</object-name>
+  <property>an24/SVB-5/weirdo</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>0</dep></entry>
+    <entry><ind>20</ind><dep>20</dep></entry>
+    <entry><ind>40</ind><dep>0</dep></entry>
+    <entry><ind>60</ind><dep>-20</dep></entry>
+    <entry><ind>80</ind><dep>0</dep></entry>
+    <entry><ind>100</ind><dep>20</dep></entry>
+    <entry><ind>100</ind><dep>0</dep></entry>
+    <entry><ind>140</ind><dep>-20</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1</x>
+    <y>1</y>
+    <z>1</z>
+  </axis>
+  <center>
+    <x-m>-0.06</x-m>
+    <y-m>-0.12</y-m>
+    <z-m>0.08</z-m>
+  </center>
+</animation>
+
+<animation>
+  <type>rotate</type>
+        <condition>
+         <equals>
+         <property>sim/current-view/view-number</property>
+         <value>8</value>
+         </equals>
+        </condition>
+  <object-name>connector_base</object-name>
+  <object-name>connector_a</object-name>
+  <object-name>connector_b</object-name>
+  <property>an24/SVB-5/weirdo</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>0</dep></entry>
+    <entry><ind>20</ind><dep>-30</dep></entry>
+    <entry><ind>40</ind><dep>0</dep></entry>
+    <entry><ind>60</ind><dep>30</dep></entry>
+    <entry><ind>80</ind><dep>0</dep></entry>
+    <entry><ind>100</ind><dep>-30</dep></entry>
+    <entry><ind>100</ind><dep>0</dep></entry>
+    <entry><ind>140</ind><dep>30</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1</x>
+    <y>-1</y>
+    <z>-1</z>
+  </axis>
+  <center>
+    <x-m>0.054</x-m>
+    <y-m>-0.12</y-m>
+    <z-m>0.072</z-m>
+  </center>
+</animation>
+
+<!--animation>
+  <type>rotate</type>
+  <object-name>voltmeter</object-name>  
+  <property>an24/SVB-5/weirdo</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>20</dep></entry>
+    <entry><ind>20</ind><dep>0</dep></entry>
+    <entry><ind>40</ind><dep>-20</dep></entry>
+    <entry><ind>60</ind><dep>0</dep></entry>
+    <entry><ind>80</ind><dep>20</dep></entry>
+    <entry><ind>100</ind><dep>20</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>-0.06</x-m>
+    <y-m>-0.12</y-m>
+    <z-m>0.08</z-m>
+  </center>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>voltmeter</object-name>  
+  <property>an24/SVB-5/weirdo</property>
+  <factor>1.0</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
+  <center>
+    <x-m>-0.06</x-m>
+    <y-m>-0.12</y-m>
+    <z-m>0.08</z-m>
+  </center>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>voltmeter</object-name>  
+  <property>an24/SVB-5/weirdo</property>
+  <factor>1.0</factor>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>-0.06</x-m>
+    <y-m>-0.12</y-m>
+    <z-m>0.08</z-m>
+  </center>
+</animation-->
 
 <!-- Text OSG -->
 

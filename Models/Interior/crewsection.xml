@@ -11,7 +11,7 @@
    <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
    <object-name>hull</object-name>
    <object-name>lining</object-name>
-   <object-name>emerg_hatch_top</object-name>
+   <object-name>emerg_hatch_top_int</object-name>
    <object-name>fuses</object-name>
    <object-name>engrack</object-name>
    <object-name>KRP-FM</object-name>
@@ -33,6 +33,80 @@
   </condition>
   <object-name>lining</object-name>
   <object-name>fuses</object-name>
+ </animation>
+
+<!-- Air Conditioning Handles -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>aircond_handleL</object-name>
+   <property>an24/Air-Cond/handle_left</property>
+   <factor>-90</factor>
+  <center>
+   <x-m>3.1586</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.853</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Air-Cond/handle_left</property>
+      <factor>-0.2</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <label>Window Air Left: %3d%%</label>
+     <tooltip-id>air-left</tooltip-id>
+     <mapping>percent</mapping>
+     <property>an24/Air-Cond/handle_left</property>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>aircond_handleR</object-name>
+   <property>an24/Air-Cond/handle_right</property>
+   <factor>-90</factor>
+  <center>
+   <x-m>3.24</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.756</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Air-Cond/handle_right</property>
+      <factor>-0.2</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <label>Window Air Right: %3d%%</label>
+     <tooltip-id>air-right</tooltip-id>
+     <mapping>percent</mapping>
+     <property>an24/Air-Cond/handle_right</property>
+    </binding>
+   </hovered>
  </animation>
 
 <!-- Navigator's Panel -->

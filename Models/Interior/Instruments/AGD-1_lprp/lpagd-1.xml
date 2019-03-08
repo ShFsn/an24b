@@ -21,6 +21,17 @@
 
  <animation>
    <type>material</type>
+   <object-name>housing</object-name>
+   <emission>
+     <red>0.8</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
    <object-name>knob</object-name>
    <object-name>Cylinder.002</object-name>
    <object-name>Cylinder.003</object-name>

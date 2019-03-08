@@ -221,6 +221,24 @@
   </axis>
 </animation>
 
+<animation>
+  <type>rotate</type>
+  <object-name>idle-stop</object-name>
+  <property>fdm/jsbsim/fcs/throttle/idle-lock-pos</property>
+  <factor>360.0</factor>
+  <offset-deg>-60.0</offset-deg>
+  <center>
+    <x-m>2.475</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.53</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>    
+  </axis>
+</animation>
+
 <!--Windows-->
 
 <model>
@@ -1288,7 +1306,7 @@
 
 <model>
   <name>Pitot-Heat_Air-Cond</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/rc_pitot-heat_air-cond.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/pitot-heat_air-cond.xml</path>
   <offsets>
     <heading-deg>10.5</heading-deg>
     <x-m>2.2698</x-m>

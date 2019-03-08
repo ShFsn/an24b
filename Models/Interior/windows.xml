@@ -4,35 +4,31 @@
 
  <path>windows.ac</path>
 
-<!--animation>
-  <type>translate</type>
-  <object-name>ice-layer</object-name>
-  <property>an24/Anti-Ice/elements/windowL_cm</property>
-  <factor>0.25</factor>
-  <offset-deg>0.0</offset-deg>
-  <axis>
-    <x>1.0</x>
-    <y>0.0</y>
-    <z>0.98</z>    
-  </axis>
-</animation-->
-
 <effect>
    <inherits-from>Effects/model-transparent</inherits-from>
    <object-name>windows</object-name>
-   <object-name>c-windowL</object-name>
-   <object-name>c-windowR</object-name>
-   <object-name>Lwindow_ice</object-name>
-   <object-name>Cwindow_ice</object-name>
-   <object-name>Rwindow_ice</object-name>
+   <object-name>sidecL</object-name>
+   <object-name>sidecR</object-name>
+   <object-name>fronta_ice</object-name>
+   <object-name>frontbL_ice</object-name>
+   <object-name>frontbR_ice</object-name>
+   <object-name>sidecL_ice</object-name>
+   <object-name>sidecR_ice</object-name>
+   <object-name>sidedL_ice</object-name>
+   <object-name>sidedR_ice</object-name>
+   <object-name>topL_ice</object-name>
+   <object-name>topR_ice</object-name>
+   <object-name>nav_ice</object-name>
+   <object-name>eng_ice</object-name>
 </effect>
 
+<!--Front window A-->
 <animation>
-  <object-name>Lwindow_ice</object-name>
+  <object-name>fronta_ice</object-name>
   <type>select</type>
   <condition>
    <greater-than>
-    <property>an24/Anti-Ice/elements/windowL_cm</property>
+    <property>an24/Anti-Ice/elements/fronta_cm</property>
     <value>0.0</value>
    </greater-than>
   </condition>
@@ -40,8 +36,8 @@
 
 <animation>
   <type>blend</type>
-  <object-name>Lwindow_ice</object-name>
-  <property>an24/Anti-Ice/elements/windowL_cm</property>
+  <object-name>fronta_ice</object-name>
+  <property>an24/Anti-Ice/elements/fronta_cm</property>
     <interpolation>
      <entry>
       <ind>1.5</ind> <dep>0.0</dep>
@@ -50,16 +46,15 @@
       <ind>0.0</ind> <dep>1.0</dep>
      </entry>
     </interpolation>
-  <!--min>0.0</min>
-  <max>1.0</max-->
 </animation>
 
+<!--Front window B left-->
  <animation>
-  <object-name>Cwindow_ice</object-name>
+  <object-name>frontbL_ice</object-name>
   <type>select</type>
   <condition>
    <greater-than>
-    <property>an24/Anti-Ice/elements/windowC_cm</property>
+    <property>an24/Anti-Ice/elements/frontbL_cm</property>
     <value>0.0</value>
    </greater-than>
   </condition>
@@ -67,8 +62,8 @@
 
 <animation>
   <type>blend</type>
-  <object-name>Cwindow_ice</object-name>
-  <property>an24/Anti-Ice/elements/windowC_cm</property>
+  <object-name>frontbL_ice</object-name>
+  <property>an24/Anti-Ice/elements/frontbL_cm</property>
     <interpolation>
      <entry>
       <ind>1.5</ind> <dep>0.0</dep>
@@ -77,16 +72,15 @@
       <ind>0.0</ind> <dep>1.0</dep>
      </entry>
     </interpolation>
-  <!--min>0.0</min>
-  <max>1.0</max-->
 </animation>
 
+<!--Front window B right-->
  <animation>
-  <object-name>Rwindow_ice</object-name>
+  <object-name>frontbR_ice</object-name>
   <type>select</type>
   <condition>
    <greater-than>
-    <property>an24/Anti-Ice/elements/windowR_cm</property>
+    <property>an24/Anti-Ice/elements/frontbR_cm</property>
     <value>0.0</value>
    </greater-than>
   </condition>
@@ -94,8 +88,8 @@
 
 <animation>
   <type>blend</type>
-  <object-name>Rwindow_ice</object-name>
-  <property>an24/Anti-Ice/elements/windowR_cm</property>
+  <object-name>frontbR_ice</object-name>
+  <property>an24/Anti-Ice/elements/frontbR_cm</property>
     <interpolation>
      <entry>
       <ind>1.5</ind> <dep>0.0</dep>
@@ -104,25 +98,165 @@
       <ind>0.0</ind> <dep>1.0</dep>
      </entry>
     </interpolation>
-  <!--min>0.0</min>
-  <max>1.0</max-->
 </animation>
 
-<!--animation>
-  <type>scale</type>
-  <object-name>ice-layer</object-name>
-  <property>an24/animations/gardine</property>
-   <center>
-   <x-m>2.055</x-m>
-   <y-m>0.0</y-m>
-   <z-m>1.3317</z-m>
-  </center>
-  <x-min>1.0</x-min>
-  <y-min>1.0</y-min>
-  <z-min>0.1</z-min>
-  <x-factor>1.0</x-factor>
-  <y-factor>1.0</y-factor>
-  <z-factor>8.0</z-factor>
- </animation-->
+<!--Side window C,D left-->
+ <animation>
+  <object-name>sidecL_ice</object-name>
+  <object-name>sidedL_ice</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+    <property>an24/Anti-Ice/elements/sidecdL_cm</property>
+    <value>0.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>blend</type>
+  <object-name>sidecL_ice</object-name>
+  <object-name>sidedL_ice</object-name>
+  <property>an24/Anti-Ice/elements/sidecdL_cm</property>
+    <interpolation>
+     <entry>
+      <ind>1.5</ind> <dep>0.0</dep>
+     </entry>
+     <entry>
+      <ind>0.0</ind> <dep>1.0</dep>
+     </entry>
+    </interpolation>
+</animation>
+
+<!--Side window C,D right-->
+ <animation>
+  <object-name>sidecR_ice</object-name>
+  <object-name>sidedR_ice</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+    <property>an24/Anti-Ice/elements/sidecdR_cm</property>
+    <value>0.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>blend</type>
+  <object-name>sidecR_ice</object-name>
+  <object-name>sidedR_ice</object-name>
+  <property>an24/Anti-Ice/elements/sidecdR_cm</property>
+    <interpolation>
+     <entry>
+      <ind>1.5</ind> <dep>0.0</dep>
+     </entry>
+     <entry>
+      <ind>0.0</ind> <dep>1.0</dep>
+     </entry>
+    </interpolation>
+</animation>
+
+<!--Navigator's and engineer's window (always iceless atm)-->
+ <animation>
+  <object-name>nav_ice</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+    <property>an24/Anti-Ice/elements/sidenavL_cm</property>
+    <value>0.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <object-name>eng_ice</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+    <property>an24/Anti-Ice/elements/sideengR_cm</property>
+    <value>0.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>blend</type>
+  <object-name>nav_ice</object-name>
+  <property>an24/Anti-Ice/elements/sidenavL_cm</property>
+    <interpolation>
+     <entry>
+      <ind>1.5</ind> <dep>0.0</dep>
+     </entry>
+     <entry>
+      <ind>0.0</ind> <dep>1.0</dep>
+     </entry>
+    </interpolation>
+</animation>
+
+<animation>
+  <type>blend</type>
+  <object-name>eng_ice</object-name>
+  <property>an24/Anti-Ice/elements/sideengR_cm</property>
+    <interpolation>
+     <entry>
+      <ind>1.5</ind> <dep>0.0</dep>
+     </entry>
+     <entry>
+      <ind>0.0</ind> <dep>1.0</dep>
+     </entry>
+    </interpolation>
+</animation>
+
+<!--Top windows-->
+ <animation>
+  <object-name>topL_ice</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+    <property>an24/Anti-Ice/elements/topwindows_cm</property>
+    <value>0.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <object-name>topR_ice</object-name>
+  <type>select</type>
+  <condition>
+   <greater-than>
+    <property>an24/Anti-Ice/elements/topwindows_cm</property>
+    <value>0.0</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>blend</type>
+  <object-name>topL_ice</object-name>
+  <property>an24/Anti-Ice/elements/topwindows_cm</property>
+    <interpolation>
+     <entry>
+      <ind>1.5</ind> <dep>0.0</dep>
+     </entry>
+     <entry>
+      <ind>0.0</ind> <dep>1.0</dep>
+     </entry>
+    </interpolation>
+</animation>
+
+<animation>
+  <type>blend</type>
+  <object-name>topR_ice</object-name>
+  <property>an24/Anti-Ice/elements/topwindows_cm</property>
+    <interpolation>
+     <entry>
+      <ind>1.5</ind> <dep>0.0</dep>
+     </entry>
+     <entry>
+      <ind>0.0</ind> <dep>1.0</dep>
+     </entry>
+    </interpolation>
+</animation>
+
 
 </PropertyList>

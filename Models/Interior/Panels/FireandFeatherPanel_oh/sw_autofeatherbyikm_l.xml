@@ -55,7 +55,7 @@
    <property>an24/animations/FireFeather/check-by-ikm_l</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>

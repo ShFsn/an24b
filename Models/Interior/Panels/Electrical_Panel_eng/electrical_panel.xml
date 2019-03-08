@@ -16,6 +16,18 @@
 
  <animation>
    <type>material</type>
+   <object-name>electrical_panel</object-name>
+   <object-name>screws_etc</object-name>
+   <emission>
+     <red>0.8</red>
+     <green>0.7</green>
+     <blue>0.6</blue>
+     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
    <object-name>lightplate</object-name>
    <emission>
      <red>1.0</red>

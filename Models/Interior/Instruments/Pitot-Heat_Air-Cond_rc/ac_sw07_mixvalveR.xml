@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<!-- Mixture valve hot/cold (open/close) switch; "Ан-24. ТЕХНИЧЕСКОЕ ОПИСАНИЕ, КНИГА 2", fig. 101, items 8/31; Interflug FZH, Fig. 64, item 8; Fig. 65, item 21 -->
+
+<PropertyList>
+ <path>../../shared/switches/2png-15k.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if ( (1.0 >= getprop("an24/Air-Cond/mix-valveR")) and getprop("an24/AZS/sw0614") == 1.0 and getprop("an24/Air-Cond/temp_auto-manual") == 0.0) {
+	controls.slewProp("an24/Air-Cond/mix-valveR", 0.5);
+	}
+      </script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_mix-valveR", 1.0, 0.2 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_mix-valveR", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>mixvalveRhot</tooltip-id>
+      <label>Mixture Valve
+    HOT Air</label>
+    </binding>
+   </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if ( (getprop("an24/Air-Cond/mix-valveR") > -1.0) and getprop("an24/AZS/sw0614") == 1.0 and getprop("an24/Air-Cond/temp_auto-manual") == 0.0) {
+	controls.slewProp("an24/Air-Cond/mix-valveR", -0.5);
+	}
+      </script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_mix-valveR", -1.0, 0.2 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_mix-valveR", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>mixvalveRcold</tooltip-id>
+      <label>Mixture Valve
+   COLD Air</label>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Air-Cond/sw_mix-valveR</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

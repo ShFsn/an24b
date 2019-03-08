@@ -1,5 +1,3 @@
-setprop("an24/Air-Cond/mix-valveL", 0);
-setprop("an24/Air-Cond/mix-valveR", 0);
 
 var aircond_left = func {
 #	if ( getprop("aux-air-supply") == 1.0 ) {

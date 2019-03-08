@@ -10,7 +10,7 @@ MATERIAL "ac3dmat12" rgb 0.016 0.016 0.016  amb 0.016 0.016 0.016  emis 0 0 0  s
 OBJECT world
 kids 11
 OBJECT poly
-name "disk"
+name "voltmeter"
 loc -0.0606034 0.0789174 0.115619
 crease 45.000000
 numvert 289
@@ -12683,7 +12683,7 @@ refs 4
 1123 0 0
 kids 0
 OBJECT poly
-name "object"
+name "connector_base"
 loc -0.0395283 -0.0413749 0.126651
 crease 45.000000
 numvert 432
@@ -15958,7 +15958,7 @@ refs 3
 0 0.5 0.5
 kids 0
 OBJECT poly
-name "disk"
+name "connector_a"
 loc 0.0541404 0.0724691 0.13936
 crease 45.000000
 numvert 97
@@ -34705,7 +34705,7 @@ refs 4
 74 0 0
 kids 0
 OBJECT poly
-name "disk"
+name "connector_b"
 loc 0.0541404 0.0724691 0.1401
 crease 45.000000
 numvert 73
