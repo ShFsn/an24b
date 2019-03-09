@@ -15,15 +15,22 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FireFeather/main", 1.0, 0.1 );
+        interpolate("an24/FireFeather/main", 1.0, 1.2 );
       </script>
     </binding>
-    <!--binding>
+    <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FireFeather/sw_main", 1.0, 0.1 );
+	if ( getprop("an24/FireFeather/sw_main") == 0.0 ) {
+	settimer(func {interpolate("an24/FireFeather/sw_main", 1.0, 0.1);}, 0.4);
+        interpolate("an24/FireFeather/lock_main", 1.0, 0.3 );
+	}
+	else if ( getprop("an24/FireFeather/sw_main") == -1.0 ) {
+        interpolate("an24/FireFeather/sw_main", 0.0, 0.1, 0.0, 1.1, 1.0, 0,1 );
+	settimer(func {interpolate("an24/FireFeather/lock_main", 0.0, 0.3, 0.0, 0.2, 1.0, 0.3);}, 0.2);
+	}
       </script>
-    </binding-->
+    </binding>
   </action>
  </animation>
 
@@ -41,12 +48,13 @@
         setprop("an24/FireFeather/mainresetdone", 1.0 );
       </script>
     </binding>
-    <!--binding>
+    <binding>
       <command>nasal</command>
       <script>
         interpolate("an24/FireFeather/sw_main", 0.0, 0.1 );
+	settimer(func {interpolate("an24/FireFeather/lock_main", 0.0, 0.3);}, 0.2);
       </script>
-    </binding-->
+    </binding>
   </action>
  </animation>
 
@@ -60,23 +68,30 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FireFeather/main", -1.0, 0.1 );
+        interpolate("an24/FireFeather/main", -1.0, 1.2 );
         setprop("an24/FireFeather/mainresetdone", 1.0 );
       </script>
     </binding>
-    <!--binding>
+    <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FireFeather/sw_main", -1.0, 0.1 );
+	if ( getprop("an24/FireFeather/sw_main") == 0.0 ) {
+	settimer(func {interpolate("an24/FireFeather/sw_main", -1.0, 0.1);}, 0.4);
+        interpolate("an24/FireFeather/lock_main", -1.0, 0.3 );
+	}
+	else if ( getprop("an24/FireFeather/sw_main") == 1.0 ) {
+        interpolate("an24/FireFeather/sw_main", 0.0, 0.1, 0.0, 1.1, -1.0, 0,1 );
+	settimer(func {interpolate("an24/FireFeather/lock_main", 0.0, 0.3, 0.0, 0.2, -1.0, 0.3);}, 0.2);
+	}
       </script>
-    </binding-->
+    </binding>
   </action>
  </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/FireFeather/main</property>
+   <property>an24/FireFeather/sw_main</property>
   <interpolation>
     <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>30.0</dep></entry>

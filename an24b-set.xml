@@ -982,8 +982,17 @@ QuickStartUpGuide.pdf
  </FireTest>
 
  <FireFeather>
+  <cover_btn01 type="double">0.0</cover_btn01>
+  <cover_btn02 type="double">0.0</cover_btn02>
+  <cover_btn03 type="double">0.0</cover_btn03>
+  <btn_exting_engL type="double">0.0</btn_exting_engL>
+  <btn_exting_engR type="double">0.0</btn_exting_engR>
+  <btn_exting_wings type="double">0.0</btn_exting_wings>
   <feather-by-kfl_l type="double">0.0</feather-by-kfl_l>
   <feather-by-kfl_r type="double">0.0</feather-by-kfl_r>
+  <lock_main type="double">0.0</lock_main>
+  <main type="double">0.0</main>
+  <sw_main type="double">0.0</sw_main>
  </FireFeather>
 
  <FuelControl>
@@ -1019,6 +1028,17 @@ QuickStartUpGuide.pdf
   <vor1on type="double">0.0</vor1on>
   <vor2on type="double">0.0</vor2on>
  </Kurs-MP>
+
+ <OilControl>
+  <oil-cooler-flaps_autoL type="double">0.0</oil-cooler-flaps_autoL>
+  <oil-cooler-flaps_autoR type="double">0.0</oil-cooler-flaps_autoR>
+  <oil-cooler-flapsL type="double">0.0</oil-cooler-flapsL>
+  <oil-cooler-flapsR type="double">0.0</oil-cooler-flapsR>
+  <sw_oil-cooler-flapsL type="double">0.0</sw_oil-cooler-flapsL>
+  <sw_oil-cooler-flapsR type="double">0.0</sw_oil-cooler-flapsR>
+  <sw_oil-cooler-flapsL1 type="double">0.0</sw_oil-cooler-flapsL1>
+  <sw_oil-cooler-flapsR1 type="double">0.0</sw_oil-cooler-flapsR1>
+ </OilControl>
 
  <Pressure>
   <pitotvalve1 type="double">1.0</pitotvalve1>

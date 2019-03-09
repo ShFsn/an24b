@@ -1316,7 +1316,7 @@
 </model>
 
 <model>
- <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/rc_sw12_turbo-cooler.xml</path>
+ <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/ac_sw12_turbo-cooler.xml</path>
   <offsets>
     <x-m>2.3965</x-m>
     <y-m>0.969</y-m>

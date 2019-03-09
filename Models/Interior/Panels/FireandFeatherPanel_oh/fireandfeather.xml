@@ -264,8 +264,8 @@
  <animation>
    <type>rotate</type>
    <object-name>lever-lock</object-name>
-   <property>an24/FireFeather/main</property>
-    <factor>90</factor>
+   <property>an24/FireFeather/lock_main</property>
+  <factor>90</factor>
   <center>
     <x-m>0.0</x-m>
     <y-m>0.2671</y-m>
