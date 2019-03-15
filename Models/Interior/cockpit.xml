@@ -1306,7 +1306,7 @@
 
 <model>
   <name>Pitot-Heat_Air-Cond</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/pitot-heat_air-cond.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/Pitot-Heat_Air-Cond_rc/pitot-heat_air-cond.xml</path>
   <offsets>
     <heading-deg>10.5</heading-deg>
     <x-m>2.2698</x-m>
@@ -1316,7 +1316,7 @@
 </model>
 
 <model>
- <path>Aircraft/an24b/Models/Interior/Instruments/Pitot-Heat_Air-Cond_rc/ac_sw12_turbo-cooler.xml</path>
+ <path>Aircraft/an24b/Models/Interior/Panels/Pitot-Heat_Air-Cond_rc/ac_sw12_turbo-cooler.xml</path>
   <offsets>
     <x-m>2.3965</x-m>
     <y-m>0.969</y-m>

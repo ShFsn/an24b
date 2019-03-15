@@ -19,25 +19,25 @@
          <value>1.0</value>
          </equals>
          <equals>
-         <property>instrumentation/Pressure/cvr_press-relief</property>
+         <property>an24/Pressure/cvr_press-relief</property>
          <value>1.0</value>
          </equals>
         </condition>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/Pressure/press-relief", 1.0, 0.1 );
+        interpolate("an24/Pressure/press-relief", 1.0, 0.1 );
       </script>
    </binding>
    <binding>
        <condition>
          <equals>
-         <property>instrumentation/Pressure/cvr_press-relief</property>
+         <property>an24/Pressure/cvr_press-relief</property>
          <value>1.0</value>
          </equals>
         </condition>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/Pressure/sw_press-relief", 1.0, 0.1 );
+        interpolate("an24/Pressure/sw_press-relief", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -66,25 +66,25 @@ Pressure Relief</label>
          <value>1.0</value>
          </equals>
          <equals>
-         <property>instrumentation/Pressure/cvr_press-relief</property>
+         <property>an24/Pressure/cvr_press-relief</property>
          <value>1.0</value>
          </equals>
         </condition>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/Pressure/press-relief", 0.0, 0.1 );
+        interpolate("an24/Pressure/press-relief", 0.0, 0.1 );
       </script>
     </binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/Pressure/sw_press-relief", 0.0, 0.1 );
+        interpolate("an24/Pressure/sw_press-relief", 0.0, 0.1 );
       </script>
     </binding>
   </action>
   <hovered>
     <binding>
      <command>set-tooltip</command>
-     <tooltip-id>emergpressopen</tooltip-id>
+     <tooltip-id>emergpressclose</tooltip-id>
       <label>Close Emergency
  Pressure Relief</label>
     </binding>
@@ -94,7 +94,7 @@ Pressure Relief</label>
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>instrumentation/Pressure/sw_press-relief</property>
+   <property>an24/Pressure/sw_press-relief</property>
   <interpolation>
     <entry><ind>1.0</ind>	<dep>-45.0</dep></entry>
     <entry><ind>0.0</ind>	<dep>45.0</dep></entry>

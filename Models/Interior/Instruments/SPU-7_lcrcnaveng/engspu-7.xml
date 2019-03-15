@@ -16,7 +16,7 @@
    </emission>
  </animation>
 
-<!-- Emergency call (set all stations listening and their volume up)-->
+<!-- Emergency/circular call (make all subscribers listen at full volume regardless of subscriber settings)-->
 
 <animation>
   <type>pick</type>
@@ -28,23 +28,32 @@
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/SPU-7/eng_emerg-call" ) == 1.0 ){
-        setprop("an24/SPU-7/eng_emerg-call", 0.0 );
-        }
-        else {
-        setprop("an24/SPU-7/eng_emerg-call", 1.0 );
-        }
-        interpolate("an24/animations/spu_eng-emerg", 1.0, 0.1 );
-        settimer(func {interpolate("an24/animations/spu_eng-emerg", 0.0, 0.1 );},0.1);
+        interpolate("an24/SPU-7/eng_emerg-call", 1.0, 0.2 );
       </script>
     </binding>
+   <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/SPU-7/eng_emerg-call", 0.0, 0.2 );
+      </script>
+    </binding>
+   </mod-up>
   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>spu_emerg_eng</tooltip-id>
+      <label>Emerg/Circular
+        Call</label>
+    </binding>
+   </hovered>
 </animation>
 
 <animation>
   <type>translate</type>
   <object-name>press_me</object-name>
-  <property>an24/animations/spu_eng-emerg</property>
+  <property>an24/SPU-7/eng_emerg-call</property>
   <factor>0.0016</factor>
   <axis>
     <x>-1</x>

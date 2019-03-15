@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Emergency pressure-relief switch cover -->
+<!-- Emergency/descent pressure-relief switch cover -->
 
 <PropertyList>
  <path>../../../shared/switches/cover_for_switch.ac</path>
@@ -16,11 +16,11 @@
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("instrumentation/Pressure/cvr_press-relief" ) == 1.0 ){
-        interpolate("instrumentation/Pressure/cvr_press-relief", 0.0, 0.2 );
+        if( getprop("an24/Pressure/cvr_press-relief" ) == 1.0 ){
+        interpolate("an24/Pressure/cvr_press-relief", 0.0, 0.2 );
         }
         else {
-        interpolate("instrumentation/Pressure/cvr_press-relief", 1.0, 0.2 );
+        interpolate("an24/Pressure/cvr_press-relief", 1.0, 0.2 );
         }
       </script>
     </binding>
@@ -30,7 +30,7 @@
  <animation>
    <type>rotate</type>
    <object-name>cover</object-name>
-   <property>instrumentation/Pressure/cvr_press-relief</property>
+   <property>an24/Pressure/cvr_press-relief</property>
    <factor>140</factor>
   <center>
     <x-m>0.0</x-m>
@@ -44,5 +44,4 @@
   </axis>
  </animation>
  
-
 </PropertyList>

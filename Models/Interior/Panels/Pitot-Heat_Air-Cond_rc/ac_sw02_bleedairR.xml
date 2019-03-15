@@ -49,11 +49,12 @@
     <button>0</button>
     <repeatable>true</repeatable>
     <binding>
+<!-- Actual time to open/close around 30+ sec -->
       <command>nasal</command>
       <script>
         setprop("an24/Air-Cond/bleedair_autoR", 0.0 );
 	if (1.0 >= getprop("an24/Air-Cond/bleedairR") ) {
-	controls.slewProp("an24/Air-Cond/bleedairR", 0.5);
+	controls.slewProp("an24/Air-Cond/bleedairR", 0.2);
 	}
       </script>
     </binding>
@@ -78,8 +79,8 @@
     <binding>
      <command>set-tooltip</command>
      <tooltip-id>bleedairRopen</tooltip-id>
-      <label>Bleed Air Valve
-       OPEN</label>
+      <label>       OPEN
+Bleed Air Valve</label>
     </binding>
   </hovered>
 </animation>
@@ -92,11 +93,12 @@
     <button>0</button>
     <repeatable>true</repeatable>
     <binding>
+<!-- Actual time to open/close around 30+ sec -->
       <command>nasal</command>
       <script>
         setprop("an24/Air-Cond/bleedair_autoR", 0.0 );
-	if (getprop("an24/Air-Cond/bleedairR") > -1.0) {
-	controls.slewProp("an24/Air-Cond/bleedairR", -0.5);
+	if (getprop("an24/Air-Cond/bleedairR") > 0.0) {
+	controls.slewProp("an24/Air-Cond/bleedairR", -0.2);
 	}
       </script>
     </binding>

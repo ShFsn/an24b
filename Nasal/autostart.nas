@@ -285,12 +285,12 @@ var startup = func {
 		}, t); t += 0.3;
 
 		settimer( func{
-		setprop("an24/FuelControl/sw0401", 1.0 );
+		setprop("an24/FuelControl/sw0401", 0.0 );
 		setprop("an24/FuelControl/cutoff-l-by-sw", 0.0 );
 		}, t); t += 0.8;
 
 		settimer( func{
-		setprop("an24/FuelControl/sw0407", 1.0 );
+		setprop("an24/FuelControl/sw0407", 0.0 );
 		setprop("an24/FuelControl/cutoff-r-by-sw", 0.0 );
 		setprop("an24/FuelControl/TG-16_cutoff", 0.0 );
 		}, t); t += 0.2;
