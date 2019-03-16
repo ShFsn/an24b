@@ -14,8 +14,8 @@
    <emission>
      <red>1.0</red>
      <green>0.5</green>
-     <blue>0.4</blue>
-     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+     <blue>0.5</blue>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
  </animation>
 
@@ -23,7 +23,7 @@
    <type>material</type>
    <object-name>housing</object-name>
    <emission>
-     <red>0.8</red>
+     <red>0.7</red>
      <green>0.4</green>
      <blue>0.4</blue>
      <factor-prop>controls/lighting/panel-l_red</factor-prop>
@@ -42,10 +42,10 @@
      <red>0.2</red>
      <green>0.2</green>
      <blue>0.2</blue>
-     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
    </emission>
  </animation>
-  
+
  <animation>
     <type>textranslate</type>
     <object-name>PitchScale</object-name>

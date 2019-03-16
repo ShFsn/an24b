@@ -60,7 +60,7 @@
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>cablightmain</tooltip-id>
+      <tooltip-id>cablightemerg</tooltip-id>
       <label>Cabin Light Emergency</label>
     </binding>
    </hovered>
@@ -80,6 +80,5 @@
     <z>0.0</z>
   </axis>
  </animation>
- 
 
 </PropertyList>

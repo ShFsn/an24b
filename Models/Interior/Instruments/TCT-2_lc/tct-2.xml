@@ -21,14 +21,6 @@
   <type>rotate</type>
   <object-name>tct_needle</object-name>
   <property>engines/engine[2]/egt-degf</property>
-  <!--DEG Celsius interpolation>
-    <entry><ind>0.0</ind><dep>-22.5</dep></entry>
-    <entry><ind>100.0</ind><dep>-2.5</dep></entry>
-    <entry><ind>400.0</ind><dep>72.5</dep></entry>
-    <entry><ind>700.0</ind><dep>162.5</dep></entry>
-    <entry><ind>800.0</ind><dep>187.5</dep></entry>
-    <entry><ind>900.0</ind><dep>205.0</dep></entry>
-  </interpolation-->
   <interpolation>
     <entry><ind>0.0</ind><dep>-22.5</dep></entry>
     <entry><ind>212.0</ind><dep>-2.5</dep></entry>

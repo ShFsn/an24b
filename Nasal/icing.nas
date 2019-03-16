@@ -52,7 +52,7 @@ var fronta_icing = maketimer(10, func() {
 	if ( (thickness < 1.5 and cmpermin > 0.0) or (thickness > -0.1 and cmpermin < 0.0) ) {
 	var speedup = getprop("/sim/speed-up");
 	interpolate("an24/Anti-Ice/elements/fronta_cm", thickness + (cmpermin/6*speedup), 9 );
-	setprop("an24/Anti-Ice/elements/cmperminA", cmpermin );
+#debug	setprop("an24/Anti-Ice/elements/cmperminA", cmpermin );
 	}
 });
 fronta_icing.start();
@@ -73,7 +73,7 @@ var Lfrontb_icing = maketimer(10, func() {
 	if ( (thickness < 1.5 and cmpermin > 0.0) or (thickness > -0.1 and cmpermin < 0.0) ) {
 	var speedup = getprop("/sim/speed-up");
 	interpolate("an24/Anti-Ice/elements/frontbL_cm", thickness + (cmpermin/6*speedup), 9 );
-	setprop("an24/Anti-Ice/elements/cmperminBL", cmpermin );
+#debug	setprop("an24/Anti-Ice/elements/cmperminBL", cmpermin );
 	}
 });
 Lfrontb_icing.start();
@@ -94,7 +94,7 @@ var Rfrontb_icing = maketimer(10, func() {
 	if ( (thickness < 1.5 and cmpermin > 0.0) or (thickness > -0.1 and cmpermin < 0.0) ) {
 	var speedup = getprop("/sim/speed-up");
 	interpolate("an24/Anti-Ice/elements/frontbR_cm", thickness + (cmpermin/6*speedup), 9 );
-	setprop("an24/Anti-Ice/elements/cmperminBR", cmpermin );
+#debug	setprop("an24/Anti-Ice/elements/cmperminBR", cmpermin );
 	}
 });
 Rfrontb_icing.start();
@@ -113,7 +113,7 @@ var Lsidecd_icing = maketimer(10, func() {
 	if ( (thickness < 1.5 and cmpermin > 0.0) or (thickness > -0.1 and cmpermin < 0.0) ) {
 	var speedup = getprop("/sim/speed-up");
 	interpolate("an24/Anti-Ice/elements/sidecdL_cm", thickness + (cmpermin/6*speedup), 9 );
-	setprop("an24/Anti-Ice/elements/cmpermincdL", cmpermin );
+#debug	setprop("an24/Anti-Ice/elements/cmpermincdL", cmpermin );
 	}
 });
 Lsidecd_icing.start();
@@ -133,7 +133,7 @@ var Rsidecd_icing = maketimer(10, func() {
 	if ( (thickness < 1.5 and cmpermin > 0.0) or (thickness > -0.1 and cmpermin < 0.0) ) {
 	var speedup = getprop("/sim/speed-up");
 	interpolate("an24/Anti-Ice/elements/sidecdR_cm", thickness + (cmpermin/6*speedup), 9 );
-	setprop("an24/Anti-Ice/elements/cmpermincdR", cmpermin );
+#debug	setprop("an24/Anti-Ice/elements/cmpermincdR", cmpermin );
 	}
 });
 Rsidecd_icing.start();
@@ -158,7 +158,7 @@ var sidenaveng_icing = maketimer(10, func() {
 	if ( (thickness_eng < 1.5 and cmpermin > 0.0) or (thickness_eng > -0.1 and cmpermin < 0.0) ) {
 	var speedup = getprop("/sim/speed-up");
 	interpolate("an24/Anti-Ice/elements/sideengR_cm", thickness_eng + (cmpermin/6*speedup), 9 );
-	setprop("an24/Anti-Ice/elements/cmperminnaveng", cmpermin );
+#debug	setprop("an24/Anti-Ice/elements/cmperminnaveng", cmpermin );
 	}
 });
 sidenaveng_icing.start();
@@ -177,7 +177,7 @@ var topwindows_icing = maketimer(10, func() {
 	if ( (thickness < 1.4 and cmpermin > 0.0) or (thickness > -0.1 and cmpermin < 0.0) ) {
 	var speedup = getprop("/sim/speed-up");
 	interpolate("an24/Anti-Ice/elements/topwindows_cm", thickness + (cmpermin/6*speedup), 9 );
-	setprop("an24/Anti-Ice/elements/cmpermintop", cmpermin );
+#debug	setprop("an24/Anti-Ice/elements/cmpermintop", cmpermin );
 	}
 });
 topwindows_icing.start();

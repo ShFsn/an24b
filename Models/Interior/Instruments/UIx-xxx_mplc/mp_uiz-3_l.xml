@@ -7,13 +7,12 @@
 
  <animation>
    <type>material</type>
+   <!--object-name>screws</object-name-->
    <object-name>oil_press_needle</object-name>
    <object-name>fuel_press_needle</object-name>
    <object-name>oil_temp_needle</object-name>
+   <object-name>covers</object-name>
    <object-name>housing</object-name>
-   <object-name>pressure_1</object-name>
-   <object-name>pressure_2</object-name>
-   <object-name>temperature</object-name>
    <emission>
      <red>1.0</red>
      <green>0.3</green>

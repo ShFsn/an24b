@@ -11,8 +11,9 @@ var aircond = maketimer(2, func(){
 	var propind_v_meter_per_sR = getprop("fdm/jsbsim/propulsion/engine[1]/prop-induced-velocity_fps")*0.305 ;
 	var air_cooler_effectL = density_kg_per_meter3 * env_temp_k_effect * (airspeed_meter_per_s + propind_v_meter_per_sL) ;
 	var air_cooler_effectR = density_kg_per_meter3 * env_temp_k_effect * (airspeed_meter_per_s + propind_v_meter_per_sR) ;
-	setprop("an24/Air-Cond/cooler-testL", air_cooler_effectL );
-	setprop("an24/Air-Cond/cooler-testR", air_cooler_effectR );
+#debug	setprop("an24/Air-Cond/cooler-testL", air_cooler_effectL );
+#debug	setprop("an24/Air-Cond/cooler-testR", air_cooler_effectR );
+
 ## Simplified model of the airflow from the compressor stages (bleed air)
 #
 	var airflowL = getprop("engines/engine[0]/n1") * getprop("an24/Air-Cond/bleedairL");

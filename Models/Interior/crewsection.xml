@@ -10,9 +10,7 @@
   <effect>
    <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
    <object-name>hull</object-name>
-   <object-name>lining</object-name>
    <object-name>emerg_hatch_top_int</object-name>
-   <object-name>fuses</object-name>
    <object-name>engrack</object-name>
    <object-name>KRP-FM</object-name>
    <object-name>GRP-2M</object-name>
@@ -24,16 +22,12 @@
    <object-name>undertable2</object-name>
    <object-name>auasp</object-name>
    <object-name>navtable_rack</object-name>
+   <object-name>sgu-15_amp</object-name>
+   <object-name>sgu_spu_rack</object-name>
+   <object-name>spu-7_amp</object-name>
+   <object-name>aircond_handleL</object-name>
+   <object-name>aircond_handleR</object-name>
   </effect>
-
- <animation>
-  <type>select</type>
-  <condition>
-    <property>sim/current-view/internal</property>
-  </condition>
-  <object-name>lining</object-name>
-  <object-name>fuses</object-name>
- </animation>
 
 <!-- Air Conditioning Handles -->
 

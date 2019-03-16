@@ -1163,6 +1163,19 @@
   </offsets>
 </model>
 
+<!--********************************************-->
+
+<model>
+  <name>ME-1866</name>
+  <path>Aircraft/an24b/Models/Interior/Instruments/ME-1866_lc/me-1866.xml</path>
+  <offsets>
+    <x-m>2.3737</x-m>
+    <y-m>-0.959</y-m>
+    <z-m>0.5462</z-m>
+    <heading-deg>82</heading-deg>
+  </offsets>
+</model>
+
 <!-- *************************************** -->
 
 <model>

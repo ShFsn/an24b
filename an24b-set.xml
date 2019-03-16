@@ -6,7 +6,7 @@
   <icao>
     <wake-turbulence-category>M</wake-turbulence-category>
     <type type="string">AN24</type>
-    <equipment type="string">FHLV</equipment>
+    <equipment type="string">FHLOV</equipment>
     <surveillance type="string">C</surveillance> <!-- mode-C transponder -->
   </icao>
 </aircraft>

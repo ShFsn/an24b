@@ -23,7 +23,7 @@
    <type>material</type>
    <object-name>housing</object-name>
    <emission>
-     <red>0.8</red>
+     <red>0.7</red>
      <green>0.4</green>
      <blue>0.4</blue>
      <factor-prop>controls/lighting/panel-l_red</factor-prop>
