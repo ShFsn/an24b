@@ -29,6 +29,36 @@
    <object-name>aircond_handleR</object-name>
   </effect>
 
+<!-- Hot air foot pedal -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>heatpedalENG</object-name>
+   <property>an24/Air-Cond/eng_footpedal</property>
+   <factor>-60.0</factor>
+   <offset-deg>20</offset-deg>
+   <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>3.935</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.129</z-m>
+   </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Air-Cond/eng_footpedal</property>
+      <factor>-0.1</factor>
+      <min>0</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
 <!-- Air Conditioning Handles -->
 
  <animation>

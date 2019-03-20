@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- R-838 -->
+<!-- F/O's console of R-836 -->
 
 <PropertyList>
- <path>r-836b6b7.ac</path>
+ <path>r-836b7.ac</path>
 
 <model>
   <name>lamp_ON</name>
@@ -11,16 +11,6 @@
   <offsets>
     <x-m>-0.005</x-m>
     <y-m>-0.0342</y-m>
-    <z-m>0.0385</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>lamp_console-inclusion</name>
-  <path>rc_sl_freq-adjust.xml</path>
-  <offsets>
-    <x-m>-0.005</x-m>
-    <y-m>-0.0004</y-m>
     <z-m>0.0385</z-m>
   </offsets>
 </model>
@@ -65,26 +55,27 @@
 
  <animation>
    <type>knob</type>
-   <object-name>mode_knob</object-name>
-   <property>an24/R-836/rc_mode</property>
-   <factor>35</factor>
+   <object-name>operator_knob</object-name>
+   <property>an24/R-836/operator</property>
+   <offset-deg>-70</offset-deg>
+   <factor>70</factor>
    <axis>
-    <x>-1</x>
+    <x>1</x>
     <y>0</y>
     <z>0</z>
    </axis>
    <center>
     <x-m>0.0</x-m>
-    <y-m>0.0336</y-m>
-    <z-m>0.0253</z-m>
+    <y-m>0.034</y-m>
+    <z-m>0.026</z-m>
    </center>
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>an24/R-836/rc_mode</property>
-      <factor>-1</factor>
+      <property>an24/R-836/operator</property>
+      <factor>1</factor>
       <min>0</min>
-      <max>2</max>                
+      <max>1</max>                
       <wrap>false</wrap>
      </binding>
     </action>
@@ -93,7 +84,7 @@
  <animation>
    <type>knob</type>
    <object-name>channel_knob</object-name>
-   <property>an24/R-836/rc_channel</property>
+   <property>an24/R-836/channel_viewnr8</property>
    <factor>20</factor>
    <axis>
     <x>-1</x>
@@ -108,7 +99,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>an24/R-836/rc_channel</property>
+      <property>an24/R-836/channel_viewnr8</property>
       <factor>-1</factor>
       <min>0</min>
       <max>18</max>                

@@ -1,59 +1,82 @@
 <?xml version="1.0"?>
 
-<!-- Prop anti-ice ON -->
+<!-- Inlet guide vanes anti-ice heat valve OPEN/CLOSE -->
 
 <PropertyList>
  <path>../../../shared/switches/2ppng-15k.ac</path>
+
  <animation>
   <type>pick</type>
   <object-name>clickspot_up</object-name>
   <visible>false</visible>
   <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/prop-heat", 1.0, 0.1 );
+        interpolate("an24/Anti-Ice/sw_vna-heat-r", 1.0, 0.1 );
+	if (1.0 >= getprop("an24/Anti-Ice/vna-heat-r") ) {
+	controls.slewProp("an24/Anti-Ice/vna-heat-r", 0.2);
+	}
       </script>
     </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/sw_vna-heat-r", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
   </action>
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>propice_on</tooltip-id>
-      <label>Propeller Anti-Ice
-  Normal System</label>
+      <tooltip-id>vna_openr</tooltip-id>
+      <label>OPEN VNA Inlet
+   heat valve</label>
     </binding>
    </hovered>
 </animation>
 
-<animation>
+ <animation>
   <type>pick</type>
   <object-name>clickspot_middle</object-name>
   <visible>false</visible>
 </animation>
 
-<animation>
+ <animation>
   <type>pick</type>
   <object-name>clickspot_down</object-name>
   <visible>false</visible>
   <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/prop-heat", 0.0, 0.1 );
+        interpolate("an24/Anti-Ice/sw_vna-heat-r", -1.0, 0.1 );
+	if (getprop("an24/Anti-Ice/vna-heat-r") > 0.0 ) {
+	controls.slewProp("an24/Anti-Ice/vna-heat-r", -0.2);
+	}
       </script>
     </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/sw_vna-heat-r", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
   </action>
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>propice_off</tooltip-id>
-      <label> Propeller Anti-Ice
-Emergency System</label>
+      <tooltip-id>vna_closer</tooltip-id>
+      <label>CLOSE VNA Inlet
+   heat valve</label>
     </binding>
    </hovered>
 </animation>
@@ -61,9 +84,10 @@ Emergency System</label>
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Anti-Ice/prop-heat</property>
+   <property>an24/Anti-Ice/sw_vna-heat-r</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>0.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
   </interpolation>
   <axis>
@@ -73,5 +97,4 @@ Emergency System</label>
   </axis>
  </animation>
  
-
 </PropertyList>

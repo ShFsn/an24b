@@ -41,6 +41,16 @@
 <!-- Right panel, center -->
 
 <model>
+ <path>rp_btn_control_rio.xml</path>
+  <offsets>
+    <x-m>2.098</x-m>
+    <y-m>0.65</y-m>
+    <z-m>0.77</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<model>
  <path>rp_sw_rio-signalisation.xml</path>
   <offsets>
     <x-m>2.0965</x-m>

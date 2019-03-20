@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- R-838 -->
+<!-- Radio op's console of R-836 -->
 
 <PropertyList>
- <path>r-836b6b7.ac</path>
+ <path>r-836b6.ac</path>
 
 <model>
   <name>lamp_ON</name>

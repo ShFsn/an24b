@@ -50,6 +50,27 @@
  </animation>
 
  <animation>
+   <type>material</type>
+   <object-name>mp_placards</object-name>
+   <emission>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+   </emission>
+ </animation>
+ <animation>
+   <type>material</type>
+   <object-name>rp_placards</object-name>
+   <emission>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
    <type>slider</type>
    <object-name>gardinenstange</object-name>
    <visible>true</visible>
@@ -99,6 +120,64 @@
     <y>1</y>
     <z>0</z>    
   </axis>
+ </animation>
+
+<!-- Hot air foot pedals -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>heatpedalL</object-name>
+   <property>an24/Air-Cond/lp_footpedal</property>
+   <factor>-60.0</factor>
+   <offset-deg>40</offset-deg>
+   <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>1.921</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.215</z-m>
+   </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Air-Cond/lp_footpedal</property>
+      <factor>-0.1</factor>
+      <min>0</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>heatpedalR</object-name>
+   <property>an24/Air-Cond/rp_footpedal</property>
+   <factor>-60.0</factor>
+   <offset-deg>40</offset-deg>
+   <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>1.921</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.215</z-m>
+   </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Air-Cond/rp_footpedal</property>
+      <factor>-0.1</factor>
+      <min>0</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
  </animation>
 
 <!--Yoke-->

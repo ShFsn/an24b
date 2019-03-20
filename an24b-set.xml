@@ -99,6 +99,8 @@
   </model>
 
   <multiplay>
+   <comm-transmit-frequency-hz type="double">100.00</comm-transmit-frequency-hz>
+   <comm-transmit-power-norm type="double">0.15</comm-transmit-power-norm>
     <generic>
       <float n="0" alias="/an24/animations/nose"/>
     </generic>
@@ -166,14 +168,6 @@
       <default-heading-deg type="double">0</default-heading-deg>
       <heading-offset-deg type="double">175</heading-offset-deg>
       <pitch-offset-deg type="double">-18</pitch-offset-deg>
-      <!--front-direction-deg type="double">180</front-direction-deg>
-      <front-left-direction-deg type="double">225</front-left-direction-deg>
-      <left-direction-deg type="double">270</left-direction-deg>
-      <back-left-direction-deg type="double">315</back-left-direction-deg>
-      <back-direction-deg type="double">0</back-direction-deg>
-      <back-right-direction-deg type="double">45</back-right-direction-deg>
-      <right-direction-deg type="double">90</right-direction-deg>
-      <front-right-direction-deg type="double">135</front-right-direction-deg-->
       <dynamic-view type="bool">true</dynamic-view>
     </config>
   </view>
@@ -194,14 +188,6 @@
       <default-heading-deg type="double">0</default-heading-deg>
       <heading-offset-deg type="double">88</heading-offset-deg>
       <pitch-offset-deg type="double">-6</pitch-offset-deg>
-      <!--front-direction-deg type="double">180</front-direction-deg>
-      <front-left-direction-deg type="double">225</front-left-direction-deg>
-      <left-direction-deg type="double">270</left-direction-deg>
-      <back-left-direction-deg type="double">315</back-left-direction-deg>
-      <back-direction-deg type="double">0</back-direction-deg>
-      <back-right-direction-deg type="double">45</back-right-direction-deg>
-      <right-direction-deg type="double">90</right-direction-deg>
-      <front-right-direction-deg type="double">135</front-right-direction-deg-->
       <dynamic-view type="bool">true</dynamic-view>
     </config>
   </view>
@@ -847,18 +833,17 @@ QuickStartUpGuide.pdf
   <bleedairR type="double">1.0</bleedairR>
   <bleedair_autoL type="double">1.0</bleedair_autoL>
   <bleedair_autoR type="double">1.0</bleedair_autoR>
+  <lp_footpedal type="double">0.0</lp_footpedal>
+  <rp_footpedal type="double">0.0</rp_footpedal>
+  <eng_footpedal type="double">0.0</eng_footpedal>
   <handle_left type="double">0.0</handle_left>
   <handle_right type="double">0.0</handle_right>
   <mix-valveL type="double">0.0</mix-valveL>
   <mix-valveR type="double">0.0</mix-valveR>
-
   <sw_bleedairL type="double">1.0</sw_bleedairL>
   <sw_bleedairL1 type="double">0.0</sw_bleedairL1>
   <sw_bleedairR type="double">1.0</sw_bleedairR>
   <sw_bleedairR1 type="double">0.0</sw_bleedairR1>
-
-
-
   <sw_TG-16heating type="double">-1.0</sw_TG-16heating>
   <sw_rack-panel type="double">-1.0</sw_rack-panel>
   <sw_turbo-cooler_valve type="double">-1.0</sw_turbo-cooler_valve>
@@ -878,6 +863,10 @@ QuickStartUpGuide.pdf
   <sw_pitot_S2S6A3 type="double">0.0</sw_pitot_S2S6A3>
   <sw_pitot_S3A2 type="double">0.0</sw_pitot_S3A2>
   <sw_pitot_S4S7 type="double">0.0</sw_pitot_S4S7>
+  <sw_vna-heat-l type="double">0.0</sw_vna-heat-l>
+  <sw_vna-heat-r type="double">0.0</sw_vna-heat-r>
+  <vna-heat-l type="double">0.0</vna-heat-l>
+  <vna-heat-r type="double">0.0</vna-heat-r>
   <window_heating-left-low type="double">0.0</window_heating-left-low>
   <window_heating-left-intense type="double">0.0</window_heating-left-intense>
   <window_heating-right-low type="double">0.0</window_heating-right-low>
@@ -1051,6 +1040,8 @@ QuickStartUpGuide.pdf
    <sw_power-2 type="double">0.0</sw_power-2>
    <power-1 type="double">0.0</power-1>
    <power-2 type="double">0.0</power-2>
+   <transmit-power-w_1 type="int">15</transmit-power-w_1>
+   <transmit-power-w_2 type="int">15</transmit-power-w_2>
   </R-802>
 
   <R-836>
@@ -1058,6 +1049,10 @@ QuickStartUpGuide.pdf
    <b2_hood_anim2 type="double">0</b2_hood_anim2>
    <b1_knob_A type="double">0</b1_knob_A>
    <b2_knob_D type="double">0</b2_knob_D>
+   <channel_viewnr8 type="int">0</channel_viewnr8>
+   <channel_viewnr9 type="int">0</channel_viewnr9>
+   <operator type="int">0</operator><!-- radio op = 0, F/O = 1) -->
+   <transmit-power-w type="int">55</transmit-power-w>
   </R-836>
 
   <RKCrew>
@@ -1076,6 +1071,21 @@ QuickStartUpGuide.pdf
    <hs-needle-offset type="double">0.0</hs-needle-offset>
    <gs-needle-offset type="double">0.0</gs-needle-offset>
   </SP-50>
+
+  <SPU-7>
+   <source_viewnr0 type="int">0</source_viewnr0>
+   <source_viewnr8 type="int">0</source_viewnr8>
+   <source_viewnr9 type="int">0</source_viewnr9>
+   <source_viewnr10 type="int">0</source_viewnr10>
+  </SPU-7>
+
+  <SVB-5>
+   <transmit-power-w type="int">15</transmit-power-w>
+  </SVB-5>
+
+  <US-8K>
+   <band type="int">0</band>
+  </US-8K>
 
  <animations>
   <RK_hood type="double">0.0</RK_hood>

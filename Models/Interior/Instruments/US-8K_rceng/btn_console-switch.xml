@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Fast align button for GIK-1 compass -->
+<!-- Switch control of US-8K receiver from radio op's to F/O's console and back -->
 
 <PropertyList>
  <path>../../shared/knobs_buttons/5k.ac</path>

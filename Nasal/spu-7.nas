@@ -11,6 +11,64 @@ setprop("an24/SPU-7/general_viewnr8", 0.0);
 setprop("an24/SPU-7/general_viewnr9", 0.0);
 setprop("an24/SPU-7/general_viewnr10", 0.0);
 
+var fgcomstuff = func {
+	var viewnr = getprop("/sim/current-view/view-number");
+	setprop("controls/radios/comm-radio-selected", getprop("an24/SPU-7/source_viewnr" ~ viewnr ~ "") );
+# R-802 I (Comm 1)
+	if (getprop("controls/radios/comm-radio-selected") == 0 ) {
+	setprop("sim/multiplay/comm-transmit-frequency-hz", getprop("instrumentation/comm[0]/frequencies/selected-mhz") );
+	setprop("sim/multiplay/comm-transmit-power-norm", getprop("an24/R-802/transmit-power-w_1")/100 );
+	}
+# US-8K Receiver/SVB-5 Transmitter
+	if (getprop("controls/radios/comm-radio-selected") == 1 ) {
+	setprop("sim/multiplay/comm-transmit-frequency-hz", getprop("an24/US-8K/band") );
+	setprop("sim/multiplay/comm-transmit-power-norm", getprop("an24/SVB-5/transmit-power-w")/100 );
+	}
+# R-836; operator 0 = radio op, operator 1 = F/O
+	if (getprop("controls/radios/comm-radio-selected") == 2 ) {
+		if (getprop("an24/R-836/oprator") == 0 ) {
+		setprop("sim/multiplay/comm-transmit-frequency-hz", getprop("an24/R-836/channel_viewnr9") );
+		}
+		else {
+		setprop("sim/multiplay/comm-transmit-frequency-hz", getprop("an24/R-836/channel_viewnr8") );
+		}
+	setprop("sim/multiplay/comm-transmit-power-norm", getprop("an24/R-836/transmit-power-w")/100 );
+	}
+# R-802 II (Comm 2)
+	if (getprop("controls/radios/comm-radio-selected") == 3 ) {
+	setprop("sim/multiplay/comm-transmit-frequency-hz", getprop("instrumentation/comm[1]/frequencies/selected-mhz") );
+	setprop("sim/multiplay/comm-transmit-power-norm", getprop("an24/R-802/transmit-power-w_2")/100 );
+	}
+# ARK I Receiver (ADF 1)
+	if (getprop("controls/radios/comm-radio-selected") == 4 ) {
+	setprop("sim/multiplay/comm-transmit-frequency-hz", getprop("instrumentation/adf[0]/frequencies/selected-khz") );
+	setprop("sim/multiplay/comm-transmit-power-norm", 0.0 );
+	}
+# ARK II Receiver (ADF 2)
+	if (getprop("controls/radios/comm-radio-selected") == 5 ) {
+	setprop("sim/multiplay/comm-transmit-frequency-hz", getprop("instrumentation/adf[1]/frequencies/selected-khz") );
+	setprop("sim/multiplay/comm-transmit-power-norm", 0.0 );
+	}
+}
+ setlistener("/sim/current-view/view-number", fgcomstuff);
+ setlistener("an24/SPU-7/source_viewnr0", fgcomstuff);
+ setlistener("an24/SPU-7/source_viewnr8", fgcomstuff);
+ setlistener("an24/SPU-7/source_viewnr9", fgcomstuff);
+ setlistener("an24/SPU-7/source_viewnr10", fgcomstuff);
+ setlistener("an24/R-802/memscrew", fgcomstuff);
+ setlistener("an24/R-802/rememscrew", fgcomstuff);
+ setlistener("an24/R-802/channel", fgcomstuff);
+ setlistener("an24/R-802/finalfreq", fgcomstuff);
+ setlistener("an24/R-802/finalfreq", fgcomstuff);
+ setlistener("an24/R-836/channel_viewnr8", fgcomstuff);
+ setlistener("an24/R-836/channel_viewnr9", fgcomstuff);
+ setlistener("an24/R-836/operator", fgcomstuff);
+ setlistener("an24/US-8K/band", fgcomstuff);
+ setlistener("instrumentation/adf[0]/frequencies/selected-khz", fgcomstuff);
+ setlistener("instrumentation/adf[1]/frequencies/selected-khz", fgcomstuff);
+
+	
+
 #########################################################################
 # R-802 No.1
 #########################################################################

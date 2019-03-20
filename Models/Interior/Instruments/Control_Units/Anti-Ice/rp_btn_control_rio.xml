@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- Control RIO Anti-Ice system -->
+<PropertyList>
+ <path>../../../shared/knobs_buttons/5k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>true</repeatable>
+   <binding>
+    <command>nasal</command>
+    <script>
+	interpolate("an24/Anti-Ice/rio_control", 1.0, 0.1 );
+    </script>
+   </binding>
+  <mod-up>
+   <binding>
+    <command>nasal</command>
+    <script>
+	interpolate("an24/Anti-Ice/rio_control", 0.0, 0.1 );
+    </script>
+   </binding>
+  </mod-up>
+   </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>riocontrol</tooltip-id>
+     <label>Control RIO</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/Anti-Ice/rio_control</property>
+  <factor>0.005</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+ </animation>
+
+</PropertyList>

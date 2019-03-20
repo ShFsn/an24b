@@ -28,14 +28,14 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/SPU-7/lc_emerg-call", 1.0, 0.2 );
+        interpolate("an24/SPU-7/emerg-call_viewnr0", 1.0, 0.2 );
       </script>
     </binding>
    <mod-up>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/SPU-7/lc_emerg-call", 0.0, 0.2 );
+        interpolate("an24/SPU-7/emerg-call_viewnr0", 0.0, 0.2 );
       </script>
     </binding>
    </mod-up>
@@ -53,7 +53,7 @@
 <animation>
   <type>translate</type>
   <object-name>press_me</object-name>
-  <property>an24/SPU-7/lc_emerg-call</property>
+  <property>an24/SPU-7/emerg-call_viewnr0</property>
   <factor>0.0016</factor>
   <axis>
     <x>-1</x>
@@ -67,7 +67,7 @@
  <animation>
    <type>knob</type>
    <object-name>source_select</object-name>
-   <property>an24/SPU-7/lc_source</property>
+   <property>an24/SPU-7/source_viewnr0</property>
    <factor>32</factor>
    <axis>
     <x>-1</x>
@@ -82,7 +82,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>an24/SPU-7/lc_source</property>
+      <property>an24/SPU-7/source_viewnr0</property>
       <factor>-1</factor>
       <min>0</min>
       <max>5</max>                
@@ -94,7 +94,7 @@
       <command>set-tooltip</command>
       <tooltip-id>spu-source_lc</tooltip-id>
       <label>Source: %s</label>
-      <property>an24/SPU-7/lc_source</property>
+      <property>an24/SPU-7/source_viewnr0</property>
       <mapping>nasal</mapping>
       <script>
         var spusourcelc = ['R-802 Comm 1', 'US-8K HF/AM', 'R-836 HF/AM', 'R-802 Comm 2', 'ARK/Kurs-MP I', 'ARK/Kurs-MP II'];

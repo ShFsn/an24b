@@ -1,5 +1,13 @@
-
-
+# an24/Air-Cond/handle_left
+# an24/Air-Cond/handle_right
+# an24/Air-Cond/footpedal_left
+# an24/Air-Cond/footpedal_right
+# an24/Air-Cond/footpedal_eng
+# an24/Air-Cond/wings_stabs
+# an24/Air-Cond/vna_left
+# an24/Air-Cond/vna_right
+# an24/Air-Cond/PAX
+# an24/Air-Cond/TG-16
 
 var aircond = maketimer(2, func(){
 ## Simplified model of the cooling effect of the air-to-air-coolers behind the air inlets behind the propellers
@@ -20,5 +28,8 @@ var aircond = maketimer(2, func(){
 	var airflowR = getprop("engines/engine[1]/n1") * getprop("an24/Air-Cond/bleedairR");
 	interpolate("an24/URVK-18/airflowL", airflowL/20, 2.0 );
 	interpolate("an24/URVK-18/airflowR", airflowR/20, 2.0 );
+## Guessed numbers of how much an open valve influences overall pressure (0.3 = PAX cabin, always open)
+
+#	var airpress = getprop("an24/Air-Cond/handle_left")*0.02 + getprop("an24/Air-Cond/handle_right")*0.02 + getprop("an24/Air-Cond/lp_footpedal")*0.02 + getprop("an24/Air-Cond/rp_footpedal")*0.02 + getprop("an24/Air-Cond/eng_footpedal")*0.02 + getprop("an24/Air-Cond/lp_footpedal")*0.02 + 0.3 + getprop("an24/Anti-Ice/wing-tail_bleed")*0.02 ;
 });
  aircond.start();
