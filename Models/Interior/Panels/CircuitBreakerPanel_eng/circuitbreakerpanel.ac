@@ -135,7 +135,7 @@ name "fuelcontrol"
 loc 0.00633101 -0.00629599 0.0109439
 kids 0
 OBJECT poly
-name "fusecover_1"
+name "azs_cover"
 loc -8.19564e-08 -0.0547752 0.0237386
 texture "azspanel.png"
 crease 45.000000
@@ -17323,7 +17323,7 @@ refs 3
 68 0.684407 0.0141205
 kids 0
 OBJECT poly
-name "fusecover2"
+name "azs_hood"
 loc -0.00488758 0.264694 0.0346238
 texture "azspanel.png"
 crease 45.000000

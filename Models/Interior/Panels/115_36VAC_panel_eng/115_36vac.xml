@@ -5,6 +5,42 @@ functionality not to be taken too seriously atm! -->
 
   <path>115_36VAC_panel.ac</path>
 
+ <animation>
+   <type>material</type>
+   <object-name>fuse_panel</object-name>
+   <object-name>fuse_panel_hatch</object-name>
+   <emission>
+     <red>0.45</red>
+     <green>0.4</green>
+     <blue>0.35</blue>
+     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>gedit</object-name>
+   <emission>
+     <red>0.1</red>
+     <green>0.1</green>
+     <blue>0.1</blue>
+     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>fuses</object-name>
+   <object-name>fuse0102</object-name>
+   <emission>
+     <red>0.2</red>
+     <green>0.1</green>
+     <blue>0.1</blue>
+     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+
 <animation>
   <type>pick</type>
   <object-name>fuse0102</object-name>

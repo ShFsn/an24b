@@ -295,7 +295,75 @@
   </offsets>
 </model>
 
-<!-- Radio Operator's/ Engineer's Panel -->
+<!-- Radio Operator's/ Engineer's Place -->
+
+<model>
+  <name>Electrical_Panel</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/Electrical_Panel_eng/electrical_panel.xml</path>
+  <offsets>
+    <x-m>3.899</x-m>
+    <y-m>0.4698</y-m>
+    <z-m>0.61</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>RadioPanel</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/RadioPanel_eng/radiopanel.xml</path>
+  <offsets>
+    <x-m>3.905</x-m>
+    <y-m>0.805</y-m>
+    <z-m>0.612</z-m>
+  </offsets>
+</model>
+
+<model>
+  <name>115_36VAC_Panel</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/115_36VAC_panel_eng/115_36vac.xml</path>
+  <offsets>
+    <x-m>3.768</x-m>
+    <y-m>1.057</y-m>
+    <z-m>0.616</z-m>
+    <heading-deg>232</heading-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>AZSPanel</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/CircuitBreakerPanel_eng/circuitbreakerpanel.xml</path>
+  <offsets>
+    <x-m>3.334</x-m>
+    <y-m>0.886</y-m>
+    <z-m>1.06</z-m>
+    <heading-deg>4</heading-deg>
+    <roll-deg>32</roll-deg>
+    <pitch-deg>-2</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>RKDIM</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/RK_DIM_eng/rkdim.xml</path>
+  <offsets>
+    <x-m>3.306</x-m>
+    <y-m>0.6956</y-m>
+    <z-m>1.4319</z-m>
+    <heading-deg>1.6</heading-deg>
+    <roll-deg>61.8</roll-deg>
+    <pitch-deg>-2</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>RKCrewCabin</name>
+  <path>Aircraft/an24b/Models/Interior/Panels/RKCrewCabin_eng/rkcrewcabin.xml</path>
+  <offsets>
+    <x-m>3.193</x-m>
+    <y-m>1.08</y-m>
+    <z-m>0.1644</z-m>
+  </offsets>
+</model>
 
 <model>
   <name>SPU-7</name>
@@ -348,64 +416,6 @@
     <y-m>0.44</y-m>
     <z-m>1.4</z-m>
     <heading-deg>-90</heading-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>115_36VAC_Panel</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/115_36VAC_panel_eng/115_36vac.xml</path>
-  <offsets>
-    <x-m>3.768</x-m>
-    <y-m>1.057</y-m>
-    <z-m>0.616</z-m>
-    <heading-deg>232</heading-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>Electrical_Panel</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/Electrical_Panel_eng/electrical_panel.xml</path>
-  <offsets>
-    <x-m>3.899</x-m>
-    <y-m>0.4698</y-m>
-    <z-m>0.61</z-m>
-    <heading-deg>180</heading-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>CircuitBreakerPanel</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/CircuitBreakerPanel_eng/circuitbreakerpanel.xml</path>
-  <offsets>
-    <x-m>3.334</x-m>
-    <y-m>0.886</y-m>
-    <z-m>1.06</z-m>
-    <heading-deg>4</heading-deg>
-    <roll-deg>32</roll-deg>
-    <pitch-deg>-2</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>RKDIM</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/RK_DIM_eng/rkdim.xml</path>
-  <offsets>
-    <x-m>3.306</x-m>
-    <y-m>0.6956</y-m>
-    <z-m>1.4319</z-m>
-    <heading-deg>1.6</heading-deg>
-    <roll-deg>61.8</roll-deg>
-    <pitch-deg>-2</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>RKCrewCabin</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/RKCrewCabin_eng/rkcrewcabin.xml</path>
-  <offsets>
-    <x-m>3.193</x-m>
-    <y-m>1.08</y-m>
-    <z-m>0.1644</z-m>
   </offsets>
 </model>
 

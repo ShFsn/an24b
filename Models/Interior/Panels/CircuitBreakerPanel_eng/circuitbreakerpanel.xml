@@ -4,6 +4,28 @@
 
   <path>circuitbreakerpanel.ac</path>
 
+ <animation>
+   <type>material</type>
+   <object-name>azs_cover</object-name>
+   <emission>
+     <red>0.5</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+     <factor-prop>an24/Radio_Panel/sw_azspanel</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>fence</object-name>
+   <emission>
+     <red>0.1</red>
+     <green>0.1</green>
+     <blue>0.1</blue>
+     <factor-prop>an24/Radio_Panel/sw_azspanel</factor-prop>
+   </emission>
+ </animation>
+
 <animation>
   <type>pick</type>
   <object-name>all_on01</object-name>
