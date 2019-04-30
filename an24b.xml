@@ -1219,6 +1219,9 @@ Models        </description>
                 </product>
             </function>
         </axis>
+
+      <!--property value="0.0">aero/wings-ice_cm</property-->
+
         <axis name="DRAG" unit="LBS">
             <function name="aero/force/Drag_basic">
                 <description>Drag at zero lift</description>
@@ -1226,6 +1229,14 @@ Models        </description>
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
                     <property>aero/function/cx</property>
+                    <!--table>
+                        <independentVar>aero/wings-ice_cm</independentVar>
+                        <tableData>
+                          -0.2          1.0        
+                          0.1           1.0        
+                          1.5           5.0       
+                        </tableData>
+                    </table-->
                 </product>
             </function>
             <function name="aero/force/Drag_gear">

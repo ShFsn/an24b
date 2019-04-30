@@ -177,17 +177,20 @@
   <action>
     <button>0</button>
     <repeatable>false</repeatable>
-    <binding>
+     <binding>
       <command>nasal</command>
       <script>
-	if (getprop("an24/FireFeather/feather-by-kfl_l") == 0.0 ) {
-        interpolate("an24/FireFeather/feather-by-kfl_l", 1.0, 0.2 );
-	}
-	else {
-        interpolate("an24/FireFeather/feather-by-kfl_l", 0.0, 0.2 );
-	}
+	interpolate("an24/FireFeather/feather-by-kfl_l", 1.0, 0.3 );
       </script>
-    </binding>
+     </binding>
+      <mod-up>
+       <binding>
+	<command>nasal</command>
+	<script>
+	interpolate("an24/FireFeather/feather-by-kfl_l", 0.0, 0.2 );
+	</script>
+       </binding>
+      </mod-up>
   </action>
 </animation>
 

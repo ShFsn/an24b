@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList> 
+ <title>I. Before Engines Startup</title>
+
+  <item>
+   <name>Safety Check</name>
+    <value>DONE</value>
+  </item>
+
+  <item>
+   <name>Cockpit Door</name>
+    <value>LOCKED</value>
+  </item>
+
+  <item>
+   <name>Circuit Breakers/DIM-Devices</name>
+    <value>CLOSED/ON</value>
+       <marker>
+        <x-m>-17.8124</x-m>
+        <y-m>0.7595</y-m>
+        <z-m>1.2116</z-m>
+        <scale>1.4463</scale>
+       </marker>
+   <condition>
+    <equals>
+     <property>an24/AZS/sw0101</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0102</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0103</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0104</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0105</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0106</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0108</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0109</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0110</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0111</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0112</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0113</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0114</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0115</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0116</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0117</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0118</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0201</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0202</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0203</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0204</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0205</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0206</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0207</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0208</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0209</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0210</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0211</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0212</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0213</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0214</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0215</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0216</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0217</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0218</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0301</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0302</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0303</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0304</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0305</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0306</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0308</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0309</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0310</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0312</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0313</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0314</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0315</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0316</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0317</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0318</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0401</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0402</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0403</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0404</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0406</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0407</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0408</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0409</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0410</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0411</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0412</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0413</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0414</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0415</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0416</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0417</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0418</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0504</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0506</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0507</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0508</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0509</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0510</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0511</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0512</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0513</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0514</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0515</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0516</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0517</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0518</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0602</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0603</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0604</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0605</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0608</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0609</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0610</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0611</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0612</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0613</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0614</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0615</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0616</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0617</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0618</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0701</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0702</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0703</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0704</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0705</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0706</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0707</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0708</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0709</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0710</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0711</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0712</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0713</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0714</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0715</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0716</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0717</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/AZS/sw0718</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
+    <binding>
+      <command>nasal</command>
+      <script>
+        setprop("an24/AZS/sw0101", 1.0 );
+        setprop("an24/AZS/sw0102", 1.0 );
+        setprop("an24/AZS/sw0103", 1.0 );
+        setprop("an24/AZS/sw0104", 1.0 );
+        setprop("an24/AZS/sw0105", 1.0 );
+        setprop("an24/AZS/sw0106", 1.0 );
+        setprop("an24/AZS/sw0108", 1.0 );
+        setprop("an24/AZS/sw0109", 1.0 );
+        setprop("an24/AZS/sw0110", 1.0 );
+        setprop("an24/AZS/sw0111", 1.0 );
+        setprop("an24/AZS/sw0112", 1.0 );
+        setprop("an24/AZS/sw0113", 1.0 );
+        setprop("an24/AZS/sw0114", 1.0 );
+        setprop("an24/AZS/sw0115", 1.0 );
+        setprop("an24/AZS/sw0116", 1.0 );
+        setprop("an24/AZS/sw0117", 1.0 );
+        setprop("an24/AZS/sw0118", 1.0 );
+        setprop("an24/AZS/sw0201", 1.0 );
+        setprop("an24/AZS/sw0202", 1.0 );
+        setprop("an24/AZS/sw0203", 1.0 );
+        setprop("an24/AZS/sw0204", 1.0 );
+        setprop("an24/AZS/sw0205", 1.0 );
+        setprop("an24/AZS/sw0206", 1.0 );
+        setprop("an24/AZS/sw0207", 1.0 );
+        setprop("an24/AZS/sw0208", 1.0 );
+        setprop("an24/AZS/sw0209", 1.0 );
+        setprop("an24/AZS/sw0210", 1.0 );
+        setprop("an24/AZS/sw0211", 1.0 );
+        setprop("an24/AZS/sw0212", 1.0 );
+        setprop("an24/AZS/sw0213", 1.0 );
+        setprop("an24/AZS/sw0214", 1.0 );
+        setprop("an24/AZS/sw0215", 1.0 );
+        setprop("an24/AZS/sw0216", 1.0 );
+        setprop("an24/AZS/sw0217", 1.0 );
+        setprop("an24/AZS/sw0218", 1.0 );
+        setprop("an24/AZS/sw0301", 1.0 );
+        setprop("an24/AZS/sw0302", 1.0 );
+        setprop("an24/AZS/sw0303", 1.0 );
+        setprop("an24/AZS/sw0304", 1.0 );
+        setprop("an24/AZS/sw0305", 1.0 );
+        setprop("an24/AZS/sw0306", 1.0 );
+        setprop("an24/AZS/sw0308", 1.0 );
+        setprop("an24/AZS/sw0309", 1.0 );
+        setprop("an24/AZS/sw0310", 1.0 );
+        setprop("an24/AZS/sw0312", 1.0 );
+        setprop("an24/AZS/sw0313", 1.0 );
+        setprop("an24/AZS/sw0314", 1.0 );
+        setprop("an24/AZS/sw0315", 1.0 );
+        setprop("an24/AZS/sw0316", 1.0 );
+        setprop("an24/AZS/sw0317", 1.0 );
+        setprop("an24/AZS/sw0318", 1.0 );
+        setprop("an24/AZS/sw0401", 1.0 );
+        setprop("an24/AZS/sw0402", 1.0 );
+        setprop("an24/AZS/sw0403", 1.0 );
+        setprop("an24/AZS/sw0404", 1.0 );
+        setprop("an24/AZS/sw0406", 1.0 );
+        setprop("an24/AZS/sw0407", 1.0 );
+        setprop("an24/AZS/sw0408", 1.0 );
+        setprop("an24/AZS/sw0409", 1.0 );
+        setprop("an24/AZS/sw0410", 1.0 );
+        setprop("an24/AZS/sw0411", 1.0 );
+        setprop("an24/AZS/sw0412", 1.0 );
+        setprop("an24/AZS/sw0413", 1.0 );
+        setprop("an24/AZS/sw0414", 1.0 );
+        setprop("an24/AZS/sw0415", 1.0 );
+        setprop("an24/AZS/sw0416", 1.0 );
+        setprop("an24/AZS/sw0417", 1.0 );
+        setprop("an24/AZS/sw0418", 1.0 );
+        setprop("an24/AZS/sw0504", 1.0 );
+        setprop("an24/AZS/sw0506", 1.0 );
+        setprop("an24/AZS/sw0507", 1.0 );
+        setprop("an24/AZS/sw0508", 1.0 );
+        setprop("an24/AZS/sw0509", 1.0 );
+        setprop("an24/AZS/sw0510", 1.0 );
+        setprop("an24/AZS/sw0511", 1.0 );
+        setprop("an24/AZS/sw0512", 1.0 );
+        setprop("an24/AZS/sw0513", 1.0 );
+        setprop("an24/AZS/sw0514", 1.0 );
+        setprop("an24/AZS/sw0515", 1.0 );
+        setprop("an24/AZS/sw0516", 1.0 );
+        setprop("an24/AZS/sw0517", 1.0 );
+        setprop("an24/AZS/sw0518", 1.0 );
+        setprop("an24/AZS/sw0602", 1.0 );
+        setprop("an24/AZS/sw0603", 1.0 );
+        setprop("an24/AZS/sw0604", 1.0 );
+        setprop("an24/AZS/sw0605", 1.0 );
+        setprop("an24/AZS/sw0608", 1.0 );
+        setprop("an24/AZS/sw0609", 1.0 );
+        setprop("an24/AZS/sw0610", 1.0 );
+        setprop("an24/AZS/sw0611", 1.0 );
+        setprop("an24/AZS/sw0612", 1.0 );
+        setprop("an24/AZS/sw0613", 1.0 );
+        setprop("an24/AZS/sw0614", 1.0 );
+        setprop("an24/AZS/sw0615", 1.0 );
+        setprop("an24/AZS/sw0616", 1.0 );
+        setprop("an24/AZS/sw0617", 1.0 );
+        setprop("an24/AZS/sw0618", 1.0 );
+        setprop("an24/AZS/sw0701", 1.0 );
+        setprop("an24/AZS/sw0702", 1.0 );
+        setprop("an24/AZS/sw0703", 1.0 );
+        setprop("an24/AZS/sw0704", 1.0 );
+        setprop("an24/AZS/sw0705", 1.0 );
+        setprop("an24/AZS/sw0706", 1.0 );
+        setprop("an24/AZS/sw0707", 1.0 );
+        setprop("an24/AZS/sw0708", 1.0 );
+        setprop("an24/AZS/sw0709", 1.0 );
+        setprop("an24/AZS/sw0710", 1.0 );
+        setprop("an24/AZS/sw0711", 1.0 );
+        setprop("an24/AZS/sw0712", 1.0 );
+        setprop("an24/AZS/sw0713", 1.0 );
+        setprop("an24/AZS/sw0714", 1.0 );
+        setprop("an24/AZS/sw0715", 1.0 );
+        setprop("an24/AZS/sw0716", 1.0 );
+        setprop("an24/AZS/sw0717", 1.0 );
+        setprop("an24/AZS/sw0718", 1.0 );
+      </script>
+    </binding>
+  </item>
+
+  <item>
+   <name>Generators STG and GO</name>
+    <value>OFF</value>
+       <marker>
+        <x-m>-17.8124</x-m>
+        <y-m>0.7595</y-m>
+        <z-m>1.2116</z-m>
+        <scale>1.4463</scale>
+       </marker>
+   <condition>
+    <equals>
+     <property>an24/Electrical_Panel/sw_stg18l</property>
+     <value>0.0</value>
+    </equals>
+    <equals>
+     <property>an24/Electrical_Panel/sw_stg18r</property>
+     <value>0.0</value>
+    </equals>
+    <equals>
+     <property>an24/Electrical_Panel/sw_go16l</property>
+     <value>0.0</value>
+    </equals>
+    <equals>
+     <property>an24/Electrical_Panel/sw_go16r</property>
+     <value>0.0</value>
+    </equals>
+   </condition>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/Electrical_Panel/sw_stg18l</property>
+      <value>0.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/Electrical_Panel/sw_stg18r</property>
+      <value>0.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/Electrical_Panel/sw_go16l</property>
+      <value>0.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/Electrical_Panel/sw_go16r</property>
+      <value>0.0</value>
+    </binding>
+  </item>
+
+<!-- item "Inverter -> ON missing -->
+
+  <item>
+   <name>Inverter PO-750</name>
+    <value>AIR</value>
+       <marker>
+        <x-m>-17.8124</x-m>
+        <y-m>0.7595</y-m>
+        <z-m>1.2116</z-m>
+        <scale>1.4463</scale>
+       </marker>
+   <condition>
+    <equals>
+     <property>an24/Electrical_Panel/sw_PO-750_AUX</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/Electrical_Panel/sw_PO-750_AUX</property>
+      <value>1.0</value>
+    </binding>
+  </item>
+
+  <item>
+   <name>Comm Radios and SPU</name>
+    <value>ON</value>
+       <marker>
+        <x-m>-17.8124</x-m>
+        <y-m>0.7595</y-m>
+        <z-m>1.2116</z-m>
+        <scale>1.4463</scale>
+       </marker>
+   <condition>
+    <equals>
+     <property>an24/R-802/sw_power-1</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/R-802/sw_power-2</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/R-802/sw_power-1</property>
+      <value>1.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/R-802/sw_power-2</property>
+      <value>1.0</value>
+    </binding>
+  </item>
+
+  <item>
+   <name>Fire Extinction</name>
+    <value>SERVICEABLE</value>
+       <marker>
+        <x-m>-17.8124</x-m>
+        <y-m>0.7595</y-m>
+        <z-m>1.2116</z-m>
+        <scale>1.4463</scale>
+       </marker>
+   <condition>
+    <equals>
+     <property>an24/FireFeather/main</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/FireFeather/main</property>
+      <value>1.0</value>
+    </binding>
+  </item>
+
+  <item>
+   <name>Cut-off Valves</name>
+    <value>OPEN</value>
+       <marker>
+        <x-m>-17.8124</x-m>
+        <y-m>0.7595</y-m>
+        <z-m>1.2116</z-m>
+        <scale>1.4463</scale>
+       </marker>
+   <condition>
+    <equals>
+     <property>an24/FuelControl/cutoff-l-by-sw</property>
+     <value>0.0</value>
+    </equals>
+    <equals>
+     <property>an24/FuelControl/cutoff-r-by-sw</property>
+     <value>0.0</value>
+    </equals>
+   </condition>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/FuelControl/cutoff-l-by-sw</property>
+      <value>0.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/FuelControl/cutoff-r-by-sw</property>
+      <value>0.0</value>
+    </binding>
+  </item>
+
+  <item>
+   <name>FUEL PUMPS</name>
+    <value>ON</value>
+       <marker>
+        <x-m>-17.8124</x-m>
+        <y-m>0.7595</y-m>
+        <z-m>1.2116</z-m>
+        <scale>1.4463</scale>
+       </marker>
+   <condition>
+    <equals>
+     <property>an24/FuelControl/sw0402</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/FuelControl/sw0403</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/FuelControl/sw0405</property>
+     <value>1.0</value>
+    </equals>
+    <equals>
+     <property>an24/FuelControl/sw0406</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/FuelControl/sw0402</property>
+      <value>1.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/FuelControl/sw0403</property>
+      <value>1.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/FuelControl/sw0405</property>
+      <value>1.0</value>
+    </binding>
+    <binding>
+     <command>property-assign</command>
+      <property>an24/FuelControl/sw0406</property>
+      <value>1.0</value>
+    </binding>
+  </item>
+
+</PropertyList>

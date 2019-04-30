@@ -3,6 +3,39 @@
 <PropertyList>
  <path>radiopanel.ac</path>
 
+ <animation>
+   <type>material</type>
+   <object-name>radio_panel</object-name>
+   <emission>
+     <red>0.45</red>
+     <green>0.4</green>
+     <blue>0.35</blue>
+     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>details</object-name>
+   <emission>
+     <red>0.22</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>fuses</object-name>
+   <emission>
+     <red>0.2</red>
+     <green>0.1</green>
+     <blue>0.1</blue>
+     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
 <!-- Switches -->
 
 <model>

@@ -39,6 +39,24 @@ var conditions = maketimer(5, func() {
 conditions.start();
 
 ########################
+# Wings and horizontal/vertical stabs
+########################
+var wings_icing = maketimer(1, func() {
+	var thickness = getprop("fdm/jsbsim/aero/wings-ice_cm");
+# divide by 10, because that results in factor 1 at full airflow (5 from left and 5 from right engine)
+	var avg_airflow = (getprop("an24/URVK-18/airflowL") + getprop("an24/URVK-18/airflowR"))/10 ;
+	var switch = getprop("an24/Anti-Ice/wing-tail_bleed")/60 * avg_airflow ;
+	var cmpermin = getprop("an24/Anti-Ice/conditions/icing") - switch;
+	if ( (thickness < 1.5 and cmpermin > 0.0) or (thickness > -0.1 and cmpermin < 0.0) ) {
+	var speedup = getprop("/sim/speed-up");
+	setprop("fdm/jsbsim/aero/wings-ice_cm", thickness + (cmpermin/60*speedup) );
+#	interpolate("an24/Anti-Ice/elements/wings_cm", math.clamp(thickness + (cmpermin/6*speedup), 0.0, 1.0), 9 );
+	setprop("an24/Anti-Ice/elements/cmperminwings", cmpermin );
+	}
+});
+#wings_icing.start();
+
+########################
 # Windows
 # Front window A (center)
 # Let's pretend the air is always hot and 50% left and 50% right of it reach the pipes

@@ -10,30 +10,31 @@ var kppm_init = func(i) {
 kppm_init(0);
 kppm_init(1);
 
-# Creating random course offsets for SP-50 (and glideslope offsets for Kurs-MP) when Localizer and/or Glideslope are present 
+# Creating random course needle offsets in SP-50 (and glideslope needle offsets in Kurs-MP) when Localizer and/or Glideslope are present
+# factor 0.5 added because 1
 var sp50_offset = func() {
-	var sp50_hs_offset = 0.0;
-	var sp50_gs_offset = 0.0;
+	var sp50_hs_offset = 0.0 ;
+	var sp50_gs_offset = 0.0 ;
 	if (getprop("instrumentation/nav/in-range") == 1.0) {
 		if (getprop("instrumentation/nav/nav-loc") == 1.0) {
 			if (getprop("instrumentation/nav/radials/selected-deg") < 180 ) {
-			var sp50_hs_offset = rand();
+			var sp50_hs_offset = rand() ;
 			}
 			else {
-			var sp50_hs_offset = rand() * -1;
+			var sp50_hs_offset = rand() * -1 ;
 			}
 		}
-#
+
 		if (getprop("an24/radio-equip") == "Kurs-MP" and getprop("/instrumentation/nav/has-gs") == 1.0) {
 			if (abs(sp50_hs_offset) * getprop("instrumentation/nav/radials/selected-deg") < 180) {
-			var sp50_gs_offset = rand();
+			var sp50_gs_offset = rand() ;
 			}
 			else {
-			var sp50_gs_offset = rand() * -1;
+			var sp50_gs_offset = rand() * -1 ;
 			}
 	}
-	interpolate("an24/SP-50/hs-needle-offset", sp50_hs_offset, 0.5);
-	interpolate("an24/SP-50/gs-needle-offset", sp50_gs_offset, 0.4);
+	interpolate("an24/SP-50/hs-needle-offset", sp50_hs_offset*0.5, 0.5);
+	interpolate("an24/SP-50/gs-needle-offset", sp50_gs_offset*0.5, 0.4);
 	}
 	else {
 	interpolate("an24/SP-50/hs-needle-offset", 0.0, 0.5 );

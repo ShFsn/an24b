@@ -58,10 +58,8 @@
    <tag>coldwar</tag>
    <tag>ifr</tag>
    <tag>high-wing</tag>
-   <tag>h-tail</tag>
    <tag>pressurised</tag>
    <tag>retractable-gear</tag>
-   <tag>pressurised</tag>
    <tag>propeller</tag>
    <tag>turboprop</tag>
    <tag>twin-engine</tag>
@@ -77,26 +75,26 @@
   </urls>
 
   <startup>
-   <splash-texture>Aircraft/an24b/an-24b.png</splash-texture>
+   <splash-texture>Aircraft/an24b/an-24b.jpg</splash-texture>
   </startup>
 
  <previews>
   <preview>
     <type>exterior</type>
     <splash type="bool">false</splash>
-    <path>exterior.png</path>
+    <path>exterior.jpg</path>
   </preview>
   <preview>
     <type>panel</type>
     <splash type="bool">false</splash>
-    <path>cockpit.png</path>
+    <path>panel.jpg</path>
   </preview>
  </previews>
 
-  <model>
-   <path>Aircraft/an24b/Models/An-24B.xml</path>
-   <fallback-model-index type="int">217</fallback-model-index>
-  </model>
+ <model>
+  <path>Aircraft/an24b/Models/An-24B.xml</path>
+  <fallback-model-index type="int">217</fallback-model-index>
+ </model>
 
   <multiplay>
    <comm-transmit-frequency-hz type="double">100.00</comm-transmit-frequency-hz>
@@ -267,6 +265,10 @@ QuickStartUpGuide.pdf
   <tutorials>
    <tutorial include="Tutorials/Engineer-Preflight.xml"/>
   </tutorials>
+
+  <!--checklists>
+   <checklist include="Checklists/before-engines-startup.xml"/>
+  </checklists-->
 
   <menubar>
     <default>
@@ -871,6 +873,10 @@ QuickStartUpGuide.pdf
   <window_heating-left-intense type="double">0.0</window_heating-left-intense>
   <window_heating-right-low type="double">0.0</window_heating-right-low>
   <window_heating-right-intense type="double">0.0</window_heating-right-intense>
+  <wing-tail_bleed type="double">0.0</wing-tail_bleed>
+   <conditions>
+    <icing type="double">0.0</icing>
+   </conditions>
    <elements>
     <fronta_cm type="double">0.0</fronta_cm>
     <frontbL_cm type="double">0.0</frontbL_cm>
@@ -1082,6 +1088,11 @@ QuickStartUpGuide.pdf
   <SVB-5>
    <transmit-power-w type="int">15</transmit-power-w>
   </SVB-5>
+
+  <URVK-18>
+   <airflowL type="double">0.0</airflowL>
+   <airflowR type="double">0.0</airflowR>
+  </URVK-18>
 
   <US-8K>
    <band type="int">0</band>

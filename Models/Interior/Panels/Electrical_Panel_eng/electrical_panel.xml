@@ -19,10 +19,10 @@
    <object-name>electrical_panel</object-name>
    <object-name>screws_etc</object-name>
    <emission>
-     <red>0.8</red>
-     <green>0.7</green>
-     <blue>0.6</blue>
-     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+     <red>0.45</red>
+     <green>0.4</green>
+     <blue>0.35</blue>
+     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
    </emission>
  </animation>
 

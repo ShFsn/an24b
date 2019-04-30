@@ -3,7 +3,7 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 128  trans
 OBJECT world
 kids 2
 OBJECT poly
-name "uv-1"
+name "uv-1_housing"
 loc 0.00294495 0 0
 texture "uv-1.png"
 crease 30.000000
@@ -1578,7 +1578,7 @@ refs 4
 166 0.750453 0.0670365
 kids 0
 OBJECT poly
-name "index"
+name "uv-1_index"
 loc 0.00115798 -0.0178177 0
 crease 45.000000
 numvert 13
