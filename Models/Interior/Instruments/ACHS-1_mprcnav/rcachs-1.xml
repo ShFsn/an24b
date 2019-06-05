@@ -16,6 +16,7 @@
    <object-name>ft_hour_needle</object-name>
    <object-name>ft_min_needle</object-name>
    <object-name>timer_sec_needle</object-name>
+   <object-name>timer_min_needle</object-name>
    <emission>
      <red>1.0</red>
      <green>0.4</green>

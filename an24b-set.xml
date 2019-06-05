@@ -96,6 +96,10 @@
   <fallback-model-index type="int">217</fallback-model-index>
  </model>
 
+ <mouse>
+  <invert-mouse-wheel type="bool">1</invert-mouse-wheel>
+ </mouse>
+
   <multiplay>
    <comm-transmit-frequency-hz type="double">100.00</comm-transmit-frequency-hz>
    <comm-transmit-power-norm type="double">0.15</comm-transmit-power-norm>
@@ -660,6 +664,7 @@ QuickStartUpGuide.pdf
 
 <controls>
   <gear>
+    <antiskid type="bool">false</antiskid>
     <brake-parking type="bool">true</brake-parking>
     <nose-wheel-steering type="bool">true</nose-wheel-steering>
     <steering>10.0</steering>

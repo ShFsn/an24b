@@ -3,24 +3,29 @@
 <!-- Signal light of heating of TG-16 APU -->
 
 <PropertyList>
- <path>../../shared/lamps/warninglamp02.ac</path>
+ <path>../../shared/lamps/slm-61.ac</path>
 
-<animation>
- <type>material</type>
- <object-name>holder</object-name>
- <object-name>lampon</object-name>
- <texture>../../shared/lamps/warninglamp02greenplain.png</texture>
-</animation>
+ <animation>
+  <type>material</type>
+  <object-name>filter</object-name>
+  <object-name>ring</object-name>
+  <texture>../../shared/lamps/slm-61_green.png</texture>
+ </animation>
 
-<animation>
- <type>select</type>
- <condition>
-   <equals>
+ <animation>
+   <type>material</type>
+   <object-name>filter</object-name>
+    <condition>
+    <equals>
     <property>an24/Air-Cond/TG-16heating</property>
     <value>1.0</value>
-   </equals>
-  </condition>
- <object-name>lampon</object-name>
-</animation>
+    </equals>
+    </condition>
+   <emission>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </emission>
+ </animation>
 
 </PropertyList>

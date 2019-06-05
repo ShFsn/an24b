@@ -80,7 +80,7 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/Air-Cond/handle_left</property>
-      <factor>-0.2</factor>
+      <factor>-0.05</factor>
       <min>0</min>
       <max>1</max>
       <wrap>false</wrap>
@@ -116,7 +116,7 @@
      <binding>
       <command>property-adjust</command>
       <property>an24/Air-Cond/handle_right</property>
-      <factor>-0.2</factor>
+      <factor>-0.05</factor>
       <min>0</min>
       <max>1</max>
       <wrap>false</wrap>
