@@ -13,7 +13,7 @@
 
  <sim>
   <description>Antonov An-24B</description>
-  <long-description>The Antonov An-24 was basically built as regional airliner from 1959-1978 in the USSR. Having many variants, the An-24 also served, and serves, e.g. as transport, reconnaissance, fire fighter, or even as navigator training plane. It's derivatives, the An-26, An-30 and An-32 are used for military purposes. 
+  <long-description>The Antonov An-24 is a successful Soviet aircraft designed in 1957.  Its many variants still serve as cargo, transport, reconnaissance, fire fighter, or even as navigator training plane.  Its derivatives the An-26, An-30 and An-32 are used for military purposes. 
   </long-description>
 
   <status>production</status>
@@ -46,7 +46,6 @@
 
   <tags>
    <tag>passenger</tag>
-   <tag>ga</tag>
    <tag>transport</tag>
    <tag>antonov</tag>
    <!--tag>1950s</tag--> <!-- though maiden flight in 1959! -->
@@ -321,7 +320,25 @@ QuickStartUpGuide.pdf
   </menubar>
 
   <aircraft-data>
-   <path>an24/radio-equip</path>
+    <path>an24/radio-equip</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[7]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[8]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[9]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[10]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[11]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[12]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[13]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[14]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[15]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[16]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[17]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[18]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[19]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[20]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[21]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[22]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[23]</path>
+    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[24]</path>
   </aircraft-data>
 
   <flaps>
@@ -345,6 +362,7 @@ QuickStartUpGuide.pdf
       <path>Aircraft/an24b/Systems/ap-28l1.xml</path>
     </autopilot>
   </systems>
+  <allow-toggle-cockpit type="bool">1</allow-toggle-cockpit>
 </sim>
 
 
@@ -361,6 +379,41 @@ QuickStartUpGuide.pdf
 
 <input>
  <keyboard>
+     <key n="1">
+       <name>Ctrl+A</name>
+       <desc>Toggle autopilot altitude lock</desc>
+       <binding>
+         <command>nasal</command>
+         <script><![CDATA[
+         instruments.engage_kv_mode();
+         interpolate("an24/AP-28l1/buttons/kv", 1.0, 0.1 );
+         settimer(func {interpolate("an24/AP-28l1/buttons/kv", 0.0, 0.1 );},0.1);
+         ]]></script>
+       </binding>
+     </key>
+     <key n="8">
+       <name>Ctrl+H</name>
+       <desc>Toggle autopilot GIK lock</desc>
+       <binding>
+         <command>nasal</command>
+         <script><![CDATA[
+         var r = props.globals.getNode ("an24/AP-28l1/switches/roll-mode");
+         r.setValue (r.getValue () == 1 ? 0 : 1); # 1 -> 0, 0 -> 1, -1 -> 1
+         ]]></script>
+       </binding>
+     </key>
+     <key n="16">
+       <name>Ctrl+P</name>
+       <desc>Toggle autopilot horizon mode</desc>
+       <binding>
+         <command>nasal</command>
+         <script><![CDATA[
+         instruments.engage_ap_by_horizon();
+         interpolate("an24/AP-28l1/buttons/horizon", 1.0, 0.1 );
+         settimer(func {interpolate("an24/AP-28l1/buttons/horizon", 0.0, 0.1 );},0.1);
+         ]]></script>
+       </binding>
+     </key>
      <key n="115">
        <name>s</name>
        <desc>Autostart</desc>

@@ -187,3 +187,28 @@ else {
  settimer(giveandgetr, 0.1);
 }
 setlistener("sim/signals/fdm-initialized", giveandgetr);
+
+var endurance   = props.globals.initNode ("/consumables/fuel/endurance-remaining", 1, "STRING");
+var fuel_totals = props.globals.initNode ("/consumables/fuel/total-fuel-lbs", 1, "DOUBLE");
+var range       = props.globals.initNode ("/consumables/fuel/range-remaining-nmi", 1, "DOUBLE");
+var range_total = props.globals.initNode ("/consumables/fuel/range-total-nmi", 1, "DOUBLE");
+var fuel_flow_timer = maketimer (1.0, func () {
+   var ff_pph = 0;
+   for (var engine=0; engine<3; engine+=1) {
+      ff_pph += getprop ("/engines/engine[" ~ engine ~ "]/fuel-flow_pph");
+   }
+   var endurance_h = 0;
+   if (ff_pph > 0) { endurance_h = fuel_totals.getValue () / ff_pph; }
+   endurance.setValue (sprintf ("%d:%02d:%02d",
+                                int (endurance_h),
+                                math.mod (endurance_h * 60, 60),
+                                math.mod (endurance_h * 3600, 60)));
+   range.setValue (endurance_h * getprop ("/fdm/jsbsim/velocities/vtrue-kts"));
+   range_total.setValue (range.getValue () + getprop ("/instrumentation/gps/odometer"));
+});
+
+# Start the timers after the FDM is initialized:
+fuel_listener = setlistener ("/sim/signals/fdm-initialized", func () {
+  fuel_flow_timer.start ();
+  removelistener (fuel_listener);
+});
