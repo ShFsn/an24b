@@ -16,6 +16,7 @@
       <command>nasal</command>
       <script>
         interpolate("controls/lighting/sw_nosmoking", 1.0, 0.1 );
+        settimer(func {interpolate("controls/lighting/sw_nosmoking", -1.0, 0.1 );},1.5);
       </script>
     </binding>
   </action>

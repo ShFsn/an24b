@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
-<!-- A-Z, 12-SAM-28 Battery Amperemeter -->
+<!-- A-Z, 12-SAM-28 Battery Amperemeter
+Dimensions: 47,4х47,4х79мм -->
 
 <PropertyList>
  <path>a-2.ac</path>

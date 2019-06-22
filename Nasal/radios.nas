@@ -199,67 +199,47 @@ var arkoutput2 = func {
 #####################################################################
 # R-802 Stuff
 #####################################################################
-setprop("an24/R-802/volume-1", 0.0);
-setprop("an24/R-802/volume-2", 0.0);
-
-#  R-802 Summing up frequencies
-setprop("an24/R-802/dial100", 100.0);
-setprop("an24/R-802/dial10", 0.0);
-setprop("an24/R-802/dial1", 0.0);
-setprop("/instrumentation/comm[0]/frequencies/selected-mhz", 100.0 );
-setprop("/instrumentation/comm[1]/frequencies/selected-mhz", 100.0 );
-
 var add802freqs = func {
  var freq100 = getprop("an24/R-802/dial100");
  var freq10 = getprop("an24/R-802/dial10");
  var freq1 = getprop("an24/R-802/dial1");
  var final802freq = freq100 + freq10 + freq1 / 10 ;
+# 6s max from 100-150MHz(shortened a little bit by /10 instead of /8.3)
+ var transitiontime = abs((final802freq-getprop("/instrumentation/comm[1]/frequencies/selected-mhz")) / 10);
  setprop("an24/R-802/finalfreq", final802freq);
- setprop("/instrumentation/comm[1]/frequencies/selected-mhz", final802freq);
+ interpolate("/instrumentation/comm[1]/frequencies/selected-mhz", final802freq, transitiontime);
 }
  setlistener("an24/R-802/dial100", add802freqs);
  setlistener("an24/R-802/dial10", add802freqs);
  setlistener("an24/R-802/dial1", add802freqs);
 
-#  R-802 Store frequencies
-setprop("an24/R-802/memory/num[1]", 100.0);
-setprop("an24/R-802/memory/num[2]", 100.0);
-setprop("an24/R-802/memory/num[3]", 100.0);
-setprop("an24/R-802/memory/num[4]", 100.0);
-setprop("an24/R-802/memory/num[5]", 100.0);
-setprop("an24/R-802/memory/num[6]", 100.0);
-setprop("an24/R-802/memory/num[7]", 100.0);
-setprop("an24/R-802/memory/num[8]", 100.0);
-setprop("an24/R-802/memory/num[9]", 100.0);
-setprop("an24/R-802/memory/num[10]", 100.0);
-setprop("an24/R-802/finalfreq", 100.0);
-setprop("an24/R-802/channel", 1.0);
-
+#  Store dialed freqs in memory
 var freqmem = func {
 var channel = getprop("an24/R-802/channel");
 var curfreq = getprop("an24/R-802/finalfreq");
-setprop("an24/R-802/memory/num[" ~ channel ~ "]", curfreq);
+setprop("an24/R-802/memory/num" ~ channel ~ "", curfreq);
 setprop("/instrumentation/comm[0]/frequencies/selected-mhz", curfreq );
 }
- setlistener("an24/R-802/memscrew", freqmem);
+ setlistener("an24/R-802/dialscrew", freqmem);
 
-#  R-802 Remember frequencies
+#  Transfer freqs from memory to dial
 var freqremem = func {
 var channel = getprop("an24/R-802/channel");
-var storedfreq = getprop("an24/R-802/memory/num[" ~ channel ~ "]");
+var storedfreq = getprop("an24/R-802/memory/num" ~ channel ~ "");
 interpolate("an24/R-802/dial100", sprintf("%.2s", storedfreq) * 10, 0.2 );
 interpolate("an24/R-802/dial10", int(storedfreq) - sprintf("%.2s", storedfreq) * 10, 0.4 );
 interpolate("an24/R-802/dial1", (storedfreq - int(storedfreq)) * 10, 0.6 );
 setprop("an24/R-802/finalfreq", storedfreq);
 setprop("/instrumentation/comm[1]/frequencies/selected-mhz", storedfreq);
 }
- setlistener("an24/R-802/rememscrew", freqremem);
+ setlistener("an24/R-802/memscrew", freqremem);
 
 #  R-802 Choose Channel
 var freqchoice = func {
 var channel = getprop("an24/R-802/channel");
-var storedfreq = getprop("an24/R-802/memory/num[" ~ channel ~ "]");
-setprop("/instrumentation/comm[0]/frequencies/selected-mhz", storedfreq );
+var storedfreq = getprop("an24/R-802/memory/num" ~ channel ~ "");
+# 4s max (shortened a little bit to 2s)
+interpolate("/instrumentation/comm[0]/frequencies/selected-mhz", storedfreq, 2.0 );
 }
  setlistener("an24/R-802/channel", freqchoice);
  setlistener("an24/R-802/rememscrew", freqchoice);

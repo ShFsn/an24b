@@ -1,13 +1,4 @@
-##  AChS
-setprop("an24/AChS/mp_l-press-anim", 0 );
-setprop("an24/AChS/rc_l-press-anim", 0 );
-setprop("an24/AChS/nav_l-press-anim", 0 );
-
-#  Middle panel AChS Stopwatch
-setprop("an24/AChS/mp_stopwatch", 0 );
-setprop("an24/AChS/mp_r-turn", 1 );
-setprop("an24/AChS/mp_r-mode", 2 );
-
+#  Middle panel Stopwatch
 var mp_stopwatch = maketimer(1, func(){
 	var speedup = getprop("/sim/speed-up");
 	var sw_time = getprop("an24/AChS/mp_stopwatch");
@@ -15,10 +6,7 @@ var mp_stopwatch = maketimer(1, func(){
 	setprop("an24/AChS/mp_stopwatch", int(sw_time));
 });
 
-# Middle panel AChS Flighttime
-setprop("an24/AChS/mp_flighttime", 0 );
-setprop("an24/AChS/mp_l-mode", 0 );
-
+# Middle panel Flighttime
 var mp_flitetimer = maketimer(1, func(){
 	var speedup = getprop("/sim/speed-up");
 	var fl_time = getprop("an24/AChS/mp_flighttime");
@@ -26,9 +14,7 @@ var mp_flitetimer = maketimer(1, func(){
 	setprop("an24/AChS/mp_flighttime", int(fl_time));
 });
 
-# Middle panel AChS wind-up/freeze mechanism; "running" 0 means not winded up, "serviceable" 0 clock frozen (not heated, not implemented yet)
-setprop("an24/AChS/mp_wind_up", 1000 );
-
+# Middle panel wind-up/freeze mechanism; "running" 0 means not winded up, "serviceable" 0 clock frozen (not heated, not implemented yet)
 var mp_wtimer = maketimer(10, func(){
 	var speedup = getprop("/sim/speed-up");
 	var windup = getprop("an24/AChS/mp_wind_up");
@@ -46,12 +32,7 @@ var mp_wtimer = maketimer(10, func(){
 });
 mp_wtimer.start();
 
-#  Right console AChS Stopwatch
-setprop("/instrumentation/clock[1]/serviceable", 1 );
-setprop("an24/AChS/rc_stopwatch", 0 );
-setprop("an24/AChS/rc_r-turn", 1 );
-setprop("an24/AChS/rc_r-mode", 2 );
-
+#  Right console Stopwatch
 var rc_stopwatch = maketimer(1, func(){
 	var speedup = getprop("/sim/speed-up");
 	var sw_time = getprop("an24/AChS/rc_stopwatch");
@@ -59,10 +40,7 @@ var rc_stopwatch = maketimer(1, func(){
 	setprop("an24/AChS/rc_stopwatch", int(sw_time));
 });
 
-# Right console AChS Flighttime
-setprop("an24/AChS/rc_flighttime", 0 );
-setprop("an24/AChS/rc_l-mode", 0 );
-
+# Right console Flighttime
 var rc_flitetimer = maketimer(1, func(){
 	var speedup = getprop("/sim/speed-up");
 	var fl_time = getprop("an24/AChS/rc_flighttime");
@@ -70,9 +48,7 @@ var rc_flitetimer = maketimer(1, func(){
 	setprop("an24/AChS/rc_flighttime", int(fl_time));
 });
 
-# Right console AChS wind-up/freeze mechanism; "running" 0 means not winded up, "serviceable" 0 clock frozen (not heated, not implemented yet)
-setprop("an24/AChS/rc_wind_up", 1000 );
-
+# Right console wind-up/freeze mechanism; "running" 0 means not winded up, "serviceable" 0 clock frozen (not heated, not implemented yet)
 var rc_wtimer = maketimer(10, func(){
 	var speedup = getprop("/sim/speed-up");
 	var windup = getprop("an24/AChS/rc_wind_up");
@@ -90,12 +66,7 @@ var rc_wtimer = maketimer(10, func(){
 });
 rc_wtimer.start();
 
-#  Navigator's AChS Stopwatch
-setprop("/instrumentation/clock[2]/serviceable", 1 );
-setprop("an24/AChS/nav_stopwatch", 0 );
-setprop("an24/AChS/nav_r-turn", 1 );
-setprop("an24/AChS/nav_r-mode", 2 );
-
+#  Navigator's Stopwatch
 var nav_stopwatch = maketimer(1, func(){
 	var speedup = getprop("/sim/speed-up");
 	var sw_time = getprop("an24/AChS/nav_stopwatch");
@@ -103,10 +74,7 @@ var nav_stopwatch = maketimer(1, func(){
 	setprop("an24/AChS/nav_stopwatch", int(sw_time));
 });
 
-# Navigator's AChS Flighttime
-setprop("an24/AChS/nav_flighttime", 0 );
-setprop("an24/AChS/nav_l-mode", 0 );
-
+# Navigator's Flighttime
 var nav_flitetimer = maketimer(1, func(){
 	var speedup = getprop("/sim/speed-up");
 	var fl_time = getprop("an24/AChS/nav_flighttime");
@@ -114,9 +82,7 @@ var nav_flitetimer = maketimer(1, func(){
 	setprop("an24/AChS/nav_flighttime", int(fl_time));
 });
 
-# Navigator's AChS wind-up/freeze mechanism; "running" 0 means not winded up, "serviceable" 0 clock frozen (not heated, not implemented yet)
-setprop("an24/AChS/nav_wind_up", 1000 );
-
+# Navigator's wind-up/freeze mechanism; "running" 0 means not winded up, "serviceable" 0 clock frozen (not heated, not implemented yet)
 var nav_wtimer = maketimer(10, func(){
 	var speedup = getprop("/sim/speed-up");
 	var windup = getprop("an24/AChS/nav_wind_up");
@@ -133,4 +99,3 @@ var nav_wtimer = maketimer(10, func(){
 	}
 });
 nav_wtimer.start();
-

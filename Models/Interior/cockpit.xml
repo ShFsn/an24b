@@ -71,6 +71,17 @@
      <factor-prop>controls/lighting/panel-r_red</factor-prop>
    </emission>
  </animation>
+ <animation>
+   <type>material</type>
+   <object-name>oh_placs_standard</object-name>
+   <object-name>oh_placs_kurs-mp</object-name>
+   <emission>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/overhead_panel</factor-prop>
+   </emission>
+ </animation>
 
  <animation>
    <type>slider</type>
@@ -1773,7 +1784,7 @@
 
 <animation>
   <type>select</type>
-  <object-name>placards_standard</object-name>
+  <object-name>oh_placs_standard</object-name>
    <condition>
     <equals>
     <property>an24/radio-equip</property>
@@ -1784,7 +1795,7 @@
 
 <animation>
   <type>select</type>
-  <object-name>placards_kurs-mp</object-name>
+  <object-name>oh_placs_kurs-mp</object-name>
    <condition>
     <equals>
     <property>an24/radio-equip</property>

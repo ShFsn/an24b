@@ -331,7 +331,7 @@
 
 <model>
   <name>AZSPanel</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/CircuitBreakerPanel_eng/circuitbreakerpanel.xml</path>
+  <path>Aircraft/an24b/Models/Interior/Panels/AZSPanel_eng/azspanel.xml</path>
   <offsets>
     <x-m>3.334</x-m>
     <y-m>0.886</y-m>

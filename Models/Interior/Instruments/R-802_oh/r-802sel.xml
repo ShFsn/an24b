@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- R-802; Radio frequency select station -->
+<!-- R-802; Radio frequency dial station -->
 
 <PropertyList>
  <path>r-802sel.ac</path>
@@ -177,7 +177,7 @@
 
 <animation>
   <type>pick</type>
-  <object-name>rememscrew</object-name>
+  <object-name>dialscrew</object-name>
   <visible>true</visible>
   <action>
     <button>0</button>
@@ -185,26 +185,26 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/R-802/rememscrew", 1.0, 0.1 );
-        settimer(func {interpolate("an24/R-802/rememscrew", 0.0, 0.1 );},0.1);
+        interpolate("an24/R-802/dialscrew", 1.0, 0.1 );
+        settimer(func {interpolate("an24/R-802/dialscrew", 0.0, 0.1 );},0.1);
       </script>
     </binding>
   </action>
    <hovered>
        <binding>
          <command>set-tooltip</command>
-         <label>Recall %3.2fMHz</label>
-         <measure-text>Freq: 999.99</measure-text>
+         <label>Send to Memory
+    Channel %u</label>
          <tooltip-id>r802-2-freq</tooltip-id>
-         <property>an24/R-802/finalfreq</property>
+         <property>an24/R-802/channel</property>
        </binding>
     </hovered>
 </animation>
 
 <animation>
   <type>translate</type>
-  <object-name>rememscrew</object-name>
-  <property>an24/R-802/rememscrew</property>
+  <object-name>dialscrew</object-name>
+  <property>an24/R-802/dialscrew</property>
   <factor>0.0016</factor>
   <axis>
     <x>-1</x>

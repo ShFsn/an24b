@@ -2,18 +2,18 @@
 
 <PropertyList>
 
-<aircraft>
+ <aircraft>
   <icao>
     <wake-turbulence-category>M</wake-turbulence-category>
     <type type="string">AN24</type>
     <equipment type="string">FHLOV</equipment>
     <surveillance type="string">C</surveillance> <!-- mode-C transponder -->
   </icao>
-</aircraft>
+ </aircraft>
 
  <sim>
   <description>Antonov An-24B</description>
-  <long-description>The Antonov An-24 is a successful Soviet aircraft designed in 1957.  Its many variants still serve as cargo, transport, reconnaissance, fire fighter, or even as navigator training plane.  Its derivatives the An-26, An-30 and An-32 are used for military purposes. 
+  <long-description>The Antonov An-24 is a successful Soviet aircraft designed in 1957.  Its many variants still serve as cargo, transport, reconnaissance, fire fighter, or even as navigator training plane.  Its derivatives, the An-26, An-30 and An-32 are used for military purposes. 
   </long-description>
 
   <status>production</status>
@@ -320,25 +320,28 @@ QuickStartUpGuide.pdf
   </menubar>
 
   <aircraft-data>
-    <path>an24/radio-equip</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[7]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[8]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[9]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[10]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[11]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[12]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[13]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[14]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[15]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[16]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[17]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[18]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[19]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[20]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[21]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[22]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[23]</path>
-    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[24]</path>
+   <path>an24/radio-equip</path>
+   <path>an24/AChS/mp_wind_up</path>
+   <path>an24/AChS/nav_wind_up</path>
+   <path>an24/AChS/rc_wind_up</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[7]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[8]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[9]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[10]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[11]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[12]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[13]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[14]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[15]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[16]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[17]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[18]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[19]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[20]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[21]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[22]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[23]</path>
+   <path>fdm/jsbsim/inertia/pointmass-weight-lbs[24]</path>
   </aircraft-data>
 
   <flaps>
@@ -715,6 +718,8 @@ QuickStartUpGuide.pdf
   </keyboard>
 </input>
 
+<!--*************** Initial settings *****************-->
+
 <controls>
   <gear>
     <antiskid type="bool">false</antiskid>
@@ -824,6 +829,23 @@ QuickStartUpGuide.pdf
   <altimeter n="1">
     <serviceable type="bool">true</serviceable>
   </altimeter>
+  <!--clock n="0" on by default-->
+  <clock n="1">
+    <serviceable type="bool">true</serviceable>
+  </clock>
+  <clock n="2">
+    <serviceable type="bool">true</serviceable>
+  </clock>
+  <comm n="0">
+   <frequencies>
+    <selected-mhz type="double">100.0</selected-mhz>
+   </frequencies>
+  </comm>
+  <comm n="1">
+   <frequencies>
+    <selected-mhz type="double">100.0</selected-mhz>
+   </frequencies>
+  </comm>
   <heading-indicator-dg>
     <serviceable type="bool">true</serviceable>
   </heading-indicator-dg>
@@ -885,53 +907,91 @@ QuickStartUpGuide.pdf
  </static>
 </systems>
 
-<an24>
- <Air-Cond>
-  <TG-16heating type="double">0.0</TG-16heating>
-  <auto_temp-c type="double">18.0</auto_temp-c>
-  <bleedairL type="double">1.0</bleedairL>
-  <bleedairR type="double">1.0</bleedairR>
-  <bleedair_autoL type="double">1.0</bleedair_autoL>
-  <bleedair_autoR type="double">1.0</bleedair_autoR>
-  <lp_footpedal type="double">0.0</lp_footpedal>
-  <rp_footpedal type="double">0.0</rp_footpedal>
-  <eng_footpedal type="double">0.0</eng_footpedal>
-  <handle_left type="double">0.0</handle_left>
-  <handle_right type="double">0.0</handle_right>
-  <mix-valveL type="double">0.0</mix-valveL>
-  <mix-valveR type="double">0.0</mix-valveR>
-  <sw_bleedairL type="double">1.0</sw_bleedairL>
-  <sw_bleedairL1 type="double">0.0</sw_bleedairL1>
-  <sw_bleedairR type="double">1.0</sw_bleedairR>
-  <sw_bleedairR1 type="double">0.0</sw_bleedairR1>
-  <sw_TG-16heating type="double">-1.0</sw_TG-16heating>
-  <sw_rack-panel type="double">-1.0</sw_rack-panel>
-  <sw_turbo-cooler_valve type="double">-1.0</sw_turbo-cooler_valve>
-  <temp_auto-manual type="double">1.0</temp_auto-manual>
-  <turbo-cooler_valve type="double">0.0</turbo-cooler_valve>
- </Air-Cond>
+ <an24>
+  <AChS>
+   <mp_flighttime type="int">0</mp_flighttime>
+   <mp_ft-offset type="int">0</mp_ft-offset>
+   <mp_l-knob-anim type="int">0</mp_l-knob-anim>
+   <mp_l-mode type="int">0</mp_l-mode>
+   <mp_l-press-anim type="double">0.0</mp_l-press-anim>
+   <mp_r-mode type="int">2</mp_r-mode>
+   <mp_r-press-anim type="double">0.0</mp_r-press-anim>
+   <mp_r-turn type="int">1</mp_r-turn>
+   <mp_running type="bool">1</mp_running>
+   <mp_stopwatch type="int">0</mp_stopwatch>
+   <mp_wind_up type="int">2590</mp_wind_up>
 
- <Anti-Ice>
-  <pitot_S1S5A1 type="double">0.0</pitot_S1S5A1>
-  <pitot_S2S6A3 type="double">0.0</pitot_S2S6A3>
-  <pitot_S3A2 type="double">0.0</pitot_S3A2>
-  <pitot_S4S7 type="double">0.0</pitot_S4S7>
-  <sw03_window_heating-right-low type="double">0.0</sw03_window_heating-right-low>
-  <sw04_window_heating-right-intense type="double">0.0</sw04_window_heating-right-intense>
-  <sw_clockheat type="double">0.0</sw_clockheat>
-  <sw_pitot_S1S5A1 type="double">0.0</sw_pitot_S1S5A1>
-  <sw_pitot_S2S6A3 type="double">0.0</sw_pitot_S2S6A3>
-  <sw_pitot_S3A2 type="double">0.0</sw_pitot_S3A2>
-  <sw_pitot_S4S7 type="double">0.0</sw_pitot_S4S7>
-  <sw_vna-heat-l type="double">0.0</sw_vna-heat-l>
-  <sw_vna-heat-r type="double">0.0</sw_vna-heat-r>
-  <vna-heat-l type="double">0.0</vna-heat-l>
-  <vna-heat-r type="double">0.0</vna-heat-r>
-  <window_heating-left-low type="double">0.0</window_heating-left-low>
-  <window_heating-left-intense type="double">0.0</window_heating-left-intense>
-  <window_heating-right-low type="double">0.0</window_heating-right-low>
-  <window_heating-right-intense type="double">0.0</window_heating-right-intense>
-  <wing-tail_bleed type="double">0.0</wing-tail_bleed>
+   <nav_flighttime type="int">0</nav_flighttime>
+   <nav_ft-offset type="int">0</nav_ft-offset>
+   <nav_l-knob-anim type="int">0</nav_l-knob-anim>
+   <nav_l-mode type="int">0</nav_l-mode>
+   <nav_l-press-anim type="double">0.0</nav_l-press-anim>
+   <nav_r-mode type="int">2</nav_r-mode>
+   <nav_r-press-anim type="double">0.0</nav_r-press-anim>
+   <nav_r-turn type="int">1</nav_r-turn>
+   <nav_running type="bool">1</nav_running>
+   <nav_stopwatch type="int">0</nav_stopwatch>
+   <nav_wind_up type="int">2590</nav_wind_up>
+
+   <rc_flighttime type="int">0</rc_flighttime>
+   <rc_ft-offset type="int">0</rc_ft-offset>
+   <rc_l-knob-anim type="int">0</rc_l-knob-anim>
+   <rc_l-mode type="int">0</rc_l-mode>
+   <rc_l-press-anim type="double">0.0</rc_l-press-anim>
+   <rc_r-mode type="int">2</rc_r-mode>
+   <rc_r-press-anim type="double">0.0</rc_r-press-anim>
+   <rc_r-turn type="int">1</rc_r-turn>
+   <rc_running type="bool">1</rc_running>
+   <rc_stopwatch type="int">0</rc_stopwatch>
+   <rc_wind_up type="int">2590</rc_wind_up>
+  </AChS>
+
+  <Air-Cond>
+   <TG-16heating type="double">0.0</TG-16heating>
+   <auto_temp-c type="double">18.0</auto_temp-c>
+   <bleedairL type="double">1.0</bleedairL>
+   <bleedairR type="double">1.0</bleedairR>
+   <bleedair_autoL type="double">1.0</bleedair_autoL>
+   <bleedair_autoR type="double">1.0</bleedair_autoR>
+   <lp_footpedal type="double">0.0</lp_footpedal>
+   <rp_footpedal type="double">0.0</rp_footpedal>
+   <eng_footpedal type="double">0.0</eng_footpedal>
+   <handle_left type="double">0.0</handle_left>
+   <handle_right type="double">0.0</handle_right>
+   <mix-valveL type="double">0.0</mix-valveL>
+   <mix-valveR type="double">0.0</mix-valveR>
+   <sw_bleedairL type="double">1.0</sw_bleedairL>
+   <sw_bleedairL1 type="double">0.0</sw_bleedairL1>
+   <sw_bleedairR type="double">1.0</sw_bleedairR>
+   <sw_bleedairR1 type="double">0.0</sw_bleedairR1>
+   <sw_TG-16heating type="double">-1.0</sw_TG-16heating>
+   <sw_rack-panel type="double">-1.0</sw_rack-panel>
+   <sw_turbo-cooler_valve type="double">-1.0</sw_turbo-cooler_valve>
+   <temp_auto-manual type="double">1.0</temp_auto-manual>
+   <turbo-cooler_valve type="double">0.0</turbo-cooler_valve>
+  </Air-Cond>
+
+  <Anti-Ice>
+   <pitot_S1S5A1 type="double">0.0</pitot_S1S5A1>
+   <pitot_S2S6A3 type="double">0.0</pitot_S2S6A3>
+   <pitot_S3A2 type="double">0.0</pitot_S3A2>
+   <pitot_S4S7 type="double">0.0</pitot_S4S7>
+   <sw03_window_heating-right-low type="double">0.0</sw03_window_heating-right-low>
+   <sw04_window_heating-right-intense type="double">0.0</sw04_window_heating-right-intense>
+   <sw_clockheat type="double">0.0</sw_clockheat>
+   <sw_pitot_S1S5A1 type="double">0.0</sw_pitot_S1S5A1>
+   <sw_pitot_S2S6A3 type="double">0.0</sw_pitot_S2S6A3>
+   <sw_pitot_S3A2 type="double">0.0</sw_pitot_S3A2>
+   <sw_pitot_S4S7 type="double">0.0</sw_pitot_S4S7>
+   <sw_vna-heat-l type="double">0.0</sw_vna-heat-l>
+   <sw_vna-heat-r type="double">0.0</sw_vna-heat-r>
+   <vna-heat-l type="double">0.0</vna-heat-l>
+   <vna-heat-r type="double">0.0</vna-heat-r>
+   <window_heating-left-low type="double">0.0</window_heating-left-low>
+   <window_heating-left-intense type="double">0.0</window_heating-left-intense>
+   <window_heating-right-low type="double">0.0</window_heating-right-low>
+   <window_heating-right-intense type="double">0.0</window_heating-right-intense>
+   <wing-tail_bleed type="double">0.0</wing-tail_bleed>
    <conditions>
     <icing type="double">0.0</icing>
    </conditions>
@@ -949,7 +1009,7 @@ QuickStartUpGuide.pdf
     <sideengR_cm type="double">0.0</sideengR_cm>
     <topwindows_cm type="double">0.0</topwindows_cm>
    </elements>
- </Anti-Ice>
+  </Anti-Ice>
 
   <AP-28l1>
     <coefficients> <!-- coefficients are taken from book An-24. Technical description.-->
@@ -1068,44 +1128,63 @@ QuickStartUpGuide.pdf
   <sw0407 type="double">0</sw0407>
  </FuelControl>
 
- <Kurs-MP>
-  <mhz1 type="double">0.0</mhz1>
-  <dec1 type="double">0.0</dec1>
-  <mhz2 type="double">0.0</mhz2>
-  <dec2 type="double">0.0</dec2>
-  <sp-50_ILS type="double">1.0</sp-50_ILS>
-  <sw_to-from1 type="double">1.0</sw_to-from1>
-  <sw_to-from2 type="double">1.0</sw_to-from2>
-  <vor1-ark1 type="double">-1.0</vor1-ark1>
-  <vor2-ark2 type="double">-1.0</vor2-ark2>
-  <vor1on type="double">0.0</vor1on>
-  <vor2on type="double">0.0</vor2on>
- </Kurs-MP>
+  <Kurs-MP>
+   <mhz1 type="double">0.0</mhz1>
+   <dec1 type="double">0.0</dec1>
+   <mhz2 type="double">0.0</mhz2>
+   <dec2 type="double">0.0</dec2>
+   <sp-50_ILS type="double">1.0</sp-50_ILS>
+   <sw_to-from1 type="double">1.0</sw_to-from1>
+   <sw_to-from2 type="double">1.0</sw_to-from2>
+   <vor1-ark1 type="double">-1.0</vor1-ark1>
+   <vor2-ark2 type="double">-1.0</vor2-ark2>
+   <vor1on type="double">0.0</vor1on>
+   <vor2on type="double">0.0</vor2on>
+  </Kurs-MP>
 
- <OilControl>
-  <oil-cooler-flaps_autoL type="double">0.0</oil-cooler-flaps_autoL>
-  <oil-cooler-flaps_autoR type="double">0.0</oil-cooler-flaps_autoR>
-  <oil-cooler-flapsL type="double">0.0</oil-cooler-flapsL>
-  <oil-cooler-flapsR type="double">0.0</oil-cooler-flapsR>
-  <sw_oil-cooler-flapsL type="double">0.0</sw_oil-cooler-flapsL>
-  <sw_oil-cooler-flapsR type="double">0.0</sw_oil-cooler-flapsR>
-  <sw_oil-cooler-flapsL1 type="double">0.0</sw_oil-cooler-flapsL1>
-  <sw_oil-cooler-flapsR1 type="double">0.0</sw_oil-cooler-flapsR1>
- </OilControl>
+  <OilControl>
+   <oil-cooler-flaps_autoL type="double">0.0</oil-cooler-flaps_autoL>
+   <oil-cooler-flaps_autoR type="double">0.0</oil-cooler-flaps_autoR>
+   <oil-cooler-flapsL type="double">0.0</oil-cooler-flapsL>
+   <oil-cooler-flapsR type="double">0.0</oil-cooler-flapsR>
+   <sw_oil-cooler-flapsL type="double">0.0</sw_oil-cooler-flapsL>
+   <sw_oil-cooler-flapsR type="double">0.0</sw_oil-cooler-flapsR>
+   <sw_oil-cooler-flapsL1 type="double">0.0</sw_oil-cooler-flapsL1>
+   <sw_oil-cooler-flapsR1 type="double">0.0</sw_oil-cooler-flapsR1>
+  </OilControl>
 
- <Pressure>
-  <pitotvalve1 type="double">1.0</pitotvalve1>
-  <pitotvalve2 type="double">1.0</pitotvalve2>
-  <pitotvalve3 type="double">1.0</pitotvalve3>
- </Pressure>
+  <Pressure>
+   <pitotvalve1 type="double">1.0</pitotvalve1>
+   <pitotvalve2 type="double">1.0</pitotvalve2>
+   <pitotvalve3 type="double">1.0</pitotvalve3>
+  </Pressure>
 
   <R-802>
+   <channel type="int">1</channel> 
+   <dial100 type="int">100</dial100>
+   <dial10 type="int">0</dial10>
+   <dial1 type="double">0</dial1>
+   <finalfreq type="double">100.0</finalfreq>
    <sw_power-1 type="double">0.0</sw_power-1>
    <sw_power-2 type="double">0.0</sw_power-2>
+   <memory>
+    <num1 type="double">100.0</num1>
+    <num2 type="double">100.0</num2>
+    <num3 type="double">100.0</num3>
+    <num4 type="double">100.0</num4>
+    <num5 type="double">100.0</num5>
+    <num6 type="double">100.0</num6>
+    <num7 type="double">100.0</num7>
+    <num8 type="double">100.0</num8>
+    <num9 type="double">100.0</num9>
+    <num10 type="double">100.0</num10>
+   </memory>
    <power-1 type="double">0.0</power-1>
    <power-2 type="double">0.0</power-2>
    <transmit-power-w_1 type="int">15</transmit-power-w_1>
    <transmit-power-w_2 type="int">15</transmit-power-w_2>
+   <volume-1 type="double">0.0</volume-1>
+   <volume-2 type="double">0.0</volume-2>
   </R-802>
 
   <R-836>
@@ -1176,9 +1255,9 @@ QuickStartUpGuide.pdf
     </prop-lock>
   </instrumentation>
 
-</an24>
+ </an24>
 
-<nasal>
+ <nasal>
   <autostart>
     <file>Aircraft/an24b/Nasal/autostart.nas</file>
   </autostart>
@@ -1220,15 +1299,15 @@ QuickStartUpGuide.pdf
   <view>
     <file>Aircraft/an24b/Nasal/view.nas</file>
   </view>
-</nasal>
+ </nasal>
 
-<limits>
+ <limits>
   <mass-and-balance>
     <maximum-takeoff-mass-lbs type="double">46297</maximum-takeoff-mass-lbs> <!-- 21 t -->
   </mass-and-balance>
-</limits>
+ </limits>
 
-<payload>
+ <payload>
   <weight>
    <name type="string">Buffet</name>
    <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[7]"/>

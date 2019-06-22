@@ -3,6 +3,9 @@
 var step = 0;
 
 var startup = func {
+setprop("an24/AChS/mp_wind_up", 1000 );
+setprop("an24/AChS/nav_wind_up", 1000 );
+setprop("an24/AChS/rc_wind_up", 1000 );
 	 	step = 1;
 	 	t = 0.0;
 
