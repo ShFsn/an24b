@@ -60,46 +60,46 @@ var forceView = func{
 	gui.popupTip(views[n].getNode("name").getValue());
 };
 
-var modView  = func{
-	var n = getprop("sim/current-view/view-number");
-	var offset = getprop("an24/mod-views/view-offset");
-	if( n == nil ) n = 0;
-	if( n > 0 ) n = n - offset;
-	if( n < 0 ) return;
-	var mode = arg[0];
-	if( mode == nil ) mode = 0;
-	modview_active = mode;		# Set global ModView flag
-	# get mod view coordinates	
-	var mv = props.globals.getNode("an24/mod-views").getChildren("mod-view");
-	if( mode == 1 )
-	{
-	setprop("an24/mod-views/mod", 1 );
+#var modView  = func{
+#	var n = getprop("sim/current-view/view-number");
+#	var offset = getprop("an24/mod-views/view-offset");
+#	if( n == nil ) n = 0;
+#	if( n > 0 ) n = n - offset;
+#	if( n < 0 ) return;
+#	var mode = arg[0];
+#	if( mode == nil ) mode = 0;
+#	modview_active = mode;		# Set global ModView flag
+#	# get mod view coordinates	
+#	var mv = props.globals.getNode("an24/mod-views").getChildren("mod-view");
+#	if( mode == 1 )
+#	{
+#	setprop("an24/mod-views/mod", 1 );
 # save current position
-	setprop("an24/var/save-x", getprop("sim/current-view/x-offset-m") );
-	setprop("an24/var/save-y", getprop("sim/current-view/y-offset-m") );
-	setprop("an24/var/save-z", getprop("sim/current-view/z-offset-m") );
-	setprop("an24/var/save-fov", getprop("sim/current-view/field-of-view") );
-	setprop("an24/var/save-pitch", getprop("sim/current-view/pitch-offset-deg") );
-	setprop("an24/var/save-heading",getprop("sim/current-view/heading-offset-deg"));
-	setprop("an24/var/save-roll",getprop("sim/current-view/roll-offset-deg"));
+#	setprop("an24/var/save-x", getprop("sim/current-view/x-offset-m") );
+#	setprop("an24/var/save-y", getprop("sim/current-view/y-offset-m") );
+#	setprop("an24/var/save-z", getprop("sim/current-view/z-offset-m") );
+#	setprop("an24/var/save-fov", getprop("sim/current-view/field-of-view") );
+#	setprop("an24/var/save-pitch", getprop("sim/current-view/pitch-offset-deg") );
+#	setprop("an24/var/save-heading",getprop("sim/current-view/heading-offset-deg"));
+#	setprop("an24/var/save-roll",getprop("sim/current-view/roll-offset-deg"));
 # set modified view	
-	setprop("sim/current-view/x-offset-m", mv[n].getNode("x-offset-m").getValue() );
-	setprop("sim/current-view/y-offset-m", mv[n].getNode("y-offset-m").getValue() );
-	setprop("sim/current-view/z-offset-m", mv[n].getNode("z-offset-m").getValue() );
-	setprop("sim/current-view/field-of-view",
-		mv[n].getNode("field-of-view").getValue() );
-	setprop("sim/current-view/pitch-offset-deg", 
-		mv[n].getNode("pitch-offset-deg").getValue() );
-	setprop("sim/current-view/heading-offset-deg", 
-		mv[n].getNode("heading-offset-deg").getValue() );
-	setprop("sim/current-view/roll-offset-deg", 
-		mv[n].getNode("roll-offset-deg").getValue() );
+#	setprop("sim/current-view/x-offset-m", mv[n].getNode("x-offset-m").getValue() );
+#	setprop("sim/current-view/y-offset-m", mv[n].getNode("y-offset-m").getValue() );
+#	setprop("sim/current-view/z-offset-m", mv[n].getNode("z-offset-m").getValue() );
+#	setprop("sim/current-view/field-of-view",
+#		mv[n].getNode("field-of-view").getValue() );
+#	setprop("sim/current-view/pitch-offset-deg", 
+#		mv[n].getNode("pitch-offset-deg").getValue() );
+#	setprop("sim/current-view/heading-offset-deg", 
+#		mv[n].getNode("heading-offset-deg").getValue() );
+#	setprop("sim/current-view/roll-offset-deg", 
+#		mv[n].getNode("roll-offset-deg").getValue() );
 
-	return;
-	}
-	else
-	{
-	setprop("an24/mod-views/mod", 0 );
+#	return;
+#	}
+#	else
+#	{
+#	setprop("an24/mod-views/mod", 0 );
 # save modified view	
 
 #	mv[n].getNode("x-offset-m").setValue(getprop("sim/current-view/x-offset-m"));
@@ -114,24 +114,24 @@ var modView  = func{
 # 	mv[n].getNode("roll-offset-deg").setValue(
 # 		getprop("sim/current-view/roll-offset-deg"));
 				
-	setprop("sim/current-view/x-offset-m", getprop("an24/var/save-x") );
-	setprop("sim/current-view/y-offset-m", getprop("an24/var/save-y") );
-	setprop("sim/current-view/z-offset-m", getprop("an24/var/save-z") );
-	setprop("sim/current-view/field-of-view", getprop("an24/var/save-fov") );
-	setprop("sim/current-view/pitch-offset-deg", getprop("an24/var/save-pitch") );
-	setprop("sim/current-view/heading-offset-deg",getprop("an24/var/save-heading"));
-	setprop("sim/current-view/roll-offset-deg",getprop("an24/var/save-roll"));
-	}
-};
+#	setprop("sim/current-view/x-offset-m", getprop("an24/var/save-x") );
+#	setprop("sim/current-view/y-offset-m", getprop("an24/var/save-y") );
+#	setprop("sim/current-view/z-offset-m", getprop("an24/var/save-z") );
+#	setprop("sim/current-view/field-of-view", getprop("an24/var/save-fov") );
+#	setprop("sim/current-view/pitch-offset-deg", getprop("an24/var/save-pitch") );
+#	setprop("sim/current-view/heading-offset-deg",getprop("an24/var/save-heading"));
+#	setprop("sim/current-view/roll-offset-deg",getprop("an24/var/save-roll"));
+#	}
+#};
 
 # Flight Engineer view
 
-var fe_view = {
-	start: func {
-		setprop("sim/current-view/config/heading-offset-deg", 
-			getprop("sim/view[104]/config/heading-offset-deg"));
-		},
-};
+#var fe_view = {
+#	start: func {
+#		setprop("sim/current-view/config/heading-offset-deg", 
+#			getprop("sim/view[104]/config/heading-offset-deg"));
+#		},
+#};
 
 
 var init_offset = func{
@@ -151,22 +151,22 @@ init_offset();
 
 # Added by Yurik jun 2013
 # Load exterior at startup to avoid stale sim at first external view selection.
-var load_exterior = func{
-print("Load exterior, wait...");
+#var load_exterior = func{
+#print("Load exterior, wait...");
 # return to cabin to next cycle
-settimer( load_interior, 0 );
-setprop("/sim/current-view/view-number", 1);
-setprop("/sim/current-view/view-number", 8);
-}
+#settimer( load_interior, 0 );
+#setprop("/sim/current-view/view-number", 1);
+#setprop("/sim/current-view/view-number", 8);
+#}
 
-var load_interior = func{
-setprop("/sim/current-view/view-number", 0);
-print("Done!");
+#var load_interior = func{
+#setprop("/sim/current-view/view-number", 0);
+#print("Done!");
 # Enable sim sound - it was disabled in instruments.nas while startup for avoid stupid effects sound.
-setprop("/sim/sound/volume", getprop("an24/volume") );
-}
+#setprop("/sim/sound/volume", getprop("an24/volume") );
+#}
 # Start it late as we can
-setlistener("/sim/signals/fdm-initialized", load_exterior, 0, 0 );
+#setlistener("/sim/signals/fdm-initialized", load_exterior, 0, 0 );
 
-print("View registered");
+#print("View registered");
 

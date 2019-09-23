@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- Sensitivity switch MRP-ZP type ZPZN-K,
+changes receiver sensitivity ("Route" = high sensitivity)-->
+
+<PropertyList>
+ <path>zpznk_markermodebox.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>lightplate</object-name>
+   <emission>
+     <red>0.4</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   </emission>
+ </animation>
+
+<model>
+ <path>knob_markermode.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+</PropertyList>

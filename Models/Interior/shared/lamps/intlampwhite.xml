@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!-- White interior light -->
+
+<PropertyList>
+ <path>intlamp.ac</path>
+
+  <effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <object-name>whitefilter</object-name>
+  </effect>
+  <effect>
+   <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
+   <object-name>case</object-name>
+   <object-name>mirror</object-name>
+  </effect>
+
+ <animation>
+   <type>select</type>
+   <object-name>redfilter</object-name>
+  <condition>
+   <not>
+    <property>sim/signals/fdm-initialized</property>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>material</type> 
+  <object-name>bulb</object-name>
+  <!--object-name>mirror</object-name-->
+  <object-name>whitefilter</object-name>
+  <condition>
+   <equals>
+    <property>controls/lighting/main-emerg</property>
+    <value>1</value>
+   </equals>
+  </condition>
+  <emission>	
+   <red>1</red>	
+   <green>1</green>	
+   <blue>1</blue>
+  </emission>
+  <factor-prop>controls/lighting/overhead_instr</factor-prop>
+ </animation>
+
+</PropertyList>

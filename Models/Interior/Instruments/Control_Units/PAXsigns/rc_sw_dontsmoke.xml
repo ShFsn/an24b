@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!-- "Don't smoke" placard in PAX cabin-->
+
+<PropertyList>
+ <path>../../../shared/switches/vg-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("controls/lighting/sw_nosmoking", 1.0, 0.1 );
+        settimer(func {interpolate("controls/lighting/sw_nosmoking", -1.0, 0.1 );},1.5);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>nosmokingon</tooltip-id>
+      <label>No Smoking sign ON</label>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("controls/lighting/sw_nosmoking", -1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>nosmokingoff</tooltip-id>
+      <label>No Smoking sign OFF</label>
+    </binding>
+   </hovered>
+</animation>
+
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>controls/lighting/sw_nosmoking</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

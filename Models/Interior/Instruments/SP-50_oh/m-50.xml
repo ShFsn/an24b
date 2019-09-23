@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+
+<!-- M-50, control unit (channel/frequency select) of SP-50 landing system -->
+
+<PropertyList>
+ <path>m-50.ac</path>
+
+  <model>
+   <path>sw_m-50_ON.xml</path>
+   <offsets>
+    <x-m>0.007</x-m>
+    <y-m>-0.02</y-m>
+    <z-m>0.0236</z-m>
+   </offsets>
+  </model>
+
+<!-- Channel select -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>m-50_channel</object-name>
+   <property>an24/SP-50/channel</property>
+   <factor>60</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0098</y-m>
+   <z-m>0.0088</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/SP-50/channel</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>6</max>                
+      <wrap>true</wrap>
+     </binding>
+    <binding>
+     <condition>
+      <equals>
+      <property>an24/AZS/sw0516</property>
+      <value type="double">1.0</value>
+      </equals>
+      <equals>
+      <property>an24/SP-50/on</property>
+      <value type="double">1.0</value>
+      </equals>
+     </condition>
+      <command>nasal</command>
+      <script>
+	if (getprop("/an24/SP-50/regime") == 0 ) {
+	var course_sp50 = ["103.3", "108.7", "109.1", "109.5", "109.9", "110.3"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz", course_sp50[getprop("an24/SP-50/channel")] );
+	var gs_sp50 = ["332.6", "332.6", "333.8", "333.8", "335.0", "335.0"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_sp50[getprop("an24/SP-50/channel")] );
+	}
+	else {
+	var course_ils = ["108.3", "108.7", "109.1", "109.5", "109.9", "110.3"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz", course_ils[getprop("an24/SP-50/channel")] );
+	var gs_ils = ["332.6", "0", "333.8", "332.6", "333.8", "335.0"];
+	setprop("/instrumentation/nav/frequencies/selected-mhz-sp50-gs", gs_ils[getprop("an24/SP-50/channel")] );
+	};
+      </script>
+    </binding>
+    </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <label>Freq SP-50 %3.2fMHz</label>
+     <tooltip-id>sp-50_freq</tooltip-id>
+      <property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>m-50_cheat</object-name>
+   <visible>false</visible>
+   <property>instrumentation/nav/frequencies/selected-mhz</property>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0316</y-m>
+   <z-m>-0.0249</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+    <binding>
+     <command>property-adjust</command>
+      <property>instrumentation/nav/frequencies/selected-mhz</property>
+      <factor>-0.05</factor>
+      <min>108.1</min>
+      <max>111.95</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+         <label>Cheat Freq %3.2fMHz</label>
+         <tooltip-id>cheat_freq</tooltip-id>
+         <property>instrumentation/nav[0]/frequencies/selected-mhz</property>
+       </binding>
+    </hovered>
+ </animation>
+
+<!-- Balance knob to adjust null position of horizontal situation needle on KPPM -->
+
+<animation>
+  <type>knob</type>
+  <object-name>balance-knob</object-name>
+  <property>an24/SP-50/knob_hs-needle-offset</property>  
+  <factor>-370</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0226</y-m>
+    <z-m>-0.0183</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+     <condition>
+      <equals>
+      <property>an24/SP-50/on</property>
+      <value>1.0</value>
+      </equals>
+      <equals>
+      <property>instrumentation/nav/nav-loc</property>
+      <value>1.0</value>
+      </equals>
+     </condition>
+        <command>property-adjust</command>
+        <property>an24/SP-50/hs-needle-offset</property>
+        <factor>-0.01</factor>
+        <min>-0.99</min>
+        <max>0.99</max>                
+        <wrap>false</wrap>
+     </binding>
+    </action>
+      <binding>
+        <command>property-adjust</command>
+        <property>an24/SP-50/knob_hs-needle-offset</property>
+        <factor>-0.01</factor>
+        <min>-0.99</min>
+        <max>0.99</max>                
+        <wrap>false</wrap>
+      </binding>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>m-50_press_me</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/SP-50/hs-needle-null", 1.0, 0.1 );
+        setprop("instrumentation/nav[0]/cdi/serviceable", 0.0 );
+      </script>
+    </binding>
+      <mod-up>
+	<binding>
+	<command>nasal</command>
+	<script>
+        interpolate("an24/SP-50/hs-needle-null", 0.0, 0.1 );
+        setprop("instrumentation/nav[0]/cdi/serviceable", 1.0 );
+	</script>
+	</binding>
+      </mod-up>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>balance-knob</object-name>
+  <property>an24/SP-50/hs-needle-null</property>
+  <factor>0.004</factor>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- TEXT OSG -->
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">M-50 SP-50 channel</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.03 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+
+</PropertyList>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!-- Switch between regime SP-50 or ILS, box -->
+
+<PropertyList>
+ <path>ils-sp50_switchbox.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>lightplate</object-name>
+   <emission>
+     <red>0.4</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   </emission>
+ </animation>
+
+<model>
+ <path>sw_ils-sp50.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+</PropertyList>

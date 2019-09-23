@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<!-- Inlet guide vanes anti-ice heat valve OPEN/CLOSE -->
+
+<PropertyList>
+ <path>../../../shared/switches/2ppng-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/sw_vna-heat-l", 1.0, 0.1 );
+	if (1.0 >= getprop("an24/Anti-Ice/vna-heat-l") ) {
+	controls.slewProp("an24/Anti-Ice/vna-heat-l", 0.2);
+	}
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/sw_vna-heat-l", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>vna_openl</tooltip-id>
+      <label>OPEN VNA Inlet
+   heat valve</label>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+</animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/sw_vna-heat-l", -1.0, 0.1 );
+	if (getprop("an24/Anti-Ice/vna-heat-l") > 0.0 ) {
+	controls.slewProp("an24/Anti-Ice/vna-heat-l", -0.2);
+	}
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/sw_vna-heat-l", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>vna_closel</tooltip-id>
+      <label>CLOSE VNA Inlet
+   heat valve</label>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Anti-Ice/sw_vna-heat-l</property>
+  <interpolation>
+    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+ 
+</PropertyList>

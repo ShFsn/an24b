@@ -1,0 +1,88 @@
+<PropertyList>
+
+<!-- DIM-instruments' RK ("junction box") -->
+
+  <path>rkdim.ac</path>
+
+<!--animation>
+  <type>pick</type>
+  <object-name>fuse0102</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/animations/fuses/fuse0102" ) == 0.0 ){
+        interpolate("an24/animations/fuses/fuse0102", 3.0, 3.0 );
+        }
+        else {
+        interpolate("an24/animations/fuses/fuse0102", 0.0, 3.0 );
+        }
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>fuse0102</object-name>
+   <property>an24/animations/fuses/fuse0102</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>
+      <entry>
+	<ind>2.5</ind>
+	<dep>720.0</dep>
+      </entry>
+      <entry>
+	<ind>3.0</ind>
+	<dep>720.0</dep>
+      </entry>
+    </interpolation>
+    <center>
+     <x-m>0</x-m>
+     <y-m>-0.0689</y-m>
+     <z-m>0.2008</z-m>
+    </center>
+    <axis>
+     <x>1</x>
+     <y>0</y>
+     <z>0</z>
+    </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>fuse0102</object-name>
+   <property>an24/animations/fuses/fuse0102</property>
+    <interpolation>
+      <entry>
+	<ind>0.0</ind>
+	<dep>0.0</dep>
+      </entry>
+      <entry>
+	<ind>2.5</ind>
+	<dep>0.0</dep>
+      </entry>
+      <entry>
+	<ind>3.0</ind>
+	<dep>30.0</dep>
+      </entry>
+    </interpolation>
+    <center>
+     <x-m>-0.79</x-m>
+     <y-m>0</y-m>
+     <z-m>-0.27</z-m>
+    </center>
+    <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+    </axis>
+ </animation-->
+
+</PropertyList>

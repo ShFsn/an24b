@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!-- Emergency shut-off of STG-18 left -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/205k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+     <binding>
+     <command>nasal</command>
+      <script>
+        if( getprop("an24/Electrical_Panel/cvr_emerg_shutoff_stg18l" ) == 1.0 ){
+	interpolate("an24/Electrical_Panel/btn_emerg_shutoff_stg18l", 1.0, 0.1 );
+	}
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/btn_emerg_shutoff_stg18l", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+   </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/Electrical_Panel/btn_emerg_shutoff_stg18l</property>
+  <factor>0.005</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+ </animation>
+
+</PropertyList>

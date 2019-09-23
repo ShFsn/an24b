@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!-- Pressure door at stringer 40 open -->
+
+<PropertyList>
+ <path>../../../shared/lamps/warninglamp02.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+ <texture>../../../shared/lamps/warninglamp02green.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+  <!--or>
+   <equals>
+    <property>an24/doorshatches/sl_door_str40</property>
+    <value>1.0</value>
+   </equals-->
+   <greater-than>
+    <property>an24/doorshatches/test-btn</property>
+    <value>0.4</value>
+   </greater-than>
+  <!--/or-->
+  </condition>
+ <object-name>lampon</object-name>
+</animation>
+
+</PropertyList>

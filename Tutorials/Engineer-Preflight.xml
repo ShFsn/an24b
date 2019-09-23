@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  <name>Preflight by Engineer</name>
+  <description>The Engineer performs the Preflight-Check and -Preparations in the Crew Cabin</description>
+  <timeofday>dawn</timeofday>
+
+  <init>
+    <set>
+      <property>/sim/current-view/view-number</property>
+      <value>0</value>
+    </set>
+  </init>
+
+<!--***************************************-->
+<!-- Documents, Outside, PAX, cargosection check skipped; toilet check left to apprentice -->
+
+<!--***************************************-->
+<!-- Fill level of oxygen bottles skipped -->
+
+<!--***************************************-->
+  <step>
+    <message>
+	So early... I didn't even had breakfast. It's always the poor engineer's job to do the first checks!
+	While the rest of my dear crew 's still happily enjoying their coffee...
+    </message>
+   <wait>2</wait>
+  </step>
+
+  <step>
+    <message>
+	Our apprentice should have already checked PAX and cargo compartement
+	...and has hopefully emptied the toilet's retention tank...
+    </message>
+   <wait>2</wait>
+  </step>
+
+  <step>
+    <message>
+	So let's begin with...
+    </message>
+   <wait>1</wait>
+  </step>
+
+  <step>
+    <message>
+	INSTRUMENT PANELS: Fixated and sturdy
+    </message>
+    <view>
+      <heading-offset-deg>25</heading-offset-deg>
+      <pitch-offset-deg>-33</pitch-offset-deg>
+      <field-of-view>98</field-of-view>
+    </view>
+   <wait>1</wait>
+  </step>
+
+ <step>
+    <message>
+	-
+    </message>
+    <view>
+      <heading-offset-deg>313</heading-offset-deg>
+      <pitch-offset-deg>-23</pitch-offset-deg>
+      <field-of-view>86</field-of-view>
+    </view>
+   <wait>1</wait>
+  </step>
+
+  <step>
+    <message>
+	INSTRUMENTS: Looking good
+    </message>
+    <view>
+      <heading-offset-deg>340</heading-offset-deg>
+      <pitch-offset-deg>-24</pitch-offset-deg>
+      <field-of-view>60</field-of-view>
+    </view>
+   <wait>2</wait>
+  </step>
+
+<!--***************************************-->
+  <step>
+    <message>
+	______________________________________________________________________________
+	Checking position of all SWITCHES and FUSES on FUSE and CIRCUIT BREAKER PANELS
+    </message>
+    <view>
+      <heading-offset-deg>240</heading-offset-deg>
+      <pitch-offset-deg>-23</pitch-offset-deg>
+      <field-of-view>37.5</field-of-view>
+    </view>
+    <set>
+     <property>an24/animations/RK_hood</property>
+     <value>1.0</value>
+    </set>
+   <wait>2</wait>
+  </step>
+
+  <step>
+    <message>
+	AC fuses
+    </message>
+    <view>
+      <heading-offset-deg>267</heading-offset-deg>
+      <pitch-offset-deg>-35</pitch-offset-deg>
+      <field-of-view>37.5</field-of-view>
+      <x-offset-m>-0.38</x-offset-m>
+      <y-offset-m>1.27</y-offset-m>
+      <z-offset-m>-5.13</z-offset-m>
+    </view>
+   <wait>2</wait>
+  </step>
+
+  <step>
+    <message>
+	DIM fuses
+    </message>
+    <view>
+      <heading-offset-deg>276</heading-offset-deg>
+      <pitch-offset-deg>9</pitch-offset-deg>
+      <field-of-view>37.5</field-of-view>
+    </view>
+   <wait>2</wait>
+  </step>
+
+  <step>
+    <message>
+	Switch on ALL CIRCUIT BREAKERS on AZS PANEL
+	(by clicking the hotspots to the right of each row)
+    </message>
+    <view>
+      <heading-offset-deg>270</heading-offset-deg>
+      <pitch-offset-deg>-11.5</pitch-offset-deg>
+      <field-of-view>46</field-of-view>
+    </view>
+    <set>
+     <property>sim/panel-hotspots</property>
+     <value>1.0</value>
+    </set>
+    <exit>
+      <condition>
+        <property>an24/AZS/sw0101</property>
+        <property>an24/AZS/sw0102</property>
+        <property>an24/AZS/sw0103</property>
+        <property>an24/AZS/sw0104</property>
+        <property>an24/AZS/sw0105</property>
+        <property>an24/AZS/sw0106</property>
+
+        <property>an24/AZS/sw0108</property>
+        <property>an24/AZS/sw0109</property>
+        <property>an24/AZS/sw0110</property>
+        <property>an24/AZS/sw0111</property>
+        <property>an24/AZS/sw0112</property>
+        <property>an24/AZS/sw0113</property>
+        <property>an24/AZS/sw0114</property>
+        <property>an24/AZS/sw0115</property>
+        <property>an24/AZS/sw0116</property>
+        <property>an24/AZS/sw0117</property>
+        <property>an24/AZS/sw0118</property>
+
+        <property>an24/AZS/sw0201</property>
+        <property>an24/AZS/sw0202</property>
+        <property>an24/AZS/sw0203</property>
+        <property>an24/AZS/sw0204</property>
+        <property>an24/AZS/sw0205</property>
+        <property>an24/AZS/sw0206</property>
+        <property>an24/AZS/sw0207</property>
+        <property>an24/AZS/sw0208</property>
+        <property>an24/AZS/sw0209</property>
+        <property>an24/AZS/sw0210</property>
+        <property>an24/AZS/sw0211</property>
+        <property>an24/AZS/sw0212</property>
+        <property>an24/AZS/sw0213</property>
+        <property>an24/AZS/sw0214</property>
+        <property>an24/AZS/sw0215</property>
+        <property>an24/AZS/sw0216</property>
+        <property>an24/AZS/sw0217</property>
+        <property>an24/AZS/sw0218</property>
+
+        <property>an24/AZS/sw0301</property>
+        <property>an24/AZS/sw0302</property>
+        <property>an24/AZS/sw0303</property>
+        <property>an24/AZS/sw0304</property>
+        <property>an24/AZS/sw0305</property>
+        <property>an24/AZS/sw0306</property>
+
+        <property>an24/AZS/sw0308</property>
+        <property>an24/AZS/sw0309</property>
+        <property>an24/AZS/sw0310</property>
+
+        <property>an24/AZS/sw0312</property>
+        <property>an24/AZS/sw0313</property>
+        <property>an24/AZS/sw0314</property>
+        <property>an24/AZS/sw0315</property>
+        <property>an24/AZS/sw0316</property>
+        <property>an24/AZS/sw0317</property>
+        <property>an24/AZS/sw0318</property>
+
+        <property>an24/AZS/sw0401</property>
+        <property>an24/AZS/sw0402</property>
+        <property>an24/AZS/sw0403</property>
+        <property>an24/AZS/sw0404</property>
+
+        <property>an24/AZS/sw0406</property>
+        <property>an24/AZS/sw0407</property>
+        <property>an24/AZS/sw0408</property>
+        <property>an24/AZS/sw0409</property>
+        <property>an24/AZS/sw0410</property>
+        <property>an24/AZS/sw0411</property>
+        <property>an24/AZS/sw0412</property>
+        <property>an24/AZS/sw0413</property>
+        <property>an24/AZS/sw0414</property>
+        <property>an24/AZS/sw0415</property>
+        <property>an24/AZS/sw0416</property>
+        <property>an24/AZS/sw0417</property>
+        <property>an24/AZS/sw0418</property>
+
+        <property>an24/AZS/sw0504</property>
+
+        <property>an24/AZS/sw0506</property>
+        <property>an24/AZS/sw0507</property>
+        <property>an24/AZS/sw0508</property>
+        <property>an24/AZS/sw0509</property>
+        <property>an24/AZS/sw0510</property>
+        <property>an24/AZS/sw0511</property>
+        <property>an24/AZS/sw0512</property>
+        <property>an24/AZS/sw0513</property>
+        <property>an24/AZS/sw0514</property>
+        <property>an24/AZS/sw0515</property>
+        <property>an24/AZS/sw0516</property>
+        <property>an24/AZS/sw0517</property>
+        <property>an24/AZS/sw0518</property>
+
+        <property>an24/AZS/sw0602</property>
+        <property>an24/AZS/sw0603</property>
+        <property>an24/AZS/sw0604</property>
+        <property>an24/AZS/sw0605</property>
+
+
+        <property>an24/AZS/sw0608</property>
+        <property>an24/AZS/sw0609</property>
+        <property>an24/AZS/sw0610</property>
+        <property>an24/AZS/sw0611</property>
+        <property>an24/AZS/sw0612</property>
+        <property>an24/AZS/sw0613</property>
+        <property>an24/AZS/sw0614</property>
+        <property>an24/AZS/sw0615</property>
+        <property>an24/AZS/sw0616</property>
+        <property>an24/AZS/sw0617</property>
+        <property>an24/AZS/sw0618</property>
+
+        <property>an24/AZS/sw0701</property>
+        <property>an24/AZS/sw0702</property>
+        <property>an24/AZS/sw0703</property>
+        <property>an24/AZS/sw0704</property>
+        <property>an24/AZS/sw0705</property>
+        <property>an24/AZS/sw0706</property>
+        <property>an24/AZS/sw0707</property>
+        <property>an24/AZS/sw0708</property>
+        <property>an24/AZS/sw0709</property>
+        <property>an24/AZS/sw0710</property>
+        <property>an24/AZS/sw0711</property>
+        <property>an24/AZS/sw0712</property>
+        <property>an24/AZS/sw0713</property>
+        <property>an24/AZS/sw0714</property>
+        <property>an24/AZS/sw0715</property>
+        <property>an24/AZS/sw0716</property>
+        <property>an24/AZS/sw0717</property>
+        <property>an24/AZS/sw0718</property>
+      </condition>
+    </exit>
+  </step>
+
+<!--***************************************-->
+  <step>
+    <message>
+	_____________________________________________
+	PITOT and STATIC PORT VALVES on left console:
+	In normal position (turned right)
+    </message>
+    <view>
+     <heading-offset-deg>47</heading-offset-deg>
+     <pitch-offset-deg>-51</pitch-offset-deg>
+     <field-of-view>65</field-of-view>
+     <x-offset-m>-0.47</x-offset-m>
+     <y-offset-m>1.26</y-offset-m>
+     <z-offset-m>-5.6</z-offset-m>
+    </view>
+    <marker>
+    <x-m>2.6</x-m>
+    <y-m>-0.975</y-m>
+    <z-m>0.48</z-m>
+     <scale>7</scale>
+    </marker>
+    <set>
+     <property>sim/panel-hotspots</property>
+     <value>0.0</value>
+    </set>
+    <exit>
+      <condition>
+       <greater-than>
+        <property>an24/Pressure/pitotvalve1</property>
+	<value>0.9</value>
+       </greater-than>
+       <greater-than>
+        <property>an24/Pressure/pitotvalve2</property>
+	<value>0.9</value>
+       </greater-than>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+	PITOT VALVE on right console:
+	In normal position (turned right)
+    </message>
+    <view>
+      <heading-offset-deg>280</heading-offset-deg>
+      <pitch-offset-deg>-25</pitch-offset-deg>
+      <field-of-view>57</field-of-view>
+    </view>
+    <marker>
+    <x-m>2.579</x-m>
+    <y-m>1.007</y-m>
+    <z-m>0.6</z-m>
+     <scale>4</scale>
+    </marker>
+    <exit>
+      <condition>
+       <greater-than>
+        <property>an24/Pressure/pitotvalve3</property>
+	<value>0.9</value>
+       </greater-than>
+      </condition>
+    </exit>
+  </step>
+
+<!--***************************************-->
+  <step>
+    <message>
+	________________________________________
+      	GEAR and FLAP switches:	NEUTRAL position
+        Gear first...
+    </message>
+    <view>
+      <heading-offset-deg>296</heading-offset-deg>
+      <pitch-offset-deg>-52</pitch-offset-deg>
+      <field-of-view>48</field-of-view>
+    </view>
+    <marker>
+    <x-m>2.64</x-m>
+    <y-m>0.11</y-m>
+    <z-m>0.53</z-m>
+     <scale>1.8</scale>
+    </marker>
+    <exit>
+      <condition>
+       <equals>
+        <property>gear/gear[0]/position-norm</property>
+	<value>0.0</value>
+       </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+      	...flap second
+    </message>
+    <view>
+      <heading-offset-deg>317</heading-offset-deg>
+      <pitch-offset-deg>-51</pitch-offset-deg>
+      <field-of-view>61</field-of-view>
+    </view>
+    <marker>
+    <x-m>2.63</x-m>
+    <y-m>-0.11</y-m>
+    <z-m>0.525</z-m>
+     <scale>1</scale>
+    </marker>
+    <!--exit>
+      <condition>
+       <equals>
+        <property>an24/animations/flap-lever</property>
+	<value>0.0</value>
+       </equals>
+      </condition>
+    </exit-->
+   <wait>4</wait>
+  </step>
+
+
+  <step>
+    <message>
+	_________________________________
+      	STEERING switch: NEUTRAL position
+    </message>
+    <view>
+      <heading-offset-deg>27</heading-offset-deg>
+      <pitch-offset-deg>-35</pitch-offset-deg>
+      <field-of-view>42</field-of-view>
+    </view>
+    <marker>
+    <x-m>2.128</x-m>
+    <y-m>-0.8626</y-m>
+    <z-m>0.628</z-m>
+     <scale>1</scale>
+    </marker>
+    <exit>
+      <condition>
+       <equals>
+        <property>an24/gear/steer_mode</property>
+	<value>1.0</value>
+       </equals>
+      </condition>
+    </exit>
+  </step>
+
+<!--***************************************-->
+<!-- Sealing of "Start-in-Air" switch; stop-valves; upora from Anschlag; feathering skipped -->
+
+<!--***************************************-->
+  <step>
+    <message>
+	_______________________________________________________
+      	FUEL LEVEL and INDICATION CHECK:
+	Have to turn on left and right fuel level indication...
+    </message>
+    <view>
+      <heading-offset-deg>326</heading-offset-deg>
+      <pitch-offset-deg>-31</pitch-offset-deg>
+      <field-of-view>36</field-of-view>
+    </view>
+    <marker>
+     <x-m>2.115</x-m>
+     <y-m>0.068</y-m>
+     <z-m>0.642</z-m>
+     <scale>3.5</scale>
+    </marker>
+    <exit>
+      <condition>
+       <equals>
+        <property>an24/FuelControl/fuel-meter-l</property>
+	<value>1.0</value>
+       </equals>
+       <equals>
+        <property>an24/FuelControl/fuel-meter-r</property>
+	<value>1.0</value>
+       </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+      	...and turn fuel level indication knob to "SUM"...
+    </message>
+    <view>
+      <heading-offset-deg>317</heading-offset-deg>
+      <pitch-offset-deg>-21</pitch-offset-deg>
+      <field-of-view>30</field-of-view>
+    </view>
+    <marker>
+     <x-m>2.1</x-m>
+     <y-m>0.278</y-m>
+     <z-m>0.84</z-m>
+     <scale>3</scale>
+    </marker>
+    <marker>
+     <x-m>2.1</x-m>
+     <y-m>0.267</y-m>
+     <z-m>0.92</z-m>
+     <scale>3.5</scale>
+    </marker>
+<!-- Set secretly in the background... -->
+     <nasal>
+      <script>
+	setprop("an24/RTMS/fuel-offset-l", (getprop("/consumables/fuel/tank/level-kg") + getprop("/consumables/fuel/tank[1]/level-kg") + getprop("/consumables/fuel/tank[2]/level-kg")) * -2.2 );
+	setprop("an24/RTMS/fuel-offset-r", (getprop("/consumables/fuel/tank[3]/level-kg") + getprop("/consumables/fuel/tank[4]/level-kg") + getprop("/consumables/fuel/tank[5]/level-kg")) * -2.2 );
+      </script>
+     </nasal>
+    <exit>
+      <condition>
+       <equals>
+        <property>an24/PG4and2PPT1/selected-ind</property>
+	<value>-18.0</value>
+       </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+      	...then I check fuel level on 2PPT1
+    </message>
+    <view>
+      <heading-offset-deg>317</heading-offset-deg>
+      <pitch-offset-deg>-18</pitch-offset-deg>
+      <field-of-view>31</field-of-view>
+    </view>
+    <marker>
+     <x-m>2.09</x-m>
+     <y-m>0.267</y-m>
+     <z-m>0.92</z-m>
+     <scale>3.5</scale>
+    </marker>
+   <wait>4</wait>
+  </step>
+
+  <step>
+    <message>
+	_________________________________
+      	Now I turn on FUEL FLOW METERS...
+    </message>
+    <view>
+      <heading-offset-deg>324</heading-offset-deg>
+      <pitch-offset-deg>-28</pitch-offset-deg>
+      <field-of-view>36</field-of-view>
+    </view>
+    <marker>
+     <x-m>2.113</x-m>
+     <y-m>0.1411</y-m>
+     <z-m>0.642</z-m>
+    <scale>2</scale>
+    </marker>
+    <exit>
+      <condition>
+       <equals>
+        <property>an24/FuelControl/flow-meter</property>
+	<value>1.0</value>
+       </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>
+      	...and set the corresponding FUEL LEVEL in each wing by scrolling down the counter
+	(Shift + Click/Scroll to accelerate)
+    </message>
+    <view>
+      <heading-offset-deg>333</heading-offset-deg>
+      <pitch-offset-deg>-27</pitch-offset-deg>
+      <field-of-view>35</field-of-view>
+    </view>
+    <marker>
+    <x-m>2.09</x-m>
+    <y-m>-0.047</y-m>
+    <z-m>0.767</z-m>
+    <scale>2.5</scale>
+    </marker>
+   <wait>1</wait>
+  </step>
+
+  <step>
+    <message>
+      	Alright, our apprentice already set it! Good girl!
+    </message>
+    <message>
+      	Alright, our apprentice already set it! Good boy!
+    </message>
+    <marker>
+    <x-m>2.09</x-m>
+    <y-m>-0.047</y-m>
+    <z-m>0.74</z-m>
+    <scale>1.5</scale>
+    </marker>
+  </step>
+
+<!--***************************************-->
+<!-- "Check: Complete fill of extraction group" (Flugzeughandbuch, p. 77, "complete" doesn't make sense to me...); oil and
+hydraulic fluids level check skipped  -->
+
+<!--***************************************-->
+  <step>
+    <message>
+	_____________________________________________________
+      	So let's check NEUTRAL AILERON and RUDDER TRIM now...
+    </message>
+    <view>
+      <heading-offset-deg>309</heading-offset-deg>
+      <pitch-offset-deg>-50</pitch-offset-deg>
+      <field-of-view>67</field-of-view>
+    </view>
+    <marker>
+    <x-m>2.51</x-m>
+    <y-m>-0.1</y-m>
+    <z-m>0.559</z-m>
+     <scale>3.7</scale>
+    </marker>
+    <exit>
+    </exit>
+  </step>
+  <step>
+    <message>
+      	...Front switch for aileron, rearward for rudder trim -
+	(Green lights indicate neutral trim)
+    </message>
+    <marker>
+    <x-m>2.51</x-m>
+    <y-m>-0.11</y-m>
+    <z-m>0.559</z-m>
+     <scale>3.7</scale>
+    </marker>
+    <exit>
+      <condition>
+      <and>
+       <or>
+       <greater-than>
+        <property>controls/flight/aileron-trim</property>
+	<value>-0.001</value>
+       </greater-than>
+       <less-than>
+        <property>controls/flight/aileron-trim</property>
+	<value>0.001</value>
+       </less-than>
+       </or>
+       <or>
+       <greater-than>
+        <property>controls/flight/rudder-trim</property>
+	<value>-0.001</value>
+       </greater-than>
+       <less-than>
+        <property>controls/flight/rudder-trim</property>
+	<value>0.001</value>
+       </less-than>
+       </or>
+      </and>
+      </condition>
+    </exit>
+  </step>
+
+<!--***************************************-->
+  <step>
+    <message>
+	_________________________
+      	Back to the fuel system -
+	PUMPS and VALVES now
+    </message>
+    <view>
+      <heading-offset-deg>315</heading-offset-deg>
+      <pitch-offset-deg>-18</pitch-offset-deg>
+      <field-of-view>57</field-of-view>
+    </view>
+    <marker>
+     <x-m>2.08</x-m>
+     <y-m>0.15</y-m>
+     <z-m>0.875</z-m>
+     <scale>8</scale>
+    </marker>
+   <wait>1</wait>
+  </step>
+
+  <step>
+    <message>
+      	LEFT CUT-OFF VALVE and its SIGNALING LIGHT check first
+    </message>
+    <view>
+     <heading-offset-deg>343</heading-offset-deg>
+     <pitch-offset-deg>-18</pitch-offset-deg>
+     <field-of-view>56</field-of-view>
+     <x-offset-m>-0.08</x-offset-m>
+     <y-offset-m>1.23</y-offset-m>
+     <z-offset-m>-5.6</z-offset-m>
+    </view>
+    <marker>
+     <x-m>2.08</x-m>
+     <y-m>0.15</y-m>
+     <z-m>0.875</z-m>
+     <scale>8</scale>
+    </marker>
+   <wait>2</wait>
+  </step>
+
+  <step>
+    <message>
+      	OPEN, CLOSE, OPEN, CLOSE, OPEN.......
+    </message>
+     <nasal>
+      <script>
+	interpolate("an24/FuelControl/sw0401", 1.0, 0.1, 1.0, 0.8, 0.0, 0.1, 0.0, 0.8, 1.0, 0.1 );
+	interpolate("an24/FuelControl/cutoff-l-by-sw", 0.0, 0.1, 0.0, 0.8, 1.0, 0.1, 1.0, 0.8, 0.0, 0.0 );
+      </script>
+     </nasal>
+    <marker>
+     <x-m>2.08</x-m>
+     <y-m>0.15</y-m>
+     <z-m>0.875</z-m>
+     <scale>8</scale>
+    </marker>
+   <wait>3</wait>
+  </step>
+
+  <step>
+    <message>
+      	Same for the RIGHT CUT-OFF VALVE
+      	OPEN, CLOSE, OPEN.......	
+    </message>
+     <nasal>
+      <script>
+	interpolate("an24/FuelControl/sw0407", 1.0, 0.1, 1.0, 0.8, 0.0, 0.1, 0.0, 0.8, 1.0, 0.1 );
+	interpolate("an24/FuelControl/cutoff-r-by-sw", 0.0, 0.1, 0.0, 0.8, 1.0, 0.1, 1.0, 0.8, 0.0, 0.0 );
+      </script>
+     </nasal>
+    <marker>
+     <x-m>2.08</x-m>
+     <y-m>0.15</y-m>
+     <z-m>0.875</z-m>
+     <scale>8</scale>
+    </marker>
+   <wait>3</wait>
+  </step>
+
+  <step>
+    <message>
+      	FUEL PUMPS check... MAIN GROUP PUMPS...
+	up is AUTO
+    </message>
+     <nasal>
+      <script>
+	interpolate("an24/FuelControl/sw0402", 1.0, 0.1 );
+	interpolate("an24/FuelControl/sw0406", 0.0, 1.5, 1.0, 0.1 );
+      </script>
+     </nasal>
+    <marker>
+     <x-m>2.08</x-m>
+     <y-m>0.15</y-m>
+     <z-m>0.875</z-m>
+     <scale>8</scale>
+    </marker>
+  </step>
+
+  <step>
+    <message>
+      	MANUAL: down
+    </message>
+     <nasal>
+      <script>
+	interpolate("an24/FuelControl/sw0402", 0.0, 0.1, -1.0, 0.1 );
+	interpolate("an24/FuelControl/sw0406", 1.0, 1.8, 0.0, 0.1, -1.0, 0.1 );
+      </script>
+     </nasal>
+  </step>
+
+  <step>
+    <message>
+      	neutral is OFF
+    </message>
+     <nasal>
+      <script>
+	interpolate("an24/FuelControl/sw0402", 0.0, 0.1 );
+	interpolate("an24/FuelControl/sw0406", -1.0, 0.5, 0.0, 0.1 );
+      </script>
+     </nasal>
+  </step>
+
+  <step>
+    <message>
+      	PUMPS of GROUP 2 check...
+	ON and OFF
+    </message>
+     <nasal>
+      <script>
+	interpolate("an24/FuelControl/sw0403", 1.0, 0.1, 1.0, 1.5, 0.0, 0.1 );
+        interpolate("an24/FuelControl/lrear463_press", 1.0, 0.1, 1.0, 1.5, 0.0, 0.1 );
+        interpolate("an24/FuelControl/lfront463_press", 1.0, 0.1, 1.0, 1.5, 0.0, 0.1 );
+	interpolate("an24/FuelControl/sw0405", 0.0, 2.5, 1.0, 0.1, 1.0, 0.5, 0.0, 0.1 );
+        interpolate("an24/FuelControl/rrear463_press", 0.0, 2.5, 1.0, 0.1, 1.0, 0.5, 0.0, 0.1 );
+        interpolate("an24/FuelControl/rfront463_press", 0.0, 2.5, 1.0, 0.1, 1.0, 0.5, 0.0, 0.1 );
+      </script>
+     </nasal>
+  </step>
+
+  <step>
+    <message>
+      	And finally: CROSSFEED VALVE!
+	Breakfast is coming nearer!
+    </message>
+     <nasal>
+      <script>
+        interpolate("an24/FuelControl/crossfeed", 1.0, 0.1, 1.0, 0.5, 0.0, 0.1 );
+        interpolate("an24/FuelControl/sw_crossfeed", 1.0, 0.1, 1.0, 0.5, 0.0, 0.1 );
+      </script>
+     </nasal>
+  </step>
+
+<!--***************************************-->
+
+  <step>
+    <message>
+	_____________________________________
+      	Not many checks left...
+	FIRE EXTINGUISHING SYSTEM for example
+    </message>
+    <view>
+      <heading-offset-deg>55</heading-offset-deg>
+      <pitch-offset-deg>7</pitch-offset-deg>
+      <field-of-view>70</field-of-view>
+      <x-offset-m>-0.38</x-offset-m>
+      <y-offset-m>1.27</y-offset-m>
+      <z-offset-m>-5.13</z-offset-m>
+    </view>
+  </step>
+
+  <step>
+    <message>
+	SENSORS check would be next, but...
+    </message>
+    <view>
+      <heading-offset-deg>74</heading-offset-deg>
+      <pitch-offset-deg>20</pitch-offset-deg>
+      <field-of-view>76</field-of-view>
+      <x-offset-m>-0.38</x-offset-m>
+      <y-offset-m>1.27</y-offset-m>
+      <z-offset-m>-5.13</z-offset-m>
+    </view>
+  <wait>3</wait>
+  </step>
+
+  <step>
+    <message>
+	...No! I think I gonna join the rest of the crew first and
+	finally	have my breakfast...
+    </message>
+<!-- and im gonna end this incomplete tutorial until now because im hungry too! -->
+    <view>
+      <heading-offset-deg>74</heading-offset-deg>
+      <pitch-offset-deg>20</pitch-offset-deg>
+      <field-of-view>76</field-of-view>
+      <x-offset-m>-0.38</x-offset-m>
+      <y-offset-m>1.27</y-offset-m>
+      <z-offset-m>-5.13</z-offset-m>
+    </view>
+  <wait>4</wait>
+  </step>
+
+  <step>
+    <message>
+	BLINIS!
+    </message>
+    <view>
+      <heading-offset-deg>74</heading-offset-deg>
+      <pitch-offset-deg>20</pitch-offset-deg>
+      <field-of-view>76</field-of-view>
+      <x-offset-m>-0.38</x-offset-m>
+      <y-offset-m>1.27</y-offset-m>
+      <z-offset-m>-5.13</z-offset-m>
+    </view>
+  </step>
+
+
+</PropertyList>

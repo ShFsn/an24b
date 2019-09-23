@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Tank-group 1 pump ECN-14 (main) right set to auto(1)/off(0)/manual(-1)-->
+<!-- Tank-group 1 pump ECN-14 right set to auto(1)/off(0)/manual(-1) -->
 
 <PropertyList>
  <path>../../shared/switches/switch03.ac</path>
@@ -15,10 +15,23 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FuelControl/group1rightpump", 1.0, 0.1 );
+        interpolate("an24/FuelControl/sw0406", 1.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Main Pump %s</label>
+         <property>an24/FuelControl/sw0406</property>
+         <tooltip-id>mainpumprauto</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var mainpumprauto = ['OFF', 'Auto', 'Manual'];
+	return mainpumprauto[arg[0]];
+         </script>
+       </binding>
+    </hovered>
  </animation>
 
  <animation>
@@ -31,11 +44,25 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FuelControl/group1rightpump", 0.0, 0.1 );
+        interpolate("an24/FuelControl/sw0406", 0.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Main Pump %s</label>
+         <property>an24/FuelControl/sw0406</property>
+         <tooltip-id>mainpumproff</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var mainpumproff = ['OFF', 'Auto', 'Manual'];
+	return mainpumproff[arg[0]];
+         </script>
+       </binding>
+    </hovered>
  </animation>
+
  <animation>
   <type>pick</type>
   <object-name>clickspot_down</object-name>
@@ -46,16 +73,29 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FuelControl/group1rightpump", -1.0, 0.1 );
+        interpolate("an24/FuelControl/sw0406", -1.0, 0.1 );
       </script>
     </binding>
   </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Main Pump %s</label>
+         <property>an24/FuelControl/sw0406</property>
+         <tooltip-id>mainpumprman</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var mainpumprman = ['OFF', 'Auto', 'Manual'];
+	return mainpumprman[arg[0]];
+         </script>
+       </binding>
+    </hovered>
 </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/FuelControl/group1rightpump</property>
+   <property>an24/FuelControl/sw0406</property>
   <interpolation>
     <entry><ind>-1.0</ind>	<dep>-35.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>35.0</dep></entry>
@@ -66,6 +106,5 @@
     <z>0.0</z>
   </axis>
  </animation>
- 
 
 </PropertyList>

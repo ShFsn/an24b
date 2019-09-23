@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- ITG-2, left engine -->
+<!-- ITG-2, left engine EGT -->
 
 <PropertyList>
  <path>itg-2.ac</path>
@@ -13,11 +13,29 @@
    <object-name>cover</object-name>
    <emission>
      <red>1.0</red>
-     <green>1.0</green>
-     <blue>1.0</blue>
-     <factor-prop>an24/lights/instrlights</factor-prop>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
+
+  <!--DEG Celsius interpolation table -->
+<!--animation>
+  <type>rotate</type>
+  <object-name>tct_needle</object-name>
+  <property>find/something/useful</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>-20</dep></entry>
+    <entry><ind>200</ind><dep>-15</dep></entry>
+    <entry><ind>800</ind><dep>130</dep></entry>
+    <entry><ind>1100</ind><dep>200</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation-->
 
 <!-- Text OSG -->
 
@@ -32,7 +50,7 @@
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">ITG-2</text>
+    <text type="string">ITG-2 EGT</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>
@@ -51,15 +69,5 @@
       <z-m>  0.000 </z-m>
     </offsets>
   </text>
-  <animation>
-    <type>material</type>
-    <object-name>textosg</object-name>
-    <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
-    </emission>
-  </animation>
-
 
 </PropertyList>

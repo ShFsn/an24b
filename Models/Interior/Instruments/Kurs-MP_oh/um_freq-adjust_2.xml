@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<!-- UM, Device to adjust frequency -->
+
+<PropertyList>
+ <path>um_freq-adjust.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>mhzdisc</object-name>
+   <object-name>khzdisc</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   </emission>
+ </animation>
+
+ <!-- MHz 108.0-117.9 -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>mhzknob</object-name>
+   <property>an24/Kurs-MP/mhz2</property>
+   <factor>36.0</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Kurs-MP/mhz2</property>
+      <factor>-1.0</factor>
+      <min>0.0</min>
+      <max>10.0</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Freq No.2 %3.2fMHz</label>
+         <tooltip-id>kurs-mp2_freqa</tooltip-id>
+         <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+       </binding>
+    </hovered>
+ </animation>
+
+<animation>
+    <type>rotate</type>
+   <object-name>mhzdisc</object-name>
+    <property>an24/Kurs-MP/mhz2</property>
+    <factor>36.0</factor>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1.0</z>
+    </axis>
+</animation>
+
+<!-- Decimals -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>khzdisc</object-name>
+   <property>an24/Kurs-MP/dec2</property>
+    <factor>360.0</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Kurs-MP/dec2</property>
+      <factor>-0.05</factor>
+      <min>0.0</min>
+      <max>1.0</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Freq No.2 %3.2fMHz</label>
+         <tooltip-id>kurs-mp2_freqb</tooltip-id>
+         <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+       </binding>
+    </hovered>
+ </animation>
+
+<!-- TEXT OSG -->
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">Kurs-MP No.2</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>reversed-xy-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.04</z-m>
+ <heading-deg>-90</heading-deg>
+    </offsets>
+  </text>
+
+</PropertyList>

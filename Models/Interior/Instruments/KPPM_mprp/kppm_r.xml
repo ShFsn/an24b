@@ -5,20 +5,10 @@
 
 <animation>
   <type>material</type>
-<!--
-  <condition>
-    <property>yak-40/switches/board_left</property>
-    <greater-than>
-      <property>yak-40/systems/electrical/buses/bus27/volts</property>
-      <value>16.0</value>
-    </greater-than>
-  </condition>
--->
   <object-name>back</object-name>
   <object-name>back_0</object-name>
   <object-name>back_1</object-name>
   <object-name>base</object-name>
-  <object-name>glass</object-name>
   <object-name>gs_blenker</object-name>
   <object-name>gs_blenker.001</object-name>
   <object-name>hs_blenker</object-name>
@@ -30,83 +20,98 @@
   <object-name>scale</object-name>
    <emission>
      <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-     <factor-prop>an24/lights/instrlights</factor-prop>
+     <green>0.5</green>
+     <blue>0.5</blue>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
    </emission>
 </animation>
 
 <animation>
-	<type>rotate</type>
-	<object-name>needle</object-name>
-        <expression>
-          <dif>
-	    <property>/instrumentation/gik-1/indicated-heading</property>
-            <property>/instrumentation/kppm[1]/scale-offset</property>
-          </dif>
-        </expression>
-	<axis>
-		<x>-1</x>
-		<y>0</y>
-		<z>0</z>
-	</axis>
+ <type>rotate</type>
+ <object-name>needle</object-name>
+  <expression>
+  <dif>
+   <property>instrumentation/gik-1/indicated-heading</property>
+   <property>instrumentation/nav[1]/radials/selected-deg</property>
+  </dif>
+  </expression>
+ <axis>
+  <x>-1</x>
+  <y>0</y>
+  <z>0</z>
+ </axis>
 </animation>
 
 <animation>
-	<type>rotate</type>
-	<object-name>scale</object-name>
-	<property>/instrumentation/kppm[1]/scale-offset</property>
-	<axis>
-		<x>1</x>
-		<y>0</y>
-		<z>0</z>
-	</axis>
+ <type>rotate</type>
+ <object-name>scale</object-name>
+   <property>instrumentation/nav[1]/radials/selected-deg</property>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
 </animation>
 
 <animation>
-	<type>translate</type>
-	<object-name>hs_needle</object-name>
-	<condition>
-		<property>instrumentation/nav/nav-loc</property>
-	</condition>
-	<property>instrumentation/nav/heading-needle-deflection-norm</property>
-	<interpolation>
-		<entry><ind>-1</ind><dep>-0.019</dep></entry>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>1</ind><dep>0.019</dep></entry>
-	</interpolation>
-	<axis>
-		<x>0.0</x>
-		<y>1.0</y>
-		<z>0.0</z>
-	</axis>
+ <type>translate</type>
+ <object-name>hs_needle</object-name>
+  <expression>
+    <table>
+      <mod>
+       <sum>
+   <property>an24/SP-50/hs-needle-offset</property>
+   <property>instrumentation/nav[1]/heading-needle-deflection-norm</property>
+       </sum>
+        <value>2.0</value>
+      </mod>
+      <entry><ind>-2.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>-1.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>0.0</ind>	<dep>0</dep></entry>
+      <entry><ind>1.0</ind>	<dep>0.019</dep></entry>
+      <entry><ind>2.0</ind>	<dep>0.019</dep></entry>
+    </table>
+  </expression>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
 </animation>
 
 <animation>
-	<type>translate</type>
-	<object-name>gs_needle</object-name>
-	<property>instrumentation/nav/gs-needle-deflection</property>
-	<interpolation>
-		<!--<entry><ind>-9999.0</ind><dep>-0.0213</dep></entry>-->
-		<entry><ind>-3.5</ind><dep>-0.019</dep></entry>
-		<entry><ind>0.0</ind><dep>0.0</dep></entry>
-		<entry><ind>3.5</ind><dep>0.019</dep></entry>
-		<!--<entry><ind>9999.0</ind><dep>0.0213</dep></entry>-->
-	</interpolation>
-	<axis>
-		<x>0.0</x>
-		<y>0.0</y>
-		<z>1.0</z>
-	</axis>
+ <type>translate</type>
+ <object-name>gs_needle</object-name>
+  <expression>
+    <table>
+      <mod>
+       <sum>
+   <property>an24/SP-50/gs-needle-offset</property>
+   <property>instrumentation/nav[1]/gs-needle-deflection-norm</property>
+       </sum>
+        <value>2.0</value>
+      </mod>
+      <entry><ind>-2.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>-1.0</ind>	<dep>-0.019</dep></entry>
+      <entry><ind>0.0</ind>	<dep>0</dep></entry>
+      <entry><ind>1.0</ind>	<dep>0.019</dep></entry>
+      <entry><ind>2.0</ind>	<dep>0.019</dep></entry>
+    </table>
+  </expression>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
 </animation>
 
 <animation>
     <type>select</type>
     <object-name>gs_blenker</object-name>
     <condition>
-		<not>
-			<property>instrumentation/nav/has-gs</property>
-		</not>
+     <not>
+      <property>instrumentation/nav[1]/has-gs</property>
+     </not>
     </condition>
 </animation>
 
@@ -114,21 +119,21 @@
     <type>select</type>
     <object-name>hs_blenker</object-name>
     <condition>
-		<not>
-			<property>instrumentation/nav/nav-loc</property>
-		</not>
+     <not>
+      <property>instrumentation/nav[1]/nav-loc</property>
+     </not>
     </condition>
 </animation>
 
 <animation>
-  <type>rotate</type>
+  <type>knob</type>
   <object-name>knob</object-name>
-  <property>/instrumentation/kppm[1]/scale-offset</property>  
-  <factor>5</factor>
+  <property>instrumentation/nav[1]/radials/selected-deg</property>  
+  <factor>-5</factor>
   <center>
     <x-m>0.0</x-m>
-    <y-m>0.02904</y-m>
-    <z-m>-0.02885</z-m>
+    <y-m>0.0308</y-m>
+    <z-m>-0.0306</z-m>
   </center>
   <axis>
     <x>-1.0</x>
@@ -138,8 +143,8 @@
     <action>
       <binding>
         <command>property-adjust</command>
-        <property>/instrumentation/kppm[1]/scale-offset</property>
-        <factor>1</factor>
+        <property>instrumentation/nav[1]/radials/selected-deg</property>
+        <factor>-1</factor>
         <min>0</min>
         <max>360</max>                
         <wrap>true</wrap>
@@ -179,15 +184,5 @@
       <z-m>  0.000 </z-m>
     </offsets>
   </text>
-  <animation>
-    <type>material</type>
-    <object-name>textosg</object-name>
-    <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
-    </emission>
-  </animation>
-
 
 </PropertyList>

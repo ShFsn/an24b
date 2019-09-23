@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+
+<!-- Balance zero-indication of glidepath/course -->
+
+<PropertyList>
+
+ <path>ubm_balance-unit.ac</path>
+
+<!-- Course, same as M-50 -->
+ <animation>
+   <type>knob</type>
+   <object-name>knob_balance_course</object-name>
+   <property>an24/SP-50/hs-needle-offset</property>
+   <factor>370</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0141</y-m>
+    <z-m>0.0</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/SP-50/hs-needle-offset</property>
+      <factor>-0.01</factor>
+      <min>-0.99</min>
+      <max>0.99</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>ubm_course_press_me</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/SP-50/hs-needle-null", 1.0, 0.1 );
+        setprop("instrumentation/nav[0]/cdi/serviceable", 0.0 );
+      </script>
+    </binding>
+      <mod-up>
+	<binding>
+	<command>nasal</command>
+	<script>
+        interpolate("an24/SP-50/hs-needle-null", 0.0, 0.1 );
+        setprop("instrumentation/nav[0]/cdi/serviceable", 1.0 );
+	</script>
+	</binding>
+      </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>knob_balance_course</object-name>
+  <property>an24/SP-50/hs-needle-null</property>
+  <factor>0.004</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
+ </animation>
+
+<!-- Glideslope -->
+ <animation>
+   <type>knob</type>
+   <object-name>knob_balance_glide</object-name>
+   <property>an24/SP-50/gs-needle-offset</property>
+   <factor>370</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0141</y-m>
+    <z-m>0.0</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/SP-50/gs-needle-offset</property>
+      <factor>-0.01</factor>
+      <min>-0.99</min>
+      <max>0.99</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>ubm_glide_press_me</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/SP-50/gs-needle-null", 1.0, 0.1 );
+        setprop("instrumentation/nav[0]/gs/serviceable", 0.0 );
+      </script>
+    </binding>
+      <mod-up>
+	<binding>
+	<command>nasal</command>
+	<script>
+        interpolate("an24/SP-50/gs-needle-null", 0.0, 0.1 );
+        setprop("instrumentation/nav[0]/gs/serviceable", 1.0 );
+	</script>
+	</binding>
+      </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>knob_balance_glide</object-name>
+  <property>an24/SP-50/gs-needle-null</property>
+  <factor>0.004</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
+ </animation>
+
+</PropertyList>

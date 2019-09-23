@@ -1,55 +1,90 @@
 <?xml version="1.0"?>
 
-<!-- Nosewheel steering, handle and/or pedals -->
+<!-- Nosewheel steering, handle and/or pedals; anti-skid -->
 
 <PropertyList>
+
+<!-- Gear up/down -->
+
+<model>
+ <path>sw_gear-lever.xml</path>
+  <offsets>
+    <pitch-deg>-43</pitch-deg>
+    <x-m>2.633</x-m>
+    <y-m>0.111</y-m>
+    <z-m>0.52</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>gear-lever-lock.xml</path>
+  <offsets>
+    <pitch-deg>43</pitch-deg>
+    <x-m>2.633</x-m>
+    <y-m>0.111</y-m>
+    <z-m>0.52</z-m>
+  </offsets>
+</model>
+
+<!-- Steering modes -->
 
 <model>
  <path>sw_steering-mode.xml</path>
   <offsets>
     <pitch-deg>-25</pitch-deg>
-    <x-m>2.118</x-m>
+    <x-m>2.125</x-m>
     <y-m>-0.86256</y-m>
-    <z-m>0.662</z-m>
+    <z-m>0.628</z-m>
   </offsets>
 </model>
 
 <model>
  <path>wl_handle_on.xml</path>
   <offsets>
-    <x-m>2.09972</x-m>
-    <y-m>-0.87</y-m>
-    <z-m>0.71</z-m>
+    <x-m>2.102</x-m>
+    <y-m>-0.885</y-m>
+    <z-m>0.675</z-m>
   </offsets>
 </model>
 
 <model>
  <path>wl_pedals_armed.xml</path>
   <offsets>
-    <x-m>2.09972</x-m>
-    <y-m>-0.84</y-m>
-    <z-m>0.71</z-m>
+    <x-m>2.102</x-m>
+    <y-m>-0.86</y-m>
+    <z-m>0.675</z-m>
   </offsets>
 </model>
 
 <model>
  <path>wl_pedals_on.xml</path>
   <offsets>
-    <x-m>2.09972</x-m>
-    <y-m>-0.81</y-m>
-    <z-m>0.71</z-m>
+    <x-m>2.102</x-m>
+    <y-m>-0.835</y-m>
+    <z-m>0.675</z-m>
   </offsets>
 </model>
 
-<!-- Brakes - Anti-Skid -->
+<!-- Tiller (steering wheel) -->
+
+<model>
+ <path>steering-wheel.xml</path>
+  <offsets>
+    <x-m>2.6</x-m>
+    <y-m>-0.87</y-m>
+    <z-m>0.518</z-m>
+  </offsets>
+</model>
+
+<!-- Below middle panel -->
 
 <model>
  <path>sw_anti-skid.xml</path>
   <offsets>
     <pitch-deg>-25</pitch-deg>
-    <x-m>2.117</x-m>
+    <x-m>2.115</x-m>
     <y-m>-0.2744</y-m>
-    <z-m>0.6859</z-m>
+    <z-m>0.643</z-m>
   </offsets>
 </model>
 
@@ -57,9 +92,9 @@
  <path>wl_anti-skid_left.xml</path>
   <offsets>
   <pitch-deg>-25</pitch-deg>
-    <x-m>2.112</x-m>
-    <y-m>-0.3024</y-m>
-    <z-m>0.6972</z-m>
+    <x-m>2.117</x-m>
+    <y-m>-0.296</y-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
 
@@ -67,54 +102,10 @@
  <path>wl_anti-skid_right.xml</path>
   <offsets>
   <pitch-deg>-25</pitch-deg>
-    <x-m>2.112</x-m>
-    <y-m>-0.2449</y-m>
-    <z-m>0.6972</z-m>
+    <x-m>2.117</x-m>
+    <y-m>-0.252</y-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
-
-<!-- Gear unknown on left console -->
-
-<model>
- <path>unknown_sw_gear_lc01.xml</path>
-  <offsets>
-    <x-m>2.5574</x-m>
-    <y-m>-0.9702</y-m>
-    <z-m>0.5225</z-m>
-    <heading-deg>84</heading-deg>
-  </offsets>
-</model>
-
-<model>
- <path>unknown_sw_gear_lc02.xml</path>
-  <offsets>
-    <x-m>2.5182</x-m>
-    <y-m>-0.9661</y-m>
-    <z-m>0.5225</z-m>
-    <heading-deg>84</heading-deg>
-  </offsets>
-</model>
-
-<model>
- <path>unknown_wl_gear_lc01.xml</path>
-  <offsets>
-    <x-m>2.5574</x-m>
-    <y-m>-0.9702</y-m>
-    <z-m>0.58</z-m>
-    <heading-deg>84</heading-deg>
-  </offsets>
-</model>
-
-<model>
- <path>unknown_wl_gear_lc02.xml</path>
-  <offsets>
-    <x-m>2.5182</x-m>
-    <y-m>-0.9661</y-m>
-    <z-m>0.56</z-m>
-    <heading-deg>84</heading-deg>
-  </offsets>
-</model>
-
-
 
 </PropertyList>

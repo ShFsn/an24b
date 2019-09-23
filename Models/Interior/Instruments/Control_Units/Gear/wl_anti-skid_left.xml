@@ -3,24 +3,29 @@
 <!-- Anti-Skid ON -->
 
 <PropertyList>
- <path>../../../shared/lamps/warninglamp02.ac</path>
+ <path>../../../shared/lamps/slm-61.ac</path>
 
-<animation>
- <type>material</type>
- <object-name>holder</object-name>
- <object-name>lampon</object-name>
- <texture>../../../shared/lamps/warninglamp02orangeplain.png</texture>
-</animation>
+ <animation>
+  <type>material</type>
+  <object-name>filter</object-name>
+  <object-name>ring</object-name>
+  <texture>../../../shared/lamps/slm-61_yellow.png</texture>
+ </animation>
 
-<animation>
-  <type>select</type>
-  <condition>
-   <equals>
-    <property>autopilot/autobrake/engaged</property>
+ <animation>
+   <type>material</type>
+   <object-name>filter</object-name>
+    <condition>
+    <equals>
+    <property>controls/gear/antiskid</property>
     <value>1</value>
-   </equals>
-  </condition>
-  <object-name>lampon</object-name>
-</animation>
+    </equals>
+    </condition>
+   <emission>
+     <red>0.6</red>
+     <green>0.6</green>
+     <blue>0.6</blue>
+   </emission>
+ </animation>
 
 </PropertyList>

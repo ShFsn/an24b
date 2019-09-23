@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<!-- Transponder responding sensitivity -->
+
+<PropertyList>
+ <path>../../shared/switches/2png-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("/instrumentation/transponder/inputs/sensitivity", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>%s Sensitivity</label>
+         <property>instrumentation/transponder/inputs/sensitivity</property>
+         <tooltip-id>so-63-sense</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var so63sense = ['Low', 'High'];
+	return so63sense[arg[0]];
+         </script>
+       </binding>
+    </hovered>
+ </animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("/instrumentation/transponder/inputs/sensitivity", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>%s Sensitivity</label>
+         <property>instrumentation/transponder/inputs/sensitivity</property>
+         <tooltip-id>so-63-sense</tooltip-id>
+         <mapping>nasal</mapping>
+         <script>
+	var so63sense = ['Low', 'High'];
+	return so63sense[arg[0]];
+         </script>
+       </binding>
+    </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>instrumentation/transponder/inputs/sensitivity</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+
+</PropertyList>

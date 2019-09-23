@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!-- switch below lp; Emergency red light or white cabin lighting-->
+
+<model>
+ <path>sw_instrlights.xml</path>
+  <offsets>
+    <pitch-deg>-25</pitch-deg>
+    <x-m>2.125</x-m>
+    <y-m>-0.6397</y-m>
+    <z-m>0.628</z-m>
+  </offsets>
+</model>
+
+<!-- knobs on upper lc -->
+
+<model>
+ <path>knob_l_panel_red.xml</path>
+  <offsets>
+  <heading-deg>82</heading-deg>
+    <x-m>2.37</x-m>
+    <y-m>-0.956</y-m>
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>knob_m_panel_red.xml</path>
+  <offsets>
+  <heading-deg>82</heading-deg>
+    <x-m>2.32</x-m>
+    <y-m>-0.949</y-m>
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>knob_l_console_red.xml</path>
+  <offsets>
+  <heading-deg>82</heading-deg>
+    <x-m>2.27</x-m>
+    <y-m>-0.941</y-m>
+    <z-m>0.71</z-m>
+  </offsets>
+</model>
+
+<!-- knobs on lower rc -->
+
+<model>
+ <path>knob_r_panel_red.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>2.43</x-m>
+    <y-m>0.9</y-m>
+    <z-m>0.466</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>knob_r_console_red.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>2.42</x-m>
+    <y-m>0.95</y-m>
+    <z-m>0.466</z-m>
+  </offsets>
+</model>
+
+<!-- knobs on overhead panel -->
+
+<model>
+ <path>knob_overhead_instr.xml</path>
+  <offsets>
+    <pitch-deg>79.5</pitch-deg>
+    <x-m>2.62</x-m>
+    <y-m>-0.06</y-m>
+    <z-m>1.376</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>knob_overhead_panel.xml</path>
+  <offsets>
+    <pitch-deg>79.5</pitch-deg>
+    <x-m>2.7</x-m>
+    <y-m>-0.06</y-m>
+    <z-m>1.391</z-m>
+  </offsets>
+</model>
+
+<!-- knobs on radio panel -->
+
+<model>
+ <path>knob_radio_panel_instr.xml</path>
+  <offsets>
+    <pitch-deg>180</pitch-deg>
+    <x-m>3.907</x-m>
+    <y-m>0.83</y-m>
+    <z-m>0.77</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>knob_radio_panel.xml</path>
+  <offsets>
+    <pitch-deg>180</pitch-deg>
+    <x-m>3.907</x-m>
+    <y-m>0.90</y-m>
+    <z-m>0.77</z-m>
+  </offsets>
+</model>
+
+<!-- knobs on nav panel -->
+
+<model>
+ <path>knob_nav_panel_instr_red.xml</path>
+  <offsets>
+    <heading-deg>90</heading-deg>
+    <x-m>3.65</x-m>
+    <y-m>-0.918</y-m>
+    <z-m>0.736</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>knob_nav_panel_red.xml</path>
+  <offsets>
+    <heading-deg>90</heading-deg>
+    <x-m>3.885</x-m>
+    <y-m>-0.918</y-m>
+    <z-m>0.736</z-m>
+  </offsets>
+</model>
+
+</PropertyList>

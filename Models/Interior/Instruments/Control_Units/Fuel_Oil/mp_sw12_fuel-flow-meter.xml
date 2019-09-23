@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<!-- Fuel-flow meter, bottom panel switch 7 -->
+
+<PropertyList>
+ <path>../../../shared/switches/2pp-250.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FuelControl/flow-meter", 1.0, 1.8 );
+        interpolate("an24/FuelControl/anim-flow-meter", 1.0, 0.1 );
+	setprop("an24/RTMS/fuel-offset-l", getprop("an24/RTMS/fuel-offset-l") + getprop("an24/FuelControl/flow-meter-save-l") - getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") );
+	setprop("an24/RTMS/fuel-offset-r", getprop("an24/RTMS/fuel-offset-r") + getprop("an24/FuelControl/flow-meter-save-r") - getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>rtms_on</tooltip-id>
+      <label>RTMS Flowmeter ON</label>
+    </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/FuelControl/flow-meter", 0.0, 2.4 );
+	interpolate("an24/FuelControl/anim-flow-meter", 0.0, 0.1 );
+	setprop("an24/FuelControl/flow-meter-save-l", getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") );
+	setprop("an24/FuelControl/flow-meter-save-r", getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>rtms_off</tooltip-id>
+      <label>RTMS Flowmeter OFF</label>
+    </binding>
+  </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/FuelControl/anim-flow-meter</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>screws</object-name>
+  <type>pick</type>
+  <visible>false</visible>
+ </animation>
+
+</PropertyList>

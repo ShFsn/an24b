@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!-- M-50 power ON -->
+
+<PropertyList>
+ <path>../../shared/switches/vg-15k.ac</path>
+
+ <animation>
+  <object-name>box</object-name>
+  <type>select</type>
+  <condition>
+   <not>
+    <property>sim/signals/fdm-initialized</property>
+   </not>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/SP-50/on", 1.0, 0.1 );
+	if (getprop("an24/AZS/sw0516") == 1.0 ) {
+	setprop("instrumentation/nav/serviceable", 1.0 );
+	setprop("instrumentation/nav/cdi/serviceable", 1.0 );
+	setprop("instrumentation/nav/gs/serviceable", 1.0 );
+	}
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/SP-50/on", 0.0, 0.1 );
+	setprop("instrumentation/nav/cdi/serviceable", 0.0 );
+	setprop("instrumentation/nav/gs/serviceable", 0.0 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/SP-50/on</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

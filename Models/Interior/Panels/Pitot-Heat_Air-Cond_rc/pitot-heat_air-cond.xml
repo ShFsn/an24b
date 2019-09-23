@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+
+<!-- Pitot heat and air conditioning panel; "Ан-24. ИНСТРУКЦИЯ ПО ТЕХНИЧЕСКОЙ ЭКСПЛУАТАЦИИ. КНИГА II", pp. 107 -->
+
+<PropertyList>
+
+  <path>pitot-heat_air-cond.ac</path>
+
+ <!--animation>
+  <type>material</type>
+  <object-name>background</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.1</green>
+   <blue>0.1</blue>
+   <factor-prop>controls/lighting/panel-m_red</factor-prop>
+  </emission>
+ </animation-->
+
+<!--************ Air Condition Part ************-->
+<!-- Temperature pre-select knob -->
+
+ <animation>
+   <type>knob</type>
+   <object-name>temp_preselect</object-name>
+   <property>an24/Air-Cond/auto_temp-c</property>
+   <factor>-6</factor>
+  <center>
+    <x-m>0.1035</x-m>
+    <y-m>-0.0258</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>-1.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Air-Cond/auto_temp-c</property>
+      <factor>-1.0</factor>
+      <min>0</min>
+      <max>50</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+<!-- Switches -->
+
+<model>
+ <path>ac_sw01_bleedairL.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.0647</x-m>
+    <y-m>-0.0424</y-m>
+    <z-m>-0.044</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ac_sw02_bleedairR.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.0647</x-m>
+    <y-m>-0.01</y-m>
+    <z-m>-0.044</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ac_sw03_rack-panel.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.067</x-m>
+    <y-m>0.026</y-m>
+    <z-m>-0.043</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ac_sw04_TG-16heating.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.067</x-m>
+    <y-m>0.057</y-m>
+    <z-m>-0.043</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ac_sw05_cabintemp_auto.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.1066</x-m>
+    <y-m>0.0082</y-m>
+    <z-m>-0.043</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ac_sw06_mixvalveL.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.1066</x-m>
+    <y-m>0.035</y-m>
+    <z-m>-0.043</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ac_sw07_mixvalveR.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.1066</x-m>
+    <y-m>0.0585</y-m>
+    <z-m>-0.043</z-m>
+  </offsets>
+</model>
+
+<!-- Turbo cooler switch loaded by cockpit.xml
+<model>
+ <path>rc_sw12_turbo-cooler.xml</path>
+  <offsets>
+    <x-m>2.3965</x-m>
+    <y-m>0.968</y-m>
+    <z-m>0.7115</z-m>
+    <heading-deg>-79.5</heading-deg>
+  </offsets>
+</model-->
+
+<!-- Lamp -->
+
+<model>
+ <path>ac_sl01_tg-16heat.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.036</x-m>
+    <y-m>0.059</y-m>
+    <z-m>-0.04</z-m>
+  </offsets>
+</model>
+
+<!--************ Pitot Heat Part ************-->
+
+<model>
+ <path>ph_sw08_S1S5A1.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.0148</x-m>
+    <y-m>-0.0436</y-m>
+    <z-m>-0.0232</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sw09_S3A2.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.0148</x-m>
+    <y-m>-0.0096</y-m>
+    <z-m>-0.0232</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sw10_S2S6A3.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.0148</x-m>
+    <y-m>0.025</y-m>
+    <z-m>-0.0232</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sw11_S4S7.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.0974</x-m>
+    <y-m>0.01294</y-m>
+    <z-m>0.024</z-m>
+  </offsets>
+</model>
+
+<!-- Lamps -->
+
+<!-- Bottom row, left to right, static pitots and TG-16 heating-->
+
+<model>
+ <path>ph_sl01_static1.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.033</x-m>
+    <y-m>-0.052</y-m>
+    <z-m>-0.045</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sl02_static5.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.033</x-m>
+    <y-m>-0.03</y-m>
+    <z-m>-0.045</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sl03_static3.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.033</x-m>
+    <y-m>-0.009</y-m>
+    <z-m>-0.045</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sl04_static2.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.033</x-m>
+    <y-m>0.016</y-m>
+    <z-m>-0.045</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sl05_static6.xml</path>
+  <offsets>
+    <pitch-deg>-90</pitch-deg>
+    <x-m>0.033</x-m>
+    <y-m>0.038</y-m>
+    <z-m>-0.045</z-m>
+  </offsets>
+</model>
+
+
+<!-- Middle row, left to right, dynamic pitots-->
+
+<model>
+ <path>ph_sl06_dynamic1.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.043</x-m>
+    <y-m>-0.041</y-m>
+    <z-m>-0.006</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sl07_dynamic2.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.043</x-m>
+    <y-m>-0.009</y-m>
+    <z-m>-0.006</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sl08_dynamic3.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.043</x-m>
+    <y-m>0.027</y-m>
+    <z-m>-0.006</z-m>
+  </offsets>
+</model>
+
+<!-- Top row, left to right, static pitots-->
+
+<model>
+ <path>ph_sl09_static4.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.072</x-m>
+    <y-m>0.014</y-m>
+    <z-m>0.013</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>ph_sl10_static7.xml</path>
+  <offsets>
+    <pitch-deg>-60</pitch-deg>
+    <x-m>-0.072</x-m>
+    <y-m>0.037</y-m>
+    <z-m>0.013</z-m>
+  </offsets>
+</model>
+
+</PropertyList>

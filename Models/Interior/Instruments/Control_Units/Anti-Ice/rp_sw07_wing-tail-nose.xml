@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<!-- Switch 813 Air bleed from left/right engine for wing and tail nose heating (book "FZH", pp. 125/126, change 5) -->
+
+<PropertyList>
+ <path>../../../shared/switches/2ppg-15k.ac</path>
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/wing-tail_bleed", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>wingtailheaton</tooltip-id>
+      <label> Engine Bleed to
+Wing-/Tail Edges</label>
+    </binding>
+   </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Anti-Ice/wing-tail_bleed", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>wingtailheatoff</tooltip-id>
+      <label> Engine Bleed to
+Wing-/Tail Edges</label>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Anti-Ice/wing-tail_bleed</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

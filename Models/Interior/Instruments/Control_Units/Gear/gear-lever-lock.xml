@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!-- Gear lever lock on middle console -->
+
+<PropertyList>
+  <path>gear-lever-lock.ac</path>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>gear-lever-lock</object-name>
+   <property>an24/gear/sw_gear</property>
+  <interpolation>
+    <entry><ind>3.0</ind>	<dep>90.0</dep></entry>
+    <entry><ind>0.2</ind>	<dep>90.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>-0.2</ind>	<dep>-90.0</dep></entry>
+    <entry><ind>-3.0</ind>	<dep>-90.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

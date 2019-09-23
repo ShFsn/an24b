@@ -32,7 +32,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/gpk-52/on", 1.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/on", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -48,12 +48,11 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/gpk-52/on", 0.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/on", 0.0, 0.1 );
       </script>
     </binding>
   </action>
  </animation>
-
 
  <animation>
   <type>rotate</type>
@@ -77,7 +76,8 @@
 
  <animation>
    <type>knob</type>
-   <object-name>latknob</object-name>
+   <object-name>lat_disk</object-name>
+   <object-name>lat_handle</object-name>
     <action>
      <binding>
       <command>property-adjust</command>
@@ -92,7 +92,9 @@
 
 <animation>
   <type>rotate</type>
-  <object-name>latknob</object-name>
+  <object-name>lat_handle</object-name>
+  <object-name>lat_lock</object-name>
+  <object-name>lat_disk</object-name>
   <property>instrumentation/gpk-52/lat-nut</property>
   <interpolation>
     <entry><ind> 0.0</ind>	<dep>  0.0</dep></entry>
@@ -104,13 +106,15 @@
     <entry><ind>90.0</ind>	<dep>286.0</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>0.0372</x1-m>
-    <y1-m>0.0277</y1-m>
-    <z1-m>0.0</z1-m>
-    <x2-m>0.0372</x2-m>
-    <y2-m>-0.0277</y2-m>
-    <z2-m>0.0</z2-m>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
   </axis>
+  <center>
+    <x-m>0.0339</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
  </animation>
 
 <!-- left-right slew knob-->
@@ -125,19 +129,33 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/gpk-52/left-right-slew", -1.0, 1.2 );
-        interpolate("instrumentation/gpk-52/switches/l_r_knob", -1.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/left-right-slew", -1.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", -1.0, 0.2 );
       </script>
     </binding>
     <mod-up>
       <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/gpk-52/left-right-slew", 0.0, 1.2 );
-        interpolate("instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/left-right-slew", 0.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.2 );
       </script>
     </binding>
     </mod-up>
+
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+        interpolate("/instrumentation/gpk-52/left-right-slew", -5.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", -2.0, 0.4 );
+      </script>
+    </binding>
   </action>
  </animation>
 
@@ -151,19 +169,33 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/gpk-52/left-right-slew", 1.0, 1.2 );
-        interpolate("instrumentation/gpk-52/switches/l_r_knob", 1.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/left-right-slew", 1.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 1.0, 0.2 );
       </script>
     </binding>
     <mod-up>
       <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/gpk-52/left-right-slew", 0.0, 1.2 );
-        interpolate("instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.1 );
+        interpolate("/instrumentation/gpk-52/left-right-slew", 0.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 0.0, 0.2 );
       </script>
     </binding>
     </mod-up>
+
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+        interpolate("/instrumentation/gpk-52/left-right-slew", 5.0, 1.2 );
+        interpolate("/instrumentation/gpk-52/switches/l_r_knob", 2.0, 0.4 );
+      </script>
+    </binding>
   </action>
 </animation>
 
@@ -171,17 +203,16 @@
   <type>rotate</type>
   <object-name>l_r_knob</object-name>
   <property>instrumentation/gpk-52/switches/l_r_knob</property>
-  <factor>-30</factor>
+  <factor>-50</factor>
   <axis>
-    <x1-m>-0.0342</x1-m>
+    <x1-m>-0.0312</x1-m>
     <y1-m>0.05</y1-m>
-    <z1-m>0.0028</z1-m>
-    <x2-m>-0.0342</x2-m>
+    <z1-m>0.0058</z1-m>
+    <x2-m>-0.0312</x2-m>
     <y2-m>-0.05</y2-m>
-    <z2-m>0.0028</z2-m>
+    <z2-m>0.0058</z2-m>
   </axis>
  </animation>
-
 
 <!-- TEXT OSG -->
 
@@ -215,14 +246,5 @@
       <z-m>-0.02</z-m>
     </offsets>
   </text>
-  <animation>
-    <type>material</type>
-    <object-name>textosg</object-name>
-    <emission>
-      <red>1.0</red>
-      <green>1.0</green>
-      <blue>1.0</blue>
-    </emission>
-  </animation>
 
 </PropertyList>

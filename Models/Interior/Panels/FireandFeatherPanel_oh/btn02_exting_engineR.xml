@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!-- Release fire extinguishers in right engine -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/205k.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <condition>
+     <equals>
+      <property>an24/FireFeather/cover_btn02</property>
+      <value>1</value>
+     </equals>
+     </condition>
+      <command>nasal</command>
+      <script>
+        setprop("an24/FireFeather/exting_engR", 1.0 );
+	interpolate("an24/FireFeather/btn_exting_engR", 1.0, 0.1 );
+      </script>
+    </binding>
+      <mod-up>
+	<binding>
+	<command>nasal</command>
+	<script>
+	interpolate("an24/FireFeather/btn_exting_engR", 0.0, 0.1 );
+	</script>
+	</binding>
+      </mod-up>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/FireFeather/btn_exting_engR</property>
+  <factor>0.005</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+</PropertyList>
