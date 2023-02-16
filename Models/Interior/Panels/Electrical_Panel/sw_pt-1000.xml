@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<!-- PT-1000 main/off/reserve -->
+
+<PropertyList>
+ <path>../../shared/switches/ppng-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_pt-1000", 1.0, 0.1 );
+	sound.click("azr", 3.9, 0.4, 0.8);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pt1000mainon2</tooltip-id>
+      <label>  Inverter
+PT-1000 MAIN (AUTO)</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_pt-1000", 0.0, 0.1 );
+	sound.click("azr", 3.9, 0.4, 0.8);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pt1000off2</tooltip-id>
+      <label>Inverters
+PT-1000 OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_pt-1000", -1.0, 0.1 );
+	sound.click("azr", 3.9, 0.4, 0.8);
+      </script>
+    </binding>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>pt1000res2</tooltip-id>
+      <label>Reserve Inverter
+PT-1000 ON</label>
+    </binding>
+   </hovered>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Electrical_Panel/sw_pt-1000</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

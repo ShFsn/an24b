@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Switch 813 Air bleed from left/right engine for wing and tail nose heating (book "FZH", pp. 125/126, change 5) -->
+<!-- Air bleed from left/right engine for wing and tail nose heating; Item 813 -->
 
 <PropertyList>
  <path>../../../shared/switches/2ppg-15k.ac</path>

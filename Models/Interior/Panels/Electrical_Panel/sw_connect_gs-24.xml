@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<!-- GS-24 APU generator "Connect to boardnet"; Item 739-->
+<PropertyList>
+ <path>../../shared/switches/2ppg-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/Electrical_Panel/slider") == 0.0 ) {
+        interpolate("an24/Electrical_Panel/sw_gs24", 1.0, 0.1 );
+	}
+	sound.click("azs", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gs24on</tooltip-id>
+      <label>      Include
+APU Generator</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/Electrical_Panel/slider") == 0.0 ) {
+        interpolate("an24/Electrical_Panel/sw_gs24", 0.0, 0.1 );
+	}
+	sound.click("azs", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>gs24off</tooltip-id>
+      <label>      Exclude
+APU Generator</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Electrical_Panel/sw_gs24</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

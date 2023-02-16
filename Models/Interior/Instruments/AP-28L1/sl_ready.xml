@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- Front left corner, AP armed -->
+
+<PropertyList>
+ <path>../../shared/lamps/warninglamp02.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>holder</object-name>
+  <object-name>lampon</object-name>
+  <texture>../../shared/lamps/warninglamp02orangeplain.png</texture>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>lampon</object-name>
+   <condition>
+    <equals>
+     <property>an24/AP-28l1/internal/armed</property>
+     <value>1</value>
+    </equals>
+    <equals>
+     <property>an24/AP-28l1/internal/engaged</property>
+     <value>0</value>
+    </equals>
+   </condition>
+ </animation>
+
+</PropertyList>

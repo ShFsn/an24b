@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- Warning lamp indicating fire in inner left engine; Item 2706 -->
+<PropertyList>
+ <path>../../shared/lamps/warninglamp02.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>holder</object-name>
+  <object-name>lampon</object-name>
+  <texture>../../shared/lamps/warninglamp02redplain.png</texture>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <condition>
+   <and>
+   <or>
+    <equals>
+     <property>an24/FireTest/selection</property>
+     <value>2</value>
+    </equals>
+    <equals>
+     <property>an24/FireTest/selection</property>
+     <value>3</value>
+    </equals>
+   </or>
+   <equals>
+    <property>an24/FireTest/push-to-test</property>
+    <value>1</value>
+   </equals>
+  </and>
+  </condition>
+  <object-name>lampon</object-name>
+ </animation>
+
+</PropertyList>

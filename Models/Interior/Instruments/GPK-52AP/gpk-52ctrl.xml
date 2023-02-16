@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+
+<!-- GPK-52 compass system Control Unit -->
+
+<PropertyList>
+ <path>gpk-52ctrl.ac</path>
+
+<!-- ON/OFF switch (gyro correction)-->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>property-interpolate</command>
+     <property>an24/GPK-52/sw_ctrl</property>
+     <value>1</value>
+     <rate>10</rate>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>gpk52corron</tooltip-id>
+     <label>     GPK-52
+Correction ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>property-interpolate</command>
+     <property>an24/GPK-52/sw_ctrl</property>
+     <value>0</value>
+     <rate>10</rate>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>gpk52corroff</tooltip-id>
+     <label>     GPK-52
+Correction OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>on_off_lever</object-name>
+  <property>an24/GPK-52/sw_ctrl</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep> 20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.004</y-m>
+   <z-m>0.0185</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Northern/Southern Hemisphere switch (gyro correction)-->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_upN</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/sw_hemisphere", 1.0, 0.1 );
+      </script>
+   </binding>
+  </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>gpk52hemin</tooltip-id>
+     <label>NORTHERN
+Hemisphere</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_downS</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/sw_hemisphere", -1.0, 0.1 );
+      </script>
+   </binding>
+  </action>
+   <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>gpk52hemis</tooltip-id>
+     <label>SOUTHERN
+Hemisphere</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>N_S_lever</object-name>
+  <property>an24/GPK-52/sw_hemisphere</property>
+  <interpolation>
+    <entry><ind>-1.0</ind>	<dep> 20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.004</y-m>
+   <z-m>-0.023</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- latitude selector knob-->
+ <animation>
+   <type>knob</type>
+   <object-name>lat_disk</object-name>
+   <object-name>lat_handle</object-name>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/GPK-52/lat-nut</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>90</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>lat_handle</object-name>
+  <object-name>lat_lock</object-name>
+  <object-name>lat_disk</object-name>
+  <property>an24/GPK-52/lat-nut</property>
+  <interpolation>
+    <entry><ind> 0.0</ind>	<dep>  0.0</dep></entry>
+    <entry><ind>20.0</ind>	<dep>100.0</dep></entry>
+    <entry><ind>38.0</ind>	<dep>180.0</dep></entry>
+    <entry><ind>50.0</ind>	<dep>222.0</dep></entry>
+    <entry><ind>60.0</ind>	<dep>252.0</dep></entry>
+    <entry><ind>80.0</ind>	<dep>280.0</dep></entry>
+    <entry><ind>90.0</ind>	<dep>286.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+  <center>
+    <x-m>0.0339</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_left</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+# 25-180deg/min (0.416-3deg/s) IRL; 1deg/sec without SHIFT, 3deg/s with SHIFT here
+	interpolate("an24/GPK-52/left-right-slew", -1.0, 0.5 );
+	interpolate("an24/GPK-52/kn_l-r", -1.0, 0.2 );
+      </script>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/left-right-slew", 0.0, 0.5 );
+	interpolate("an24/GPK-52/kn_l-r", 0.0, 0.2 );
+      </script>
+     </binding>
+    </mod-up>
+
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/left-right-slew", -3.0, 1.5 );
+	interpolate("an24/GPK-52/kn_l-r", -2.0, 0.4 );
+      </script>
+    </binding>
+    <mod-up>
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/left-right-slew", 0.0, 1.5 );
+	interpolate("an24/GPK-52/kn_l-r", 0.0, 0.4 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+</animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_right</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/left-right-slew", 1.0, 0.5 );
+	interpolate("an24/GPK-52/kn_l-r", 1.0, 0.2 );
+      </script>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/left-right-slew", 0.0, 0.5 );
+	interpolate("an24/GPK-52/kn_l-r", 0.0, 0.2 );
+      </script>
+     </binding>
+    </mod-up>
+
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/left-right-slew", 3.0, 1.5 );
+	interpolate("an24/GPK-52/kn_l-r", 2.0, 0.4 );
+      </script>
+    </binding>
+    <mod-up>
+    <binding>
+       <condition>
+        <equals>
+         <property>devices/status/keyboard/shift</property>
+         <value>1.0</value>
+        </equals>
+       </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/GPK-52/left-right-slew", 0.0, 1.5 );
+	interpolate("an24/GPK-52/kn_l-r", 0.0, 0.4 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+</animation>
+
+
+<animation>
+  <type>rotate</type>
+  <object-name>l_r_knob</object-name>
+  <property>an24/GPK-52/kn_l-r</property>
+  <factor>-50</factor>
+  <axis>
+    <x1-m>-0.0312</x1-m>
+    <y1-m>0.05</y1-m>
+    <z1-m>0.0058</z1-m>
+    <x2-m>-0.0312</x2-m>
+    <y2-m>-0.05</y2-m>
+    <z2-m>0.0058</z2-m>
+  </axis>
+ </animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textgpkctrl</object-name>
+    <condition>
+     <or>
+      <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_nav</property>
+     </or>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textgpkctrl</name>
+    <type type="string">literal</type>
+    <text type="string">GPK-52 Control Unit</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>xz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m> 0.00</x-m>
+      <y-m>-0.01</y-m>
+      <z-m>-0.02</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textgpkctrl</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

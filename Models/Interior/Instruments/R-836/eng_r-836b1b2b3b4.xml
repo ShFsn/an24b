@@ -1,0 +1,1122 @@
+<?xml version="1.0"?>
+
+<!-- R-836 Blocks 1-4 -->
+
+<PropertyList>
+ <path>r-836b1b2b3b4.ac</path>
+
+ <effect>
+  <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
+   <object-name>b1</object-name>
+   <object-name>b1_hood</object-name>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <object-name>b1_knobA</object-name>
+   <object-name>b1_lockA</object-name>
+   <object-name>b1_knobB</object-name>
+   <object-name>b1_lockB</object-name>
+   <object-name>b1_knobV</object-name>
+   <object-name>b1_lockV</object-name>
+   <object-name>b2</object-name>
+   <object-name>b2_hood</object-name>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <object-name>b2_knobG</object-name>
+   <object-name>b2_lockG</object-name>
+   <object-name>b2_knobD</object-name>
+   <object-name>b2_lockD</object-name>
+   <object-name>b2_knobE</object-name>
+   <object-name>b2_lockE</object-name>
+   <object-name>b3</object-name>
+   <object-name>b4</object-name>
+   <object-name>undercarriage</object-name>
+</effect>
+
+<animation>
+  <type>noshadow</type>
+  <object-name>tubes</object-name>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>tubes</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+   </emission>
+ </animation>
+
+<model>
+  <name>baro-check</name>
+  <path>sl_baro-check.xml</path>
+  <offsets>
+    <x-m>-0.112</x-m>
+    <y-m>0.271</y-m>
+    <z-m>-0.04</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+  <name>thermostat</name>
+  <path>sl_thermostat.xml</path>
+  <offsets>
+    <x-m>-0.112</x-m>
+    <y-m>0.248</y-m>
+    <z-m>-0.04</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<!-- B1 Hood animation open part 1 (open)-->
+ <animation>
+   <type>slider</type>
+   <object-name>b1_hood</object-name>
+   <property>an24/R-836/b1_hood_anim1</property>
+    <condition>
+     <!--equals>
+      <property>devices/status/keyboard/shift</property>
+      <value>1</value>
+     </equals-->
+     <equals>
+      <property>an24/R-836/b1_hood_anim2</property>
+      <value>0</value>
+     </equals>
+    </condition>
+   <interpolation>
+    <entry><ind>0.0</ind><dep> 0</dep></entry>
+    <entry><ind>0.35</ind><dep> 0</dep></entry>
+    <entry><ind>0.5</ind><dep>0.002</dep></entry>
+    <entry><ind>1.0</ind><dep>0.01</dep></entry>
+   </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_hood_anim1</property>
+      <factor>0.05</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+     <binding>
+      <command>nasal</command>
+    <condition>
+     <equals>
+     <property>an24/R-836/b1_hood_anim1</property>
+     <value>1</value>
+     </equals>
+    </condition>
+      <script>
+	interpolate("an24/R-836/b1_hood_anim1", 0.0, 0.2);
+	interpolate("an24/R-836/b1_hood_anim2", 0.2, 0.2, 1.0, 1.0);
+      </script>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>r836hoodb1</tooltip-id>
+      <label>Scroll to Open</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <property>an24/R-836/b1_hood_anim1</property>
+   <interpolation>
+    <entry><ind>0.0</ind><dep> 0</dep></entry>
+    <entry><ind>0.35</ind><dep> 0</dep></entry>
+    <entry><ind>0.5</ind><dep>0.002</dep></entry>
+    <entry><ind>1.0</ind><dep>0.01</dep></entry>
+   </interpolation>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_fixatorL</object-name>
+   <property>an24/R-836/b1_hood_anim1</property>
+   <factor>50</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+  <center>
+   <x-m>-0.1324</x-m>
+   <y-m>0.0649</y-m>
+   <z-m>0</z-m>
+  </center>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_fixatorR</object-name>
+   <property>an24/R-836/b1_hood_anim1</property>
+   <factor>50</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+  <center>
+   <x-m>-0.1324</x-m>
+   <y-m>-0.0679</y-m>
+   <z-m>0</z-m>
+  </center>
+ </animation>
+
+<!-- B1 Hood animation open part 2 (move) -->
+ <animation>
+  <type>translate</type>
+   <object-name>b1_hood</object-name>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <property>an24/R-836/b1_hood_anim2</property>
+   <factor>0.14</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+   <object-name>b1_hood</object-name>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <property>an24/R-836/b1_hood_anim2</property>
+   <factor>0.35</factor>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+   <object-name>b1_hood</object-name>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <property>an24/R-836/b1_hood_anim2</property>
+   <factor>0.575</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_hood</object-name>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <property>an24/R-836/b1_hood_anim2</property>
+   <factor>128</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_hood</object-name>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <property>an24/R-836/b1_hood_anim2</property>
+   <factor>27</factor>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- B1 Hood animation close -->
+<animation>
+  <type>pick</type>
+   <object-name>b1_hood</object-name>
+   <object-name>b1_fixatorL</object-name>
+   <object-name>b1_fixatorR</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+    <condition>
+     <equals>
+     <property>an24/R-836/b1_hood_anim2</property>
+     <value>1</value>
+     </equals>
+    </condition>
+      <script>
+	interpolate("an24/R-836/b1_hood_anim1", 0.0, 0.8, 1.0, 0.2);
+	interpolate("an24/R-836/b1_hood_anim2", 0.0, 1.0 );
+      </script>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>b1_knobA</object-name>
+  <object-name>b1_knobB</object-name>
+  <object-name>b1_knobV</object-name>
+  <object-name>b1_lockA</object-name>
+  <object-name>b1_lockB</object-name>
+  <object-name>b1_lockV</object-name>
+  <type>select</type>
+  <condition>
+   <not>
+   <equals>
+    <property>an24/R-836/b1_hood_anim2</property>
+    <value>0.0</value>
+   </equals>
+   </not>
+  </condition>
+ </animation>
+
+<!-- B2 Hood animation open part 1 (open)-->
+ <animation>
+   <type>slider</type>
+   <object-name>b2_hood</object-name>
+   <property>an24/R-836/b2_hood_anim1</property>
+    <condition>
+     <!--equals>
+      <property>devices/status/keyboard/shift</property>
+      <value>1</value>
+     </equals-->
+     <equals>
+      <property>an24/R-836/b2_hood_anim2</property>
+      <value>0</value>
+     </equals>
+    </condition>
+   <interpolation>
+    <entry><ind>0.0</ind><dep> 0</dep></entry>
+    <entry><ind>0.35</ind><dep> 0</dep></entry>
+    <entry><ind>0.5</ind><dep>0.002</dep></entry>
+    <entry><ind>1.0</ind><dep>0.01</dep></entry>
+   </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b2_hood_anim1</property>
+      <factor>0.05</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+     <binding>
+      <command>nasal</command>
+    <condition>
+     <equals>
+     <property>an24/R-836/b2_hood_anim1</property>
+     <value>1</value>
+     </equals>
+    </condition>
+      <script>
+	interpolate("an24/R-836/b2_hood_anim1", 0.0, 0.2);
+	interpolate("an24/R-836/b2_hood_anim2", 0.2, 0.2, 1.0, 1.0);
+      </script>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>r836hoodb2</tooltip-id>
+      <label>Scroll to Open</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <property>an24/R-836/b2_hood_anim1</property>
+   <interpolation>
+    <entry><ind>0.0</ind><dep> 0</dep></entry>
+    <entry><ind>0.35</ind><dep> 0</dep></entry>
+    <entry><ind>0.5</ind><dep>0.002</dep></entry>
+    <entry><ind>1.0</ind><dep>0.01</dep></entry>
+   </interpolation>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b2_fixatorL</object-name>
+   <property>an24/R-836/b2_hood_anim1</property>
+   <factor>50</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+  <center>
+   <x-m>-0.1324</x-m>
+   <y-m>0.0649</y-m>
+   <z-m>0</z-m>
+  </center>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b2_fixatorR</object-name>
+   <property>an24/R-836/b2_hood_anim1</property>
+   <factor>50</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+  <center>
+   <x-m>-0.1324</x-m>
+   <y-m>-0.0679</y-m>
+   <z-m>0</z-m>
+  </center>
+ </animation>
+
+<!-- B2 Hood animation open part 2 (move)-->
+ <animation>
+  <type>translate</type>
+   <object-name>b2_hood</object-name>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <property>an24/R-836/b2_hood_anim2</property>
+   <factor>0.32</factor>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+   <object-name>b2_hood</object-name>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <property>an24/R-836/b2_hood_anim2</property>
+   <factor>0.45</factor>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+   <object-name>b2_hood</object-name>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <property>an24/R-836/b2_hood_anim2</property>
+   <factor>0.78</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b2_hood</object-name>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <property>an24/R-836/b2_hood_anim2</property>
+   <factor>92</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+ <animation>
+   <type>rotate</type>
+   <object-name>b2_hood</object-name>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <property>an24/R-836/b2_hood_anim2</property>
+   <factor>1</factor>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- B2 Hood animation close -->
+<animation>
+  <type>pick</type>
+   <object-name>b2_hood</object-name>
+   <object-name>b2_fixatorL</object-name>
+   <object-name>b2_fixatorR</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+    <condition>
+     <equals>
+     <property>an24/R-836/b2_hood_anim2</property>
+     <value>1</value>
+     </equals>
+    </condition>
+      <script>
+	interpolate("an24/R-836/b2_hood_anim1", 0.0, 0.8, 1.0, 0.2);
+	interpolate("an24/R-836/b2_hood_anim2", 0.0, 1.0 );
+      </script>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>b2_knobG</object-name>
+  <object-name>b2_knobD</object-name>
+  <object-name>b2_knobE</object-name>
+  <object-name>b2_lockG</object-name>
+  <object-name>b2_lockD</object-name>
+  <object-name>b2_lockE</object-name>
+  <type>select</type>
+  <condition>
+   <not>
+   <equals>
+    <property>an24/R-836/b2_hood_anim2</property>
+    <value>0.0</value>
+   </equals>
+   </not>
+  </condition>
+ </animation>
+
+<!--********** Knobs B1 **********-->
+<!-- Knob A -->
+ <animation>
+   <type>knob</type>
+   <object-name>b1_knobA</object-name>
+   <property>an24/R-836/b1_A</property>
+    <condition>
+     <property>an24/R-836/b1_lockA</property>
+    </condition>
+    <condition>
+     <property>an24/R-836/b1_anim</property>
+    </condition>
+    <interpolation>
+     <entry>
+      <ind>0.35</ind> <dep>0.0</dep>
+     </entry>
+     <entry>
+      <ind>2.00</ind> <dep>355.995</dep>
+     </entry>
+    </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.08849</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_A</property>
+      <factor>-0.01</factor>
+      <min>0.35</min>
+      <max>2.001</max>                
+      <wrap>true</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b1_lockA</object-name>
+     <!--condition>
+       <property>devices/status/keyboard/shift</property>
+     </condition-->
+   <property>an24/R-836/b1_lockA</property>
+   <factor>52</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.08849</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_lockA</property>
+      <factor>1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_lockA</object-name>
+   <property>an24/R-836/b1_knob_A</property>
+   <factor>1.8</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.08849</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- Knob B -->
+ <animation>
+   <type>knob</type>
+   <object-name>b1_knobB</object-name>
+    <condition>
+     <property>an24/R-836/b1_lockB</property>
+    </condition>
+    <condition>
+     <property>an24/R-836/b1_anim</property>
+    </condition>
+    <property>an24/R-836/b1_knob_B</property>
+    <interpolation>
+      <entry><ind>	0</ind>	<dep>	0</dep></entry>
+      <entry><ind>	1</ind>	<dep>	0</dep></entry>
+      <entry><ind>	2</ind>	<dep>	10</dep></entry>
+      <entry><ind>	3</ind>	<dep>	20</dep></entry>
+      <entry><ind>	4</ind>	<dep>	30</dep></entry>
+      <entry><ind>	5</ind>	<dep>	40</dep></entry>
+      <entry><ind>	6</ind>	<dep>	50</dep></entry>
+      <entry><ind>	7</ind>	<dep>	60</dep></entry>
+      <entry><ind>	8</ind>	<dep>	70</dep></entry>
+      <entry><ind>	8.5</ind>	<dep>	75</dep></entry>
+
+      <entry><ind>	9</ind>	<dep>	90</dep></entry>
+      <entry><ind>	10</ind>	<dep>	100</dep></entry>
+      <entry><ind>	11</ind>	<dep>	110</dep></entry>
+      <entry><ind>	12</ind>	<dep>	120</dep></entry>
+      <entry><ind>	13</ind>	<dep>	130</dep></entry>
+      <entry><ind>	14</ind>	<dep>	140</dep></entry>
+      <entry><ind>	15</ind>	<dep>	150</dep></entry>
+      <entry><ind>	16</ind>	<dep>	160</dep></entry>
+      <entry><ind>	16.5</ind>	<dep>	165</dep></entry>
+
+      <entry><ind>	17</ind>	<dep>	180</dep></entry>
+      <entry><ind>	18</ind>	<dep>	190</dep></entry>
+      <entry><ind>	19</ind>	<dep>	200</dep></entry>
+      <entry><ind>	20</ind>	<dep>	210</dep></entry>
+      <entry><ind>	21</ind>	<dep>	220</dep></entry>
+      <entry><ind>	22</ind>	<dep>	230</dep></entry>
+      <entry><ind>	23</ind>	<dep>	240</dep></entry>
+      <entry><ind>	24</ind>	<dep>	250</dep></entry>
+      <entry><ind>	24.5</ind>	<dep>	255</dep></entry>
+
+      <entry><ind>	25</ind>	<dep>	270</dep></entry>
+      <entry><ind>	26</ind>	<dep>	280</dep></entry>
+      <entry><ind>	27</ind>	<dep>	290</dep></entry>
+      <entry><ind>	28</ind>	<dep>	300</dep></entry>
+      <entry><ind>	29</ind>	<dep>	310</dep></entry>
+      <entry><ind>	30</ind>	<dep>	320</dep></entry>
+      <entry><ind>	31</ind>	<dep>	330</dep></entry>
+      <entry><ind>	32</ind>	<dep>	340</dep></entry>
+      <entry><ind>	32.5</ind>	<dep>	345</dep></entry>
+    </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_knob_B</property>
+      <factor>-0.5</factor>
+      <min>1</min>
+      <max>33</max>                
+      <wrap>true</wrap>
+     </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	interpolate("an24/R-836/adjust-in-progress", 1.0, 0.2, 0.0, 5.0);
+       </script>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b1_lockB</object-name>
+     <!--condition>
+       <property>devices/status/keyboard/shift</property>
+     </condition-->
+   <property>an24/R-836/b1_lockB</property>
+   <factor>52</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_lockB</property>
+      <factor>1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_lockB</object-name>
+   <property>an24/R-836/b1_knob_B</property>
+    <interpolation>
+      <entry><ind>	0</ind>	<dep>	0</dep></entry>
+      <entry><ind>	1</ind>	<dep>	0</dep></entry>
+      <entry><ind>	2</ind>	<dep>	10</dep></entry>
+      <entry><ind>	3</ind>	<dep>	20</dep></entry>
+      <entry><ind>	4</ind>	<dep>	30</dep></entry>
+      <entry><ind>	5</ind>	<dep>	40</dep></entry>
+      <entry><ind>	6</ind>	<dep>	50</dep></entry>
+      <entry><ind>	7</ind>	<dep>	60</dep></entry>
+      <entry><ind>	8</ind>	<dep>	70</dep></entry>
+      <entry><ind>	8.5</ind>	<dep>	75</dep></entry>
+
+      <entry><ind>	9</ind>	<dep>	90</dep></entry>
+      <entry><ind>	10</ind>	<dep>	100</dep></entry>
+      <entry><ind>	11</ind>	<dep>	110</dep></entry>
+      <entry><ind>	12</ind>	<dep>	120</dep></entry>
+      <entry><ind>	13</ind>	<dep>	130</dep></entry>
+      <entry><ind>	14</ind>	<dep>	140</dep></entry>
+      <entry><ind>	15</ind>	<dep>	150</dep></entry>
+      <entry><ind>	16</ind>	<dep>	160</dep></entry>
+      <entry><ind>	16.5</ind>	<dep>	165</dep></entry>
+
+      <entry><ind>	17</ind>	<dep>	180</dep></entry>
+      <entry><ind>	18</ind>	<dep>	190</dep></entry>
+      <entry><ind>	19</ind>	<dep>	200</dep></entry>
+      <entry><ind>	20</ind>	<dep>	210</dep></entry>
+      <entry><ind>	21</ind>	<dep>	220</dep></entry>
+      <entry><ind>	22</ind>	<dep>	230</dep></entry>
+      <entry><ind>	23</ind>	<dep>	240</dep></entry>
+      <entry><ind>	24</ind>	<dep>	250</dep></entry>
+      <entry><ind>	24.5</ind>	<dep>	255</dep></entry>
+
+      <entry><ind>	25</ind>	<dep>	270</dep></entry>
+      <entry><ind>	26</ind>	<dep>	280</dep></entry>
+      <entry><ind>	27</ind>	<dep>	290</dep></entry>
+      <entry><ind>	28</ind>	<dep>	300</dep></entry>
+      <entry><ind>	29</ind>	<dep>	310</dep></entry>
+      <entry><ind>	30</ind>	<dep>	320</dep></entry>
+      <entry><ind>	31</ind>	<dep>	330</dep></entry>
+      <entry><ind>	32</ind>	<dep>	340</dep></entry>
+      <entry><ind>	32.5</ind>	<dep>	345</dep></entry>
+    </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+
+<!-- Knob V -->
+ <animation>
+   <type>knob</type>
+   <object-name>b1_knobC</object-name>
+   <property>an24/R-836/b1_knob_C</property>
+    <condition>
+     <property>an24/R-836/b1_lockC</property>
+    </condition>
+    <condition>
+     <property>an24/R-836/b1_anim</property>
+    </condition>
+   <factor>3.6</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.09494</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_knob_C</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>100</max>                
+      <wrap>true</wrap>
+     </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	interpolate("an24/R-836/adjust-in-progress", 1.0, 0.2, 0.0, 5.0);
+       </script>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b1_lockC</object-name>
+     <!--condition>
+       <property>devices/status/keyboard/shift</property>
+     </condition-->
+   <property>an24/R-836/b1_lockC</property>
+   <factor>52</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.09494</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b1_lockC</property>
+      <factor>1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b1_lockC</object-name>
+   <property>an24/R-836/b1_knob_C</property>
+   <factor>3.6</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.09494</y-m>
+   <z-m>-0.06729</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+<!--********** Knobs B2 **********-->
+<!-- Knob D -->
+ <animation>
+   <type>knob</type>
+   <object-name>b2_knobD</object-name>
+   <property>an24/R-836/b2_knob_D</property>
+    <condition>
+     <property>an24/R-836/b2_lockD</property>
+    </condition>
+    <condition>
+     <property>an24/R-836/b2_anim</property>
+    </condition>
+   <factor>30</factor>
+   <offset-deg>-30</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.08486</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b2_knob_D</property>
+      <factor>-1</factor>
+      <min>1</min>
+      <max>13</max>                
+      <wrap>true</wrap>
+     </binding>
+    <binding>
+      <command>nasal</command>
+      <script>
+	var d01 = ["1", "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d01", d01[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d02 = ["1", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d02", d02[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d03 = ["1", "1", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d03", d03[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d04 = ["1", "1", "0", "0", "0", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d04", d04[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d05 = ["1", "0", "1", "1", "1", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d05", d05[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d06 = ["1", "0", "1", "1", "0", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d06", d06[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d07 = ["1", "0", "0", "1", "1", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d07", d07[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d08 = ["1", "0", "0", "1", "0", "1", "1", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d08", d08[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d09 = ["1", "0", "0", "1", "0", "1", "0", "1", "0", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d09", d09[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d10 = ["1", "0", "0", "1", "0", "1", "0", "1", "1", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d10", d10[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d11 = ["0", "0", "1", "1", "1", "1", "0", "1", "1", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d11", d11[getprop("/an24/R-836/b2_knob_D")] );
+#
+	var d12 = ["0", "0", "0", "1", "1", "1", "0", "1", "1", "0", "0", "0"];
+	setprop("/an24/R-836/b2_d12", d12[getprop("/an24/R-836/b2_knob_D")] );
+      </script>
+    </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	interpolate("an24/R-836/adjust-in-progress", 1.0, 0.2, 0.0, 5.0);
+       </script>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b2_lockD</object-name>
+     <!--condition>
+       <property>devices/status/keyboard/shift</property>
+     </condition-->
+   <property>an24/R-836/b2_lockD</property>
+   <factor>52</factor>
+   <offset-deg>30</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.08486</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b2_lockD</property>
+      <factor>1</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>b2_lockD</object-name>
+   <property>an24/R-836/b2_knob_D</property>
+   <factor>30</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.08486</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+<!--********** Knobs B3 **********-->
+ <animation>
+   <type>knob</type>
+   <object-name>b3_knobA</object-name>
+   <property>an24/R-836/b3_knob_A</property>
+   <factor>-30</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.26044</y-m>
+   <z-m>0.06953</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b3_knob_A</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>9</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b3_knobB</object-name>
+   <property>an24/R-836/b3_knob_B</property>
+   <factor>-70</factor>
+   <offset-deg>35</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.26044</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b3_knob_B</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>b3_knobC</object-name>
+   <property>an24/R-836/b3_knob_C</property>
+   <factor>20</factor>
+   <offset-deg>-20</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.26044</y-m>
+   <z-m>-0.07088</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/R-836/b3_knob_C</property>
+      <factor>-1</factor>
+      <min>1</min>
+      <max>19</max>                
+      <wrap>true</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">R-836 Radio</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.06</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.16</max-height>
+    <max-width>0.16</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  -0.2 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+        <heading-deg>180</heading-deg>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

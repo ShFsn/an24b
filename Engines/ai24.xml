@@ -25,15 +25,20 @@ itt_delay [-] time constant for ITT change
     (ITT = Inter Turbine Temperature)
 -->
 
+<!-- AI-24, 2nd series -->
 <turboprop_engine name="AI24">
   <milthrust unit="LBS">       6500.0   </milthrust> <!-- 5712 -->
   <idlen1>                       90.0   </idlen1>
+  <idlen2>                       90.0   </idlen2>
   <maxn1>                       100.0   </maxn1>
+  <maxn2>                       100.0   </maxn2>
   <maxpower unit="HP">         2550.0   </maxpower>
-  <psfc unit="LBS/HR/HP">         0.632 </psfc>
+  <!-- http://www.ivchenko-progress.com/?portfolio=ai-24&lang=en -->
+  <psfc unit="LBS/HR/HP">         0.566 </psfc> <!-- take-off, ISA -->
+  <!-- psfc unit="LBS/HR/HP">         0.502 </psfc> cruise @6km, Mach 0.44 -->
   <n1idle_max_delay>              1     </n1idle_max_delay>
   <maxstartingtime>               0     </maxstartingtime>
-  <startern1>                    90     </startern1>
+  <startern1>                    24     </startern1><!-- 48% -->
   <ielumaxtorque unit="FT*LB">    0     </ielumaxtorque>
   <itt_delay>                     0.05  </itt_delay>
   <betarangeend>                 64     </betarangeend>
@@ -83,7 +88,7 @@ itt_delay [-] time constant for ITT change
     <tableData>
             0   5    90   91.2   92.2  93.4  94.1  95.2  96.5  100
          0  0   0.5  0.5   0.5    0.5   0.5   0.5   0.5   0.5  0.5
-       200  0   0.1  253   326    747  1212  1410  1721  2019  2550
+       100  0   0.1  253   326    747  1212  1410  1721  2019  2550
     </tableData>
   </table>
 

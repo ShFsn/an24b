@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!-- Pilots' Unit of RPSN, Block 4P-->
+<PropertyList>
+ <path>block4p.ac</path>
+
+ <effect>
+  <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
+   <object-name>bracket</object-name>
+ </effect>
+
+ <animation>
+   <type>slider</type>
+   <object-name>turnhere</object-name>
+   <visible>true</visible>
+  <drag-direction>left-right</drag-direction>
+   <action>
+     <binding>
+       <command>property-adjust</command>
+       <property>an24/animations/RPSN/rotate</property>
+       <factor>-0.05</factor>
+       <min>-1</min>
+       <max>1</max>
+       <wrap>false</wrap>
+     </binding>
+   </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>turnhere</object-name>
+   <object-name>block4pcase</object-name>
+   <object-name>block4pfrontback</object-name>
+   <object-name>screens</object-name>
+   <object-name>therest</object-name>
+   <object-name>knobs</object-name>
+   <property>an24/animations/RPSN/rotate</property>
+   <factor>20</factor>
+  <center>
+    <x-m>0.0203</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+   <axis>
+     <x>0</x>
+     <y>0</y>
+     <z>1</z>
+   </axis>
+ </animation>
+
+</PropertyList>

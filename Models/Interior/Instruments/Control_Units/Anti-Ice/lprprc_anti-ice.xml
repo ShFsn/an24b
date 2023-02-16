@@ -12,7 +12,7 @@
     <pitch-deg>-25</pitch-deg>
     <x-m>2.122</x-m>
     <y-m>-0.8121</y-m>
-    <z-m>0.626</z-m>
+    <z-m>0.636</z-m>
   </offsets>
 </model>
 
@@ -22,19 +22,7 @@
     <pitch-deg>-25</pitch-deg>
     <x-m>2.123</x-m>
     <y-m>-0.7865</y-m>
-    <z-m>0.627</z-m>
-  </offsets>
-</model>
-
-<!-- Right panel, bottom -->
-
-<model>
- <path>rp_lightplate.xml</path>
-  <offsets>
-    <pitch-deg>-20</pitch-deg>
-    <x-m>2.1335</x-m>
-    <y-m>0.7525</y-m>
-    <z-m>0.6631</z-m>
+    <z-m>0.637</z-m>
   </offsets>
 </model>
 
@@ -45,7 +33,7 @@
   <offsets>
     <x-m>2.098</x-m>
     <y-m>0.65</y-m>
-    <z-m>0.77</z-m>
+    <z-m>0.78</z-m>
     <pitch-deg>90</pitch-deg>
   </offsets>
 </model>
@@ -55,7 +43,7 @@
   <offsets>
     <x-m>2.0965</x-m>
     <y-m>0.6741</y-m>
-    <z-m>0.7313</z-m>
+    <z-m>0.7413</z-m>
   </offsets>
 </model>
 
@@ -64,7 +52,7 @@
   <offsets>
     <x-m>2.0965</x-m>
     <y-m>0.7082</y-m>
-    <z-m>0.7191</z-m>
+    <z-m>0.7291</z-m>
   </offsets>
 </model>
 
@@ -73,10 +61,9 @@
   <offsets>
     <x-m>2.0965</x-m>
     <y-m>0.7401</y-m>
-    <z-m>0.7191</z-m>
+    <z-m>0.7291</z-m>
   </offsets>
 </model>
-
 
 <!-- 3 Ice signalisation lamps, red -->
 
@@ -85,7 +72,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.737</y-m>
-    <z-m>0.75</z-m>
+    <z-m>0.76</z-m>
   </offsets>
 </model>
 
@@ -94,7 +81,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.758</y-m>
-    <z-m>0.75</z-m>
+    <z-m>0.76</z-m>
   </offsets>
 </model>
 
@@ -103,7 +90,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.779</y-m>
-    <z-m>0.75</z-m>
+    <z-m>0.76</z-m>
   </offsets>
 </model>
 
@@ -114,7 +101,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.771</y-m>
-    <z-m>0.725</z-m>
+    <z-m>0.735</z-m>
   </offsets>
 </model>
 
@@ -123,7 +110,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.792</y-m>
-    <z-m>0.725</z-m>
+    <z-m>0.735</z-m>
   </offsets>
 </model>
 
@@ -132,7 +119,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.813</y-m>
-    <z-m>0.725</z-m>
+    <z-m>0.735</z-m>
   </offsets>
 </model>
 
@@ -141,7 +128,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.834</y-m>
-    <z-m>0.725</z-m>
+    <z-m>0.735</z-m>
   </offsets>
 </model>
 
@@ -150,7 +137,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.856</y-m>
-    <z-m>0.725</z-m>
+    <z-m>0.735</z-m>
   </offsets>
 </model>
 
@@ -159,7 +146,7 @@
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.877</y-m>
-    <z-m>0.725</z-m>
+    <z-m>0.735</z-m>
   </offsets>
 </model>
 
@@ -171,7 +158,7 @@
     <roll-deg>-90</roll-deg>
     <x-m>2.122</x-m>
     <y-m>0.8072</y-m>
-    <z-m>0.6773</z-m>
+    <z-m>0.6873</z-m>
   </offsets>
 </model>
 
@@ -181,7 +168,7 @@
     <pitch-deg>-20</pitch-deg>
     <x-m>2.138</x-m>
     <y-m>0.7128</y-m>
-    <z-m>0.635</z-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
 
@@ -191,7 +178,7 @@
     <pitch-deg>-20</pitch-deg>
     <x-m>2.138</x-m>
     <y-m>0.7322</y-m>
-    <z-m>0.635</z-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
 
@@ -200,8 +187,8 @@
   <offsets>
     <pitch-deg>-20</pitch-deg>
     <x-m>2.138</x-m>
-    <y-m>0.778</y-m>
-    <z-m>0.635</z-m>
+    <y-m>0.776</y-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
 
@@ -211,7 +198,7 @@
     <pitch-deg>-20</pitch-deg>
     <x-m>2.138</x-m>
     <y-m>0.8039</y-m>
-    <z-m>0.635</z-m>
+    <z-m>0.645</z-m>
   </offsets>
 </model>
 
@@ -219,9 +206,19 @@
  <path>rp_sw08_prop-heat.xml</path>
   <offsets>
     <pitch-deg>-20</pitch-deg>
-    <x-m>2.133</x-m>
+    <x-m>2.14</x-m>
     <y-m>0.8521</y-m>
-    <z-m>0.632</z-m>
+    <z-m>0.6475</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>rp_sw08_prop-heat-lock.xml</path>
+  <offsets>
+    <pitch-deg>-20</pitch-deg>
+    <x-m>2.142</x-m>
+    <y-m>0.852</y-m>
+    <z-m>0.648</z-m>
   </offsets>
 </model>
 
@@ -232,7 +229,7 @@
   <offsets>
     <x-m>2.238</x-m>
     <y-m>0.94</y-m>
-    <z-m>0.7275</z-m>
+    <z-m>0.7475</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>

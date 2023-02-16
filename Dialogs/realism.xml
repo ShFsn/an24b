@@ -9,7 +9,7 @@
   <group>
     <layout>hbox</layout>
     <text>
-      <label>Realism settings</label>
+      <label>Little helpers</label>
     </text>
 
     <empty>
@@ -40,7 +40,34 @@
   
     <checkbox>
       <halign>left</halign>
-      <label>Enable tiller steering</label>
+      <label>Show DME</label>
+      <property>fdm/jsbsim/fcs/realism/dme-enabled</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </checkbox>
+
+    <text>
+      <label>-Show slant range from VORDME/ILS/SP-50 though</label>
+    </text>
+    <text>
+      <label> there is no DME equipment on board</label>
+    </text>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <stretch>true</stretch>
+    <layout>vbox</layout>
+    <halign>left</halign>
+    <valign>top</valign>
+    <padding>5</padding>
+    <pref-width>600</pref-width>
+  
+    <checkbox>
+      <halign>left</halign>
+      <label>Tiller Steering</label>
       <property>/fdm/jsbsim/fcs/realism/tiller-enabled</property>
       <binding>
         <command>dialog-apply</command>
@@ -48,14 +75,69 @@
     </checkbox>
 
     <text>
-      <label>   - When steering mode is set to taxing, nosewheel</label>
+      <label>- When steering mode is set to taxiing, nosewheel</label>
     </text>
     <text>
-      <label>     will be steerable only from tiller, not pedals.</label>
+      <label> will be steerable only from tiller, not pedals</label>
+    </text>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <stretch>true</stretch>
+    <layout>vbox</layout>
+    <halign>left</halign>
+    <valign>top</valign>
+    <padding>5</padding>
+    <pref-width>600</pref-width>
+  
+    <checkbox>
+      <halign>left</halign>
+      <label>Disable ILS/SP-50 Offset</label>
+      <property>/fdm/jsbsim/fcs/realism/disable_sp-50_offset</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </checkbox>
+
+    <text>
+      <label>- Disable ILS/SP-50 phase offset</label>
+    </text>
+    <text>
+      <label> (no need to calibrate)</label>
     </text>
 
   </group>
 
   <hrule/>
+
+  <group>
+    <stretch>true</stretch>
+    <layout>vbox</layout>
+    <halign>left</halign>
+    <valign>top</valign>
+    <padding>5</padding>
+    <pref-width>600</pref-width>
+  
+    <checkbox>
+      <halign>left</halign>
+      <label>Show Navigation Instruments</label>
+      <property>sim/panel-hotspots_nav</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </checkbox>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Show Air Condition Instruments</label>
+      <property>sim/panel-hotspots_cond</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </checkbox>
+
+  </group>
 
 </PropertyList>

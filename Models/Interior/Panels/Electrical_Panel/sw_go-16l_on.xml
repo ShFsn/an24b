@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!-- Left main GO-16 generator ON (contactor 958) -->
+<PropertyList>
+ <path>../../shared/switches/png-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_go16l", 1.0, 0.1 );
+	sound.click("azr", 3.9, 0.55, 0.65);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>go16lon</tooltip-id>
+      <label>Main Generator
+    GO-16 ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_go16l", 0.0, 0.1 );
+	setprop("an24/Electrical_Panel/add_go16l", 0 );
+	sound.click("azr", 3.9, 0.55, 0.65);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>go16loff</tooltip-id>
+      <label>Main Generator
+    GO-16 OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Electrical_Panel/sw_go16l</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

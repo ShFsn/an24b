@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<!-- Voltage regulation of left (main) GO-16 AC-Generator (appr. +- 7V) -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/vs-33.ac</path>
+
+ <animation>
+   <type>knob</type>
+   <object-name>11p1n</object-name>
+   <property>an24/Electrical_Panel/go-16l_voltreg</property>
+  <interpolation>
+    <entry><ind>0.945</ind>	<dep>160.0</dep></entry>
+    <entry><ind>1.062</ind>	<dep>-160.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Electrical_Panel/go-16l_voltreg</property>
+      <factor>-0.002</factor>
+      <min>0.945</min><!-- -7V -->
+      <max>1.062</max><!-- +7V -->
+      <wrap>false</wrap>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>go16regl</tooltip-id>
+      <label>Regulate GO-16
+      Voltage</label>
+    </binding>
+   </hovered>
+ </animation>
+
+</PropertyList>

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<!-- SRO-2 block 8k (control panel), part of "Device 020" within the "Kremniye" identification system;
+emergency and "friend-foe" identification radar -->
+
+<PropertyList>
+ <path>sro-2_controlpanel.ac</path>
+
+<model>
+ <path>sl01_power_check.xml</path>
+  <offsets>
+    <x-m>-0.0408</x-m>
+    <y-m>-0.0176</y-m>
+    <z-m>0.003</z-m>
+    <pitch-deg>-90.0</pitch-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>sl02_code_on.xml</path>
+  <offsets>
+    <x-m>-0.0408</x-m>
+    <y-m>0.0047</y-m>
+    <z-m>0.003</z-m>
+    <pitch-deg>-90.0</pitch-deg>
+  </offsets>
+</model>
+
+ <animation>
+   <type>knob</type>
+   <object-name>code_knob</object-name>
+   <property>an24/SRO-2/code_nr</property>
+   <factor>30.0</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+  <center>
+    <x-m>-0.00565</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/SRO-2/code_nr</property>
+      <factor>-1.0</factor>
+      <min>1</min>
+      <max>12</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+ </animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>code_disk</object-name>
+   <property>an24/SRO-2/code_nr</property>
+   <factor>30.0</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+  <center>
+    <x-m>-0.00565</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+</animation>
+
+<!-- TEXT OSG -->
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <heading-deg>90</heading-deg>
+    <type type="string">literal</type>
+    <text type="string">SRO-2 Identifier</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>xy-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.0 </x-m>
+      <y-m>  0.0 </y-m>
+      <z-m>  0.03 </z-m>
+    </offsets>
+  </text>
+
+</PropertyList>

@@ -1,0 +1,1018 @@
+<PropertyList>
+
+<!-- Overhead panel with warning and signaling lights, extinguishing and feathering options in case of engine fire/failure -->
+
+  <path>fireandfeather.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>lightplate</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.9</green>
+   <blue>0.5</blue>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+  </emission>
+ </animation>
+
+<!-- For future use (bluish cockpit layout) -->
+
+ <!--animation>
+   <type>material</type>
+   <object-name>fandfplate</object-name>
+  <object-name>fandfbox</object-name>
+    <condition>
+    <equals>
+    <property>an24/Electrical_Panel/sw_pt-1000</property>
+    <value>1.0</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>0.345</red>
+     <green>0.427</green>
+     <blue>0.967</blue>
+   </diffuse>
+   <ambient>
+     <red>0.345</red>
+     <green>0.427</green>
+     <blue>0.967</blue>
+   </ambient>
+   <emission>
+     <red>0.0</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>0.345</red>
+     <green>0.427</green>
+     <blue>0.967</blue>
+   </specular>
+ </animation-->
+
+ <effect>
+  <inherits-from>Effects/model-transparent</inherits-from>
+  <object-name>featherplexi</object-name>
+  <object-name>autofeatherplexi</object-name>
+ </effect>
+
+<!-- ************ Feathering section ***********
+an24/FireFeather/blade-min-angle_[n]
+0 =  8deg
+1 = 19deg
+2 = 50deg ("partial feathering test", real value not known yet)
+3 = 92.5deg -->
+<model>
+ <path>feather_sw_autobyikm_l.xml</path>
+  <offsets>
+    <x-m>-0.009</x-m>
+    <y-m>-0.2707</y-m>
+    <z-m>-0.0333</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_sw_autobyikm_r.xml</path>
+  <offsets>
+    <x-m>-0.009</x-m>
+    <y-m>-0.2313</y-m>
+    <z-m>-0.0333</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_sw_autobythrust_l.xml</path>
+  <offsets>
+    <x-m>-0.009</x-m>
+    <y-m>-0.2002</y-m>
+    <z-m>-0.0333</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_sw_autobythrust_r.xml</path>
+  <offsets>
+    <x-m>-0.009</x-m>
+    <y-m>-0.1757</y-m>
+    <z-m>-0.0333</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_wl01_back_to_op_l.xml</path>
+  <offsets>
+    <x-m>-0.0137</x-m>
+    <y-m>-0.0939</y-m>
+    <z-m>0.0477</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_wl02_back_to_op_r.xml</path>
+  <offsets>
+    <x-m>-0.0137</x-m>
+    <y-m>-0.0531</y-m>
+    <z-m>0.0477</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_wl03_auto_armed_l.xml</path>
+  <offsets>
+    <x-m>-0.0137</x-m>
+    <y-m>-0.0939</y-m>
+    <z-m>0.0163</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_wl04_auto_armed_r.xml</path>
+  <offsets>
+    <x-m>-0.0137</x-m>
+    <y-m>-0.0531</y-m>
+    <z-m>0.0163</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_wl05_featheredortest_l.xml</path>
+  <offsets>
+    <x-m>-0.0137</x-m>
+    <y-m>-0.0939</y-m>
+    <z-m>-0.015</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>feather_wl06_featheredortest_r.xml</path>
+  <offsets>
+    <x-m>-0.0137</x-m>
+    <y-m>-0.0531</y-m>
+    <z-m>-0.015</z-m>
+  </offsets>
+</model>
+
+<!--************ Feathering section ***********-->
+<animation>
+  <type>pick</type>
+  <object-name>autofeatherplexi</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/FireFeather/plexihood" ) == 1.0 ){
+        interpolate("an24/FireFeather/plexihood", 0.0, 0.5 );
+        }
+        else {
+        interpolate("an24/FireFeather/plexihood", 1.0, 0.5 );
+        }
+      </script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>autofeatherplexi</object-name>
+  <property>an24/FireFeather/plexihood</property>
+  <factor>85.0</factor>
+  <center>
+    <x-m>-0.006</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.066</z-m>    
+  </center>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>    
+  </axis>
+</animation>
+
+
+<!-- Feathering button KFL-37 left -->
+<animation>
+  <type>pick</type>
+  <object-name>kfl-37l</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+	if (getprop("an24/FireFeather/feather-by-kfl_l") == 0.0 ) {
+		setprop("an24/FireFeather/feather-by-kfl_l", 1.0 );
+		interpolate("fdm/jsbsim/propulsion/engine[0]/blade-angle", 92.5, 3.0 );
+		interpolate("an24/FireFeather/btn_feather-by-kfl_l", 1.0, 0.3 );
+		}
+		else {
+		setprop("an24/FireFeather/feather-by-kfl_l", 0.0 );
+		interpolate("an24/FireFeather/btn_feather-by-kfl_l", 0.0, 0.3 );
+		}
+      </script>
+     </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>kfl-37l</object-name>
+  <object-name>kfl-37lbulb</object-name>
+  <property>an24/FireFeather/btn_feather-by-kfl_l</property>
+  <factor>0.015</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+</animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>kfl-37l</object-name>
+    <condition>
+    <equals>
+    <property>an24/FireFeather/feather-by-kfl_l</property>
+    <value>1</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.13</green>
+     <blue>0.13</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.13</green>
+     <blue>0.13</blue>
+   </ambient>
+   <emission>
+     <red>0.4</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>0.13</green>
+     <blue>0.13</blue>
+   </specular>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>kfl-37lbulb</object-name>
+    <condition>
+    <equals>
+    <property>an24/FireFeather/feather-by-kfl_l</property>
+    <value>1</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.46</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </ambient>
+   <emission>
+     <red>0.4</red>
+     <green>0.2</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </specular>
+ </animation>
+
+<!-- Feathering button KFL-37 right -->
+<animation>
+  <type>pick</type>
+  <object-name>kfl-37r</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+	if (getprop("an24/FireFeather/feather-by-kfl_r") == 0.0 ) {
+		setprop("an24/FireFeather/feather-by-kfl_r", 1.0 );
+		interpolate("fdm/jsbsim/propulsion/engine[1]/blade-angle", 92.5, 3.0 );
+		interpolate("an24/FireFeather/btn_feather-by-kfl_r", 1.0, 0.3 );
+		}
+		else {
+		setprop("an24/FireFeather/feather-by-kfl_r", 0.0 );
+		interpolate("an24/FireFeather/btn_feather-by-kfl_r", 0.0, 0.3 );
+		}
+      </script>
+     </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>kfl-37r</object-name>
+  <object-name>kfl-37rbulb</object-name>
+  <property>an24/FireFeather/btn_feather-by-kfl_r</property>
+  <factor>0.015</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+</animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>kfl-37r</object-name>
+    <condition>
+    <equals>
+    <property>an24/FireFeather/feather-by-kfl_r</property>
+    <value>1</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.13</green>
+     <blue>0.13</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.13</green>
+     <blue>0.13</blue>
+   </ambient>
+   <emission>
+     <red>0.4</red>
+     <green>0.0</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>0.13</green>
+     <blue>0.13</blue>
+   </specular>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>kfl-37rbulb</object-name>
+    <condition>
+    <equals>
+    <property>an24/FireFeather/feather-by-kfl_r</property>
+    <value>1</value>
+    </equals>
+    </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.46</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </ambient>
+   <emission>
+     <red>0.4</red>
+     <green>0.2</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </specular>
+ </animation>
+
+<!-- Partial feathering test knob left -->
+<animation>
+  <type>pick</type>
+  <object-name>partial_featherL</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+        if ( getprop("an24/FireFeather/feather-by-kfl_l" ) != 1 ) {
+		setprop("an24/FireFeather/feather-by-test_l", 1 );
+	        interpolate("fdm/jsbsim/propulsion/engine[0]/blade-angle", 50.0, 5.0 );
+ 	       }
+        interpolate("an24/FireFeather/btn_feather-by-test_l", 1.0, 0.1 );
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+	setprop("an24/FireFeather/feather-by-test_l", 0 );
+        interpolate("an24/FireFeather/btn_feather-by-test_l", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>partial_featherL</object-name>
+  <property>an24/FireFeather/btn_feather-by-test_l</property>
+  <factor>0.003</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+</animation>
+
+<!-- Partial feathering test knob right -->
+<animation>
+  <type>pick</type>
+  <object-name>partial_featherR</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+        if ( getprop("an24/FireFeather/feather-by-kfl_r" ) != 1 ) {
+		setprop("an24/FireFeather/feather-by-test_r", 1 );
+	        interpolate("fdm/jsbsim/propulsion/engine[1]/blade-angle", 50.0, 5.0 );
+ 	       }
+        interpolate("an24/FireFeather/btn_feather-by-test_r", 1.0, 0.1 );
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+	setprop("an24/FireFeather/feather-by-test_r", 0 );
+        interpolate("an24/FireFeather/btn_feather-by-test_r", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>partial_featherR</object-name>
+  <property>an24/FireFeather/btn_feather-by-test_r</property>
+  <factor>0.003</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+</animation>
+
+<!-- ************ Fire section *********** -->
+
+<!-- Main switch + switch lock -->
+<model>
+ <path>fire_sw_main.xml</path>
+  <offsets>
+    <x-m>-0.009</x-m>
+    <y-m>0.2671</y-m>
+    <z-m>-0.0395</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>fire_sw_main-lock.xml</path>
+  <offsets>
+    <x-m>-0.008</x-m>
+    <y-m>0.2671</y-m>
+    <z-m>-0.0395</z-m>
+  </offsets>
+</model>
+
+<!-- Lamp-knob "Fire in left wing"; Item 1202 -->
+ <animation>
+  <type>pick</type>
+  <object-name>lamp_fire_l-wing</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_l-wing", 1.0, 0.1 );
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_l-wing", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>lamp_fire_l-wing</object-name>
+  <object-name>kn_fire_l-wing</object-name>
+  <property>an24/FireFeather/kn_fire_l-wing</property>
+  <factor>0.003</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>lamp_fire_l-wing</object-name>
+  <condition>
+   <and>
+    <equals>
+     <property>an24/Fire-Protection/power-left</property>
+     <value>1.0</value>
+    </equals>
+    <greater-than>
+     <property>an24/FireTest/selection</property>
+     <value>5</value>
+    </greater-than>
+    <equals>
+     <property>an24/FireTest/push-to-test</property>
+     <value>1</value>
+    </equals>
+   </and>
+  </condition>
+   <emission>
+     <red>1.0</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <!--factor-prop>an24/PPS/lighting</factor-prop-->
+   </emission>
+ </animation>
+
+<!-- Lamp-knob "Fire in left nacelle"; Item 872 -->
+ <animation>
+  <type>pick</type>
+  <object-name>lamp_fire_l-nac</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_l-nac", 1.0, 0.1 );
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_l-nac", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>lamp_fire_l-nac</object-name>
+  <object-name>kn_fire_l-nac</object-name>
+  <property>an24/FireFeather/kn_fire_l-nac</property>
+  <factor>0.003</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>lamp_fire_l-nac</object-name>
+  <condition>
+   <and>
+    <equals>
+     <property>an24/Fire-Protection/power-left</property>
+     <value>1.0</value>
+    </equals>
+    <greater-than>
+     <property>an24/FireTest/selection</property>
+     <value>5</value>
+    </greater-than>
+   <equals>
+    <property>an24/FireTest/push-to-test</property>
+    <value>1</value>
+   </equals>
+  </and>
+  </condition>
+   <emission>
+     <red>1.0</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <!--factor-prop>an24/PPS/lighting</factor-prop-->
+   </emission>
+ </animation>
+
+<!-- Lamp-knob "Fire in right nacelle"; Item 873 -->
+ <animation>
+  <type>pick</type>
+  <object-name>lamp_fire_r-nac</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_r-nac", 1.0, 0.1 );
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_r-nac", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>lamp_fire_r-nac</object-name>
+  <object-name>kn_fire_r-nac</object-name>
+  <property>an24/FireFeather/kn_fire_r-nac</property>
+  <factor>0.003</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>lamp_fire_r-nac</object-name>
+  <condition>
+   <and>
+    <equals>
+     <property>an24/Fire-Protection/power-right</property>
+     <value>1.0</value>
+    </equals>
+    <greater-than>
+     <property>an24/FireTest/selection</property>
+     <value>5</value>
+    </greater-than>
+   <equals>
+    <property>an24/FireTest/push-to-test</property>
+    <value>1</value>
+   </equals>
+  </and>
+  </condition>
+   <emission>
+     <red>1.0</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <!--factor-prop>an24/PPS/lighting</factor-prop-->
+   </emission>
+ </animation>
+
+<!-- Lamp-knob "Fire in right wing"; Item 1203 -->
+ <animation>
+  <type>pick</type>
+  <object-name>lamp_fire_r-wing</object-name>
+  <object-name>kn_fire_r-wing</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_r-wing", 1.0, 0.1 );
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/kn_fire_r-wing", 0.0, 0.1 );
+      </script>
+     </binding>
+    </mod-up>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>lamp_fire_r-wing</object-name>
+  <property>an24/FireFeather/kn_fire_r-wing</property>
+  <factor>0.003</factor>
+  <axis>   
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>material</type>
+  <object-name>lamp_fire_r-wing</object-name>
+  <condition>
+    <equals>
+     <property>an24/Fire-Protection/power-right</property>
+     <value>1.0</value>
+    </equals>
+   <and>
+    <greater-than>
+     <property>an24/FireTest/selection</property>
+     <value>5</value>
+    </greater-than>
+   <equals>
+    <property>an24/FireTest/push-to-test</property>
+    <value>1</value>
+   </equals>
+  </and>
+  </condition>
+   <emission>
+     <red>1.0</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <!--factor-prop>an24/PPS/lighting</factor-prop-->
+   </emission>
+ </animation>
+
+<!-- Left engine fire extinguishers -->
+<model>
+ <path>fire_btn01_exting_engineL.xml</path>
+  <offsets>
+    <x-m>-0.0136</x-m>
+    <y-m>0.0467</y-m>
+    <z-m>-0.054</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<animation>
+  <type>pick</type>
+  <object-name>cover01</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/FireFeather/cover_btn01" ) == 1.0 ){
+        interpolate("an24/FireFeather/cover_btn01", 0.0, 0.2 );
+        }
+        else {
+        interpolate("an24/FireFeather/cover_btn01", 1.0, 0.2 );
+        }
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>cover01</object-name>
+   <property>an24/FireFeather/cover_btn01</property>
+   <factor>80</factor>
+  <center>
+    <x-m>0.0047</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0694</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Right engine fire extinguishers -->
+<model>
+ <path>fire_btn02_exting_engineR.xml</path>
+  <offsets>
+    <x-m>-0.0136</x-m>
+    <y-m>0.0902</y-m>
+    <z-m>-0.054</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<animation>
+  <type>pick</type>
+  <object-name>cover02</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/FireFeather/cover_btn02" ) == 1.0 ){
+        interpolate("an24/FireFeather/cover_btn02", 0.0, 0.2 );
+        }
+        else {
+        interpolate("an24/FireFeather/cover_btn02", 1.0, 0.2 );
+        }
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>cover02</object-name>
+   <property>an24/FireFeather/cover_btn02</property>
+   <factor>80</factor>
+  <center>
+    <x-m>0.0047</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0694</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Surfaces and nacelles fire extinguishers, second group -->
+<model>
+ <path>fire_btn03_exting_wings.xml</path>
+  <offsets>
+    <x-m>-0.0136</x-m>
+    <y-m>0.218</y-m>
+    <z-m>-0.054</z-m>
+    <pitch-deg>90</pitch-deg>
+  </offsets>
+</model>
+
+<animation>
+  <type>pick</type>
+  <object-name>cover03</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/FireFeather/cover_btn03" ) == 1.0 ){
+        interpolate("an24/FireFeather/cover_btn03", 0.0, 0.2 );
+        }
+        else {
+        interpolate("an24/FireFeather/cover_btn03", 1.0, 0.2 );
+        }
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>cover03</object-name>
+   <property>an24/FireFeather/cover_btn03</property>
+   <factor>80</factor>
+  <center>
+    <x-m>0.0047</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0694</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Warning light "Fire in inner left engine" -->
+<model>
+ <path>fire_wl_internal-eng_l.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.0185</y-m>
+    <z-m>0.0291</z-m>
+  </offsets>
+</model>
+
+<!-- Warning light "Fire in inner right engine" -->
+<model>
+ <path>fire_wl_internal-eng_r.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.2592</y-m>
+    <z-m>0.0291</z-m>
+  </offsets>
+</model>
+
+<!-- Signal light of cartridge I of inner left engine extinguishers -->
+<model>
+ <path>fire_wl_exting_01.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.038</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge II of inner left engine extinguishers -->
+<model>
+ <path>fire_wl_exting_02.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.0582</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge I of inner right engine extinguishers -->
+<model>
+ <path>fire_wl_exting_03.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.0785</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge II of inner right engine extinguishers -->
+<model>
+ <path>fire_wl_exting_04.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.098</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+
+<!-- Signal light of cartridge I of OS-8M extinguishers -->
+<model>
+ <path>fire_wl_exting_05.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.12</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge IA of OS-8M extinguishers -->
+<model>
+ <path>fire_wl_exting_06.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.14</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge IB of OS-8M extinguishers -->
+<model>
+ <path>fire_wl_exting_07.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.161</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge II of OS-8M extinguishers -->
+<model>
+ <path>fire_wl_exting_08.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.182</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge IIA of OS-8M extinguishers -->
+<model>
+ <path>fire_wl_exting_09.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.203</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+<!-- Signal light of cartridge IIB of OS-8M extinguishers -->
+<model>
+ <path>fire_wl_exting_10.xml</path>
+  <offsets>
+    <x-m>-0.014</x-m>
+    <y-m>0.224</y-m>
+    <z-m>-0.026</z-m>
+  </offsets>
+</model>
+
+</PropertyList>

@@ -16,6 +16,10 @@
  <type>select</type>
  <object-name>lampon</object-name>
  <condition>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
    <equals>
     <property>an24/FuelControl/TG-16_cutoff</property>
     <value>1</value>

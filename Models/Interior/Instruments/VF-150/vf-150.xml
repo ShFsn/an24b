@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<!-- AF-150, Voltmeter -->
+
+<PropertyList>
+ <path>vf-150.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>back</object-name>
+   <object-name>vf-150-needle</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>0.7</blue>
+     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+   </emission>
+ </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>vf-150-needle</object-name>
+  <expression>
+    <table>
+      <mod>
+      <sum>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_go-16l</property>
+        <property>an24/Electrics/AC_Gen_GO16l_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_go-16r</property>
+        <property>an24/Electrics/AC_Gen_GO16r_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_ap28</property>
+        <property>an24/Electrics/RK115V_phI_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_emerg-bus</property>
+        <property>an24/Electrics/RKRadioOpemerg_phIIb_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_prop-heat</property>
+        <property>an24/Electrics/RK115V_phIIa_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_main-bus</property>
+        <property>an24/Electrics/RK115V_phIIb_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_aerodrome</property>
+        <property>an24/Electrics/AC_AUX_ShRA200_V</property>
+       </product>
+      </sum>
+        <value>150.0</value>
+      </mod>
+    <entry><ind>  0.0</ind>	<dep>-45</dep></entry>
+    <entry><ind> 60.0</ind>	<dep>-29</dep></entry>
+    <entry><ind> 90.0</ind>	<dep>-10</dep></entry>
+    <entry><ind>115.0</ind>	<dep>  0</dep></entry>
+    <entry><ind>120.0</ind>	<dep> 13</dep></entry>
+    <entry><ind>130.0</ind>	<dep> 21</dep></entry>
+    <entry><ind>140.0</ind>	<dep> 30</dep></entry>
+    <entry><ind>150.0</ind>	<dep> 39</dep></entry>
+    </table>
+  </expression>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.006</z-m>
+  </center>
+</animation>
+
+<!-- TEXT OSG -->
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">VF-150 Volt- meter</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

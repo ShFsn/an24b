@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 
-<!-- AGD ON -->
+<!-- AGD-1, FO's AI ON -->
 
 <PropertyList>
- <path>../../../shared/switches/tv-1-4m.ac</path>
+ <path>../../../shared/switches/2vg-15k.ac</path>
+
  <animation>
   <type>pick</type>
   <object-name>clickspot_up</object-name>
@@ -12,25 +13,13 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-    <condition>
-     <equals>
-    	<property>an24/AZS/sw0704</property>
-     <value>1.0</value>
-     </equals>
-    </condition>
       <command>nasal</command>
       <script>
-        setprop("an24/instrumentation/agd-r", 5.0 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/instrumentation/sw_agd-r", 1.0, 0.1 );
+        interpolate("an24/AGD/sw_agd-r", 1.0, 0.1 );
       </script>
     </binding>
   </action>
-    <hovered>
+   <hovered>
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>agd-r-on</tooltip-id>
@@ -49,8 +38,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        setprop("an24/instrumentation/agd-r", 0.0 );
-        interpolate("an24/instrumentation/sw_agd-r", 0.0, 0.1 );
+        interpolate("an24/AGD/sw_agd-r", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -66,16 +54,11 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/instrumentation/sw_agd-r</property>
+   <property>an24/AGD/sw_agd-r</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
   </interpolation>
-  <center>
-    <x-m>0.0056</x-m>
-    <y-m>0.0</y-m>
-    <z-m>0.0</z-m>
-  </center>
   <axis>
     <x>0.0</x>
     <y>-1.0</y>

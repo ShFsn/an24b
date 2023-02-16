@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- Anti-Ice control switch, l/r system -->
+<!-- Anti-Ice control switch, l/r system (PNG-15k); Item 830 -->
 
 <PropertyList>
- <path>../../../shared/switches/switch03.ac</path>
+ <path>../../../shared/switches/png-15k.ac</path>
 
  <animation>
   <type>pick</type>
@@ -15,14 +15,16 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/control", 1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_controlL-R", 1.0, 0.1 );
+	setprop("an24/Anti-Ice/controlL-R", 1 );
       </script>
     </binding>
     <mod-up>
       <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/control", 0.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_controlL-R", 0.0, 0.1 );
+	setprop("an24/Anti-Ice/controlL-R", 0 );
       </script>
     </binding>
     </mod-up>
@@ -30,18 +32,12 @@
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>ice-conrolL</tooltip-id>
-      <label>RIO Anti-Ice Control
-  Right System</label>
+      <tooltip-id>ice-conrolR</tooltip-id>
+      <label>SO-4 Icing Signalisation
+ CHECK right System</label>
     </binding>
    </hovered>
  </animation>
-
-<animation>
-  <type>pick</type>
-  <object-name>clickspot_middle</object-name>
-  <visible>false</visible>
-</animation>
 
  <animation>
   <type>pick</type>
@@ -53,14 +49,16 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/control", -1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_controlL-R", -1.0, 0.1 );
+	setprop("an24/Anti-Ice/controlL-R", -1 );
       </script>
     </binding>
     <mod-up>
       <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/control", 0.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_controlL-R", 0.0, 0.1 );
+	setprop("an24/Anti-Ice/controlL-R", 0 );
       </script>
     </binding>
     </mod-up>
@@ -68,9 +66,9 @@
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>ice-conrolR</tooltip-id>
-      <label>RIO Anti-Ice Control
-   Left System</label>
+      <tooltip-id>ice-conrolL</tooltip-id>
+      <label>SO-4 Icing Signalisation
+ CHECK left System</label>
     </binding>
    </hovered>
  </animation>
@@ -78,7 +76,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Anti-Ice/control</property>
+   <property>an24/Anti-Ice/sw_controlL-R</property>
   <interpolation>
     <entry><ind>-1.0</ind>	<dep>30.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>-30.0</dep></entry>

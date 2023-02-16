@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+
+<system name="Anti-Ice">
+
+<!--***************************
+*** HOT AIR SYSTEM
+****************************-->
+<channel name="Bleedair for Anti-Ice" execrate="120">
+
+<!-- BLEED AIR FOR LEADING EDGES
+(estimated 1000kg/h) -->
+ <fcs_function name="/an24/BleedAir/leadedge_bleedL_kgperh">
+  <function>
+
+   <product>
+    <property>/engines/engine[0]/n1</property>
+    <value>5.0</value>
+    <property>/an24/Anti-Ice/wing-tail_bleed</property>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/BleedAir/leadedge_bleedR_kgperh">
+  <function>
+
+   <product>
+    <property>/engines/engine[1]/n1</property>
+    <value>5.0</value>
+    <property>/an24/Anti-Ice/wing-tail_bleed</property>
+   </product>
+
+  </function>
+ </fcs_function>
+
+<!-- BLEED AIR FOR ENGINE INLETS (VNA)
+(estimated 1000kg/h) -->
+ <fcs_function name="/an24/BleedAir/vna_bleedL_kgperh">
+  <function>
+
+   <product>
+    <property>/engines/engine[0]/n1</property>
+    <value>5.0</value>
+    <property>/an24/BleedAir/vna_valveL</property>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/BleedAir/vna_bleedR_kgperh">
+  <function>
+
+   <product>
+    <property>/engines/engine[1]/n1</property>
+    <value>5.0</value>
+    <property>/an24/BleedAir/vna_valveR</property>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <switch name="/an24/BleedAir/vna_valveL_serviceable">
+   <default value="0"/>
+   <test value="1">
+	/an24/AZS/sw0415 EQ 1.0
+	/an24/Electrics/RK115V_phIIb_V GT 110.0
+	/an24/Anti-Ice/sw_vna-heat-l NE 0.0
+   </test>
+ </switch>
+
+ <switch name="/an24/BleedAir/vna_valveR_serviceable">
+   <default value="0"/>
+   <test value="1">
+	/an24/AZS/sw0416 EQ 1.0
+	/an24/Electrics/RK115V_phIIb_V GT 110.0
+	/an24/Anti-Ice/sw_vna-heat-r NE 0.0
+   </test>
+ </switch>
+
+</channel>
+
+<channel name="VNA Valve Switch left" execrate="120" execute="/an24/BleedAir/vna_valveL_serviceable">
+
+<kinematic name="/an24/BleedAir/vna_valveL">
+  <input>/an24/Anti-Ice/sw_vna-heat-l</input>
+  <traverse>
+    <setting>
+      <position>0</position>
+      <time>0</time>
+    </setting>
+    <setting>
+      <position>1</position>
+      <time>25</time>
+    </setting>
+  </traverse>
+</kinematic>
+
+</channel>
+
+<channel name="VNA Valve Switch right" execrate="120" execute="/an24/BleedAir/vna_valveR_serviceable">
+
+<kinematic name="/an24/BleedAir/vna_valveR">
+  <input>/an24/Anti-Ice/sw_vna-heat-r</input>
+  <traverse>
+    <setting>
+      <position>0</position>
+      <time>0</time>
+    </setting>
+    <setting>
+      <position>1</position>
+      <time>25</time>
+    </setting>
+  </traverse>
+</kinematic>
+
+</channel>
+
+<!--***************************
+*** ELECTRICAL HEATING SYSTEM
+****************************-->
+<channel name="Window Heating" execrate="240">
+
+<!--possible Voltages, depending on glass type: 115, 190, 208, 230, 250-->
+ <switch name="/an24/Anti-Ice/elec_winL_rel3025">
+   <default value="190"/>
+   <test logic="AND" value="230">
+	/an24/AZS/sw0413 EQ 1.0
+	/an24/Electrics/AZSmain_V GT 20.0
+	/an24/Anti-Ice/sw_window_heating-left-intense EQ 1.0
+   </test>
+ </switch>
+
+ <switch name="/an24/Anti-Ice/elec_winL_rel803">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Anti-Ice/elec_winL_rel3025">
+	/an24/AC_Panel/hatchfuse0101 EQ 1.0
+	/an24/Electrics/RKRadioOpmain_phIIb_V GT 110.0
+	/an24/Anti-Ice/elements/frontbL_degc LT /an24/Anti-Ice/elec_winL_check_degc
+	   <test logic="OR">
+		/an24/Anti-Ice/sw_window_heating-left-low EQ 1.0
+		/an24/Anti-Ice/sw_window_heating-left-intense EQ 1.0
+	   </test>
+   </test>
+ </switch>
+
+ <switch name="/an24/Anti-Ice/elec_winL_check_degc">
+   <default value="20"/>
+   <test value="30">
+	/an24/Anti-Ice/elements/frontbL_degc LT /an24/Anti-Ice/elec_winL_check_degc
+   </test>
+ </switch>
+
+<!--possible Voltages, depending on glass type: 115, 190, 208, 230, 250-->
+ <switch name="/an24/Anti-Ice/elec_winR_rel3024">
+   <default value="190"/>
+   <test logic="AND" value="230">
+	/an24/AZS/sw0414 EQ 1.0
+	/an24/Electrics/AZSmain_V GT 20.0
+	/an24/Anti-Ice/sw_window_heating-right-intense EQ 1.0
+   </test>
+ </switch>
+
+ <switch name="/an24/Anti-Ice/elec_winR_rel802">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Anti-Ice/elec_winR_rel3024">
+	/an24/AC_Panel/hatchfuse0102 EQ 1.0
+	/an24/Electrics/RKRadioOpmain_phIIb_V GT 110.0
+	/an24/Anti-Ice/elements/frontbR_degc LT /an24/Anti-Ice/elec_winR_check_degc
+	   <test logic="OR">
+		/an24/Anti-Ice/sw_window_heating-right-low EQ 1.0
+		/an24/Anti-Ice/sw_window_heating-right-intense EQ 1.0
+	   </test>
+   </test>
+ </switch>
+
+ <switch name="/an24/Anti-Ice/elec_winR_check_degc">
+   <default value="20"/>
+   <test value="30">
+	/an24/Anti-Ice/elements/frontbR_degc LT /an24/Anti-Ice/elec_winR_check_degc
+   </test>
+ </switch>
+
+</channel>
+
+</system>

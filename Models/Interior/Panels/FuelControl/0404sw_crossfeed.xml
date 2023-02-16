@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<!-- Switch to open crossfeed valve (666) -->
+
+<PropertyList>
+ <path>../../shared/switches/switch03.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	setprop("an24/FuelControl/crossfeed", 1 );
+	interpolate("an24/FuelControl/sw_crossfeed", 1.0, 0.1 );
+	sound.click("azr", 2.1, 0.14, 0.9);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>xfeedopen</tooltip-id>
+      <label>Crossfeed Valve %s</label>
+      <property>an24/FuelControl/sw_crossfeed</property>
+      <mapping>open-close</mapping>
+    </binding>
+   </hovered>
+</animation>
+
+ <animation>
+  <object-name>clickspot_middle</object-name>
+  <type>pick</type>
+  <visible>false</visible>
+</animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	setprop("an24/FuelControl/crossfeed", 0 );
+	interpolate("an24/FuelControl/sw_crossfeed", 0.0, 0.1 );
+	sound.click("azr", 2.1, 0.14, 0.9);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>xfeedclose</tooltip-id>
+      <label>Crossfeed Valve %s</label>
+      <property>an24/FuelControl/sw_crossfeed</property>
+      <mapping>open-close</mapping>
+    </binding>
+   </hovered>
+</animation>
+
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/FuelControl/sw_crossfeed</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+ 
+
+</PropertyList>

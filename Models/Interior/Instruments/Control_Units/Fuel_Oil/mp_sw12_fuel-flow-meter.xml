@@ -15,10 +15,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FuelControl/flow-meter", 1.0, 1.8 );
-        interpolate("an24/FuelControl/anim-flow-meter", 1.0, 0.1 );
-	setprop("an24/RTMS/fuel-offset-l", getprop("an24/RTMS/fuel-offset-l") + getprop("an24/FuelControl/flow-meter-save-l") - getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") );
-	setprop("an24/RTMS/fuel-offset-r", getprop("an24/RTMS/fuel-offset-r") + getprop("an24/FuelControl/flow-meter-save-r") - getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") );
+        setprop("an24/FuelControl/flow-meter", 1 );
+        interpolate("an24/FuelControl/sw_flow-meter", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -41,10 +39,8 @@
     <binding>
       <command>nasal</command>
       <script>
-	interpolate("an24/FuelControl/flow-meter", 0.0, 2.4 );
-	interpolate("an24/FuelControl/anim-flow-meter", 0.0, 0.1 );
-	setprop("an24/FuelControl/flow-meter-save-l", getprop("/fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs") );
-	setprop("an24/FuelControl/flow-meter-save-r", getprop("/fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs") );
+	setprop("an24/FuelControl/flow-meter", 0 );
+	interpolate("an24/FuelControl/sw_flow-meter", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -60,7 +56,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/FuelControl/anim-flow-meter</property>
+   <property>an24/FuelControl/sw_flow-meter</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>25.0</dep></entry>

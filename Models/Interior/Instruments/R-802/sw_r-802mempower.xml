@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<!-- R-802 No.1 Power switch (Item 1222) -->
+
+<PropertyList>
+ <path>../../shared/switches/vg-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/R-802/sw_power-1", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>r802-1on</tooltip-id>
+      <label>R-802 No.1 ON</label>
+    </binding>
+  </hovered>
+</animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/R-802/sw_power-1", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>r802-1off</tooltip-id>
+      <label>R-802 No.1 OFF</label>
+    </binding>
+  </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/R-802/sw_power-1</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

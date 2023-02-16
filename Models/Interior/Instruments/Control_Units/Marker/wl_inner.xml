@@ -15,11 +15,25 @@
 <animation>
  <type>select</type>
  <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
+   <equals>
+    <property>an24/AZS/sw0517</property>
+    <value>1.0</value>
+   </equals>
+   <greater-than>
+    <property>an24/Kurs-MP/markermode</property>
+    <value>0</value>
+   </greater-than>
    <equals>
     <property>instrumentation/marker-beacon/inner</property>
     <value>true</value>
    </equals>
-  </condition>
+  </and>
+ </condition>
  <object-name>lampon</object-name>
 </animation>
 

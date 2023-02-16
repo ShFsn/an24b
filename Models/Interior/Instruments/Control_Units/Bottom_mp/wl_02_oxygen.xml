@@ -15,8 +15,12 @@
 <animation>
  <type>select</type>
  <condition>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
    <equals>
-    <property>an24/lights/instrlights</property>
+    <property>an24/foo/bar</property>
     <value>1</value>
    </equals>
   </condition>

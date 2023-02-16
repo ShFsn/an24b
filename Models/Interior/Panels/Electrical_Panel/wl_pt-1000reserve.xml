@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!-- Warning lamp PT-1000 reserve at work (usually means main is defect or switched off) -->
+
+<PropertyList>
+ <path>../../shared/lamps/sltsn.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+ <texture>../../shared/lamps/sltsnred.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <equals>
+    <property>an24/Electrics/PT-1000</property>
+    <value>2</value>
+   </equals>
+ </condition>
+ <object-name>lampon</object-name>
+</animation>
+
+</PropertyList>

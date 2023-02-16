@@ -1,37 +1,37 @@
 <?xml version="1.0"?>
 
-<!-- Levers to switch from normal to emergency (E) or reserve (R) pitots -->
+<!-- Levers to switch from normal to emergency or reserve pitots/static ports -->
 
 <PropertyList>
 
 <model>
- <path>lc_valve1_A1toA2.xml</path>
+ <path>lc_pitot_valve.xml</path>
   <offsets>
     <x-m>2.6</x-m>
     <y-m>-0.975</y-m>
-    <z-m>0.48</z-m>
+    <z-m>0.5</z-m>
   </offsets>
 </model>
 
 <model>
- <path>lc_valve2_S1S5toE1.xml</path>
+ <path>lc_static_valve.xml</path>
   <offsets>
     <pitch-deg>-47.5</pitch-deg>
     <x-m>2.68</x-m>
     <y-m>-0.975</y-m>
-    <z-m>0.51</z-m>
+    <z-m>0.52</z-m>
   </offsets>
 </model>
 
 <model>
- <path>rc_valve3_S2S6toE2.xml</path>
+ <path>rc_static_valve.xml</path>
   <offsets>
     <roll-deg>-90</roll-deg>
     <heading-deg>190.5</heading-deg>
     <!--pitch-deg>10.5</pitch-deg-->
-    <x-m>2.579</x-m>
-    <y-m>1.007</y-m>
-    <z-m>0.6</z-m>
+    <x-m>2.58</x-m>
+    <y-m>1.0</y-m>
+    <z-m>0.62</z-m>
   </offsets>
 </model>
 

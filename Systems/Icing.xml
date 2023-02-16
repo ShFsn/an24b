@@ -1,0 +1,964 @@
+<?xml version="1.0"?>
+
+<system name="Icing">
+
+<property value="800">/an24/Anti-Ice/elements/elec_winL_rel803_cal</property>
+<property value="800">/an24/Anti-Ice/elements/elec_winR_rel802_cal</property>
+
+<property value="0.1">/an24/Anti-Ice/conditions/speed_humidity-summand_cal</property>
+<property value="8000">/an24/BleedAir/vna_bleedL_kgperh_cal</property>
+<property value="900">/an24/Anti-Ice/conditions/icing_cal</property>
+<property value="900">/an24/Anti-Ice/elements/VNA_L_degc_cal</property>
+
+
+
+<channel name="Conditions" execrate="240">
+
+<!-- Let's iron all properties to values from around 0-1 (temperature to -1 to 1) at extreme conditions:
+ temp-degc -70 (1) to +70 (-1), effective-visibility-m 0 to 32000, airspeed-kt from 0 to 250 (VNE);
+ finally, have icing become something between around -1 (ice melts fast) to around +1 (severe icing);
+ thickness of ice from 0.0cm up to 1.5cm
+-->
+
+ <fcs_function name="/an24/Anti-Ice/conditions/humidity-summand">
+  <function>
+
+ <difference>
+  <value>1</value>
+  <quotient>
+   <property>/environment/effective-visibility-m</property>
+   <value>32000</value>
+  </quotient>
+ </difference>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.0</max>
+  </clipto>
+ </fcs_function>
+
+ <fcs_function name="/an24/Anti-Ice/conditions/speed_humidity-summand">
+  <function>
+
+  <sum>
+   <abs>
+   <quotient>
+    <property>/velocities/airspeed-kt</property>
+    <value>250</value>
+   </quotient>
+   </abs>
+   <property>/an24/Anti-Ice/conditions/humidity-summand</property>
+  </sum>
+
+  </function>
+ </fcs_function>
+<!---->
+ <fcs_function name="/an24/Anti-Ice/conditions/icing">
+  <function>
+
+ <product>
+  <quotient>
+   <sum>
+
+    <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+
+    <abs>
+     <quotient>
+      <property>/environment/temperature-degc</property>
+      <value>-70</value>
+     </quotient>
+    </abs>
+
+   </sum>
+   <value>3</value>
+  </quotient>
+  <quotient>
+   <property>/environment/temperature-degc</property>
+   <value>-70</value>
+  </quotient>
+ </product>
+
+  </function>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Front Window A
+##########################################-->
+<channel name="Front A temperature" execrate="120">
+
+ <fcs_function name="/an24/Anti-Ice/elements/fronta_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/fronta_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/fronta_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.4</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/fronta_degc</property>
+   </difference>
+
+   <quotient>
+    <sum>
+     <property>/an24/Air-Cond/left_windows_kgperh</property>
+     <property>/an24/Air-Cond/right_windows_kgperh</property>
+    </sum>
+    <value>60</value><!--"calibration"-->
+   </quotient>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+<!---->
+<channel name="Front A Ice thickness" execrate="20">
+
+ <fcs_function name="/an24/Anti-Ice/elements/fronta_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/fronta_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>100</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/fronta_degc</property>
+      <value>400</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Left Side Window B
+##########################################-->
+<channel name="Front Left temperature" execrate="120">
+
+ <fcs_function name="/an24/Anti-Ice/elements/frontbL_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/frontbL_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/frontbL_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.38</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/frontbL_degc</property>
+   </difference>
+
+   <sum>
+    <quotient>
+     <property>/an24/Air-Cond/left_windows_kgperh</property>
+     <value>60</value><!--"calibration"-->
+    </quotient>
+    <quotient>
+     <property>/an24/Anti-Ice/elec_winL_rel803</property>
+     <property>/an24/Anti-Ice/elements/elec_winL_rel803_cal</property><!--"calibration"-->
+    </quotient>
+   </sum>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+<!---->
+<channel name="Front Left Ice thickness" execrate="20">
+ <fcs_function name="/an24/Anti-Ice/elements/frontbL_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/frontbL_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>100</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/frontbL_degc</property>
+      <value>400</value><!--to "calibrate" de-icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Right Side Window B
+##########################################-->
+<channel name="Front Right temperature" execrate="120">
+ <fcs_function name="/an24/Anti-Ice/elements/frontbR_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/frontbR_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/frontbR_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.38</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/frontbR_degc</property>
+   </difference>
+
+   <sum>
+    <quotient>
+     <property>/an24/Air-Cond/right_windows_kgperh</property>
+     <value>60</value><!--"calibration"-->
+    </quotient>
+    <quotient>
+     <property>/an24/Anti-Ice/elec_winR_rel802</property>
+     <property>/an24/Anti-Ice/elements/elec_winR_rel802_cal</property><!--"calibration"-->
+    </quotient>
+   </sum>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+<!---->
+<channel name="Front Right Ice thickness" execrate="20">
+ <fcs_function name="/an24/Anti-Ice/elements/frontbR_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/frontbR_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>100</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/frontbR_degc</property>
+      <value>400</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Left Side Windows C and D
+##########################################-->
+<channel name="Left Side Windows temperature" execrate="120">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sidecdL_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/sidecdL_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/sidecdL_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.25</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/sidecdL_degc</property>
+   </difference>
+
+   <quotient>
+    <property>/an24/Air-Cond/left_windows_kgperh</property>
+    <value>70</value><!--"calibration"-->
+   </quotient>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+<!---->
+<channel name="Left Side Windows Ice thickness" execrate="20">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sidecdL_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/sidecdL_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>100</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/sidecdL_degc</property>
+      <value>400</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Right Side Windows C and D
+##########################################-->
+<channel name="Right Side Windows temperature" execrate="120">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sidecdR_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/sidecdR_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/sidecdR_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.25</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/sidecdR_degc</property>
+   </difference>
+
+   <quotient>
+    <property>/an24/Air-Cond/right_windows_kgperh</property>
+    <value>70</value><!--"calibration"-->
+   </quotient>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+<!---->
+<channel name="Right Side Windows Ice thickness" execrate="20">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sidecdR_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/sidecdR_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>100</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/sidecdR_degc</property>
+      <value>400</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Navigator's Window
+##########################################-->
+<channel name="Nav Window temperature" execrate="120">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sidenavL_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/sidenavL_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/sidenavL_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.2</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/sidenavL_degc</property>
+   </difference>
+
+   <quotient>
+    <property>/an24/Air-Cond/back_left_window_kgperh</property><!--max 15-->
+    <value>70</value><!--"calibration"-->
+   </quotient>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+<!---->
+<channel name="Nav Window Ice thickness" execrate="40">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sidenavL_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/sidenavL_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>100</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/sidenavL_degc</property>
+      <value>400</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Engineer's Window
+##########################################-->
+<channel name="Eng Window temperature" execrate="120">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sideengR_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/sideengR_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/sideengR_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.25</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/sideengR_degc</property>
+   </difference>
+
+   <quotient>
+    <property>/an24/Air-Cond/back_right_window_kgperh</property><!--max 15-->
+    <value>70</value><!--"calibration"-->
+   </quotient>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+<!---->
+<channel name="Eng Window Ice thickness" execrate="40">
+
+ <fcs_function name="/an24/Anti-Ice/elements/sideengR_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/sideengR_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>100</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/sideengR_degc</property>
+      <value>400</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--#########################################
+## Top Windows
+##########################################-->
+<channel name="Top Windows" execrate="240">
+
+ <fcs_function name="/an24/Anti-Ice/elements/topwindows_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/topwindows_cm</property>
+
+   <product>
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>30</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <sum>
+       <property>/an24/Air-Cond/left_windows_kgperh</property><!--15-->
+       <property>/an24/Air-Cond/right_windows_kgperh</property><!--15-->
+       <property>/an24/Air-Cond/back_left_window_kgperh</property><!--max 15-->
+       <property>/an24/Air-Cond/back_right_window_kgperh</property><!--max 15-->
+      </sum>
+      <value>3000</value><!--to "calibrate" anti-icing speed, no clue here-->
+     </quotient>
+    </difference>
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<channel name="Rest Icing vs. Anti-Ice" execrate="240">
+<!-- Pitots/Static Ports -->
+ <fcs_function name="/an24/Anti-Ice/elements/pitot_S1S5A1_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/pitot_S1S5A1_cm</property>
+
+   <product>
+
+    <difference>
+     <property>/an24/Anti-Ice/conditions/icing</property>
+     <abs><property>/an24/Anti-Ice/pitot_S1S5A1</property></abs>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+    <value>24</value><!--to "calibrate" icing speed-->
+   </product>
+  </sum>
+  </function>
+  <clipto>
+   <min>-0.1</min>
+   <max>0.5</max>
+  </clipto>
+ </fcs_function>
+
+  <switch name="/systems/static[0]/serviceable">
+   <default value="1"/>
+   <test value="0">
+	/an24/Anti-Ice/elements/pitot_S1S5A1_cm GT 0.9
+   </test>
+  <output>/systems/pitot[0]/serviceable</output>
+  </switch>
+
+ <fcs_function name="/an24/Anti-Ice/elements/pitot_S3A2_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/pitot_S3A2_cm</property>
+
+   <product>
+
+    <difference>
+     <property>/an24/Anti-Ice/conditions/icing</property>
+     <abs><property>/an24/Anti-Ice/pitot_S3A2</property></abs>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+    <value>24</value><!--to "calibrate" icing speed-->
+   </product>
+  </sum>
+  </function>
+  <clipto>
+   <min>-0.1</min>
+   <max>0.5</max>
+  </clipto>
+ </fcs_function>
+
+  <switch name="/systems/static[3]/serviceable">
+   <default value="1"/>
+   <test value="0">
+	/an24/Anti-Ice/pitot_S3A2 GT 0.9
+   </test>
+  <output>/systems/pitot[1]/serviceable</output>
+  </switch>
+
+ <fcs_function name="/an24/Anti-Ice/elements/pitot_S2S6A3_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/pitot_S2S6A3_cm</property>
+
+   <product>
+
+    <difference>
+     <property>/an24/Anti-Ice/conditions/icing</property>
+     <abs><property>/an24/Anti-Ice/pitot_S2S6A3</property></abs>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+    <value>24</value><!--to "calibrate" icing speed-->
+   </product>
+  </sum>
+  </function>
+  <clipto>
+   <min>-0.1</min>
+   <max>0.5</max>
+  </clipto>
+ </fcs_function>
+
+  <switch name="/systems/static[1]/serviceable">
+   <default value="1"/>
+   <test value="0">
+	/an24/Anti-Ice/elements/pitot_S2S6A3_cm GT 0.9
+   </test>
+  <output>/systems/pitot[2]/serviceable</output>
+  </switch>
+
+ <fcs_function name="/an24/Anti-Ice/elements/pitot_S4S7_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/pitot_S4S7_cm</property>
+
+   <product>
+
+    <difference>
+     <property>/an24/Anti-Ice/conditions/icing</property>
+     <abs><property>/an24/Anti-Ice/pitot_S4S7</property></abs>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+    <value>24</value><!--to "calibrate" icing speed-->
+   </product>
+  </sum>
+  </function>
+  <clipto>
+   <min>-0.1</min>
+   <max>0.5</max>
+  </clipto>
+ </fcs_function>
+
+  <switch name="/systems/static[2]/serviceable">
+   <default value="1"/>
+   <test value="0">
+	/an24/Anti-Ice/elements/pitot_S4S7_cm GT 0.9
+   </test>
+  </switch>
+
+<!--#########################################
+## VNA Engine Inlet left
+##########################################-->
+ <fcs_function name="/an24/Anti-Ice/elements/VNA_L_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/VNA_L_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/VNA_L_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.1</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/VNA_L_degc</property>
+   </difference>
+
+   <quotient>
+    <property>/an24/BleedAir/vna_bleedL_kgperh</property><!--max 500-->
+    <value>8000</value><!--"calibration"-->
+   </quotient>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+<!---->
+ <fcs_function name="/an24/Anti-Ice/elements/VNA_L_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/VNA_L_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>900</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/VNA_L_degc</property>
+      <value>900</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+<!--#########################################
+## VNA Engine Inlet right
+##########################################-->
+ <fcs_function name="/an24/Anti-Ice/elements/VNA_R_degc">
+  <function>
+
+ <sum>
+  <property>/an24/Anti-Ice/elements/VNA_R_degc</property>
+
+  <product>
+   <difference>
+     <property>/environment/temperature-degc</property>
+     <property>/an24/Anti-Ice/elements/VNA_R_degc</property>
+   </difference>
+   <property>/an24/Anti-Ice/conditions/speed_humidity-summand</property>
+   <value>0.1</value><!--"calibration"-->
+  </product>
+
+  <product>
+   <difference>
+    <value>60</value><!--assumed max temp-->
+    <property>/an24/Anti-Ice/elements/VNA_R_degc</property>
+   </difference>
+
+   <quotient>
+    <property>/an24/BleedAir/vna_bleedR_kgperh</property><!--max 500-->
+    <value>8000</value><!--"calibration"-->
+   </quotient>
+
+   <property>simulation/channel-dt</property>
+  </product>
+
+ </sum>
+
+  </function>
+ </fcs_function>
+<!---->
+ <fcs_function name="/an24/Anti-Ice/elements/VNA_R_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/VNA_R_cm</property>
+
+   <product>
+
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>900</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <property>/an24/Anti-Ice/elements/VNA_R_degc</property>
+      <value>900</value><!--to "calibrate" (de-)icing speed-->
+     </quotient>
+    </difference>
+
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+<!--#########################################
+## Leading Edges (wings, h- and v-tail)
+##########################################-->
+ <fcs_function name="/an24/Anti-Ice/elements/Leading-Edges_cm">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/elements/Leading-Edges_cm</property>
+
+   <product>
+    <difference>
+     <quotient>
+      <property>/an24/Anti-Ice/conditions/icing</property><!--max 1-->
+      <value>10</value><!--to "calibrate" icing speed-->
+     </quotient>
+     <quotient>
+      <avg>
+       <property>/an24/BleedAir/leadedge_bleedL_kgperh</property><!--max 500-->
+       <property>/an24/BleedAir/leadedge_bleedR_kgperh</property><!--max 500-->
+      </avg>
+      <value>5000</value><!--to "calibrate" anti-icing speed-->
+     </quotient>
+    </difference>
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+  <clipto>
+   <min>-0.1</min>
+   <max>1.5</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+</system>

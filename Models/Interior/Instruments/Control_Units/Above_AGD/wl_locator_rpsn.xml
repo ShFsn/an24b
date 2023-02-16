@@ -12,10 +12,19 @@
  <texture>../../../shared/lamps/sltsnorangeplain.png</texture>
 </animation>
 
- <animation>
-  <object-name>lampon</object-name>
-  <type>pick</type>
-  <visible>false</visible>
+<animation>
+ <type>select</type>
+ <condition>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
+   <equals>
+    <property>an24/foo/bar</property>
+    <value>1</value>
+   </equals>
+  </condition>
+ <object-name>lampon</object-name>
 </animation>
 
 </PropertyList>

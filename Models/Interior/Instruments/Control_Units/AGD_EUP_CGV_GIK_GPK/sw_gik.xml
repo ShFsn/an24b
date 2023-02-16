@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 
 <!-- GIK Gyro Induction Compass ON -->
-
 <PropertyList>
+
  <path>../../../shared/switches/tv-1-4m.ac</path>
+
  <animation>
   <type>pick</type>
   <object-name>clickspot_up</object-name>
@@ -12,32 +13,22 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-    <condition>
-     <equals>
-    	<property>an24/AZS/sw0701</property>
-     <value>1.0</value>
-     </equals>
-    </condition>
-      <command>nasal</command>
+     <command>nasal</command>
       <script>
-        interpolate("an24/instrumentation/gik", 1.0, 0.1 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/instrumentation/sw_gik", 1.0, 0.1 );
+	interpolate("an24/GIK-1/sw_gik-1", 1.0, 0.1 );
+	sound.click("azs", 2.14, 0.66, 0.65);
       </script>
     </binding>
   </action>
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>gik-on</tooltip-id>
-      <label>GIK Gyro-Induction Compass</label>
+      <tooltip-id>gikon</tooltip-id>
+      <label>GIK Gyro-Induction
+ Compass ON</label>
     </binding>
    </hovered>
-</animation>
+ </animation>
 
  <animation>
   <type>pick</type>
@@ -49,24 +40,25 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/instrumentation/gik", 0.0, 0.1 );
-        interpolate("an24/instrumentation/sw_gik", 0.0, 0.1 );
+	interpolate("an24/GIK-1/sw_gik-1", 0.0, 0.1 );
+	sound.click("azs", 2.14, 0.66, 0.65);
       </script>
     </binding>
   </action>
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>gik-off</tooltip-id>
-      <label>GIK Gyro-Induction Compass</label>
+      <tooltip-id>gikoff</tooltip-id>
+      <label>GIK Gyro-Induction
+ Compass OFF</label>
     </binding>
    </hovered>
-</animation>
+ </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/instrumentation/sw_gik</property>
+   <property>an24/GIK-1/sw_gik-1</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>25.0</dep></entry>

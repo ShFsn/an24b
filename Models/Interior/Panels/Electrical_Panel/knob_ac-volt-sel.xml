@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+
+<!-- Voltage indication source select -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/11p1n.ac</path>
+
+ <animation>
+   <type>knob</type>
+   <object-name>11p1n</object-name>
+   <property>an24/Electrical_Panel/knob_ac_ind_anim</property>
+   <factor>1</factor>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Electrical_Panel/ac_ind_source</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>8</max>                
+      <wrap>true</wrap>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>0</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 0 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>1</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 1.0, 0.6 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 30 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>2</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 60 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>3</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 120 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>4</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 180 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>5</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 1.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 240 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>6</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 1.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 0.0, 0.7 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 300 );
+       </script>
+     </binding>
+     <binding>
+      <condition>
+       <equals>
+       <property>an24/Electrical_Panel/ac_ind_source</property>
+       <value>7</value>
+       </equals>
+      </condition>
+      <command>nasal</command>
+       <script>
+        interpolate("an24/Electrical_Panel/ac_ind_go-16l", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_go-16r", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_ap28", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_emerg-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_prop-heat", 0.0, 0.7 );
+        interpolate("an24/Electrical_Panel/ac_ind_main-bus", 0.0, 0.5 );
+        interpolate("an24/Electrical_Panel/ac_ind_aerodrome", 1.0, 0.6 );
+        setprop("an24/Electrical_Panel/knob_ac_ind_anim", 330 );
+       </script>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>acindselect</tooltip-id>
+      <label>%s</label>
+      <property>an24/Electrical_Panel/ac_ind_source</property>
+      <mapping>nasal</mapping>
+      <script>
+        var acindsel = ['None', 'Gen GO-16 L', 'Gen GO-16 R', 'Autopilot', 'Emergency Bus', 'Prop Heat', 'Main Bus', 'Aerodrome'];
+        return acindsel[arg[0]];
+      </script>
+    </binding>
+   </hovered>
+ </animation>
+
+</PropertyList>

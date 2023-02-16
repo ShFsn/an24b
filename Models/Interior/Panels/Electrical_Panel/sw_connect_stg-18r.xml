@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!-- Right STG-18 generator CONNECT (item 751) -->
+<PropertyList>
+ <path>../../shared/switches/png-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_stg18r", 1.0, 0.1 );
+	sound.click("azr", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stg18ron</tooltip-id>
+      <label>     Include
+Right STG-18</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_stg18r", 0.0, 0.1 );
+	sound.click("azr", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>stg18roff</tooltip-id>
+      <label>     Exclude
+Right STG-18</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Electrical_Panel/sw_stg18r</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

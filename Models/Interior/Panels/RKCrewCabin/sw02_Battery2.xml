@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<!-- Close cuircuit of Battery (Accumulator) 2 (switch 2057 -> contactor 718(Batt), relais 720(V-!) ) -->
+<PropertyList>
+ <path>../../shared/switches/azr.ac</path>
+
+<animation>
+  <type>select</type>
+  <object-name>lever</object-name>
+  <object-name>azr_box</object-name>
+   <condition>
+    <greater-than>
+    <property>an24/RKCrew/hood</property>
+    <value>0.1</value>
+    </greater-than>
+   </condition>
+</animation>
+ 
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/RKCrew/sw02_batt2", 1.0, 0.1 );
+	sound.click("azr", 3.36, 0.95, 0.1);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>akk2on</tooltip-id>
+      <label>Include
+Battery 2</label>
+    </binding>
+   </hovered>
+ </animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/RKCrew/sw02_batt2", 0.0, 0.1 );
+	sound.click("azr", 3.36, 0.95, 0.1);
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/RKCrew/sw02_batt2</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

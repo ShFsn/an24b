@@ -8,18 +8,18 @@
   </model>
 
 <!--Cockpit animations-->
-
  <effect>
   <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
    <object-name>bottompanel25deg</object-name>
-   <object-name>c-frameL</object-name>
-   <object-name>c-frameR</object-name>
-   <object-name>fabric</object-name>
-   <object-name>hull</object-name>
+   <!--object-name>c-frameL</object-name-->
+   <!--object-name>c-frameR</object-name-->
+   <!--object-name>fabric</object-name-->
+   <!--object-name>hull</object-name-->
+   <object-name>KM</object-name>
    <object-name>leftconsole</object-name>
    <object-name>leftconsole02</object-name>
    <object-name>leftpanel</object-name>
-   <object-name>lining</object-name>
+   <!--object-name>lining</object-name-->
    <object-name>middleconsole</object-name>
    <object-name>middlepanel</object-name>
    <object-name>oh_middle20deg</object-name>
@@ -29,17 +29,30 @@
    <object-name>rightconsole</object-name>
    <object-name>rightpanel</object-name>
    <object-name>screws</object-name>
-   <object-name>speaker_panel</object-name>
-   <object-name>topwinframe</object-name>
-   <object-name>trimL</object-name>
-   <object-name>trimR</object-name>
+   <!--object-name>speaker_panel</object-name-->
+   <!--object-name>topwinframe</object-name-->
+   <object-name>G3hood</object-name>
+   <object-name>G3bottom</object-name>
+   <object-name>G3clamp</object-name>
  </effect>
+
  <effect>
   <inherits-from>Effects/model-transparent</inherits-from>
   <object-name>screenfoil</object-name>
   <object-name>foil</object-name>
+  <object-name>stlampglass</object-name>
  </effect>
 
+ <animation>
+   <type>material</type>
+   <object-name>lp_lightplate</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-l_red</factor-prop>
+   </emission>
+ </animation>
  <animation>
    <type>material</type>
    <object-name>mp_lightplate</object-name>
@@ -50,7 +63,18 @@
      <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
+ <animation>
+   <type>material</type>
+   <object-name>rp_lightplate</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+   </emission>
+ </animation>
 
+<!-- Placards -->
  <animation>
    <type>material</type>
    <object-name>mp_placards</object-name>
@@ -81,6 +105,234 @@
      <blue>0.3</blue>
      <factor-prop>controls/lighting/overhead_panel</factor-prop>
    </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>plac_stg</object-name>
+   <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/AZSemerg_V</property>
+     <value>24.0</value>
+    </greater-than>
+    <or>
+     <equals>
+      <property>an24/Electrics/contactorl</property>
+      <value>0</value>
+     </equals>
+     <equals>
+      <property>an24/Electrics/contactorr</property>
+      <value>0</value>
+     </equals>
+    </or>
+   </and>
+   </condition>
+   <diffuse>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </diffuse>
+   <ambient>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </ambient>
+   <emission>
+     <red>0.6</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </emission>
+   <specular>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </specular>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>plac_go</object-name>
+   <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/AZSemerg_V</property>
+     <value>24.0</value>
+    </greater-than>
+    <or>
+    <less-than>
+     <property>an24/Electrics/AC_Gen_GO16l_V</property>
+     <value>110.0</value>
+    </less-than>
+    <less-than>
+     <property>an24/Electrics/AC_Gen_GO16r_V</property>
+     <value>110.0</value>
+    </less-than>
+    </or>
+   </and>
+   </condition>
+   <diffuse>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </diffuse>
+   <ambient>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </ambient>
+   <emission>
+     <red>0.6</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </emission>
+   <specular>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </specular>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>plac_27Vemerg</object-name>
+   <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/AZSemerg_V</property>
+     <value>24.0</value>
+    </greater-than>
+    <less-than>
+     <property>an24/Electrics/AZSmain_V</property>
+     <value>24.0</value>
+    </less-than>
+   </and>
+   </condition>
+   <diffuse>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </diffuse>
+   <ambient>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </ambient>
+   <emission>
+     <red>0.6</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </emission>
+   <specular>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+   </specular>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>plac_580kg</object-name>
+ <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/AZSemerg_V</property>
+     <value>24.0</value>
+    </greater-than>
+   <or>
+    <less-than>
+     <expression>
+     <sum>
+     <property>consumables/fuel/tank[0]/level-kg</property>
+     <property>consumables/fuel/tank[1]/level-kg</property>
+     </sum>
+     </expression>
+     <value>300</value>
+    </less-than>
+    <less-than>
+     <expression>
+     <sum>
+     <property>consumables/fuel/tank[4]/level-kg</property>
+     <property>consumables/fuel/tank[5]/level-kg</property>
+     </sum>
+     </expression>
+     <value>300</value>
+    </less-than>
+   </or>
+  </and>
+  </condition>
+   <diffuse>
+     <red>0.4</red>
+     <green>0.3</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>0.4</red>
+     <green>0.3</green>
+     <blue>0.0</blue>
+   </ambient>
+   <emission>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>0.4</red>
+     <green>0.3</green>
+     <blue>0.0</blue>
+   </specular>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>plac_radaralt</object-name>
+ <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
+  <less-than>
+   <property>instrumentation/radar-altimeter/radar-altitude-ft</property>
+   <expression>
+   <table>
+    <property>instrumentation/radar-altimeter/pointer-anim</property>
+      <entry><ind>	 0.0</ind>	<dep>	0.0</dep></entry>
+      <entry><ind>	 0.5</ind>	<dep> 328.1</dep></entry>
+      <entry><ind>	 1.0</ind>	<dep> 2460.6</dep></entry>
+   </table>
+   </expression>
+  </less-than>
+  <equals>
+   <property>instrumentation/radar-altimeter/sw-on</property>
+   <value>1.0</value>
+  </equals>
+  <equals>
+   <property>an24/AZS/sw0615</property>
+   <value>1.0</value>
+  </equals>
+  </and>
+ </condition>
+   <diffuse>
+     <red>0.6</red>
+     <green>0.5</green>
+     <blue>0.1</blue>
+   </diffuse>
+   <ambient>
+     <red>0.6</red>
+     <green>0.5</green>
+     <blue>0.1</blue>
+   </ambient>
+   <emission>
+     <red>0.5</red>
+     <green>0.3</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>0.6</red>
+     <green>0.5</green>
+     <blue>0.1</blue>
+   </specular>
  </animation>
 
  <animation>
@@ -136,28 +388,27 @@
  </animation>
 
 <!-- Hot air foot pedals -->
-
  <animation>
    <type>knob</type>
    <object-name>heatpedalL</object-name>
    <property>an24/Air-Cond/lp_footpedal</property>
-   <factor>-60.0</factor>
-   <offset-deg>40</offset-deg>
+   <factor>30.0</factor>
+   <offset-deg>5</offset-deg>
    <axis>
     <x>0</x>
     <y>1</y>
     <z>0</z>
    </axis>
    <center>
-    <x-m>1.921</x-m>
+    <x-m>1.827</x-m>
     <y-m>0.0</y-m>
-    <z-m>0.215</z-m>
+    <z-m>0.249</z-m>
    </center>
     <action>
      <binding>
       <command>property-adjust</command>
       <property>an24/Air-Cond/lp_footpedal</property>
-      <factor>-0.1</factor>
+      <factor>-0.2</factor>
       <min>0</min>
       <max>1</max>                
       <wrap>false</wrap>
@@ -169,23 +420,23 @@
    <type>knob</type>
    <object-name>heatpedalR</object-name>
    <property>an24/Air-Cond/rp_footpedal</property>
-   <factor>-60.0</factor>
-   <offset-deg>40</offset-deg>
+   <factor>30.0</factor>
+   <offset-deg>5</offset-deg>
    <axis>
     <x>0</x>
     <y>1</y>
     <z>0</z>
    </axis>
    <center>
-    <x-m>1.921</x-m>
+    <x-m>1.827</x-m>
     <y-m>0.0</y-m>
-    <z-m>0.215</z-m>
+    <z-m>0.249</z-m>
    </center>
     <action>
      <binding>
       <command>property-adjust</command>
       <property>an24/Air-Cond/rp_footpedal</property>
-      <factor>-0.1</factor>
+      <factor>-0.2</factor>
       <min>0</min>
       <max>1</max>                
       <wrap>false</wrap>
@@ -193,8 +444,7 @@
     </action>
  </animation>
 
-<!--Yoke-->
-
+<!--Yokes-->
 <animation>
   <type>rotate</type>
   <object-name>yokeL</object-name>
@@ -208,7 +458,7 @@
   <center>
     <x-m>0.0</x-m>
     <y-m>-0.4738</y-m>
-    <z-m>0.8278</z-m>
+    <z-m>0.8389</z-m>
   </center>
   <axis>
     <x>-1</x>
@@ -247,7 +497,7 @@
   <center>
     <x-m>0.0</x-m>
     <y-m>0.4738</y-m>
-    <z-m>0.8278</z-m>
+    <z-m>0.8389</z-m>
   </center>
   <axis>
     <x>-1</x>
@@ -274,12 +524,84 @@
 </animation>
 
 <!-- Levers -->
+ <animation>
+  <type>knob</type>
+   <object-name>thrustleverL</object-name>
+   <property>controls/engines/engine[0]/throttle</property>
+   <factor>-0.05</factor>
+   <center>
+    <x-m>2.475</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.53</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>controls/engines/engine[0]/throttle</property>
+      <factor>-0.05</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
 
 <animation>
   <type>rotate</type>
   <object-name>thrustleverL</object-name>
-  <object-name>reverseL</object-name>
-  <property>fdm/jsbsim/fcs/throttle-pos-norm[0]</property>
+  <object-name>idle-lockL</object-name>
+  <property>controls/engines/engine[0]/throttle</property>
+  <factor>70.0</factor>
+  <offset-deg>-40.0</offset-deg>
+  <center>
+    <x-m>2.475</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.53</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>    
+  </axis>
+</animation>
+
+ <animation>
+  <type>knob</type>
+   <object-name>thrustleverR</object-name>
+   <property>controls/engines/engine[1]/throttle</property>
+   <factor>-0.05</factor>
+   <center>
+    <x-m>2.475</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.53</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>controls/engines/engine[1]/throttle</property>
+      <factor>-0.05</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>thrustleverR</object-name>
+  <object-name>idle-lockR</object-name>
+  <property>controls/engines/engine[1]/throttle</property>
   <factor>70.0</factor>
   <offset-deg>-40.0</offset-deg>
   <center>
@@ -296,21 +618,20 @@
 
 <animation>
   <type>rotate</type>
-  <object-name>thrustleverR</object-name>
-  <object-name>reverseR</object-name>
-  <property>fdm/jsbsim/fcs/throttle-pos-norm[1]</property>
-  <factor>70.0</factor>
-  <offset-deg>-40.0</offset-deg>
+  <object-name>idle-lockL</object-name>
+  <object-name>idle-lockR</object-name>
+  <property>an24/instrumentation/idle-lock/idle-lock</property>
+  <factor>55.0</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>    
+  </axis>
   <center>
     <x-m>2.475</x-m>
     <y-m>0.0</y-m>
-    <z-m>0.53</z-m>
+    <z-m>0.645</z-m>
   </center>
-  <axis>
-    <x>0</x>
-    <y>-1</y>
-    <z>0</z>    
-  </axis>
 </animation>
 
 <animation>
@@ -332,7 +653,6 @@
 </animation>
 
 <!--Windows-->
-
 <model>
   <name>Windows</name>
   <path>Aircraft/an24b/Models/Interior/windows.xml</path>
@@ -343,134 +663,11 @@
   </offsets>
 </model>
 
-<!--Front seats-->
-
-<model>
-  <name>Seats</name>
-  <path>Aircraft/an24b/Models/Interior/seats.ac</path>
-  <offsets>
-    <x-m>2.78</x-m>
-    <y-m>0.0</y-m>
-    <z-m>0.3777</z-m>
-  </offsets>
-</model>
-
-<animation>
-  <type>pick</type>
-  <object-name>armrest</object-name>
-  <visible>true</visible>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        if( getprop("an24/animations/armrest" ) == 1.0 ){
-        interpolate("an24/animations/armrest", 0.0, 1.0 );
-        }
-        else {
-        interpolate("an24/animations/armrest", 1.0, 1.0 );
-        }
-      </script>
-    </binding>
-  </action>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>armrest</object-name>
-  <property>an24/animations/armrest</property>
-  <factor>90.0</factor>
-  <center>
-    <x-m>0.1817</x-m>
-    <y-m>0.0</y-m>
-    <z-m>0.3076</z-m>    
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>    
-  </axis>
-</animation>
-
-<!-- Navigator's center seat-->
-<animation>
-  <type>pick</type>
-  <object-name>centerseatbottom</object-name>
-  <visible>true</visible>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        if( getprop("an24/animations/centerseat" ) == 1.0 ){
-        interpolate("an24/animations/centerseat", 0.0, 3.0 );
-        }
-        else {
-        interpolate("an24/animations/centerseat", 1.0, 3.0 );
-        }
-      </script>
-    </binding>
-  </action>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>centerseatbottom</object-name>
-  <property>an24/animations/centerseat</property>
-  <factor>183.0</factor>
-  <center>
-    <x-m>0.3027</x-m>
-    <y-m>0.0</y-m>
-    <z-m>-0.2587</z-m>    
-  </center>
-  <axis>
-    <x>0</x>
-    <y>-1</y>
-    <z>0</z>    
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>centerseatrest</object-name>
-  <property>an24/animations/centerseat</property>
-  <factor>183.0</factor>
-  <center>
-    <x-m>0.3027</x-m>
-    <y-m>0.0</y-m>
-    <z-m>-0.2587</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>-1</y>
-    <z>0</z>    
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>centerseatrest</object-name>
-  <property>an24/animations/centerseat</property>
-  <factor>100.0</factor>
-  <center>
-    <x-m>0.124</x-m>
-    <y-m>0.0</y-m>
-    <z-m>-0.612</z-m>    
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>    
-  </axis>
-</animation>
-
-
 <!--Trimwheel-->
 <animation>
   <type>rotate</type>
   <object-name>trimwheel</object-name>
+  <object-name>trimnuts</object-name>
   <property>controls/flight/elevator-trim</property>
   <factor>2000.0</factor>
   <offset-deg>0.0</offset-deg>
@@ -492,11 +689,11 @@
 
 <model>
   <name>AGD-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/AGD-1_lprp/lpagd-1.xml</path>
+  <path>Instruments/AGD-1/lpagd-1.xml</path>
   <offsets>
     <x-m>2.098</x-m>
     <y-m>-0.48718</y-m>
-    <z-m>0.9703</z-m>
+    <z-m>0.98017</z-m>
   </offsets>
 </model>
 
@@ -504,11 +701,11 @@
 
 <model>
   <name>GIK</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/GIK_lprp/lpgik_button.xml</path>
+  <path>Instruments/GIK-1/lpgik_button.xml</path>
   <offsets>
     <x-m>2.1</x-m>
     <y-m>-0.538</y-m>
-    <z-m>0.897</z-m>
+    <z-m>0.911</z-m>
     <pitch-deg>90</pitch-deg>
   </offsets>
 </model>
@@ -517,21 +714,21 @@
 
 <model>
   <name>EUP-53MK-500</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/EUP-53MK-500_lp/eup-l.xml</path>
+  <path>Instruments/EUP-53MK-500/eup-l.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5977</y-m>
-    <z-m>0.7706</z-m>
+    <z-m>0.7806</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5977</y-m>
-    <z-m>0.7706</z-m>
+    <z-m>0.7806</z-m>
   </offsets>
 </model>
 
@@ -539,21 +736,21 @@
 
 <model>
   <name>KUS-730-1100</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/KUS-730_lpmpnav/lpkus730_1100.xml</path>
+  <path>Instruments/KUS-730/lpkus730_1100.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6907</y-m>
-    <z-m>0.9221</z-m>
+    <z-m>0.9321</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6907</y-m>
-    <z-m>0.9221</z-m>
+    <z-m>0.9321</z-m>
   </offsets>
 </model>
 
@@ -562,11 +759,11 @@
 
 <model>
   <name>UV-5M</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UV-5M_lp/uv-5m.xml</path>
+  <path>Instruments/UV-5M/uv-5m.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6906</y-m>
-    <z-m>0.8283</z-m>
+    <z-m>0.8383</z-m>
   </offsets>
 </model>
 
@@ -575,21 +772,21 @@
 
 <model>
   <name>Var_30MK</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/VAR-30MK_lpmp/lpvar-30.xml</path>
+  <path>Instruments/VAR-30MK/lpvar-30.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5974</y-m>
-    <z-m>0.9644</z-m>
+    <z-m>0.9744</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5974</y-m>
-    <z-m>0.9644</z-m>
+    <z-m>0.9744</z-m>
   </offsets>
 </model>
 
@@ -597,21 +794,21 @@
 
 <model>
   <name>UVO-15M</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UVO-15M_lpmpnav/lpuvo-15m.xml</path>
+  <path>Instruments/UVO-15M/lpuvo-15m.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5978</y-m>
-    <z-m>0.8686</z-m>
+    <z-m>0.8786</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.5978</y-m>
-    <z-m>0.8686</z-m>
+    <z-m>0.8786</z-m>
   </offsets>
 </model>
 
@@ -620,11 +817,11 @@
 
 <model>
   <name>UV-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UV-1_lp/uv-1.xml</path>
+  <path>Instruments/UV-1/uv-1.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>-0.6975</y-m>
-    <z-m>0.745</z-m>
+    <z-m>0.755</z-m>
   </offsets>
 </model>
 
@@ -632,11 +829,11 @@
 
 <model>
   <name>Achs-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ACHS-1_mprcnav/mpachs-1.xml</path>
+  <path>Instruments/ACHS-1/mpachs-1.xml</path>
   <offsets>
     <x-m>2.093</x-m>
     <y-m>-0.235</y-m>
-    <z-m>0.7976</z-m>
+    <z-m>0.8076</z-m>
   </offsets>
 </model>
 
@@ -644,21 +841,21 @@
 
 <model>
   <name>UIZ-3-L</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_uiz-3_l.xml</path>
+  <path>Instruments/UIx-xxx/mp_uiz-3_l.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.0543</y-m>
-    <z-m>0.9236</z-m>
+    <z-m>0.9336</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.0543</y-m>
-    <z-m>0.9236</z-m>
+    <z-m>0.9336</z-m>
   </offsets>
 </model>
 
@@ -666,21 +863,21 @@
 
 <model>
   <name>UIZ-3_R</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_uiz-3_r.xml</path>
+  <path>Instruments/UIx-xxx/mp_uiz-3_r.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.0323</y-m>
-    <z-m>0.9236</z-m>
+    <z-m>0.9336</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.0323</y-m>
-    <z-m>0.9236</z-m>
+    <z-m>0.9336</z-m>
   </offsets>
 </model>
 
@@ -688,21 +885,21 @@
 
 <model>
   <name>ui1-100_torque_left</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_ui1-100-left.xml</path>
+  <path>Instruments/UIx-xxx/mp_ui1-100-left.xml</path>
   <offsets>
     <x-m>2.092</x-m>
     <y-m>-0.0176</y-m>
-    <z-m>0.8456</z-m>
+    <z-m>0.8556</z-m>
   </offsets>
 </model>
 
 <model>
   <name>ui1-100_torque_right</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_ui1-100-right.xml</path>
+  <path>Instruments/UIx-xxx/mp_ui1-100-right.xml</path>
   <offsets>
     <x-m>2.092</x-m>
     <y-m>0.0311</y-m>
-    <z-m>0.8456</z-m>
+    <z-m>0.8556</z-m>
   </offsets>
 </model>
 
@@ -710,21 +907,21 @@
 
 <model>
   <name>ui1-240_main_and_emerg</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_ui1-240.xml</path>
+  <path>Instruments/UIx-xxx/mp_ui1-240.xml</path>
   <offsets>
     <x-m>2.094</x-m>
     <y-m>-0.3851</y-m>
-    <z-m>0.801</z-m>
+    <z-m>0.811</z-m>
   </offsets>
 </model>
 
 <model>
   <name>ui2-240_main_emerg_and_accum</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_ui2-240.xml</path>
+  <path>Instruments/UIx-xxx/mp_ui2-240.xml</path>
   <offsets>
     <x-m>2.092</x-m>
     <y-m>-0.3256</y-m>
-    <z-m>0.8091</z-m>
+    <z-m>0.8191</z-m>
   </offsets>
 </model>
 
@@ -732,11 +929,11 @@
 
 <model>
   <name>ui2-150_brake_pressure</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/mp_ui2-150.xml</path>
+  <path>Instruments/UIx-xxx/mp_ui2-150.xml</path>
   <offsets>
     <x-m>2.092</x-m>
     <y-m>-0.3989</y-m>
-    <z-m>0.7284</z-m>
+    <z-m>0.7384</z-m>
   </offsets>
 </model>
 
@@ -744,11 +941,11 @@
 
 <model>
   <name>FuelControl</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/FuelControl_mp/fuelcontrol.xml</path>
+  <path>Panels/FuelControl/fuelcontrol.xml</path>
   <offsets>
     <x-m>2.1</x-m>
     <y-m>0.15</y-m>
-    <z-m>0.864</z-m>
+    <z-m>0.874</z-m>
   </offsets>
 </model>
 
@@ -756,21 +953,21 @@
 
 <model>
   <name>ITE-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ITE-2_mp/ite-2.xml</path>
+  <path>Instruments/ITE-2/ite-2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1339</y-m>
-    <z-m>0.7669</z-m>
+    <z-m>0.7769</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1339</y-m>
-    <z-m>0.7669</z-m>
+    <z-m>0.7769</z-m>
   </offsets>
 </model>
 
@@ -778,11 +975,11 @@
 
 <model>
   <name>ITG-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ITG-2_mp/itg-2_1.xml</path>
+  <path>Instruments/ITG-2/itg-2_1.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.151</y-m>
-    <z-m>0.8459</z-m>
+    <z-m>0.8559</z-m>
   </offsets>
 </model>
 
@@ -791,11 +988,11 @@
 
 <model>
   <name>ITG-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ITG-2_mp/itg-2_2.xml</path>
+  <path>Instruments/ITG-2/itg-2_2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.07854</y-m>
-    <z-m>0.8459</z-m>
+    <z-m>0.8559</z-m>
   </offsets>
 </model>
 
@@ -804,21 +1001,11 @@
 
 <model>
   <name>KPPM</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/KPPM_mprp/kppm_l.xml</path>
+  <path>Instruments/KPPM/kppm_l.xml</path>
   <offsets>
-    <x-m>2.092</x-m>
-    <y-m>-0.3441</y-m>
-    <z-m>0.9796</z-m>
-  </offsets>
-</model>
-
-<model>
-  <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
-  <offsets>
-    <x-m>2.088</x-m>
-    <y-m>-0.3441</y-m>
-    <z-m>0.9796</z-m>
+    <x-m>2.089</x-m>
+    <y-m>-0.344</y-m>
+    <z-m>0.9905</z-m>
   </offsets>
 </model>
 
@@ -826,21 +1013,21 @@
 
 <model>
   <name>KUS-730-1100</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/KUS-730_lpmpnav/mpkus730_1100.xml</path>
+  <path>Instruments/KUS-730/mpkus730_1100.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2669</y-m>
-    <z-m>1.0085</z-m>
+    <z-m>1.0185</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2669</y-m>
-    <z-m>1.0085</z-m>
+    <z-m>1.0185</z-m>
   </offsets>
 </model>
 
@@ -848,11 +1035,11 @@
 
 <model>
   <name>PG4-2_fuel indication</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/PG4-2_mp/pg4-2.xml</path>
+  <path>Instruments/PG4-2/pg4-2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2787</y-m>
-    <z-m>0.8319</z-m>
+    <z-m>0.8419</z-m>
   </offsets>
 </model>
 
@@ -861,11 +1048,11 @@
 
 <model>
   <name>PPS-2VMK</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/PPS-2VMK_mp/pps.xml</path>
+  <path>Instruments/PPS-2VMK/pps.xml</path>
   <offsets>
     <x-m>2.095</x-m>
     <y-m>-0.305</y-m>
-    <z-m>0.711</z-m>
+    <z-m>0.721</z-m>
   </offsets>
 </model>
 
@@ -873,12 +1060,12 @@
 
 <model>
   <name>RPSN_Block4P</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/RPSN_mpnavoh/block4p.xml</path>
+  <path>Instruments/RPSN/block4p.xml</path>
   <offsets>
-    <x-m>1.93</x-m>
+    <x-m>1.92</x-m>
     <y-m>0.0</y-m>
-    <z-m>1.175</z-m>
-    <pitch-deg>-10</pitch-deg>
+    <z-m>1.202</z-m>
+    <pitch-deg>0</pitch-deg>
   </offsets>
 </model>
 
@@ -886,41 +1073,41 @@
 
 <model>
   <name>RTMS-0.85-B1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/RTMS-0.85-B1_mp/rtms_1.xml</path>
+  <path>Instruments/RTMS-0.85-B1/rtms_1.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.0472</y-m>
-    <z-m>0.7669</z-m>
+    <z-m>0.7769</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.0472</y-m>
-    <z-m>0.7669</z-m>
+    <z-m>0.7769</z-m>
   </offsets>
 </model>
 
 <model>
   <name>RTMS-0.85-B1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/RTMS-0.85-B1_mp/rtms_2.xml</path>
+  <path>Instruments/RTMS-0.85-B1/rtms_2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.03923</y-m>
-    <z-m>0.7669</z-m>
+    <z-m>0.7769</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.03923</y-m>
-    <z-m>0.7669</z-m>
+    <z-m>0.7769</z-m>
   </offsets>
 </model>
 
@@ -928,11 +1115,11 @@
 
 <model>
   <name>UAP-12</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UAP-12_mp/uap-12.xml</path>
+  <path>Instruments/UAP-12/uap-12.xml</path>
   <offsets>
-    <x-m>2.088</x-m>
-    <y-m>-0.25672</y-m>
-    <z-m>0.98</z-m>
+    <x-m>2.091</x-m>
+    <y-m>-0.249</y-m>
+    <z-m>0.991</z-m>
   </offsets>
 </model>
 
@@ -940,11 +1127,11 @@
 
 <model>
   <name>UPDB-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UPDB-2_mp/updb-2.xml</path>
+  <path>Instruments/UPDB-2/updb-2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
-    <y-m>-0.25672</y-m>
-    <z-m>0.891</z-m>
+    <y-m>-0.249</y-m>
+    <z-m>0.901</z-m>
   </offsets>
 </model>
 
@@ -952,21 +1139,21 @@
 
 <model>
   <name>ZK-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ZK_mprpnav/mp_ush.xml</path>
+  <path>Instruments/ZK-2/mp_zk-2.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.3441</y-m>
-    <z-m>0.891</z-m>
+    <z-m>0.901</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.09</x-m>
     <y-m>-0.3441</y-m>
-    <z-m>0.891</z-m>
+    <z-m>0.901</z-m>
   </offsets>
 </model>
 
@@ -974,21 +1161,21 @@
 
 <model>
   <name>UPRT-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UPRT-2_mp/uprt.xml</path>
+  <path>Instruments/UPRT-2/uprt.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1407</y-m>
-    <z-m>0.9236</z-m>
+    <z-m>0.9336</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>-0.1407</y-m>
-    <z-m>0.9236</z-m>
+    <z-m>0.9336</z-m>
   </offsets>
 </model>
 
@@ -996,21 +1183,21 @@
 
 <model>
   <name>URVK-18</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/URVK-18_mp/urvk-18_l.xml</path>
+  <path>Instruments/URVK-18/urvk-18_l.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3005</y-m>
-    <z-m>0.7426</z-m>
+    <z-m>0.7526</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3005</y-m>
-    <z-m>0.7426</z-m>
+    <z-m>0.7526</z-m>
   </offsets>
 </model>
 
@@ -1018,21 +1205,21 @@
 
 <model>
   <name>URVK-18</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/URVK-18_mp/urvk-18_r.xml</path>
+  <path>Instruments/URVK-18/urvk-18_r.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3871</y-m>
-    <z-m>0.7526</z-m>
+    <z-m>0.7626</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3871</y-m>
-    <z-m>0.7526</z-m>
+    <z-m>0.7626</z-m>
   </offsets>
 </model>
 
@@ -1040,21 +1227,21 @@
 
 <model>
   <name>UVID-15</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UVID-15_mp/uvid-15f.xml</path>
+  <path>Instruments/UVID-15/uvid-15f.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>0.9202</z-m>
+    <z-m>0.9302</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>0.9202</z-m>
+    <z-m>0.9302</z-m>
   </offsets>
 </model>
 
@@ -1062,21 +1249,21 @@
 
 <model>
   <name>UVPD-15</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UVPD-15_mp/uvpd-15.xml</path>
+  <path>Instruments/UVPD-15/uvpd-15.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2124</y-m>
-    <z-m>0.754</z-m>
+    <z-m>0.764</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2124</y-m>
-    <z-m>0.754</z-m>
+    <z-m>0.764</z-m>
   </offsets>
 </model>
 
@@ -1084,21 +1271,21 @@
 
 <model>
   <name>VAR_30MK</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/VAR-30MK_lpmp/mpvar-30.xml</path>
+  <path>Instruments/VAR-30MK/mpvar-30.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>1.0085</z-m>
+    <z-m>1.0185</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3542</y-m>
-    <z-m>1.0085</z-m>
+    <z-m>1.0185</z-m>
   </offsets>
 </model>
 
@@ -1106,21 +1293,21 @@
 
 <model>
   <name>VR-10</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/VR-10_mp/vr-10.xml</path>
+  <path>Instruments/VR-10/vr-10.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.1269</y-m>
-    <z-m>0.754</z-m>
+    <z-m>0.764</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.1269</y-m>
-    <z-m>0.754</z-m>
+    <z-m>0.764</z-m>
   </offsets>
 </model>
 
@@ -1128,31 +1315,46 @@
 
 <model>
   <name>2PPT1-4</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/2PPT1-4_mp/2ppt1.xml</path>
+  <path>Instruments/2PPT1-4/2ppt1.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2668</y-m>
-    <z-m>0.9202</z-m>
+    <z-m>0.9302</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.2668</y-m>
-    <z-m>0.9202</z-m>
+    <z-m>0.9302</z-m>
   </offsets>
 </model>
 
+<!-- *************************************** -->
+
 <model>
   <name>TV-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TV-1_mp/tv-1.xml</path>
+  <path>Instruments/TV-1/tv-1.xml</path>
   <offsets>
     <x-m>2.088</x-m>
     <y-m>0.3489</y-m>
-    <z-m>0.8319</z-m>
+    <z-m>0.8419</z-m>
+  </offsets>
+</model>
+
+<!-- *************************************** -->
+
+<model>
+  <name>TV-45</name>
+  <path>Instruments/TV-45/tv-45.xml</path>
+  <offsets>
+    <x-m>2.111</x-m>
+    <y-m>0.303</y-m>
+    <z-m>0.6504</z-m>
+    <pitch-deg>-25</pitch-deg>
   </offsets>
 </model>
 
@@ -1160,84 +1362,109 @@
 
 <model>
   <name>ADF</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ADF_rp/adf.xml</path>
+  <path>Instruments/ADF/adf.xml</path>
   <offsets>
-    <x-m>2.108</x-m>
+    <x-m>2.1</x-m>
     <y-m>0.7209</y-m>
-    <z-m>0.8588</z-m>
+    <z-m>0.8688</z-m>
     <roll-deg>40</roll-deg>
   </offsets>
 </model>
 
 <model>
   <name>AGD-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/AGD-1_lprp/rpagd-1.xml</path>
+  <path>Instruments/AGD-1/rpagd-1.xml</path>
   <offsets>
     <x-m>2.098</x-m>
-    <y-m>0.48718</y-m>
-    <z-m>0.9703</z-m>
+    <y-m>0.48764</y-m>
+    <z-m>0.98017</z-m>
   </offsets>
 </model>
 
 <model>
   <name>GIK</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/GIK_lprp/rpgik_button.xml</path>
+  <path>Instruments/GIK-1/rpgik_button.xml</path>
   <offsets>
-    <x-m>2.098</x-m>
-    <y-m>0.5352</y-m>
-    <z-m>0.901</z-m>
+    <x-m>2.1</x-m>
+    <y-m>0.538</y-m>
+    <z-m>0.911</z-m>
     <pitch-deg>90</pitch-deg>
   </offsets>
 </model>
 
 <model>
   <name>KPPM</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/KPPM_mprp/kppm_r.xml</path>
+  <path>Instruments/KPPM/kppm_r.xml</path>
   <offsets>
     <x-m>2.096</x-m>
-    <y-m>0.6009</y-m>
-    <z-m>0.9565</z-m>
+    <y-m>0.6005</y-m>
+    <z-m>0.9665</z-m>
   </offsets>
 </model>
 
 <model>
   <name>TNV-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TNV-1_rp/tnv-1.xml</path>
+  <path>Instruments/TNV-1/rp_tnv-1.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.8111</y-m>
-    <z-m>0.7902</z-m>
+    <z-m>0.8002</z-m>
   </offsets>
 </model>
 
 <model>
   <name>ZK-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ZK_mprpnav/rp_ush.xml</path>
+  <path>Instruments/ZK-2/rp_zk-2.xml</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.6</y-m>
-    <z-m>0.86</z-m>
+    <z-m>0.87</z-m>
   </offsets>
 </model>
 
 <model>
   <name>InstrLightClamp</name>
-  <path>Aircraft/an24b/Models/Interior/shared/lamps/s-80.ac</path>
+  <path>shared/lamps/s-80.ac</path>
   <offsets>
     <x-m>2.096</x-m>
     <y-m>0.6</y-m>
-    <z-m>0.86</z-m>
+    <z-m>0.87</z-m>
   </offsets>
 </model>
 
 <!--************************** Left Console ***************************-->
+
+<model>
+  <name>SGU-15</name>
+  <path>Instruments/SGU-15/sgu-15.xml</path>
+  <offsets>
+    <x-m>2.771</x-m>
+    <y-m>-1.021</y-m>
+    <z-m>0.728</z-m>
+    <heading-deg>82</heading-deg>
+  </offsets>
+</model>
+
 <model>
   <name>SPU-7</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/SPU-7_lcrcnaveng/lcspu-7.xml</path>
+  <path>Instruments/SPU-7/lcspu-7.xml</path>
   <offsets>
     <x-m>2.463</x-m>
     <y-m>-0.975</y-m>
-    <z-m>0.684</z-m>
+    <z-m>0.704</z-m>
+    <heading-deg>82</heading-deg>
+  </offsets>
+</model>
+
+<!--********************************************-->
+
+<model>
+  <name>AZstartcircuit</name>
+  <path>Instruments/A-Z/lc_a-z.xml</path>
+  <offsets>
+    <x-m>2.262</x-m>
+    <y-m>-0.949</y-m>
+    <z-m>0.6712</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1246,11 +1473,11 @@
 
 <model>
   <name>MES</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/MES-1857V_lc/mes.xml</path>
+  <path>Instruments/MES-1857V/mes.xml</path>
   <offsets>
     <x-m>2.2945</x-m>
     <y-m>-0.95</y-m>
-    <z-m>0.5462</z-m>
+    <z-m>0.5662</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1259,11 +1486,11 @@
 
 <model>
   <name>ME-1866</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ME-1866_lc/me-1866.xml</path>
+  <path>Instruments/ME-1866/me-1866.xml</path>
   <offsets>
     <x-m>2.3737</x-m>
     <y-m>-0.959</y-m>
-    <z-m>0.5462</z-m>
+    <z-m>0.5662</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1272,22 +1499,22 @@
 
 <model>
   <name>UIZ-3-TG-16</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UIx-xxx_mplc/lc_uiz-3.xml</path>
+  <path>Instruments/UIx-xxx/lc_uiz-3.xml</path>
   <offsets>
     <x-m>2.616</x-m>
     <y-m>-0.997</y-m>
-    <z-m>0.5576</z-m>
+    <z-m>0.5676</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
 
 <model>
   <name>TCT-2</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TCT-2_lc/tct-2.xml</path>
+  <path>Instruments/TCT-2/tct-2.xml</path>
   <offsets>
     <x-m>2.5485</x-m>
     <y-m>-0.981</y-m>
-    <z-m>0.5237</z-m>
+    <z-m>0.5437</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1295,11 +1522,11 @@
 
 <model>
   <name>TE-40M</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TE-40M_lc/te-40.xml</path>
+  <path>Instruments/TE-40M/te-40.xml</path>
   <offsets>
     <x-m>2.465</x-m>
     <y-m>-0.985</y-m>
-    <z-m>0.55</z-m>
+    <z-m>0.565</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -1308,11 +1535,11 @@
 
 <model>
   <name>Engine_start_panel</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/Engine_start_panel_lc/engine_start_panel.xml</path>
+  <path>Panels/Engine_Start_Panel/engine_start_panel.xml</path>
   <offsets>
     <x-m>2.44</x-m>
     <y-m>-0.83</y-m>
-    <z-m>0.447</z-m>
+    <z-m>0.467</z-m>
     <heading-deg>176</heading-deg>
   </offsets>
 </model>
@@ -1321,7 +1548,7 @@
 
 <model>
   <name>AP-28L1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/AP-28L1_mc/ap-28.xml</path>
+  <path>Instruments/AP-28L1/ap-28.xml</path>
   <offsets>
     <x-m>2.645</x-m>
     <y-m>0.0</y-m>
@@ -1331,7 +1558,7 @@
 
 <model>
   <name>UZP-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/UZP-1_mc/uzp-1.xml</path>
+  <path>Instruments/UZP-1/uzp-1.xml</path>
   <offsets>
     <x-m>2.1914</x-m>
     <y-m>-0.0456</y-m>
@@ -1344,154 +1571,150 @@
 
 <model>
   <name>GPK-52</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/GPK-52AP_rc/gpk-52.xml</path>
+  <path>Instruments/GPK-52AP/gpk-52.xml</path>
   <offsets>
     <x-m>2.5618</x-m>
     <y-m>0.9189</y-m>
-    <z-m>0.438</z-m>
+    <z-m>0.458</z-m>
   </offsets>
 </model>
 
 <model>
   <name>GPK-52 Control</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/GPK-52AP_rc/gpk-52ctrl.xml</path>
+  <path>Instruments/GPK-52AP/gpk-52ctrl.xml</path>
   <offsets>
     <x-m>2.7</x-m>
     <y-m>1.02</y-m>
-    <z-m>0.66</z-m>
+    <z-m>0.68</z-m>
     <heading-deg>10.5</heading-deg>
   </offsets>
 </model>
 
 <model>
   <name>SPU-7</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/SPU-7_lcrcnaveng/rcspu-7.xml</path>
+  <path>Instruments/SPU-7/rcspu-7.xml</path>
   <offsets>
     <x-m>2.179</x-m>
     <y-m>0.928</y-m>
-    <z-m>0.62</z-m>
+    <z-m>0.64</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
 
 <model>
   <name>Achs-1</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ACHS-1_mprcnav/rcachs-1.xml</path>
+  <path>Instruments/ACHS-1/rcachs-1.xml</path>
   <offsets>
     <x-m>2.475</x-m>
     <y-m>0.984</y-m>
-    <z-m>0.67</z-m>
+    <z-m>0.69</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
 
 <model>
   <name>R-836b7</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-836_rceng/rc_r-836b7.xml</path>
+  <path>Instruments/R-836/rc_r-836b7.xml</path>
   <offsets>
     <x-m>2.487</x-m>
     <y-m>0.99</y-m>
-    <z-m>0.5451</z-m>
+    <z-m>0.5651</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
 
 <model>
   <name>US-8k</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/US-8K_rceng/rc_us-8k.xml</path>
+  <path>Instruments/US-8K/rc_us-8k.xml</path>
   <offsets>
     <x-m>2.324</x-m>
     <y-m>0.95</y-m>
-    <z-m>0.602</z-m>
+    <z-m>0.617</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
 
 <!-- *************************************** -->
-
 <model>
   <name>Pitot-Heat_Air-Cond</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/Pitot-Heat_Air-Cond_rc/pitot-heat_air-cond.xml</path>
+  <path>Panels/Pitot-Heat_Air-Cond/pitot-heat_air-cond.xml</path>
   <offsets>
     <heading-deg>10.5</heading-deg>
     <x-m>2.2698</x-m>
     <y-m>0.8741</y-m>
-    <z-m>0.503</z-m>
+    <z-m>0.523</z-m>
   </offsets>
 </model>
 
 <model>
- <path>Aircraft/an24b/Models/Interior/Panels/Pitot-Heat_Air-Cond_rc/ac_sw12_turbo-cooler.xml</path>
+ <path>Panels/Pitot-Heat_Air-Cond/ac_sw12_turbo-cooler.xml</path>
   <offsets>
     <x-m>2.3965</x-m>
     <y-m>0.969</y-m>
-    <z-m>0.72</z-m>
+    <z-m>0.74</z-m>
     <heading-deg>-79.5</heading-deg>
   </offsets>
 </model>
 
 <model>
-  <name>ARD-207</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ARD-207_rc/ard-207.xml</path>
+  <name>ARD-2077</name>
+  <path>Panels/ARD-2077/ard-2077.xml</path>
   <offsets>
     <heading-deg>10.5</heading-deg>
     <x-m>2.77</x-m>
     <y-m>0.945</y-m>
-    <z-m>0.47</z-m>
+    <z-m>0.49</z-m>
   </offsets>
 </model>
 
 <!-- *************************************** -->
-
 <model>
   <name>TP622-Rocket-Panel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/TP622_rc/tp622.xml</path>
+  <path>Instruments/TP622/tp622.xml</path>
   <offsets>
     <heading-deg>10.5</heading-deg>
     <x-m>2.681</x-m>
-    <y-m>1.022</y-m>
-    <z-m>0.568</z-m>
+    <y-m>1.02</y-m>
+    <z-m>0.588</z-m>
   </offsets>
 </model>
 
 <!--************************** OVERHEAD ***************************-->
 
 <model>
-  <name>PRT-24</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/PRT-24_oh/prt-24.xml</path>
+  <name>IV-41</name>
+  <path>Instruments/IV-41A/iv-41.xml</path>
   <offsets>
     <x-m>2.294</x-m>
-    <y-m>0.49</y-m>
-    <z-m>1.38</z-m>
-    <heading-deg>-20</heading-deg>
-    <pitch-deg>23</pitch-deg>
-    <roll-deg>-7</roll-deg>
+    <y-m>-0.51</y-m>
+    <z-m>1.35</z-m>
+    <heading-deg>42</heading-deg>
+    <pitch-deg>30</pitch-deg>
+    <roll-deg>3</roll-deg>
   </offsets>
 </model>
 
 <!--********************************************-->
-
 <model>
-  <name>IV-41</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/IV-41A_oh/iv-41.xml</path>
+  <name>PRT-24</name>
+  <path>Instruments/PRT-24/prt-24.xml</path>
   <offsets>
     <x-m>2.294</x-m>
-    <y-m>-0.49</y-m>
-    <z-m>1.38</z-m>
-    <heading-deg>20</heading-deg>
-    <pitch-deg>23</pitch-deg>
-    <roll-deg>7</roll-deg>
+    <y-m>0.51</y-m>
+    <z-m>1.36</z-m>
+    <heading-deg>-42</heading-deg>
+    <pitch-deg>30</pitch-deg>
+    <roll-deg>-3</roll-deg>
   </offsets>
 </model>
 
 <!--*************** Overhead back *****************-->
 
 <!--Select animation-->
-
 <animation>
   <type>select</type>
   <object-name>overhead1</object-name>
-  <object-name>023_blind</object-name>
+  <object-name>sro-2_blind</object-name>
    <condition>
     <equals>
     <property>an24/radio-equip</property>
@@ -1512,10 +1735,9 @@
 </animation>
 
 <!--******************************-->
-
 <model>
   <name>ARK-11</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/ARK-11_navoh/ohark-11.xml</path>
+  <path>Instruments/ARK-11/ohark-11.xml</path>
   <offsets>
     <x-m>2.662</x-m>
     <y-m>-0.186</y-m>
@@ -1532,7 +1754,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/M5-2_navoh/ohm5-2.xml</path>
+  <path>Instruments/M5-2/ohm5-2.xml</path>
   <offsets>
     <x-m>2.804</x-m>
     <y-m>-0.2289</y-m>
@@ -1549,7 +1771,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/M5-2_navoh/ohm5-2.xml</path>
+  <path>Instruments/M5-2/ohm5-2.xml</path>
   <offsets>
     <x-m>2.795</x-m>
     <y-m>-0.2875</y-m>
@@ -1559,10 +1781,9 @@
 </model>
 
 <!--************* Transponder **************-->
-
 <model>
   <name>SO-63</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/SOM-64_oh/so-63.xml</path>
+  <path>Instruments/SOM-64/so-63.xml</path>
   <offsets>
     <x-m>3.025</x-m>
     <y-m>-0.42</y-m>
@@ -1572,50 +1793,49 @@
 </model>
 
 <model>
-  <name>023a</name>
+  <name>SRO-2std</name>
     <condition>
     <equals>
     <property>an24/radio-equip</property>
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/SOM-64_oh/023_controlpanel.xml</path>
+  <path>Instruments/SRO-2/sro-2_controlpanel.xml</path>
   <offsets>
-    <x-m>2.9905</x-m>
-    <y-m>-0.246</y-m>
-    <z-m>1.452</z-m>
+    <x-m>2.989</x-m>
+    <y-m>-0.245</y-m>
+    <z-m>1.45</z-m>
     <pitch-deg>169.5</pitch-deg>
   </offsets>
 </model>
 
 <model>
-  <name>023b</name>
+  <name>SRO-2kmp</name>
     <condition>
     <equals>
     <property>an24/radio-equip</property>
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/SOM-64_oh/023_controlpanel.xml</path>
+  <path>Instruments/SRO-2/sro-2_controlpanel.xml</path>
   <offsets>
-    <x-m>2.99</x-m>
-    <y-m>0.4226</y-m>
-    <z-m>1.463</z-m>
+    <x-m>2.989</x-m>
+    <y-m>0.424</y-m>
+    <z-m>1.462</z-m>
     <pitch-deg>169.5</pitch-deg>
   </offsets>
 </model>
 
 <!--*************** SP-50 *****************-->
-
 <model>
-  <name>M-50</name>
+  <name>SP-50</name>
     <condition>
     <equals>
     <property>an24/radio-equip</property>
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/SP-50_oh/m-50.xml</path>
+  <path>Instruments/SP-50/m-50.xml</path>
   <offsets>
     <x-m>3.0117</x-m>
     <y-m>-0.0891</y-m>
@@ -1625,7 +1845,6 @@
 </model>
 
 <!--************* Kurs-MP ***************-->
-
 <model>
   <name>Kurs-MP_a</name>
     <condition>
@@ -1634,7 +1853,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/ils-sp50_switchbox.xml</path>
+  <path>Instruments/Kurs-MP/ils-sp50_switchbox.xml</path>
   <offsets>
     <x-m>3.01</x-m>
     <y-m>-0.133</y-m>
@@ -1651,7 +1870,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/ubm_balance-unit.xml</path>
+  <path>Instruments/Kurs-MP/ubm_balance-unit.xml</path>
   <offsets>
     <x-m>2.9</x-m>
     <y-m>-0.065</y-m>
@@ -1668,7 +1887,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/zpznk_markermodebox.xml</path>
+  <path>Instruments/Kurs-MP/zpznk_markermodebox.xml</path>
   <offsets>
     <x-m>2.915</x-m>
     <y-m>-0.173</y-m>
@@ -1685,7 +1904,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/um_freq-adjust_1.xml</path>
+  <path>Instruments/Kurs-MP/um_freq-adjust_1.xml</path>
   <offsets>
     <x-m>2.82</x-m>
     <y-m>-0.21</y-m>
@@ -1702,7 +1921,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/um_freq-adjust_2.xml</path>
+  <path>Instruments/Kurs-MP/um_freq-adjust_2.xml</path>
   <offsets>
     <x-m>2.82</x-m>
     <y-m>-0.125</y-m>
@@ -1719,7 +1938,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/switchpanel.xml</path>
+  <path>Instruments/Kurs-MP/switchpanel.xml</path>
   <offsets>
     <x-m>3.014</x-m>
     <y-m>-0.2315</y-m>
@@ -1736,7 +1955,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/sdu-source.xml</path>
+  <path>Instruments/Kurs-MP/sdu-source.xml</path>
   <offsets>
     <x-m>2.79</x-m>
     <y-m>-0.047</y-m>
@@ -1746,10 +1965,9 @@
 </model>
 
 <!--*************** Overhead middle *****************-->
-
 <model>
   <name>RPSN_ctrl</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/RPSN_mpnavoh/controlpanel_oh.xml</path>
+  <path>Instruments/RPSN/controlpanel_oh.xml</path>
   <offsets>
     <x-m>2.4068</x-m>
     <y-m>0.0</y-m>
@@ -1759,7 +1977,6 @@
 </model>
 
 <!--Select animation-->
-
 <animation>
   <type>select</type>
   <object-name>oh_middle1</object-name>
@@ -1827,7 +2044,6 @@
 </animation>
 
 <!--*** With "Kurs-MP"-Equipment ***-->
-
 <model>
   <name>Kurs-MP_f1</name>
     <condition>
@@ -1836,7 +2052,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/sk-azimut-selector_1.xml</path>
+  <path>Instruments/Kurs-MP/sk-azimut-selector_1.xml</path>
   <offsets>
     <x-m>2.438</x-m>
     <y-m>-0.144</y-m>
@@ -1853,7 +2069,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Kurs-MP_oh/sk-azimut-selector_2.xml</path>
+  <path>Instruments/Kurs-MP/sk-azimut-selector_2.xml</path>
   <offsets>
     <x-m>2.438</x-m>
     <y-m>0.144</y-m>
@@ -1863,7 +2079,6 @@
 </model>
 
 <!--********************************************-->
-
 <model>
   <name>R-802_I</name>
     <condition>
@@ -1872,7 +2087,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
+  <path>Instruments/R-802/r-802mem.xml</path>
   <offsets>
     <x-m>2.3958</x-m>
     <y-m>-0.2535</y-m>
@@ -1889,7 +2104,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802sel.xml</path>
+  <path>Instruments/R-802/r-802sel.xml</path>
   <offsets>
     <x-m>2.3958</x-m>
     <y-m>0.2535</y-m>
@@ -1906,7 +2121,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
+  <path>Instruments/R-802/sw_r-802mempower.xml</path>
   <offsets>
     <x-m>2.337</x-m>
     <y-m>-0.1925</y-m>
@@ -1923,7 +2138,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
+  <path>Instruments/R-802/sw_r-802memcapacity.xml</path>
   <offsets>
     <x-m>2.337</x-m>
     <y-m>-0.1554</y-m>
@@ -1940,7 +2155,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
+  <path>Instruments/R-802/sw_r-802selpower.xml</path>
   <offsets>
     <x-m>2.337</x-m>
     <y-m>0.1925</y-m>
@@ -1957,7 +2172,7 @@
     <value>Kurs-MP</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
+  <path>Instruments/R-802/sw_r-802selcapacity.xml</path>
   <offsets>
     <x-m>2.337</x-m>
     <y-m>0.1554</y-m>
@@ -1968,7 +2183,6 @@
 
 
 <!--*** With "Standard"-Equipment ***-->
-
 <model>
   <name>R-802_I</name>
     <condition>
@@ -1977,7 +2191,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802mem.xml</path>
+  <path>Instruments/R-802/r-802mem.xml</path>
   <offsets>
     <x-m>2.3958</x-m>
     <y-m>-0.2335</y-m>
@@ -1994,7 +2208,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/r-802sel.xml</path>
+  <path>Instruments/R-802/r-802sel.xml</path>
   <offsets>
     <x-m>2.3958</x-m>
     <y-m>0.2335</y-m>
@@ -2011,7 +2225,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802mempower.xml</path>
+  <path>Instruments/R-802/sw_r-802mempower.xml</path>
   <offsets>
     <x-m>2.4085</x-m>
     <y-m>-0.1551</y-m>
@@ -2028,7 +2242,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802memcapacity.xml</path>
+  <path>Instruments/R-802/sw_r-802memcapacity.xml</path>
   <offsets>
     <x-m>2.4085</x-m>
     <y-m>-0.1182</y-m>
@@ -2045,7 +2259,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selpower.xml</path>
+  <path>Instruments/R-802/sw_r-802selpower.xml</path>
   <offsets>
     <x-m>2.4085</x-m>
     <y-m>0.1551</y-m>
@@ -2062,7 +2276,7 @@
     <value>Standard</value>
     </equals>
     </condition>
-  <path>Aircraft/an24b/Models/Interior/Instruments/R-802_oh/sw_r-802selcapacity.xml</path>
+  <path>Instruments/R-802/sw_r-802selcapacity.xml</path>
   <offsets>
     <x-m>2.4085</x-m>
     <y-m>0.1182</y-m>
@@ -2072,10 +2286,9 @@
 </model>
 
 <!--*************** Overhead front *****************-->
-
 <model>
   <name>FireandFeather</name>
-  <path>Aircraft/an24b/Models/Interior/Panels/FireandFeatherPanel_oh/fireandfeather.xml</path>
+  <path>Panels/FireandFeatherPanel/fireandfeather.xml</path>
   <offsets>
     <x-m>2.215</x-m>
     <y-m>0.0</y-m>
@@ -2085,101 +2298,144 @@
 </model>
 
 <!--****************** Everything in "Control_Units" *****************-->
-
 <model>
   <name>Above_AGD</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Above_AGD/rpsn.xml</path>
+  <path>Instruments/Control_Units/Above_AGD/rpsn.xml</path>
 </model>
 
 <model>
   <name>AGD_EUP_CGV_GIK_GPK</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/AGD_EUP_CGV_GIK_GPK/agd_eup_cgv_gik_gpk.xml</path>
+  <path>Instruments/Control_Units/AGD_EUP_CGV_GIK_GPK/agd_eup_cgv_gik_gpk.xml</path>
 </model>
 
 <model>
   <name>Anti-Ice</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Anti-Ice/lprprc_anti-ice.xml</path>
+  <path>Instruments/Control_Units/Anti-Ice/lprprc_anti-ice.xml</path>
 </model>
 
 <model>
   <name>Bank-Pitch</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Bank-Pitch/bank-pitch.xml</path>
+  <path>Instruments/Control_Units/Bank-Pitch/bank-pitch.xml</path>
 </model>
 
 <model>
   <name>Bottom_mp</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Bottom_mp/bottom_mp.xml</path>
+  <path>Instruments/Control_Units/Bottom_mp/bottom_mp.xml</path>
 </model>
 
 <model>
   <name>PAXsign</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/PAXsigns/PAXsigns.xml</path>
+  <path>Instruments/Control_Units/PAXsigns/PAXsigns.xml</path>
 </model>
 
 <model>
   <name>DoorsHatches</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/DoorsHatches/doorshatches.xml</path>
+  <path>Instruments/Control_Units/DoorsHatches/doorshatches.xml</path>
 </model>
 
 <model>
   <name>Fuel</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Fuel_Oil/fuel_oil.xml</path>
+  <path>Instruments/Control_Units/Fuel_Oil/fuel_oil.xml</path>
 </model>
 
 <model>
   <name>Gear</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Gear/gear.xml</path>
+  <path>Instruments/Control_Units/Flaps_Gear/gear.xml</path>
 </model>
 
 <model>
   <name>LightsInt</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/LightsInterior/interiorlighting.xml</path>
+  <path>Instruments/Control_Units/LightsInterior/interiorlighting.xml</path>
 </model>
 
 <model>
   <name>LightsExt</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/LightsExterior/exteriorlighting.xml</path>
+  <path>Instruments/Control_Units/LightsExterior/exteriorlighting.xml</path>
 </model>
 
 <model>
   <name>Marker</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Marker/marker.xml</path>
+  <path>Instruments/Control_Units/Marker/marker.xml</path>
 </model>
 
 <model>
   <name>PitotLever</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/PitotStatic/pitotstatic.xml</path>
+  <path>Instruments/Control_Units/PitotStatic/pitotstatic.xml</path>
 </model>
 
 <model>
   <name>Pressure</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Pressure/pressure.xml</path>
+  <path>Instruments/Control_Units/Pressure/pressure.xml</path>
 </model>
 
+<!-- Prop Pitch -->
 <model>
   <name>Proppitch</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Proppitch/proppitch.xml</path>
+  <path>Instruments/Control_Units/Proppitch/proppitch.xml</path>
 </model>
+
+<animation>
+  <type>pick</type>
+  <object-name>cvr_proplock</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("fdm/jsbsim/fcs/prop-governor/cvr_proplock" ) == 1.0 ){
+        interpolate("fdm/jsbsim/fcs/prop-governor/cvr_proplock", 0.0, 0.2 );
+        }
+        else {
+        interpolate("fdm/jsbsim/fcs/prop-governor/cvr_proplock", 1.0, 0.2 );
+        }
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>cvr_proplock</object-name>
+   <property>fdm/jsbsim/fcs/prop-governor/cvr_proplock</property>
+   <factor>110</factor>
+  <center>
+    <x-m>2.449</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.5653</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+<!-- End Prop Pitch -->
 
 <model>
   <name>Signal-Horn</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Signal-Horn/signal_horn.xml</path>
+  <path>Instruments/Control_Units/Signal-Horn/signal_horn.xml</path>
 </model>
 
 <model>
   <name>TG-16</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/TG-16/tg-16.xml</path>
+  <path>Instruments/Control_Units/TG-16/tg-16.xml</path>
 </model>
 
 <model>
   <name>Trim</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/Trim/aileron-rudder-trim.xml</path>
+  <path>Instruments/Control_Units/Trim/aileron-rudder-trim.xml</path>
 </model>
 
 <model>
   <name>UV-5M</name>
-  <path>Aircraft/an24b/Models/Interior/Instruments/Control_Units/UV-5M/uv-5m.xml</path>
+  <path>Instruments/Control_Units/UV-5M/uv-5m.xml</path>
 </model>
 
+<model>
+  <name>PRT-24</name>
+  <path>Instruments/Control_Units/WaterInjection/waterinjection.xml</path>
+</model>
 
 </PropertyList>

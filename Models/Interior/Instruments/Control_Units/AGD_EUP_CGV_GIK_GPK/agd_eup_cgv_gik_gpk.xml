@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 
-<!-- AGD switch -->
-
 <PropertyList>
 
+<!-- Left panel -->
 <model>
  <path>sw_agd_left.xml</path>
   <offsets>
     <pitch-deg>-25</pitch-deg>
     <x-m>2.125</x-m>
     <y-m>-0.7421</y-m>
-    <z-m>0.628</z-m>
+    <z-m>0.638</z-m>
   </offsets>
 </model>
 
@@ -20,7 +19,7 @@
     <pitch-deg>-25</pitch-deg>
     <x-m>2.125</x-m>
     <y-m>-0.71648</y-m>
-    <z-m>0.628</z-m>
+    <z-m>0.638</z-m>
   </offsets>
 </model>
 
@@ -30,33 +29,18 @@
     <pitch-deg>-25</pitch-deg>
     <x-m>2.125</x-m>
     <y-m>-0.69063</y-m>
-    <z-m>0.628</z-m>
+    <z-m>0.638</z-m>
   </offsets>
-</model>
-
-<model>
- <path>placard.xml</path>
 </model>
 
 <!-- Right panel -->
-
-<!--model>
- <path>sw_gmk.xml</path>
-  <offsets>
-    <pitch-deg>-20</pitch-deg>
-    <x-m>2.138</x-m>
-    <y-m>0.6564</y-m>
-    <z-m>0.675</z-m>
-  </offsets>
-</model-->
-
 <model>
  <path>sw_agd_right.xml</path>
   <offsets>
     <pitch-deg>-20</pitch-deg>
     <x-m>2.142</x-m>
     <y-m>0.637</y-m>
-    <z-m>0.637</z-m>
+    <z-m>0.647</z-m>
   </offsets>
 </model>
 
@@ -66,7 +50,7 @@
     <pitch-deg>-20</pitch-deg>
     <x-m>2.142</x-m>
     <y-m>0.6568</y-m>
-    <z-m>0.637</z-m>
+    <z-m>0.647</z-m>
   </offsets>
 </model>
 
@@ -76,7 +60,7 @@
     <pitch-deg>-20</pitch-deg>
     <x-m>2.142</x-m>
     <y-m>0.6736</y-m>
-    <z-m>0.637</z-m>
+    <z-m>0.647</z-m>
   </offsets>
 </model>
 

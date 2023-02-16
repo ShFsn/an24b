@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+
+<!-- Switch to open and close air valve from engine compressor (stage 10) -->
+<PropertyList>
+ <path>../../shared/switches/p2npn-15.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_bleedairL", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>bleedairLauto</tooltip-id>
+      <label>Bleed Air Valve
+       AUTO</label>
+    </binding>
+  </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_downL</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+#	setprop("an24/Air-Cond/bleedair_autoL", 0.0 );
+	interpolate("an24/Air-Cond/sw_bleedairL", -1.0, 0.1 );
+	interpolate("an24/Air-Cond/sw_bleedairL1", 1.0, 0.1 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_bleedairL", 0.0, 0.1 );
+        interpolate("an24/Air-Cond/sw_bleedairL1", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>bleedairLopen</tooltip-id>
+      <label>       OPEN
+Bleed Air Valve</label>
+    </binding>
+  </hovered>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_downR</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_bleedairL", -1.0, 0.1 );
+        interpolate("an24/Air-Cond/sw_bleedairL1", -1.0, 0.1 );
+      </script>
+    </binding>
+    <mod-up>
+      <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Air-Cond/sw_bleedairL", 0.0, 0.1 );
+        interpolate("an24/Air-Cond/sw_bleedairL1", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+  </action>
+  <hovered>
+    <binding>
+     <command>set-tooltip</command>
+     <tooltip-id>bleedairLclose</tooltip-id>
+      <label>      CLOSE
+Bleed Air Valve</label>
+    </binding>
+  </hovered>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Air-Cond/sw_bleedairL</property>
+  <interpolation>
+    <entry><ind>1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>-1.0</ind><dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Air-Cond/sw_bleedairL1</property>
+  <interpolation>
+    <entry><ind>-1.0</ind><dep>20.0</dep></entry>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>screws</object-name>
+  <type>pick</type>
+  <visible>false</visible>
+ </animation>
+
+</PropertyList>

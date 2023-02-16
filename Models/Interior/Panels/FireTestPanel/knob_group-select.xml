@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<!-- Knob to select sensor group -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/11p1n.ac</path>
+
+ <animation>
+   <type>knob</type>
+   <object-name>11p1n</object-name>
+   <property>an24/FireTest/selection</property>
+   <factor>30</factor>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/FireTest/selection</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>12</max>                
+      <wrap>true</wrap>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>firegroupselect</tooltip-id>
+      <label>%s</label>
+      <property>an24/FireTest/selection</property>
+      <mapping>nasal</mapping>
+      <script>
+        var groupsel = ['Test OFF', 'Valves', 'Inside Left Eng. I', 'Inside Left Eng. II', 'Inside Right Eng. I', 'Inside Right Eng. II', 'Gr. 6 Inner Wing Front', 'Gr. 5 Middle Wing Front', 'Gr. 4 Outer Wing Front', 'Gr.3 Outer Wing Back', 'Gr. 2 Middle Wing Back', 'Gr. 1 Inner Wing Back'];
+        return groupsel[arg[0]];
+      </script>
+    </binding>
+   </hovered>
+ </animation>
+
+</PropertyList>

@@ -12,22 +12,19 @@
  <texture>../../../shared/lamps/sltsnredplain.png</texture>
 </animation>
 
- <animation>
-  <object-name>lampon</object-name>
-  <type>pick</type>
-  <visible>false</visible>
-</animation>
-
-
-<!--animation>
+<animation>
  <type>select</type>
  <condition>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
    <equals>
-    <property>Pressure signalizer SgDFR-1T observes press diff > 0.4kg/cm2 between front/after fine-filter</property>
+    <property>an24/foo/bar</property>
     <value>1</value>
    </equals>
   </condition>
  <object-name>lampon</object-name>
-</animation-->
+</animation>
 
 </PropertyList>

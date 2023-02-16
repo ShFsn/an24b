@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- Anti-Skid ON -->
+
+<PropertyList>
+ <path>../../../shared/lamps/slm-61.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>filter</object-name>
+  <object-name>ring</object-name>
+  <texture>../../../shared/lamps/slm-61_yellow.png</texture>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>filter</object-name>
+ <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
+   <equals>
+    <property>controls/gear/antiskid</property>
+    <value>1</value>
+    </equals>
+  </and>
+ </condition>
+ <emission>
+  <red>0.6</red>
+  <green>0.6</green>
+  <blue>0.6</blue>
+ </emission>
+ </animation>
+
+</PropertyList>

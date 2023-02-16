@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<!-- Switch "PO-750 on/off/Aerodrome"; Item 978 -->
+
+<PropertyList>
+ <path>../../shared/switches/ppng-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_po-750", 1.0, 0.1 );
+	sound.click("azr", 3.7, 1.1, 0.74);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>p0750on</tooltip-id>
+      <label>Inverter
+PO-750 ON</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_po-750", 0.0, 0.1 );
+	sound.click("azr", 3.7, 1.1, 0.74);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>p0750off</tooltip-id>
+      <label>Inverter
+PO-750 OFF</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/sw_po-750", -1.0, 0.1 );
+	sound.click("azr", 3.7, 1.1, 0.74);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>p0750aerodr</tooltip-id>
+      <label>  Inverter
+PO-750 AERODROME</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Electrical_Panel/sw_po-750</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>24.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-24.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

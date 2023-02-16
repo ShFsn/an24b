@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>radiopanel.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>radio_panel</object-name>
+   <emission>
+     <red>0.45</red>
+     <green>0.4</green>
+     <blue>0.35</blue>
+     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>details</object-name>
+   <emission>
+     <red>0.22</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>fuses</object-name>
+   <emission>
+     <red>0.2</red>
+     <green>0.1</green>
+     <blue>0.1</blue>
+     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+   </emission>
+ </animation>
+
+<!-- Switches -->
+<model>
+ <path>sw02_azspanel_illumination.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.048</y-m>
+    <z-m>0.21</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>sw03_radio-op_station_illumination.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.018</y-m>
+    <z-m>0.21</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>sw04_radio-op_fan.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.011</y-m>
+    <z-m>0.21</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>sw05_nav-table_illumination.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.036</y-m>
+    <z-m>0.21</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>sw06_prd_kv.xml</path>
+  <offsets>
+    <x-m>0.007</x-m>
+    <y-m>-0.063</y-m>
+    <z-m>0.21</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>sw07_prd_sv.xml</path>
+  <offsets>
+    <x-m>0.007</x-m>
+    <y-m>-0.091</y-m>
+    <z-m>0.21</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+</model>
+
+</PropertyList>

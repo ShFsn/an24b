@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!-- Knob 3020; Add left (main) GO-16 to boardnet -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/205k.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>press_me</object-name>
+   <object-name>base</object-name>
+   <emission>
+     <red>0.1</red>
+     <green>0.1</green>
+     <blue>0.1</blue>
+     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+   <action>
+    <button>0</button>
+    <repeatable>true</repeatable>
+     <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/btn_add_go16l", 1.0, 0.1 );
+	if ( getprop("an24/Electrics/AC_Gen_GO16l_V") > 110 and getprop("an24/Electrical_Panel/sw_go16l") == 1.0 ) {
+	setprop("an24/Electrical_Panel/add_go16l", 1 );
+	}
+      </script>
+     </binding>
+    <mod-up>
+     <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/btn_add_go16l", 0.0, 0.1 );
+      </script>
+    </binding>
+    </mod-up>
+   </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>addgo16l</tooltip-id>
+      <label>Add Main Generator
+     GO-16 L</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/Electrical_Panel/btn_add_go16l</property>
+  <factor>0.005</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+ </animation>
+
+</PropertyList>

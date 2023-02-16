@@ -157,5 +157,5 @@ var update_reactions = func {
     }
 }
 
-setprop("sim/fdm/surface/override-level", 1);
-update_reactions();
+#setprop("sim/fdm/surface/override-level", 1);
+#update_reactions();

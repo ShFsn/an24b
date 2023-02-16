@@ -1,0 +1,249 @@
+<PropertyList>
+
+<!-- Fuel control panel, from top to bottom rows (01xx-05xx) and left to right (xx01-xx07) -->
+
+  <path>fuelcontrol.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>light_plate</object-name>
+  <emission>
+   <red>1.0</red>
+   <green>0.1</green>
+   <blue>0.1</blue>
+   <factor-prop>controls/lighting/panel-m_red</factor-prop>
+  </emission>
+ </animation>
+
+<!-- ************ Top row *********** -->
+
+<model>
+ <path>0101wl_fuelflowleft.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.06</y-m>
+    <z-m>0.1018</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0102wl_crossfeed.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.1118</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0103wl_fuelflowright.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.06</y-m>
+    <z-m>0.1018</z-m>
+  </offsets>
+</model>
+
+<!-- ************* 2nd row ************ -->
+
+<model>
+ <path>0201wl_pump_group1left.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.0393</y-m>
+    <z-m>0.068</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0202wl_pump_group2frontleft.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.018</y-m>
+    <z-m>0.068</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0203wl_pump_group2frontright.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.018</y-m>
+    <z-m>0.068</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0204wl_pump_group1right.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.0393</y-m>
+    <z-m>0.068</z-m>
+  </offsets>
+</model>
+
+<!-- ************* 3rd row ************ -->
+
+<model>
+ <path>0301wl_cutoffvalveleft.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.06095</y-m>
+    <z-m>0.038</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0302wl_pump_group2rearleft.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.01855</y-m>
+    <z-m>0.038</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0303wl_pump_group2rearright.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.01855</y-m>
+    <z-m>0.038</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0304wl_cutoffvalveright.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.06095</y-m>
+    <z-m>0.038</z-m>
+  </offsets>
+</model>
+
+<!-- ************* 4th row Switches l to r ************ -->
+
+<model>
+ <path>0401sw_cutoffvalveleft.xml</path>
+  <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>-0.05876</y-m>
+    <z-m>0.0</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0402sw_pump_group1left.xml</path>
+  <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>-0.03866</y-m>
+    <z-m>0.0</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0403sw_pumps_group2left.xml</path>
+  <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>-0.01855</y-m>
+    <z-m>0.0</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0404sw_crossfeed.xml</path>
+  <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0405sw_pumps_group2right.xml</path>
+  <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>0.01855</y-m>
+    <z-m>0.0</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0406sw_pump_group1right.xml</path>
+  <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>0.0386</y-m>
+    <z-m>0.0</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0407sw_cutoffvalveright.xml</path>
+  <offsets>
+    <x-m>-0.005</x-m>
+    <y-m>0.05876</y-m>
+    <z-m>0.0</z-m>
+  </offsets>
+</model>
+
+<!-- ************* 5th row ************ -->
+
+<model>
+ <path>0501wl_chips_in_engineL.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>-0.06095</y-m>
+    <z-m>-0.038</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>0502wl_chips_in_engineR.xml</path>
+  <offsets>
+    <x-m>-0.002</x-m>
+    <y-m>0.06095</y-m>
+    <z-m>-0.038</z-m>
+  </offsets>
+</model>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textfuelpanel</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textfuelpanel</name>
+    <type type="string">literal</type>
+    <text type="string">Fuel Control Panel</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.03</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.1</max-height>
+    <max-width>0.1</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.020</x-m>
+      <y-m>0.000</y-m>
+      <z-m>0.040</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textfuelpanel</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

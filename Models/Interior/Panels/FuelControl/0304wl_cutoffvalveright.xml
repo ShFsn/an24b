@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- Cutoff fuel transfer to right engine -->
+
+<PropertyList>
+ <path>../../shared/lamps/warninglamp02.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+ <texture>../../shared/lamps/warninglamp02green.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
+   <equals>
+    <property>an24/FuelControl/cutoff-r-by-sw</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+ <object-name>lampon</object-name>
+</animation>
+
+</PropertyList>

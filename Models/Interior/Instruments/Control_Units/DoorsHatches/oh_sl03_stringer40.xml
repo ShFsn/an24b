@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Pressure door at stringer 40 open -->
-
 <PropertyList>
  <path>../../../shared/lamps/warninglamp02.ac</path>
 
@@ -15,16 +14,16 @@
 <animation>
  <type>select</type>
  <condition>
-  <!--or>
-   <equals>
-    <property>an24/doorshatches/sl_door_str40</property>
-    <value>1.0</value>
-   </equals-->
+  <and>
    <greater-than>
-    <property>an24/doorshatches/test-btn</property>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>20.0</value>
+   </greater-than>
+   <greater-than>
+    <property>an24/doorshatches/test</property>
     <value>0.4</value>
    </greater-than>
-  <!--/or-->
+  </and>
   </condition>
  <object-name>lampon</object-name>
 </animation>

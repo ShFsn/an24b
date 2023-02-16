@@ -1,0 +1,1033 @@
+<?xml version="1.0"?>
+
+<!-- Rocket Panel -->
+
+<PropertyList>
+ <path>tp622.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>tp622plate</object-name>
+   <object-name>tp622apps</object-name>
+   <!--object-name>tp622screws</object-name>
+   <object-name>rocketA1screw</object-name>
+   <object-name>rocketA2screw</object-name>
+   <object-name>rocketA3screw</object-name>
+   <object-name>rocketA4screw</object-name>
+   <object-name>rocketA1btn</object-name>
+   <object-name>rocketA2btn</object-name>
+   <object-name>rocketA3btn</object-name>
+   <object-name>rocketA4btn</object-name-->
+   <emission>
+     <red>0.01</red>
+     <green>0.01</green>
+     <blue>0.01</blue>
+     <factor-prop>controls/lighting/console-r_red</factor-prop>
+   </emission>
+ </animation>
+
+ <!--animation>
+   <type>material</type>
+   <object-name>rocketA1colour</object-name>
+   <object-name>rocketA2colour</object-name>
+   <object-name>rocketA3colour</object-name>
+   <object-name>rocketA4colour</object-name>
+   <emission>
+     <red>0.1</red>
+     <green>0.1</green>
+     <blue>0.1</blue>
+     <factor-prop>controls/lighting/console-r_red</factor-prop>
+   </emission>
+ </animation-->
+
+<!--Switches-->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_upA</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/TP622/sw_CassetteA", 1.0, 0.1 );
+      </script>
+   </binding>
+   </action>
+    <hovered>
+     <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>tpAon</tooltip-id>
+      <label>    ARM
+  Rockets
+Cassette A</label>
+     </binding>
+    </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_downA</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/TP622/sw_CassetteA", 0.0, 0.1 );
+      </script>
+   </binding>
+   </action>
+    <hovered>
+     <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>tpAoff</tooltip-id>
+      <label>  DISARM
+  Rockets
+Cassette A</label>
+     </binding>
+    </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>leverCassetteA</object-name>
+   <property>an24/TP622/sw_CassetteA</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.004</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_upB</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/TP622/sw_CassetteB", 1.0, 0.1 );
+      </script>
+   </binding>
+   </action>
+    <hovered>
+     <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>tpBon</tooltip-id>
+      <label>     ARM
+  Rockets
+Cassette B</label>
+     </binding>
+    </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_downB</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/TP622/sw_CassetteB", 0.0, 0.1 );
+      </script>
+   </binding>
+   </action>
+    <hovered>
+     <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>tpBoff</tooltip-id>
+      <label>  DISARM
+  Rockets
+Cassette B</label>
+     </binding>
+    </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>leverCassetteB</object-name>
+   <property>an24/TP622/sw_CassetteB</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.004</y-m>
+   <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--Buttons Cassette A-->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketA1btn</object-name>
+  <object-name>rocketA1screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA1", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("A",1);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA1", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketA1</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.1</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketA1btn</object-name>
+  <object-name>rocketA1colour</object-name>
+  <object-name>rocketA1screw</object-name>
+  <property>an24/TP622/btn_rocketA1</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteA</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketA1screw</object-name>
+  <property>an24/TP622/colour_rocketA1</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>-0.0259</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketA1</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketA1colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketA1</property>
+  <factor>90</factor>
+  <offset-deg>20</offset-deg>
+  <center>
+   <x-m>-0.0259</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketA2btn</object-name>
+  <object-name>rocketA2screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA2", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("A",2);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA2", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketA2</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.2</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketA2btn</object-name>
+  <object-name>rocketA2colour</object-name>
+  <object-name>rocketA2screw</object-name>
+  <property>an24/TP622/btn_rocketA2</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteA</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketA2screw</object-name>
+  <property>an24/TP622/colour_rocketA2</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketA2</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketA2colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketA2</property>
+  <factor>90</factor>
+  <offset-deg>-10</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketA3btn</object-name>
+  <object-name>rocketA3screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA3", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("A",3);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA3", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketA3</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.3</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketA3btn</object-name>
+  <object-name>rocketA3colour</object-name>
+  <object-name>rocketA3screw</object-name>
+  <property>an24/TP622/btn_rocketA3</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteA</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketA3screw</object-name>
+  <property>an24/TP622/colour_rocketA3</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>0.026</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketA3</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketA3colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketA3</property>
+  <factor>90</factor>
+  <offset-deg>-16</offset-deg>
+  <center>
+   <x-m>0.026</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketA4btn</object-name>
+  <object-name>rocketA4screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA4", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("A",4);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketA4", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketA4</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.4</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketA4btn</object-name>
+  <object-name>rocketA4colour</object-name>
+  <object-name>rocketA4screw</object-name>
+  <property>an24/TP622/btn_rocketA4</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteA</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketA4screw</object-name>
+  <property>an24/TP622/colour_rocketA4</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>0.052</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketA4</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketA4colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketA4</property>
+  <factor>90</factor>
+  <offset-deg>14</offset-deg>
+  <center>
+   <x-m>0.052</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--Buttons Cassette B-->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketB1btn</object-name>
+  <object-name>rocketB1screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB1", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("B",1);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB1", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketB1</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.1</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketB1btn</object-name>
+  <object-name>rocketB1colour</object-name>
+  <object-name>rocketB1screw</object-name>
+  <property>an24/TP622/btn_rocketB1</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteB</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketB1screw</object-name>
+  <property>an24/TP622/colour_rocketB1</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>-0.0259</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketB1</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketB1colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketB1</property>
+  <factor>90</factor>
+  <offset-deg>-20</offset-deg>
+  <center>
+   <x-m>-0.0259</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketB2btn</object-name>
+  <object-name>rocketB2screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB2", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("B",2);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB2", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketB2</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.2</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketB2btn</object-name>
+  <object-name>rocketB2colour</object-name>
+  <object-name>rocketB2screw</object-name>
+  <property>an24/TP622/btn_rocketB2</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteB</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketB2screw</object-name>
+  <property>an24/TP622/colour_rocketB2</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketB2</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketB2colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketB2</property>
+  <factor>90</factor>
+  <offset-deg>10</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketB3btn</object-name>
+  <object-name>rocketB3screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB3", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("B",3);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB3", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketB3</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.3</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketB3btn</object-name>
+  <object-name>rocketB3colour</object-name>
+  <object-name>rocketB3screw</object-name>
+  <property>an24/TP622/btn_rocketB3</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteB</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketB3screw</object-name>
+  <property>an24/TP622/colour_rocketB3</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>0.026</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketB3</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketB3colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketB3</property>
+  <factor>90</factor>
+  <offset-deg>16</offset-deg>
+  <center>
+   <x-m>0.026</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <animation>
+  <type>pick</type>
+  <object-name>rocketB4btn</object-name>
+  <object-name>rocketB4screw</object-name>
+  <visible>true</visible>
+   <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB4", 1.0, 0.1 );
+	instruments.EKSRCassetteMain("B",4);
+     </script>
+    </binding>
+   <mod-up>
+    <binding>
+     <command>nasal</command>
+     <script>
+	interpolate("an24/TP622/btn_rocketB4", 0.0, 0.05 );
+     </script>
+    </binding>
+   </mod-up>
+    </action>
+     <hovered>
+      <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>rocketB4</tooltip-id>
+      <label>  FIRE
+Rocket
+  No.4</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>rocketB4btn</object-name>
+  <object-name>rocketB4colour</object-name>
+  <object-name>rocketB4screw</object-name>
+  <property>an24/TP622/btn_rocketB4</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>knob</type>
+  <condition>
+   <equals>
+    <property>an24/TP622/sw_CassetteB</property>
+    <value>0.0</value>
+   </equals>
+  </condition>
+  <object-name>rocketB4screw</object-name>
+  <property>an24/TP622/colour_rocketB4</property>  
+  <factor>90</factor>
+  <center>
+    <x-m>0.052</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+   <action>
+    <binding>
+     <command>property-adjust</command>
+     <property>an24/TP622/colour_rocketB4</property>
+     <factor>-1</factor>
+     <min>0</min>
+     <max>4</max>                
+     <wrap>true</wrap>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <object-name>rocketB4colour</object-name>
+  <type>rotate</type>
+  <property>an24/TP622/colour_rocketB4</property>
+  <factor>90</factor>
+  <offset-deg>-16</offset-deg>
+  <center>
+   <x-m>0.052</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.0368</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">TP622 Rocket Panel</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>xz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.0 </x-m>
+      <y-m> -0.018 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

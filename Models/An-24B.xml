@@ -2,30 +2,28 @@
 
 <PropertyList>
 
-<!-- Exterior -->
-
-<path>Aircraft/an24b/Models/Exterior/an24-model.ac</path>
+<!--*********************
+* EXTERIOR
+**********************-->
+ <path>Models/Exterior/an24-model.ac</path>
     <offsets>
       <x-m>-8.5</x-m>
       <y-m>0</y-m>
       <z-m>0</z-m>
     </offsets>
 
-  <nasal>
-    <load><![CDATA[
-# Receive generic properties sent by the remote An-24b and alias them to properties used in animations.
-# The properties used in animations are all under /ai/models/multiplayer[*]/, which is the root of the
-# property tree of the remote An-24b and, represented below by cmdarg().
-var rplayer = cmdarg();
-rplayer.getNode("an24/animations/nose", 1).
-alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
-    ]]></load>
-  </nasal>
-
  <effect>
-   <inherits-from>Effects/model-transparent</inherits-from>
+  <inherits-from>Effects/model-transparent</inherits-from>
    <object-name>paxwindows</object-name>
-   <object-name>v-taillight</object-name>
+   <object-name>OSS-61bellyplexi</object-name>
+   <object-name>OSS-61bellyfilter</object-name>
+   <object-name>BANO-57backplexi</object-name>
+   <object-name>propblurL</object-name>
+   <object-name>propblurL1</object-name>
+   <object-name>propblurL2</object-name>
+   <object-name>propblurR</object-name>
+   <object-name>propblurR1</object-name>
+   <object-name>propblurR2</object-name>
  </effect>
 
  <animation>
@@ -42,8 +40,25 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
   <object-name>emerg_hatch_top</object-name>
   <object-name>v-tail</object-name>
   <object-name>h-tail</object-name>
+  <object-name>elevatorL</object-name>
+  <object-name>elevatorR</object-name>
   <object-name>ant</object-name>
-  <object-name>landinglightL</object-name>
+
+  <object-name>BANO-57backcasing</object-name>
+  <object-name>BANO-57backplexi</object-name>
+  <object-name>bano-57whitenav</object-name>
+
+  <object-name>OSS-61red</object-name>
+  <object-name>OSS-61topplexi</object-name>
+  <object-name>OSS-61topfilter</object-name>
+  <object-name>oss-61topstrobe</object-name>
+
+  <object-name>OSS-61white</object-name>
+  <object-name>OSS-61bellyplexi</object-name>
+  <object-name>OSS-61bellyfilter</object-name>
+  <object-name>OSS-61bellycasing</object-name>
+  <object-name>oss-61bellystrobe</object-name>
+
 <!-- Front gear -->
   <object-name>frontwheels</object-name>
   <object-name>damper_strut_front</object-name>
@@ -62,7 +77,6 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
   <object-name>folding_strut_30deg</object-name>
   <object-name>cardan_joint</object-name>
   <object-name>damper_strut_main</object-name>
-  <object-name>folding_strut_30deg</object-name>
   <object-name>top_link</object-name>
   <object-name>bottom_link</object-name>
   <object-name>hose</object-name>
@@ -80,89 +94,850 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
   <type>select</type>
   <object-name>exterior</object-name>
   <condition>
-    <not>
-     <property>sim/current-view/internal</property>
-    </not>
+    <or>
+      <not>
+        <property>sim/current-view/internal</property>
+      </not>
+      <!-- if viewing our own aircraft from the cockpit of another over multiplayer, we want to see the exterior -->
+      <property>sim/current-view/multiplayer</property>
+    </or>
   </condition>
  </animation>
 
-<!-- Interior -->
-
-<model>
-    <name>cockpit</name>
-    <usage>interior</usage>
-    <path>Aircraft/an24b/Models/Interior/cockpit.xml</path>
-    <nopreview/>
-</model>
-
-<model>
-    <name>crewsection</name>
-    <path>Aircraft/an24b/Models/Interior/crewsection.xml</path>
-    <nopreview/>
-</model>
-
-<!--model>
-    <name>cargosection</name>
-    <path>Aircraft/an24b/Models/Interior/cargosection.xml</path>
-    <offsets>
-      <x-m>0.0</x-m>
-      <y-m>0.0</y-m>
-      <z-m>0.0</z-m>
-    </offsets>
-    <nopreview/>
-</model-->
-
-<!--model>
-    <name>paxsection</name>
-    <path>Aircraft/an24b/Models/Interior/paxsection.xml</path>
-    <offsets>
-      <x-m>0.0</x-m>
-      <y-m>0.0</y-m>
-      <z-m>0.0</z-m>
-    </offsets>
-    <nopreview/>
-</model-->
-
-<animation>
-  <type>pick</type>
-  <object-name>nose</object-name>
+<!--*********************
+** COMPOSITOR LIGHTS
+**********************-->
+ <animation>
+  <type>select</type>
+  <object-name>PRF-4left_comp</object-name>
+  <object-name>PRF-4right_comp</object-name>
   <condition>
-   <not>
-    <property>sim/current-view/internal</property>
-   </not>
+   <less-than>
+    <property>position/altitude-agl-ft</property>
+    <value>1500</value>
+   </less-than>
   </condition>
-  <visible>true</visible>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/animations/nose", 0.4, 0.6 );
-        settimer(func {interpolate("an24/animations/nose", 1.0, 0.1 );},0.6);
-      </script>
-    </binding>
-  </action>
-</animation>
+ </animation>
+ 
+ <animation>
+  <type>select</type>
+  <object-name>OSS-61red_comp</object-name>
+  <object-name>OSS-61white_comp</object-name>
+  <object-name>BANO-57white_comp</object-name>
+  <object-name>BANO-57red_comp</object-name>
+  <object-name>BANO-57green_comp</object-name>
+  <condition>
+   <less-than>
+    <property>position/altitude-agl-ft</property>
+    <value>300</value>
+   </less-than>
+  </condition>
+ </animation>
+ 
+<!-- Landing/Taxi Lights -->
+ <light>
+  <name>PRF-4left_comp</name>
+  <type>spot</type>
+  <position>
+   <x-m>9.14</x-m>
+   <y-m>-8.074</y-m>
+   <z-m>1.61</z-m>
+  </position>
+  <direction>
+   <pitch-deg>0</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg>0</heading-deg>
+  </direction>
+   <ambient>
+    <r>1.0</r>
+    <g>0.9</g>
+    <b>0.7</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+   </specular>
+   <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+   </attenuation>
+   <spot-cutoff>35</spot-cutoff>
+   <spot-exponent>305</spot-exponent>
+    <!--dist-scale>100</dist-scale-->
+    <range-m>1500</range-m>
+  <dim-factor>
+    <property>an24/lights/PRF-4L_lamp</property>
+  </dim-factor>
+ </light>
 
-<animation>
-  <type>scale</type>
-  <object-name>nose</object-name>
-  <property>an24/animations/nose</property>
-   <center>
-   <x-m>1.11</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.0</z-m>
-  </center>
-  <x-min>0.1</x-min>
-  <y-min>1.0</y-min>
-  <z-min>1.0</z-min>
-  <x-factor>1.0</x-factor>
-  <y-factor>0.0</y-factor>
-  <z-factor>0.0</z-factor>
+ <animation>
+  <type>rotate</type>
+   <object-name>PRF-4left_comp</object-name>
+   <object-name>PRF-4Lhalo</object-name>
+   <object-name>PRF-4Lcasing</object-name>
+   <object-name>PRF-4Lreflect</object-name>
+   <object-name>PRF-4Lring</object-name>
+   <object-name>PRF-4Lglass</object-name>
+   <property>an24/lights/PRF-4angleL</property>
+   <interpolation>
+    <entry><ind>1.0</ind><dep>-85.7</dep></entry>
+    <entry><ind>-1.0</ind><dep>-11.0</dep></entry>
+   </interpolation>
+   <axis>
+    <x1-m>9.0</x1-m>
+    <y1-m>-7.96</y1-m>
+    <z1-m>1.66</z1-m>
+    <x2-m>8.983</x2-m>
+    <y2-m>-8.145</y2-m>
+    <z2-m>1.66</z2-m>
+   </axis>
  </animation>
 
-<!--****************************** Control surfaces **************************************-->
+ <animation>
+  <type>select</type>
+  <object-name>PRF-4Lhalo</object-name>
+  <condition>
+   <greater-than>
+    <property>an24/lights/PRF-4L_lamp</property>
+    <value>0.1</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>flash</type>
+  <object-name>PRF-4Lhalo</object-name>
+  <offset>0.0</offset>
+  <factor>3.0</factor>
+  <power>3</power>
+  <two-sides type="bool">false</two-sides>
+  <min>0.0</min>
+  <max>100.0</max>
+  <center>
+   <x-m>9.15</x-m>
+   <y-m>-8.07</y-m>
+   <z-m>1.63</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>PRF-4Lhalo</object-name>
+  <object-name>PRF-4Lglass</object-name>
+  <type>material</type>
+   <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>an24/lights/PRF-4L_lamp</factor-prop>
+   </emission>
+ </animation>
+
+ <light>
+  <name>PRF-4right_comp</name>
+  <type>spot</type>
+  <position>
+   <x-m>9.14</x-m>
+   <y-m>8.074</y-m>
+   <z-m>1.61</z-m>
+  </position>
+  <direction>
+   <pitch-deg>0</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg>0</heading-deg>
+  </direction>
+   <ambient>
+    <r>1.0</r>
+    <g>0.9</g>
+    <b>0.7</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+   </specular>
+   <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+   </attenuation>
+   <spot-cutoff>25</spot-cutoff>
+   <spot-exponent>305</spot-exponent>
+   <!--dist-scale>100</dist-scale-->
+   <range-m>1500</range-m>
+  <dim-factor>
+    <property>an24/lights/PRF-4R_lamp</property>
+  </dim-factor>
+ </light>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>PRF-4right_comp</object-name>
+  <object-name>PRF-4Rhalo</object-name>
+  <object-name>PRF-4Rcasing</object-name>
+  <object-name>PRF-4Rreflect</object-name>
+  <object-name>PRF-4Rring</object-name>
+  <object-name>PRF-4Rglass</object-name>
+   <property>an24/lights/PRF-4angleR</property>
+   <interpolation>
+     <entry><ind>1.0</ind><dep>88.0</dep></entry>
+     <entry><ind>-1.0</ind><dep>11.0</dep></entry>
+   </interpolation>
+   <axis>
+    <x1-m>9.008</x1-m>
+    <y1-m>7.973</y1-m>
+    <z1-m>1.66</z1-m>
+    <x2-m>8.978</x2-m>
+    <y2-m>8.154</y2-m>
+    <z2-m>1.66</z2-m>
+   </axis>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>PRF-4Rhalo</object-name>
+  <condition>
+   <greater-than>
+    <property>an24/lights/PRF-4R_lamp</property>
+    <value>0.1</value>
+   </greater-than>
+  </condition>
+ </animation>
+ 
+ <animation>
+  <type>flash</type>
+  <object-name>PRF-4Rhalo</object-name>
+  <offset>0.0</offset>
+  <factor>3.0</factor>
+  <power>3</power>
+  <two-sides type="bool">false</two-sides>
+  <min>0.0</min>
+  <max>100.0</max>
+  <center>
+   <x-m>9.15</x-m>
+   <y-m>8.07</y-m>
+   <z-m>1.63</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>PRF-4Rhalo</object-name>
+  <object-name>PRF-4Rglass</object-name>
+  <type>material</type>
+   <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>an24/lights/PRF-4R_lamp</factor-prop>
+   </emission>
+ </animation>
+
+<!-- Strobe Lights -->
+ <light>
+  <name>OSS-61red_comp</name>
+  <type>spot</type>
+  <position>
+    <x-m>20.09</x-m>
+    <y-m>0.0</y-m>
+    <z-m>3.23</z-m>
+  </position>
+  <direction>
+   <pitch-deg>98</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg>-150</heading-deg>
+  </direction>
+  <ambient>
+    <r>0.95</r>
+    <g>0.1</g>
+    <b>0.1</b>
+    <a>1</a>
+  </ambient>
+  <diffuse>
+    <r>0.95</r>
+    <g>0.1</g>
+    <b>0.1</b>
+    <a>1</a>
+  </diffuse>
+  <specular>
+    <r>0.95</r>
+    <g>0.1</g>
+    <b>0.1</b>
+    <a>1</a>
+  </specular>
+  <attenuation>
+    <c>1.0</c>
+    <l>0.09</l>
+    <q>0.032</q>
+  </attenuation>
+  <spot-exponent>5</spot-exponent>
+  <spot-cutoff>8</spot-cutoff>
+  <range-m>100</range-m>
+  <dim-factor>
+   <property>/an24/lights/OSS-61red_visible</property>
+  </dim-factor>
+ </light>
+
+ <animation>
+  <object-name>oss-61topstrobe</object-name>
+  <type>select</type>
+   <condition>
+    <equals>
+     <property>an24/lights/OSS-61red_visible</property>
+     <value>1</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>OSS-61topplexi</object-name>
+  <object-name>OSS-61topfilter</object-name>
+  <type>select</type>
+   <condition>
+    <equals>
+     <property>an24/lights/OSS-61red_visible</property>
+     <value>0</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>OSS-61red_comp</object-name>
+  <type>rotate</type>
+  <property>/an24/lights/strobe-timer</property>
+  <factor>1</factor>
+  <center>
+    <x-m>20.09</x-m>
+    <y-m>0.0</y-m>
+    <z-m>3.23</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>oss-61topstrobe</object-name>
+  <type>material</type>
+   <emission>
+    <red>1</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+   </emission>
+ </animation>
+
+ <animation>
+  <object-name>oss-61topstrobe</object-name>
+  <type>rotate</type>
+  <property>an24/lights/strobe-timer</property>
+  <offset-deg>-150</offset-deg>
+  <factor>1</factor>
+  <center>
+    <x-m>20.09</x-m>
+    <y-m>0.0</y-m>
+    <z-m>3.23</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>flash</type>
+  <object-name>oss-61topstrobe</object-name>
+  <offset>0.0</offset>
+  <factor>4.0</factor>
+  <power>3</power>
+  <two-sides type="bool">false</two-sides>
+  <min>0.0</min>
+  <max>100.0</max>
+  <center>
+   <x-m>20.09</x-m>
+   <y-m>0.0</y-m>
+   <z-m>3.20</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <light>
+  <name>OSS-61white_comp</name>
+  <type>spot</type>
+  <position>
+    <x-m>12.20</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.782</z-m>
+  </position>
+  <direction>
+   <pitch-deg>-82</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg>-105</heading-deg>
+  </direction>
+   <ambient>
+    <r>1.0</r>
+    <g>0.9</g>
+    <b>0.7</b>
+   </ambient>
+   <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+   </specular>
+   <attenuation>
+    <c>0.375</c>
+    <l>0.01</l>
+    <q>0.0001</q>
+   </attenuation>
+   <spot-cutoff>25</spot-cutoff>
+   <spot-exponent>555</spot-exponent>
+   <!--dist-scale>100</dist-scale-->
+   <range-m>500</range-m>
+  <dim-factor>
+   <property>an24/lights/OSS-61white_visible</property>
+  </dim-factor>
+ </light>
+
+ <animation>
+  <object-name>OSS-61white_comp</object-name>
+  <type>rotate</type>
+  <property>an24/lights/strobe-timer</property>
+  <factor>1</factor>
+  <center>
+    <x-m>12.20</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.782</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>oss-61bellystrobe</object-name>
+  <type>select</type>
+   <condition>
+    <equals>
+     <property>an24/lights/OSS-61white_visible</property>
+     <value>1</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>OSS-61bellycasing</object-name>
+  <object-name>OSS-61bellyglass</object-name>
+  <object-name>OSS-61bellyfilter</object-name>
+  <type>select</type>
+   <condition>
+    <equals>
+     <property>an24/lights/OSS-61white_visible</property>
+     <value>0</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>oss-61bellystrobe</object-name>
+  <type>material</type>
+   <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+   </emission>
+ </animation>
+
+ <animation>
+  <object-name>oss-61bellystrobe</object-name>
+  <type>rotate</type>
+  <property>an24/lights/strobe-timer</property>
+  <offset-deg>255</offset-deg>
+  <factor>1</factor>
+  <center>
+    <x-m>12.20</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.782</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>flash</type>
+  <object-name>oss-61bellystrobe</object-name>
+  <offset>0.0</offset>
+  <factor>4.0</factor>
+  <power>3</power>
+  <two-sides type="bool">false</two-sides>
+  <min>0.0</min>
+  <max>100.0</max>
+  <center>
+   <x-m>12.20</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.782</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- NAV/Anti-Collision Lights -->
+ <light>
+  <name>BANO-57white_comp</name>
+  <type>spot</type>
+  <position>
+    <x-m>23.45</x-m>
+    <y-m>0.0</y-m>
+    <z-m>1.54</z-m>
+  </position>
+  <direction>
+   <pitch-deg>-90</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg>0</heading-deg>
+  </direction>
+  <ambient>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+    <a>1</a>
+  </ambient>
+  <diffuse>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+    <a>1</a>
+  </diffuse>
+  <specular>
+    <r>1.0</r>
+    <g>1.0</g>
+    <b>1.0</b>
+    <a>1</a>
+  </specular>
+  <attenuation>
+    <c>1.0</c>
+    <l>0.09</l>
+    <q>0.032</q>
+  </attenuation>
+  <spot-exponent>5</spot-exponent>
+  <spot-cutoff>88</spot-cutoff>
+  <range-m>100</range-m>
+  <dim-factor>
+    <property>an24/lights/BANO-57</property>
+  </dim-factor>
+ </light>
+
+ <animation>
+  <object-name>bano-57whitenav</object-name>
+  <type>select</type>
+   <condition>
+    <equals>
+     <property>an24/lights/BANO-57</property>
+     <value>1</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>BANO-57backplexi</object-name>
+  <type>select</type>
+   <condition>
+    <equals>
+     <property>an24/lights/BANO-57</property>
+     <value>0</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>bano-57whitenav</object-name>
+  <type>material</type>
+   <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+   </emission>
+ </animation>
+
+ <animation>
+  <type>flash</type>
+  <object-name>bano-57whitenav</object-name>
+  <offset>0.0</offset>
+  <factor>2.0</factor>
+  <power>2</power>
+  <two-sides type="bool">false</two-sides>
+  <min>1.0</min>
+  <max>100.0</max>
+  <center>
+   <x-m>23.42</x-m>
+   <y-m>0.0</y-m>
+   <z-m>1.54</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!---->
+ <light>
+  <name>BANO-57red_comp</name>
+  <type>spot</type>
+  <position>
+    <x-m>10.20</x-m>
+    <y-m>-14.5</y-m>
+    <z-m>1.75</z-m>
+  </position>
+  <direction>
+   <pitch-deg>90</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg>55</heading-deg>
+  </direction>
+  <ambient>
+    <r>0.95</r>
+    <g>0.1</g>
+    <b>0.1</b>
+    <a>1</a>
+  </ambient>
+  <diffuse>
+    <r>0.95</r>
+    <g>0.1</g>
+    <b>0.1</b>
+    <a>1</a>
+  </diffuse>
+  <specular>
+    <r>0.95</r>
+    <g>0.1</g>
+    <b>0.1</b>
+    <a>1</a>
+  </specular>
+  <attenuation>
+    <c>1.0</c>
+    <l>0.09</l>
+    <q>0.032</q>
+  </attenuation>
+  <spot-exponent>5</spot-exponent>
+  <spot-cutoff>88</spot-cutoff>
+  <range-m>100</range-m>
+  <dim-factor>
+    <property>an24/lights/BANO-57</property>
+  </dim-factor>
+ </light>
+
+ <animation>
+  <object-name>bano-57rednav</object-name>
+  <type>select</type>
+   <condition>
+    <greater-than>
+     <property>sim/current-view/heading-offset-deg</property>
+     <value>170</value>
+    </greater-than>
+    <less-than>
+     <property>sim/current-view/heading-offset-deg</property>
+     <value>300</value>
+    </less-than>
+    <equals>
+     <property>an24/lights/BANO-57</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>bano-57rednav</object-name>
+  <type>material</type>
+   <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+    <factor-prop>an24/lights/BANO-57</factor-prop>
+   </emission>
+ </animation>
+ 
+ <animation>
+  <type>flash</type>
+  <object-name>bano-57rednav</object-name>
+  <offset>0.0</offset>
+  <factor>2.0</factor>
+  <power>2</power>
+  <two-sides type="bool">true</two-sides>
+  <min>1.0</min>
+  <max>100.0</max>
+  <center>
+   <x-m>10.10</x-m>
+   <y-m>-14.57</y-m>
+   <z-m>1.74</z-m>
+  </center>
+  <axis>
+   <x>1.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <!---->
+ <light>
+  <name>BANO-57green_comp</name>
+  <type>spot</type>
+  <position>
+    <x-m>10.20</x-m>
+    <y-m>14.5</y-m>
+    <z-m>1.75</z-m>
+  </position>
+  <direction>
+   <pitch-deg>90</pitch-deg>
+   <roll-deg>0</roll-deg>
+   <heading-deg>-55</heading-deg>
+  </direction>
+  <ambient>
+    <r>0.1</r>
+    <g>0.95</g>
+    <b>0.1</b>
+    <a>1</a>
+  </ambient>
+  <diffuse>
+    <r>0.1</r>
+    <g>0.95</g>
+    <b>0.1</b>
+    <a>1</a>
+  </diffuse>
+  <specular>
+    <r>0.1</r>
+    <g>0.95</g>
+    <b>0.1</b>
+    <a>1</a>
+  </specular>
+  <attenuation>
+    <c>1.0</c>
+    <l>0.09</l>
+    <q>0.032</q>
+  </attenuation>
+  <spot-exponent>5</spot-exponent>
+  <spot-cutoff>88</spot-cutoff>
+  <range-m>100</range-m>
+  <dim-factor>
+    <property>an24/lights/BANO-57</property>
+  </dim-factor>
+ </light>
+
+ <animation>
+  <object-name>bano-57greennav</object-name>
+  <type>select</type>
+   <condition>
+    <greater-than>
+     <property>sim/current-view/heading-offset-deg</property>
+     <value>60</value>
+    </greater-than>
+    <less-than>
+     <property>sim/current-view/heading-offset-deg</property>
+     <value>190</value>
+    </less-than>
+    <equals>
+     <property>an24/lights/BANO-57</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
+ </animation>
+
+ <animation>
+  <object-name>bano-57greennav</object-name>
+  <type>material</type>
+   <emission>
+    <red>1</red>
+    <green>1</green>
+    <blue>1</blue>
+    <factor-prop>an24/lights/BANO-57</factor-prop>
+   </emission>
+ </animation>
+ 
+ <animation>
+  <type>flash</type>
+  <object-name>bano-57greennav</object-name>
+  <offset>1.0</offset>
+  <factor>2.0</factor>
+  <power>2</power>
+  <two-sides type="bool">true</two-sides>
+  <min>0.0</min>
+  <max>100.0</max>
+  <center>
+   <x-m>10.10</x-m>
+   <y-m>14.57</y-m>
+   <z-m>1.74</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>1.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
+ 
+
+<!--*********************
+** EFFECTS
+**********************-->
+<!-- Engine Fire -->
+ <model>
+  <path>Effects/fire.xml</path>
+   <condition>
+    <property>an24/Anti-Ice/sw_clockheat</property>
+   </condition>
+  <offsets>
+   <x-m>7.1</x-m>
+   <y-m>-4.0</y-m>
+   <z-m>0.9</z-m>
+   <pitch-deg>85</pitch-deg>
+  </offsets>
+ </model>
+
+<!-- ROCKETS -->
+ <model>
+  <path>Effects/rockets.xml</path>
+ </model>
+
+<!--*********************
+** INTERIOR
+**********************-->
+ <model>
+  <name>cockpit</name>
+  <usage>interior</usage>
+  <path>Interior/cockpit.xml</path>
+  <nopreview/>
+ </model>
+
+ <model>
+  <name>crewsection</name>
+  <usage>interior</usage>
+  <path>Interior/crewsection.xml</path>
+  <nopreview/>
+ </model>
+
+<!--******************************
+** Control surfaces
+**********************************-->
 <!--Ailerons-->
 <animation>
   <type>rotate</type>
@@ -217,39 +992,38 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
   </axis>
 </animation>
 
-<!--Elevators
+<!--Elevators-->
 <animation>
   <type>rotate</type>
   <object-name>elevatorL</object-name>  
-  <property>controls/flight/elevators</property>
-  <factor>25.0</factor>
+  <property>controls/flight/elevator</property>
+  <factor>-25.0</factor>
   <offset-deg>0.0</offset-deg>
   <axis>
-    <x1-m>10.7169</x1-m>
-    <y1-m>-14.4454</y1-m>
-    <z1-m>1.7360</z1-m>
-    <x2-m>10.6020</x2-m>
-    <y2-m>-9.1487</y2-m>
-    <z2-m>1.737</z2-m>
+    <x1-m>22.29</x1-m>
+    <y1-m>-0.27</y1-m>
+    <z1-m>1.68</z1-m>
+    <x2-m>22.95</x2-m>
+    <y2-m>-4.56</y2-m>
+    <z2-m>2.6</z2-m>
   </axis>
 </animation>
 
 <animation>
   <type>rotate</type>
   <object-name>elevatorR</object-name>  
-  <property>controls/flight/elevators</property>
+  <property>controls/flight/elevator</property>
   <factor>25.0</factor>
   <offset-deg>0.0</offset-deg>
   <axis>
-    <x1-m>10.7169</x1-m>
-    <y1-m>14.4454</y1-m>
-    <z1-m>1.7360</z1-m>
-    <x2-m>10.6020</x2-m>
-    <y2-m>9.1487</y2-m>
-    <z2-m>1.737</z2-m>
+    <x1-m>22.29</x1-m>
+    <y1-m>0.27</y1-m>
+    <z1-m>1.68</z1-m>
+    <x2-m>22.95</x2-m>
+    <y2-m>4.56</y2-m>
+    <z2-m>2.6</z2-m>
   </axis>
 </animation>
--->
 
 <!--Flaps-->
 <animation>
@@ -323,10 +1097,34 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
 <!--Props-->
 
 <animation>
+ <type>select</type>
+ <object-name>propL</object-name>
+ <condition>
+  <less-than>
+  <property>engines/engine[0]/rpm</property>
+  <value>400</value>
+  </less-than>
+ </condition>
+</animation>
+
+<animation>
+ <type>select</type>
+ <object-name>propblurL</object-name>
+ <object-name>propblurL1</object-name>
+ <object-name>propblurL2</object-name>
+ <condition>
+  <greater-than>
+  <property>engines/engine[0]/rpm</property>
+  <value>400</value>
+  </greater-than>
+ </condition>
+</animation>
+
+<animation>
   <object-name>propL</object-name>
   <type>spin</type>
   <property>engines/engine[0]/rpm</property>
-  <factor>0.1</factor>
+  <factor>1.0</factor>
   <center>
    <x-m>0.0</x-m>
    <y-m>-3.909</y-m>
@@ -340,10 +1138,72 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
 </animation>
 
 <animation>
+  <object-name>propblurL</object-name>
+ <object-name>propblurL1</object-name>
+ <object-name>propblurL2</object-name>
+  <type>spin</type>
+  <property>engines/engine[0]/rpm</property>
+  <factor>0.025</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-3.909</y-m>
+   <z-m>1.5129</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+ <type>select</type>
+ <object-name>propR</object-name>
+ <condition>
+  <less-than>
+  <property>engines/engine[1]/rpm</property>
+  <value>400</value>
+  </less-than>
+ </condition>
+</animation>
+
+<animation>
+ <type>select</type>
+ <object-name>propblurR</object-name>
+ <object-name>propblurR1</object-name>
+ <object-name>propblurR2</object-name>
+ <condition>
+  <greater-than>
+  <property>engines/engine[1]/rpm</property>
+  <value>400</value>
+  </greater-than>
+ </condition>
+</animation>
+
+<animation>
   <object-name>propR</object-name>
   <type>spin</type>
   <property>engines/engine[1]/rpm</property>
-  <factor>0.1</factor>
+  <factor>1.0</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>3.909</y-m>
+   <z-m>1.5129</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+ <object-name>propblurR</object-name>
+ <object-name>propblurR1</object-name>
+ <object-name>propblurR2</object-name>
+  <type>spin</type>
+  <property>engines/engine[1]/rpm</property>
+  <factor>0.025</factor>
   <center>
    <x-m>0.0</x-m>
    <y-m>3.909</y-m>
@@ -357,7 +1217,6 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
 </animation>
 
 <!-- Doors -->
-
 <!--animation>
   <type>pick</type>
   <object-name>cargodoor</object-name>
@@ -409,7 +1268,6 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
 </animation-->
 
 <!-- GEAR -->
-
 <!-- Front Gear -->
 
 <!-- lower/retract -->
@@ -440,7 +1298,6 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
 </animation>
 
 <!-- Gear doors -->
-
 <animation>
   <type>rotate</type>
   <object-name>geardoorL1</object-name>
@@ -588,9 +1445,8 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
 </animation>
 
 <!-- Main Gear -->
-
 <!-- lower/retract -->
-<animation>
+ <animation>
   <type>rotate</type>
   <object-name>mainwheels_left</object-name>
   <object-name>mainwheels_right</object-name>
@@ -613,11 +1469,10 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
     <y>-1.0</y>
     <z>0.0</z>
   </axis>
-</animation>
+ </animation>
 
 <!-- damping -->
-
-<animation>
+ <animation>
   <type>translate</type>
   <object-name>mainwheels_left</object-name>
   <property>gear/gear[1]/compression-norm</property>
@@ -630,9 +1485,9 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
    <y2-m>0</y2-m>
    <z2-m>-0.6731</z2-m>
   </axis>
-</animation>
+ </animation>
 
-<animation>
+ <animation>
   <type>translate</type>
   <object-name>mainwheels_right</object-name>
   <property>gear/gear[2]/compression-norm</property>
@@ -645,10 +1500,10 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
    <y2-m>0</y2-m>
    <z2-m>-0.6731</z2-m>
   </axis>
-</animation>
+ </animation>
 
 <!-- Mainwheels spin animation -->
-<animation>
+ <animation>
   <type>spin</type>
   <object-name>mainwheels_left</object-name>
   <condition>
@@ -669,9 +1524,9 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
     <y>-1.0</y>
     <z>0.0</z>
   </axis>
-</animation>
+ </animation>
 
-<animation>
+ <animation>
   <type>spin</type>
   <object-name>mainwheels_right</object-name>
   <condition>
@@ -692,6 +1547,57 @@ alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
     <y>-1.0</y>
     <z>0.0</z>
   </axis>
-</animation>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>nose</object-name>
+  <condition>
+   <not>
+    <property>sim/current-view/internal</property>
+   </not>
+  </condition>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/animations/nose", 0.4, 0.6 );
+        settimer(func {interpolate("an24/animations/nose", 1.0, 0.1 );},0.6);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>scale</type>
+  <object-name>nose</object-name>
+  <property>an24/animations/nose</property>
+   <center>
+   <x-m>1.11</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </center>
+  <x-min>0.1</x-min>
+  <y-min>1.0</y-min>
+  <z-min>1.0</z-min>
+  <x-factor>1.0</x-factor>
+  <y-factor>0.0</y-factor>
+  <z-factor>0.0</z-factor>
+ </animation>
+ 
+ <nasal>
+  <load><![CDATA[
+# Receive generic properties sent by the remote An-24b and alias them to properties used in animations.
+# The properties used in animations are all under /ai/models/multiplayer[*]/, which is the root of the
+# property tree of the remote An-24b and, represented below by cmdarg().
+var rplayer = cmdarg();
+rplayer.getNode("an24/animations/nose", 1).
+alias(rplayer.getNode("sim/multiplay/generic/float[0]"));
+  ]]></load>
+ </nasal>
+
 
 </PropertyList>

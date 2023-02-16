@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<!-- 27V source - aerodrome supply/OFF/board supply (switch 729, contactor 968) -->
+<PropertyList>
+ <path>../../shared/switches/ppng-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if( getprop("an24/Electrical_Panel/slider" ) == 0.0 ) {
+	interpolate("an24/Electrical_Panel/sw_board-aerodrome", 1.0, 0.1 );
+	setprop("an24/Electrics/board-aerodrome", 1 );
+	}
+	sound.click("azr", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Electrical_Panel/sw_board-aerodrome", 0.0, 0.1 );
+        setprop("an24/Electrics/board-aerodrome", 0 );
+	sound.click("azr", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/Electrical_Panel/slider" ) == 1.0 ) {
+        interpolate("an24/Electrical_Panel/sw_board-aerodrome", -1.0, 0.1 );
+        setprop("an24/Electrics/board-aerodrome", -1 );
+	}
+	sound.click("azr", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/Electrical_Panel/sw_board-aerodrome</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

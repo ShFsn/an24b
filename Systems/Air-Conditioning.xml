@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+
+<system name="Air Conditioning">
+
+ <property value="320.0">/an24/BleedAir/aircond_bleedL_kgperh_target</property>
+ <property value="320.0">/an24/BleedAir/aircond_bleedR_kgperh_target</property>
+
+<!-- BLEED AIR FOR AIR CONDITIONING
+(should be less than 700kg/h) -->
+ <channel name="Bleed Air for AC" execrate="20">
+
+ <fcs_function name="/an24/BleedAir/aircond_bleedL_kgperh">
+  <function>
+
+   <product>
+    <property>/engines/engine[0]/n1</property>
+    <value>4.5</value>
+    <property>/an24/BleedAir/aircond_valveL</property>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/BleedAir/aircond_bleedR_kgperh">
+  <function>
+
+   <product>
+    <property>/engines/engine[1]/n1</property>
+    <value>4.5</value>
+    <property>/an24/BleedAir/aircond_valveR</property>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <summer name="/an24/BleedAir/aircond_bleedsum_kgperh">
+  <input>/an24/BleedAir/aircond_bleedL_kgperh</input>
+  <input>/an24/BleedAir/aircond_bleedR_kgperh</input>
+ </summer>
+
+ <switch name="/an24/BleedAir/aircond_valveL_serviceable">
+  <default value="0.0"/>
+  <test logic="AND" value="1.0">
+	/an24/AZS/sw0415 EQ 1.0
+	/an24/Electrics/RK115V_phIIb_V GT 110.0
+	/an24/Air-Cond/sw_bleedairL NE 0.0
+  </test>
+ </switch>
+
+ <switch name="/an24/BleedAir/aircond_valveR_serviceable">
+   <default value="0.0"/>
+   <test value="1.0">
+	/an24/AZS/sw0416 EQ 1.0
+	/an24/Electrics/RK115V_phIIb_V GT 110.0
+	/an24/Air-Cond/sw_bleedairR NE 0.0
+   </test>
+ </switch>
+
+ </channel>
+
+ <channel name="AC Valve left CONTROL" execrate="20">
+
+ <summer name="/an24/BleedAir/aircond_bleedL_kgperh_error">
+  <input>/an24/BleedAir/aircond_bleedL_kgperh</input>
+  <input>-/an24/BleedAir/aircond_bleedL_kgperh_target</input>
+ </summer>
+
+ <switch name="/an24/BleedAir/aircond_valveL_target">
+   <default value="/an24/BleedAir/aircond_valveL"/>
+   <test logic="OR" value="1.0">
+	/an24/Air-Cond/sw_bleedairL1 EQ 1.0
+	   <test>
+		/an24/Air-Cond/sw_bleedairL EQ 1.0
+		/an24/BleedAir/aircond_bleedL_kgperh_error LT -2.0
+	   </test>
+   </test>
+   <test logic="OR" value="0.0">
+	/an24/Air-Cond/sw_bleedairL1 EQ -1.0
+	   <test>
+		/an24/Air-Cond/sw_bleedairL EQ 1.0
+		/an24/BleedAir/aircond_bleedL_kgperh_error GT 2.0
+	   </test>
+   </test>
+ </switch>
+
+ </channel>
+
+ <channel name="AC Valve right CONTROL" execrate="20">
+
+ <summer name="/an24/BleedAir/aircond_bleedR_kgperh_error">
+  <input>/an24/BleedAir/aircond_bleedR_kgperh</input>
+  <input>-/an24/BleedAir/aircond_bleedR_kgperh_target</input>
+ </summer>
+
+ <switch name="/an24/BleedAir/aircond_valveR_target">
+   <default value="/an24/BleedAir/aircond_valveR"/>
+   <test logic="OR" value="1.0">
+	/an24/Air-Cond/sw_bleedairR1 EQ 1.0
+	   <test>
+		/an24/Air-Cond/sw_bleedairR EQ 1.0
+		/an24/BleedAir/aircond_bleedR_kgperh_error LT -2.0
+	   </test>
+   </test>
+   <test logic="OR" value="0.0">
+	/an24/Air-Cond/sw_bleedairR1 EQ -1.0
+	   <test>
+		/an24/Air-Cond/sw_bleedairR EQ 1.0
+		/an24/BleedAir/aircond_bleedR_kgperh_error GT 2.0
+	   </test>
+   </test>
+ </switch>
+
+ </channel>
+
+ <channel name="AC Valve left itself" execrate="4" execute="/an24/BleedAir/aircond_valveL_serviceable">
+
+ <kinematic name="/an24/BleedAir/aircond_valveL">
+  <input>/an24/BleedAir/aircond_valveL_target</input>
+  <traverse>
+    <setting>
+      <position>0</position>
+      <time>0</time>
+    </setting>
+    <setting>
+      <position>1</position>
+      <time>25</time>
+    </setting>
+  </traverse>
+ </kinematic>
+
+ </channel>
+
+ <channel name="AC Valve right itself" execrate="4" execute="/an24/BleedAir/aircond_valveR_serviceable">
+
+ <kinematic name="/an24/BleedAir/aircond_valveR">
+  <input>/an24/BleedAir/aircond_valveR_target</input>
+  <traverse>
+    <setting>
+      <position>0</position>
+      <time>0</time>
+    </setting>
+    <setting>
+      <position>1</position>
+      <time>25</time>
+    </setting>
+  </traverse>
+ </kinematic>
+
+ </channel>
+
+
+ <channel name="AC Nozzles output" execrate="120">
+
+<!-- Nozzle output of Air Conditioning -->
+ <fcs_function name="/an24/Air-Cond/valve_summand">
+  <function>
+
+   <sum>
+    <value>50.0</value><!--property>/an24/Air-Cond/PAX_cabin_valves</property--><!--always open, so estimated factor 50...-->
+    <value>1.0</value><!--property>/an24/Air-Cond/back_left_window_kgperh</property--><!--nozzle at back left cockpit windows, always open, so factor 1...-->
+    <value>1.0</value><!--property>/an24/Air-Cond/back_right_window_kgperh</property--><!--nozzle at back right cockpit windows, always open, so factor 1...-->
+    <property>/an24/Air-Cond/handle_left</property>
+    <property>/an24/Air-Cond/handle_right</property>
+    <property>/an24/Air-Cond/lp_footpedal</property>
+    <property>/an24/Air-Cond/rp_footpedal</property>
+    <property>/an24/Air-Cond/radioop_footpedal</property>
+   </sum>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/PAX_cabin">
+  <function>
+
+   <product>
+    <value>50.0</value><!--property>/an24/Air-Cond/PAX_cabin_valves</property--><!--always open, so estimated factor 50...-->
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/back_left_window_kgperh">
+  <function>
+
+   <product>
+    <value>1.0</value><!--always open, so estimated factor 1...-->
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/back_right_window_kgperh">
+  <function>
+
+   <product>
+    <value>1.0</value><!--always open, so estimated factor 1...-->
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/left_windows_kgperh">
+  <function>
+
+   <product>
+    <property>/an24/Air-Cond/handle_left</property>
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/right_windows_kgperh">
+  <function>
+
+   <product>
+    <property>/an24/Air-Cond/handle_right</property>
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/pilots_feet_kgperh">
+  <function>
+
+   <product>
+    <property>/an24/Air-Cond/lp_footpedal</property>
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/fos_feet_kgperh">
+  <function>
+
+   <product>
+    <property>/an24/Air-Cond/rp_footpedal</property>
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/radioops_feet_kgperh">
+  <function>
+
+   <product>
+    <property>/an24/Air-Cond/radioop_footpedal</property>
+    <quotient>
+     <property>/an24/BleedAir/aircond_bleedsum_kgperh</property>
+     <property>/an24/Air-Cond/valve_summand</property>
+    </quotient>
+   </product>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+<!--ARD 2077 AUTO PRESSURE UNIT-->
+ <channel name="ARD 2077" execrate="80">
+
+  <pure_gain name="/an24/ARD-2077/pressure-mmHg">
+   <input>/environment/pressure-inhg</input>
+   <gain>25.4</gain>
+  </pure_gain>
+
+<!--diff-setpoint-kgcm2-->
+  <summer name="/an24/ARD-2077/pressure-error">
+   <input>/an24/ARD-2077/pressure-mmHg</input>
+   <input>-/an24/ARD-2077/sealing-mmHg</input>
+  </summer>
+
+  <pid name="/an24/ARD-2077/pid">
+   <input>/an24/ARD-2077/pressure-error</input>
+   <kp> -0.001 </kp>
+   <ki> -0.0 </ki>
+   <kd> -0.0 </kd>
+  </pid>
+
+  <summer name="/an24/ARD-2077/Valve_2176B"><!-- 1=open, 0=closed -->
+   <input>/an24/ARD-2077/pressure-error</input>
+   <input>/an24/ARD-2077/Valve_2176B</input>
+   <clipto>
+    <min>0</min>
+    <max>1</max>
+   </clipto>
+  </summer>
+
+</channel>
+
+</system>

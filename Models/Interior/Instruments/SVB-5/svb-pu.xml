@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!-- Remote Panel of SVB-5 on radio operator's table-->
+<PropertyList>
+ <path>svb-pu.ac</path>
+
+<!-- SVB or NEON switch -->
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot1_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/SVB-5/sw_SVB-NEON", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot1_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <command>nasal</command>
+      <script>
+	interpolate("an24/SVB-5/sw_SVB-NEON", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>svb-lever1</object-name>
+   <property>an24/SVB-5/sw_SVB-NEON</property>
+  <interpolation>
+    <entry><ind>1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0044</y-m>
+    <z-m>0.0282</z-m>
+  </center>
+ </animation>
+
+<!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textsvbpu</object-name>
+    <condition>
+     <or>
+      <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_comm</property>
+     </or>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textsvbpu</name>
+    <type type="string">literal</type>
+    <text type="string">NEON SVB-5 Remote Panel</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.02</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>xy-plane</axis-alignment>
+    <max-height>0.09</max-height>
+    <max-width>0.09</max-width>
+    <font-resolution>
+      <width type="int">32</width>
+      <height type="int">32</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.000</x-m>
+      <y-m>0.020</y-m>
+      <z-m>0.040</z-m>
+    </offsets>
+  </text>
+ <animation>
+  <type>material</type>
+   <object-name>textsvbpu</object-name>
+    <emission>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </emission>
+ </animation>
+
+</PropertyList>

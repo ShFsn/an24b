@@ -1,0 +1,888 @@
+<?xml version="1.0"?>
+
+<system name="Electrical">
+
+<!--******************************************
+***** DC 27V
+**********************************************-->
+ <channel name="STG-18_V" execrate="32">
+
+ <fcs_function name="/an24/Electrics/DC_Gen_18TMOl_V">
+  <function>
+
+ <product>
+ <property>/an24/Electrical_Panel/stg-18l_voltreg</property>
+ <property>/an24/Electrics/random_stg18l</property>
+ <sum>
+  <pow>
+   <difference>
+    <quotient>
+    <property>/engines/engine[0]/n1</property>
+    <value>90.9</value>
+    </quotient>
+   <value>1.1</value>
+   </difference>
+  <value>5.0</value>
+  </pow>
+ <value>1.0</value>
+ </sum>
+ </product>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>100.0</max><!--clipto needs a(nx) max value-->
+  </clipto>
+ </fcs_function>
+
+ <fcs_function name="/an24/Electrics/DC_Gen_18TMOr_V">
+  <function>
+
+ <product>
+ <property>/an24/Electrical_Panel/stg-18r_voltreg</property>
+ <property>/an24/Electrics/random_stg18r</property>
+ <sum>
+  <pow>
+   <difference>
+    <quotient>
+    <property>/engines/engine[1]/n1</property>
+    <value>90.9</value>
+    </quotient>
+   <value>1.1</value>
+   </difference>
+  <value>5.0</value>
+  </pow>
+ <value>1.0</value>
+ </sum>
+ </product>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>100.0</max><!--clipto needs a(ny) max value-->
+  </clipto>
+ </fcs_function>
+
+ </channel>
+
+ <channel name="GS-24_V" execrate="32">
+
+ <fcs_function name="/an24/Electrics/DC_Gen_GS-24_V">
+  <function>
+
+ <product>
+ <property>/an24/Electrical_Panel/gs24_voltreg</property>
+ <property>/an24/Electrics/random_gs24</property>
+ <sum>
+  <pow>
+   <difference>
+    <quotient>
+    <property>/engines/engine[2]/n1</property>
+    <value>90.9</value>
+    </quotient>
+   <value>1.1</value>
+   </difference>
+  <value>5.0</value>
+  </pow>
+ <value>1.0</value>
+ </sum>
+ </product>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>100.0</max>
+  </clipto>
+ </fcs_function>
+
+ </channel>
+
+ <!--****DMR-800Ts****-->
+ <channel name="DMR-800Ts" execrate="32">
+
+ <summer name="/an24/Electrics/DMR-800Tl-reference">
+  <input>/an24/Electrics/TsRUl_V</input>
+  <bias>-0.5</bias>
+ </summer>
+
+ <summer name="/an24/Electrics/DMR-800Tr-reference">
+  <input>/an24/Electrics/TsRUr_V</input>
+  <bias>-0.5</bias>
+ </summer>
+
+ <!--summer name="/an24/Electrics/DMR-800Tgs24-reference">
+  <input>/an24/Electrics/TsRUl_V</input>
+  <bias>-0.5</bias>
+ </summer-->
+
+  <switch name="/an24/Electrics/contactorl">
+   <default value="1"/>
+   <test logic="OR" value="0">
+	/an24/Electrics/DC_AUX_ShRAP500a_V GT 24.0
+	/an24/Electrics/DC_AUX_ShRAP500b_V GT 24.0
+	/an24/Electrical_Panel/sw_stg18l EQ 0.0
+	/an24/Electrics/DC_Gen_18TMOl_V LT /an24/Electrics/DMR-800Tl-reference
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/contactorr">
+   <default value="1"/>
+   <test logic="OR" value="0">
+	/an24/Electrics/DC_AUX_ShRAP500a_V GT 24.0
+	/an24/Electrics/DC_AUX_ShRAP500b_V GT 24.0
+	/an24/Electrical_Panel/sw_stg18r EQ 0.0
+	/an24/Electrics/DC_Gen_18TMOr_V LT /an24/Electrics/DMR-800Tr-reference
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/contactorgs">
+   <default value="1"/>
+   <test logic="OR" value="0">
+	/an24/Electrics/DC_AUX_ShRAP500a_V GT 24.0
+	/an24/Electrics/DC_AUX_ShRAP500b_V GT 24.0
+	/an24/Electrical_Panel/sw_gs24 EQ 0.0
+	/an24/Electrics/DC_Gen_GS-24_V LT /an24/Electrics/DMR-800Tl-reference
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="STG parallel" execrate="32">
+
+ <fcs_function name="/an24/Electrics/DC_Gen_18TMOparallel_V">
+  <function>
+   <quotient>
+    <sum>
+     <product>
+      <property>/an24/Electrics/DC_Gen_18TMOl_V</property>
+      <property>/an24/Electrics/contactorl</property>
+     </product>
+     <product>
+      <property>/an24/Electrics/DC_Gen_18TMOr_V</property>
+      <property>/an24/Electrics/contactorr</property>
+     </product>
+    </sum>
+    <sum>
+     <property>/an24/Electrics/contactorl</property>
+     <property>/an24/Electrics/contactorr</property>
+    </sum>
+   </quotient>
+  </function>
+ </fcs_function>
+
+ </channel>
+
+<!--******Batteries parallel******-->
+ <channel name="Batteries parallel switch" execrate="32">
+
+  <switch name="/an24/Electrics/akkuparswitch">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/CONN_Akku1-RKAkku EQ 1
+	/an24/Electrics/CONN_Akku2-RKAkku EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="Batteries parallel" execrate="64" execute="/an24/Electrics/akkuparswitch">
+
+ <fcs_function name="/an24/Electrics/Akkus_Vparallel">
+  <function>
+   <quotient>
+    <sum>
+     <product>
+      <property>/an24/Electrics/DC_Batt_12SAM1_V</property>
+      <property>/an24/Electrics/CONN_Akku1-RKAkku</property>
+     </product>
+     <product>
+      <property>/an24/Electrics/DC_Batt_12SAM2_V</property>
+      <property>/an24/Electrics/CONN_Akku2-RKAkku</property>
+     </product>
+    </sum>
+    <sum>
+     <property>/an24/Electrics/CONN_Akku1-RKAkku</property>
+     <property>/an24/Electrics/CONN_Akku2-RKAkku</property>
+    </sum>
+   </quotient>
+  </function>
+ </fcs_function>
+
+ </channel>
+
+<!--****DC CONNECTIONS****-->
+ <channel name="DC Connections" execrate="32">
+
+  <switch name="/an24/Electrics/CONN_TsRUl-TsRUr">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/FUSE_TsRUl-TsRUr EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_TsRUl-AZSmain">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/FUSE_TsRUl-AZSmain EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_TsRUr-RKCrewCab">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/FUSE_TsRUr-RKCrewCab EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_AZSmain-RKCrewCab">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/FUSE_AZSmain-RKCrewCab EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_AZSemerg-RKFlAttemerg">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/FUSE_AZSemerg-RKFlAttemerg EQ 1
+	/an24/AZS/sw0717 EQ 1.0
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_TsRUr-RKFlAttmain">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/FUSE_TsRUr-RKFlAttmain EQ 1
+	/an24/Electrics/contactorr EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_TsRUl-RKFlAttmain">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/FUSE_TsRUl-RKFlAttmain EQ 1
+	/an24/Electrics/CONN_TsRUr-RKFlAttmain EQ 0
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_TsRUr-RKFuelPumps"><!--Item 945-->
+   <default value="1"/>
+   <test logic="OR" value="0">
+	/an24/Electrics/FUSE_TsRUr-RKFuelPumps EQ 0
+	<test logic="AND">	
+	/an24/Electrics/CONN_TsRUl-RKFuelPumps EQ 1
+	/an24/Electrics/TsRUl_V GT 24.0
+	</test>
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_TsRUl-RKFuelPumps"><!--Item 945-->
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/CONN_TsRUr-RKFuelPumps EQ 0
+   </test>
+  </switch>
+
+  <!--BATTERIES-->
+  <switch name="/an24/Electrics/CONN_Akku1-RKAkku"><!--Item 717-->
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/RKCrew/sw01_batt1 EQ 1
+	/an24/Electrics/FUSE_Akku1-RKAkku EQ 1
+	<test logic="OR">
+		/an24/Electrics/board-aerodrome EQ 1<!--Board-->
+		/an24/Electrical_Panel/sw_emerg-bus EQ 1 <!--Manual-->
+		<test logic="AND">
+			/an24/Electrical_Panel/sw_emerg-bus EQ -1 <!--Auto-->
+			/an24/Electrics/contactorl EQ 0
+			/an24/Electrics/contactorr EQ 0
+		</test>
+	</test>
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_Akku2-RKAkku"><!--Item 719-->
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/RKCrew/sw02_batt2 EQ 1
+	/an24/Electrics/FUSE_Akku2-RKAkku EQ 1
+	<test logic="OR">
+		/an24/Electrics/board-aerodrome EQ 1<!--Board-->
+		/an24/Electrical_Panel/sw_emerg-bus EQ 1<!--Manual-->
+		<test logic="AND">
+			/an24/Electrical_Panel/sw_emerg-bus EQ -1<!--Auto-->
+			/an24/Electrics/contactorl EQ 0
+			/an24/Electrics/contactorr EQ 0
+		</test>
+	</test>
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_RKAkku-RKCrewCab"><!--Item 1791-->
+   <default value="1"/>
+   <test logic="OR" value="0">
+	/an24/Electrics/FUSE_RKAkku-RKCrewCab EQ 0
+	   <test logic="AND">
+		/an24/Electrical_Panel/sw_emerg-bus EQ 1<!--Manual-->
+		<test logic="OR">
+		<!--Contactor 1791 needs some current to switch-->
+		/an24/Electrics/CONN_Akku1-RKAkku EQ 1
+		/an24/Electrics/CONN_Akku2-RKAkku EQ 1
+		</test>
+	   </test>
+ 	  <test logic="AND">
+		/an24/Electrical_Panel/sw_emerg-bus EQ -1<!--Auto-->
+		/an24/Electrics/contactorl EQ 0
+		/an24/Electrics/contactorr EQ 0
+		<test logic="OR">
+		<!--Contactor 1791 needs some current to switch-->
+		/an24/Electrics/CONN_Akku1-RKAkku EQ 1
+		/an24/Electrics/CONN_Akku2-RKAkku EQ 1
+		</test>
+	   </test>
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_RKAkku-AZSemerg"><!--Item 1791-->
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/CONN_RKAkku-RKCrewCab EQ 0
+	/an24/Electrics/FUSE_RKAkku-RKCrewCab EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_AZSmain-AZSemerg"><!--Item 1545-->
+   <default value="1"/>
+   <test logic="AND" value="0">
+	/an24/Electrical_Panel/sw_emerg-bus EQ 1<!--Manual-->
+	<!--Needs current from AZSemerg too, to switch-->
+   </test>
+   <test logic="AND" value="0">
+	/an24/Electrical_Panel/sw_emerg-bus EQ -1<!--Auto-->
+	/an24/Electrics/contactorl EQ 0
+	/an24/Electrics/contactorr EQ 0
+	<!--Needs current from AZSemerg too, to switch relais-->
+   </test>
+  </switch>
+  <!--End Batteries-->
+
+  <switch name="/an24/Electrics/CONN_AZSmain-RKNavmain"><!--Item 1500-->
+   <default value="1"/>
+   <test logic="OR" value="0">
+	/an24/Electrics/FUSE_AZSmain-RKNavmain EQ 0
+	/an24/Electrics/AZSmain_V LT 24.0
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_RKCrewCab-RKNavmain"><!--Item 1500-->
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/CONN_AZSmain-RKNavmain EQ 0
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_AZSemerg-RKNavemerg">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/FUSE_AZSemerg-RKNavemerg EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+<!-- DC VOLTAGES -->
+ <channel name="DC_Volts" execrate="32">
+
+  <switch name="/an24/Electrics/TsRUl_V">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Electrics/DC_Gen_18TMOparallel_V">
+	/an24/Electrics/contactorl EQ 1
+	/an24/Electrics/contactorr EQ 1
+   </test>
+   <test value="/an24/Electrics/DC_Gen_18TMOl_V">
+	/an24/Electrics/contactorl EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/TsRUr_V">
+	/an24/Electrics/CONN_TsRUl-TsRUr EQ 1
+   </test>
+  <!-- Battery Part -->
+   <!--CrewCab -> AZSmain-->
+   <test value="/an24/Electrics/AZSmain_V">
+	/an24/Electrics/CONN_TsRUl-AZSmain EQ 1
+   </test>
+   <!--AZSemerg -> AZSmain-->
+   <!--test value="/an24/Electrics/AZSmain_V">
+	/an24/Electrics/CONN_AZSmain-AZSemerg EQ 1
+   </test-->
+  </switch>
+
+
+  <switch name="/an24/Electrics/TsRUr_V">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Electrics/DC_Gen_18TMOparallel_V">
+	/an24/Electrics/contactorl EQ 1
+	/an24/Electrics/contactorr EQ 1
+   </test>
+   <test value="/an24/Electrics/DC_Gen_18TMOr_V">
+	/an24/Electrics/contactorr EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/TsRUl_V">
+	/an24/Electrics/contactorl EQ 1
+   </test>
+  <!-- Battery Part -->
+   <!--CrewCab-->
+   <test value="/an24/Electrics/RKCrewCab_V">
+	/an24/Electrics/CONN_TsRUr-RKCrewCab EQ 1
+   </test>
+   <!--AZSemerg -> AZSmain -> RKCrewCab-->
+   <test value="/an24/Electrics/RKCrewCab_V">
+	/an24/Electrics/CONN_AZSmain-RKCrewCab EQ 1
+   </test>
+  </switch>
+
+
+  <switch name="/an24/Electrics/AZSmain_V">
+   <default value="0"/>
+   <!--TsRUl -> AZSmain
+       TsRur -> CrewCab -> AZSmain-->
+   <test logic="OR" value="/an24/Electrics/TsRUl_V">
+	/an24/Electrics/contactorl EQ 1
+	/an24/Electrics/contactorr EQ 1
+   </test>
+  <!-- Battery Part -->
+   <!--CrewCab -> AZSmain-->
+   <test value="/an24/Electrics/RKCrewCab_V">
+	/an24/Electrics/CONN_AZSmain-RKCrewCab EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/AZSemerg_V">
+	/an24/Electrics/FUSE_AZSmain-RKCrewCab EQ 1
+   </test>
+  </switch>
+
+
+  <switch name="/an24/Electrics/RKCrewCab_V">
+   <default value="0"/>
+   <test value="/an24/Electrics/TsRUr_V">
+	/an24/Electrics/contactorl EQ 1
+	/an24/Electrics/contactorr EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/AZSmain_V">
+	/an24/Electrics/contactorl EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/TsRUr_V">
+	/an24/Electrics/contactorr EQ 1
+   </test>
+  <!-- Battery Part -->
+   <!--CrewCab-->
+   <test logic="AND" value="/an24/Electrics/RKAkku_V">
+	/an24/Electrics/CONN_RKAkku-RKCrewCab EQ 1
+   </test>
+   <!--CrewCab -> AZSmain-->
+   <test logic="AND" value="/an24/Electrics/AZSmain_V">
+	/an24/Electrics/contactorl EQ 1
+   </test>
+  </switch>
+
+
+  <switch name="/an24/Electrics/AZSemerg_V">
+   <default value="0"/>
+   <test value="/an24/Electrics/AZSmain_V">
+	/an24/Electrics/CONN_AZSmain-AZSemerg EQ 1
+   </test>
+   <test value="/an24/Electrics/RKAkku_V">
+	/an24/Electrics/CONN_RKAkku-AZSemerg EQ 1
+   </test>
+  </switch>
+
+
+  <switch name="/an24/Electrics/RKAkku_V">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Electrics/Akkus_Vparallel">
+	/an24/Electrics/CONN_Akku1-RKAkku EQ 1
+	/an24/Electrics/CONN_Akku2-RKAkku EQ 1
+   </test>
+   <test value="/an24/Electrics/DC_Batt_12SAM1_V">
+	/an24/Electrics/CONN_Akku1-RKAkku EQ 1
+   </test>
+   <test value="/an24/Electrics/DC_Batt_12SAM2_V">
+	/an24/Electrics/CONN_Akku2-RKAkku EQ 1
+   </test>
+  </switch>
+
+ <!--RKs with just one connection-->
+  <switch name="/an24/Electrics/RKNavmain_V">
+   <default value="0"/>
+   <test value="/an24/Electrics/AZSmain_V">
+	/an24/Electrics/CONN_AZSmain-RKNavmain EQ 1
+   </test>
+   <test value="/an24/Electrics/RKCrewCab_V">
+	/an24/Electrics/CONN_RKCrewCab-RKNavmain EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/RKNavemerg_V">
+   <default value="0"/>
+   <test value="/an24/Electrics/AZSemerg_V">
+	/an24/Electrics/CONN_AZSemerg-RKNavemerg EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/RKFlAttmain_V">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Electrics/TsRUr_V">
+	/an24/Electrics/CONN_TsRUr-RKFlAttmain EQ 1
+	/an24/Electrics/contactorr EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/TsRUl_V">
+	/an24/Electrics/CONN_TsRUl-RKFlAttmain EQ 1
+	/an24/Electrics/contactorl EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/RKFlAttemerg_V">
+   <default value="0"/>
+   <test value="/an24/Electrics/AZSemerg_V">
+	/an24/Electrics/CONN_AZSemerg-RKFlAttemerg EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/RKFuelPumps_V">
+   <default value="0"/>
+   <test value="/an24/Electrics/TsRUl_V">
+	/an24/Electrics/CONN_TsRUl-RKFuelPumps EQ 1
+   </test>
+   <test value="/an24/Electrics/TsRUr_V">
+	/an24/Electrics/CONN_TsRUr-RKFuelPumps EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+<!--******************************************
+***** AC 36V/400Hz
+**********************************************-->
+ <channel name="PT-1000" execrate="120">
+
+  <switch name="/an24/Electrics/PT-1000"><!--1=Main; 2=Reserve-->
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/RKCrew/sw03_pt-1000 EQ 1
+	/an24/Electrical_Panel/sw_pt-1000 EQ 1
+	/an24/Electrics/PT-1000main_working EQ 1
+	/an24/Electrics/AZSmain_V GT 24.0
+   </test>
+   <test logic="AND" value="2">
+	/an24/Electrical_Panel/sw_pt-1000 NE 0
+	/an24/Electrics/PT-1000res_working EQ 1
+	/an24/Electrics/AZSmain_V GT 24.0
+   </test>
+  </switch>
+
+  <!--very, uhm, simplified!-->
+  <switch name="/an24/Electrics/AC_Bus_36V_phII">
+   <default value="0"/>
+   <test logic="OR" value="36.0">
+	/an24/Electrics/PT-1000 EQ 1
+	/an24/Electrics/PT-1000 EQ 2
+   </test>
+  </switch>
+
+  <!--AGD-1 left emergency support-->
+  <switch name="/an24/Electrics/PT-125_V">
+   <default value="0"/>
+   <test logic="AND" value="36.0">
+	/an24/Electrics/PT-1000 EQ 0
+	/an24/Electrics/PT-125working EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+<!--******************************************
+***** AC 115V/400Hz
+**********************************************-->
+ <channel name="GO-16l excitation" execrate="120">
+
+  <switch name="/an24/Electrics/AC_Gen_GO16l_V_excit">
+   <default value="0"/>
+   <test value="1">
+	/an24/AZS/sw0109 EQ 1
+	/an24/Electrics/AZSemerg_V GT 20
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="GO-16l_V" execrate="32">
+
+ <fcs_function name="/an24/Electrics/AC_Gen_GO16l_V">
+  <function>
+
+ <product>
+ <property>/an24/Electrical_Panel/go-16l_voltreg</property>
+ <property>/an24/Electrics/random_go16l</property>
+ <property>/an24/Electrics/AC_Gen_GO16l_V_excit</property>
+ <sum>
+  <pow>
+   <difference>
+    <quotient>
+    <property>/engines/engine[0]/n1</property>
+    <value>90.9</value>
+    </quotient>
+   <value>1.1</value>
+   </difference>
+  <value>5.0</value>
+  </pow>
+ <value>1.0</value>
+ </sum>
+ </product>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>200.0</max><!--clipto needs a(ny) max value-->
+  </clipto>
+ </fcs_function>
+
+ </channel>
+
+ <channel name="GO-16r excitation" execrate="120">
+
+  <switch name="/an24/Electrics/AC_Gen_GO16r_V_excit">
+   <default value="0"/>
+   <test value="1">
+	/an24/AZS/sw0110 EQ 1
+	/an24/Electrics/AZSemerg_V GT 20
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="GO-16r_V" execrate="32">
+
+ <fcs_function name="/an24/Electrics/AC_Gen_GO16r_V">
+  <function>
+
+ <product>
+ <property>/an24/Electrical_Panel/go-16r_voltreg</property>
+ <property>/an24/Electrics/random_go16r</property>
+ <property>/an24/Electrics/AC_Gen_GO16r_V_excit</property>
+ <sum>
+  <pow>
+   <difference>
+    <quotient>
+    <property>/engines/engine[1]/n1</property>
+    <value>90.9</value>
+    </quotient>
+   <value>1.1</value>
+   </difference>
+  <value>5.0</value>
+  </pow>
+ <value>1.0</value>
+ </sum>
+ </product>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>200.0</max><!--clipto needs a(ny) max value-->
+  </clipto>
+ </fcs_function>
+
+ </channel>
+
+<!--PO-750 Converter; 27V DC -> 115V AC -->
+ <channel name="PO-750 Volts" execrate="32">
+
+  <switch name="/an24/Electrics/PO-750_V">
+   <default value="0"/>
+   <test logic="AND" value="115.0">
+	/an24/Electrical_Panel/sw_po-750 EQ 1.0
+	/an24/Electrics/AZSmain_V GT 24.3
+	/an24/Electrics/AZSmain_V LT 29.7
+   </test>
+  </switch>
+
+ </channel>
+
+<!-- Contactor left GO (Item 958) -->
+ <channel name="GO-16L_inclusion" execrate="64" execute="/an24/Electrical_Panel/add_go16l">
+
+  <switch name="/an24/Electrical_Panel/add_go16l">
+   <default value="1"/>
+   <test logic="OR" value="0">
+	/an24/Electrical_Panel/sw_go16l EQ 0.0
+	/an24/Electrics/AC_Gen_GO16l_V LE 105.0
+	/an24/FireFeather/feather-by-kfl_l EQ 1.0
+   </test>
+  </switch>
+
+ </channel>
+
+ <!-- Contactor right GO (Item 979) -->
+ <channel name="GO-16R_inclusion" execrate="64">
+
+  <switch name="/an24/Electrical_Panel/add_go16r">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrical_Panel/sw_go16r EQ 1.0
+	/an24/Electrical_Panel/add_go16l EQ 0.0
+   </test>
+  </switch>
+
+ </channel>
+
+ <!-- Contactor (Item 968); 0= From one GO-16, 1=From ShRA-200 aerodrome power; -->
+ <channel name="GO-16_or_Aerodrome" execrate="64">
+
+  <switch name="/an24/Electrics/ShRA-200contactor968">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrical_Panel/sw_po-750 EQ -1.0
+	/an24/Electrics/AC_AUX_ShRA200_V GT 0.0
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0108 EQ 1.0
+   </test>
+  </switch>
+
+  <!-- Contactor (Item 1464); 0=From 968, 1=From PO-750; Switch "Ground-Air" (Item 1466) -->
+  <switch name="/an24/Electrics/contactor1464">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/PO-750_V GT 110.0
+	/an24/AC_Panel/sw_PO-750_earth-air EQ 0.0 <!--Pos. "Ground"-> PO-750 can also serve RK115Vmain and RKRadioOpmain -->
+	/an24/Electrical_Panel/add_go16l EQ 0
+	/an24/Electrical_Panel/add_go16r EQ 0
+   </test>
+  </switch>
+
+  <!-- Contactor (Item 970); 0=RadioOpmain to RadioOPemerg, 1=PO-750 to RadioOPemerg; Switch "Ground(0)-Air(1)" (Item 1466) -->
+  <switch name="/an24/Electrics/contactor970">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/PO-750_V GT 110.0
+	/an24/AC_Panel/sw_PO-750_earth-air EQ 1.0
+	/an24/Electrical_Panel/add_go16l EQ 0
+	/an24/Electrical_Panel/add_go16r EQ 0
+   </test>
+  </switch>
+
+ </channel>
+
+<!--**** CONNECTIONS ****-->
+ <channel name="Connections 115V" execrate="32">
+
+  <switch name="/an24/Electrics/CONN_RK115V-RadioOpmain_phIIb">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/FUSE_RK115V-RKRadioOpmain EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_PO-750-RK115V_phIIb">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/contactor1464 EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_PO-750-RadioOPemerg_phIIb">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/contactor970 EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/CONN_RadioOPmain-RadioOpemerg_phIIb">
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/contactor970 EQ 0
+   </test>
+  </switch>
+
+ </channel>
+
+<!-- AC VOLTAGES -->
+ <channel name="RK115V phase I" execrate="32">
+
+  <!-- RK115V Phase IIa cannot be served by aerodrome or PO-750, only by GO-16 (like Ph I) -->
+  <switch name="/an24/Electrics/RK115V_phI_V"><!-- Autopilot-->
+   <default value="0"/>
+   <test value="/an24/Electrics/AC_Gen_GO16l_V">
+	/an24/Electrical_Panel/add_go16l EQ 1
+   </test>
+   <test value="/an24/Electrics/AC_Gen_GO16r_V">
+	/an24/Electrical_Panel/add_go16r EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="RK115V phase II" execrate="32">
+
+  <!-- RK115V Phase IIa cannot be served by aerodrome or PO-750, only by GO-16 (like Ph I) -->
+  <switch name="/an24/Electrics/RK115V_phIIa_V"><!-- PropHeat -->
+   <default value="0"/>
+   <test value="/an24/Electrics/AC_Gen_GO16l_V">
+	/an24/Electrical_Panel/add_go16l EQ 1
+   </test>
+   <test value="/an24/Electrics/AC_Gen_GO16r_V">
+	/an24/Electrical_Panel/add_go16r EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/RK115V_phIIb_V">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Electrics/AC_Gen_GO16l_V">
+	/an24/Electrics/ShRA-200contactor968 EQ 0
+	/an24/Electrics/contactor1464 EQ 0
+	/an24/Electrical_Panel/add_go16l EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/AC_Gen_GO16r_V">
+	/an24/Electrics/ShRA-200contactor968 EQ 0
+	/an24/Electrics/contactor1464 EQ 0
+	/an24/Electrical_Panel/add_go16r EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/AC_AUX_ShRA200_V">
+	/an24/Electrics/ShRA-200contactor968 EQ 1
+	/an24/Electrics/contactor1464 EQ 0
+   </test>
+   <test logic="AND" value="/an24/Electrics/PO-750_V">
+	/an24/Electrics/contactor1464 EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/RKRadioOpmain_phIIb_V">
+   <default value="0"/>
+   <test value="/an24/Electrics/RK115V_phIIb_V">
+	/an24/Electrics/CONN_RK115V-RadioOpmain_phIIb EQ 1
+   </test>
+  </switch>
+
+  <switch name="/an24/Electrics/RKRadioOpemerg_phIIb_V">
+   <default value="0"/>
+   <test logic="AND" value="/an24/Electrics/RKRadioOpmain_phIIb_V">
+	/an24/Electrics/CONN_RadioOPmain-RadioOpemerg_phIIb EQ 1
+   </test>
+   <test logic="AND" value="/an24/Electrics/PO-750_V">
+	/an24/Electrics/CONN_PO-750-RadioOPemerg_phIIb EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+<!--******************************************
+***** LIGHTING
+**********************************************-->
+ <channel name="Lighting switch" execrate="120">
+
+  <switch name="/controls/lighting/lamps_have_power"><!--listener for electrical.nas-->
+   <default value="0"/>
+   <test value="1">
+	/an24/Electrics/AZSmain_V GT 23.0
+   </test>
+  </switch>
+
+ </channel>
+
+</system>

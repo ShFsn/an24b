@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<!-- Switch to select source (MP No.1 or 2) for SDU -->
+
+<PropertyList>
+ <path>sdu-source.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>lightplate</object-name>
+   <emission>
+     <red>0.4</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   </emission>
+ </animation>
+
+<model>
+ <path>sw_sdu-source.xml</path>
+  <offsets>
+    <x-m>0.005</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.001</z-m>
+    <pitch-deg>-90</pitch-deg>
+    <heading-deg>90</heading-deg>
+  </offsets>
+</model>
+
+<!-- Text OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textsdu</object-name>
+    <condition>
+     <or>
+      <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_nav</property>
+     </or>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textsdu</name>
+    <type type="string">literal</type>
+    <text type="string">SDU Source Selector</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.0 </x-m>
+      <y-m>  0.0 </y-m>
+      <z-m>  0.01 </z-m>
+      <pitch-deg>-90</pitch-deg>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textsdu</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

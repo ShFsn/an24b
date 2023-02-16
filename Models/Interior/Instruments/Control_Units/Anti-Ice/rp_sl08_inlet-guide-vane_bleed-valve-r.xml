@@ -14,13 +14,19 @@
 
 <animation>
  <type>select</type>
- <condition>
-   <greater-than>
-    <property>an24/Anti-Ice/vna-heat-r</property>
-    <value>0.1</value>
-   </greater-than>
-  </condition>
  <object-name>lampon</object-name>
+ <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24</value>
+   </greater-than>
+   <greater-than>
+    <property>an24/BleedAir/vna_valveR</property>
+    <value>0.8</value>
+   </greater-than>
+  </and>
+  </condition>
 </animation>
 
 </PropertyList>

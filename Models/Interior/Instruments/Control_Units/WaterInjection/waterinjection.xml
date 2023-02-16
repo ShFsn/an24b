@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!-- Clock heating -->
+
+<PropertyList>
+
+<model>
+ <path>panelwatertanks.xml</path>
+  <offsets>
+    <x-m>2.36</x-m>
+    <y-m>-0.96</y-m>
+    <z-m>0.691</z-m>
+    <heading-deg>82</heading-deg>
+  </offsets>
+</model>
+
+</PropertyList>

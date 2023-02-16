@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<!-- SGU-15, PA System -->
+
+<PropertyList>
+  <path>sgu-15.ac</path>
+
+ <!--animation>
+   <type>material</type>
+   <object-name>light_plate</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.3</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/console-l_red</factor-prop>
+   </emission>
+ </animation-->
+
+<!-- Subscriber selector -->
+ <animation>
+   <type>knob</type>
+   <object-name>sgu-subscr_knob</object-name>
+   <property>an24/SGU-15/subscriber</property>
+   <offset-deg>-32</offset-deg>
+   <factor>32</factor>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.008</y-m>
+    <z-m>-0.006</z-m>
+   </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/SGU-15/subscriber</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>2</max>                
+      <wrap>false</wrap>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>sgu-subscr</tooltip-id>
+      <label>%s</label>
+      <property>an24/SGU-15/subscriber</property>
+      <mapping>nasal</mapping>
+      <script>
+        var sgusubscr = ['PAX Cabin', 'SPU-7', 'Board Attendant'];
+        return sgusubscr[arg[0]];
+      </script>
+    </binding>
+   </hovered>
+ </animation>
+
+<!-- Volume knob -->
+ <animation>
+   <type>knob</type>
+   <object-name>sgu-vol_knob</object-name>
+   <property>an24/SGU-15/volume</property>
+   <factor>-300</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0162</y-m>
+   <z-m>0.0194</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/SGU-15/volume</property>
+      <factor>-0.05</factor>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>General Volume %3d%%</label>
+         <measure-text>General Volume 100p</measure-text>
+         <tooltip-id>spu-gen-vol_lc</tooltip-id>
+         <mapping>percent</mapping>
+         <property>an24/SGU-15/volume</property>
+       </binding>
+     </hovered>
+ </animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">SGU-15 Public Address</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.02</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.08</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.018</x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+
+</PropertyList>

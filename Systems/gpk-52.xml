@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<system name="GPK-52">
+
+<channel name="GPK Power" execrate="120">
+
+<!-- Gyro and Servo motor -->
+ <switch name="/an24/GPK-52/power_36V">
+  <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/AC_Bus_36V_phII GT 32.0
+	/an24/AC_Panel/fuse36V_0108 EQ 1.0
+	/an24/AC_Panel/fuse36V_0208 EQ 1.0
+	/an24/AC_Panel/fuse36V_0308 EQ 1.0
+   </test>
+ </switch>
+
+<!-- Relais -->
+ <switch name="/an24/GPK-52/power_27V">
+  <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0702 EQ 1.0
+	/an24/GPK-52/sw_ctrl EQ 1.0
+   </test>
+ </switch>
+
+</channel>
+
+<channel name="Correction knob" execute="/an24/GPK-52/power_36V">
+
+ <fcs_function name="/an24/GPK-52/init-error-deg"><!--init-deg-error "recycled"-->
+  <function>
+
+  <sum>
+   <property>/an24/GPK-52/init-error-deg</property>
+   <product>
+    <property>/an24/GPK-52/left-right-slew</property>
+    <property>simulation/channel-dt</property>
+    <value>10</value>
+   </product>
+  </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+
+<channel name="Nature" execrate="240">
+
+ <fcs_function name="/an24/GPK-52/horiz-prec_degph">
+  <function>
+
+ <product>
+  <value>-15</value>
+  <sin>
+   <product>
+    <property>/position/latitude-deg</property>
+    <value>0.0174533</value>
+   </product>
+  </sin>
+ </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/GPK-52/horiz-prec_sum">
+  <function>
+
+  <sum>
+   <property>/an24/GPK-52/horiz-prec_sum</property>
+   <product>
+    <property>/an24/GPK-52/horiz-prec_degph</property>
+    <property>simulation/channel-dt</property>
+    <value>0.000277</value><!--1/3600 (degph->degps)-->
+   </product>
+  </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+
+<channel name="Earth error correction" execrate="120" execute="/an24/GPK-52/power_36V">
+
+ <fcs_function name="/an24/GPK-52/horiz-prec-corr_degph">
+  <function>
+
+ <product>
+  <value>15</value>
+  <property>/an24/GPK-52/sw_ctrl</property>
+  <property>/an24/GPK-52/sw_hemisphere</property>
+  <sin>
+   <product>
+    <property>/an24/GPK-52/lat-nut</property>
+    <value>0.0174533</value>
+   </product>
+  </sin>
+ </product>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/GPK-52/horiz-prec-corr_sum">
+  <function>
+
+  <sum>
+   <property>/an24/GPK-52/horiz-prec-corr_sum</property>
+
+   <product>
+    <property>/an24/GPK-52/horiz-prec-corr_degph</property>
+    <property>simulation/channel-dt</property>
+    <value>0.000277</value>
+   </product>
+  </sum>
+
+  </function>
+ </fcs_function>
+
+</channel>
+
+</system>

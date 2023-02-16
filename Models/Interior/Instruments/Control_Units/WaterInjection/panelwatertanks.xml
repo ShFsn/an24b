@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!-- Panel on left console with lamps signaling PRT-24 water tanks full/empty -->
+
+<PropertyList>
+ <path>panelwatertanks.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>waterinjpanel</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.7</green>
+     <blue>0.7</blue>
+     <factor-prop>controls/lighting/console-l_red</factor-prop>
+   </emission>
+ </animation>
+
+<model>
+ <path>sl_tank_l_full.xml</path>
+  <offsets>
+    <x-m>-0.01</x-m>
+    <y-m>-0.003</y-m>
+    <z-m>0.0034</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>sl_tank_l_full.xml</path>
+  <offsets>
+    <x-m>-0.01</x-m>
+    <y-m>0.021</y-m>
+    <z-m>0.0034</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>wl_tank_l_empty.xml</path>
+  <offsets>
+    <x-m>-0.01</x-m>
+    <y-m>-0.003</y-m>
+    <z-m>-0.021</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>wl_tank_l_empty.xml</path>
+  <offsets>
+    <x-m>-0.01</x-m>
+    <y-m>0.021</y-m>
+    <z-m>-0.021</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>sw_panelwatertanks.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0228</y-m>
+    <z-m>-0.0047</z-m>
+  </offsets>
+</model>
+
+</PropertyList>

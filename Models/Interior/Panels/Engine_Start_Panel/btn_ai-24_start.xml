@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<!-- Button to start Engine Start Sequencer APD-27 -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/205k.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	enginestart.apdtimer.start();
+	interpolate("an24/Start-Panel/startai24-btn", 1.0, 0.1 );
+      </script>
+    </binding>
+      <mod-up>
+	<binding>
+	<command>nasal</command>
+	<script>
+	interpolate("an24/Start-Panel/startai24-btn", 0.0, 0.1 );
+	</script>
+	</binding>
+      </mod-up>
+  </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>AI-24 Engine Start</label>
+       <tooltip-id>start_ai-24</tooltip-id>
+     </binding>
+   </hovered>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/Start-Panel/startai24-btn</property>
+  <factor>0.005</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+</PropertyList>

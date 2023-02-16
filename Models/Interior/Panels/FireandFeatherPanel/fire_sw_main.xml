@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<!-- Fire extinguishing and signaling main switch bottom right -->
+<PropertyList>
+ <path>../../shared/switches/3ppntk.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/FireFeather/main", 1.0, 1.2 );
+# animation
+	if ( getprop("an24/FireFeather/sw_main") == 0.0 ) {
+	settimer(func {interpolate("an24/FireFeather/sw_main", 1.0, 0.1);}, 0.4);
+	interpolate("an24/FireFeather/lock_main", 1.0, 0.3 );
+	}
+	else if ( getprop("an24/FireFeather/sw_main") == -1.0 ) {
+	interpolate("an24/FireFeather/sw_main", 0.0, 0.1, 0.0, 1.1, 1.0, 0,1 );
+	settimer(func {interpolate("an24/FireFeather/lock_main", 0.0, 0.3, 0.0, 0.2, 1.0, 0.3);}, 0.2);
+	}
+	sound.click("azr", 2.15, 0.25, 1.3);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_middle</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/FireFeather/main", 0.0, 0.1 );
+	setprop("an24/FireFeather/mainresetdone", 1.0 );
+# animation
+	interpolate("an24/FireFeather/sw_main", 0.0, 0.1 );
+	settimer(func {interpolate("an24/FireFeather/lock_main", 0.0, 0.3);}, 0.2);
+	sound.click("azr", 2.15, 0.25, 1.3);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/FireFeather/main", -1.0, 1.2 );
+	setprop("an24/FireFeather/mainresetdone", 1.0 );
+# animation
+	if ( getprop("an24/FireFeather/sw_main") == 0.0 ) {
+	settimer(func {interpolate("an24/FireFeather/sw_main", -1.0, 0.1);}, 0.4);
+        interpolate("an24/FireFeather/lock_main", -1.0, 0.3 );
+	}
+	else if ( getprop("an24/FireFeather/sw_main") == 1.0 ) {
+	interpolate("an24/FireFeather/sw_main", 0.0, 0.1, 0.0, 1.1, -1.0, 0,1 );
+	settimer(func {interpolate("an24/FireFeather/lock_main", 0.0, 0.3, 0.0, 0.2, -1.0, 0.3);}, 0.2);
+	}
+	sound.click("azr", 2.15, 0.25, 1.3);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/FireFeather/sw_main</property>
+  <interpolation>
+    <entry><ind>-1.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation> 
+
+</PropertyList>

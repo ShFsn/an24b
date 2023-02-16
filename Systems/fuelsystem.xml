@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+
+<system name="FuelSystem">
+
+
+ <channel name="PumpsETsN_Auto" execrate="30">
+
+  <summer>
+   <input>/consumables/fuel/tank[1]/level-kg</input>
+   <input>/consumables/fuel/tank[2]/level-kg</input>
+   <output>/an24/FuelControl/tanks_AUXleft</output>
+  </summer>
+
+  <switch name="/an24/FuelControl/lmainecn_press">
+   <default value="0"/>
+   <test logic="AND" value="0.6">
+	/an24/AZS/sw0113 EQ 1.0
+	<test logic="OR">
+		<test logic="AND">
+			/an24/FuelControl/sw0402 EQ 1.0
+			<test logic="OR">
+				<test logic="AND">
+				/consumables/fuel/tank[0]/level-kg GT 15.5
+				/an24/FuelControl/tanks_AUXleft LT 450.0
+				</test>
+				<test logic="AND">
+				/an24/FuelControl/lfront463_press EQ 0
+				/an24/FuelControl/lrear463_press EQ 0
+				</test>
+			</test>
+		</test>
+	<test>
+		/an24/FuelControl/sw0402 EQ -1.0 
+	</test>
+	</test>
+   </test>
+  </switch>
+
+  <summer>
+   <input>/consumables/fuel/tank[3]/level-kg</input>
+   <input>/consumables/fuel/tank[4]/level-kg</input>
+   <output>/an24/FuelControl/tanks_AUXright</output>
+  </summer>
+
+  <switch name="/an24/FuelControl/rmainecn_press">
+   <default value="0"/>
+   <test logic="AND" value="0.6">
+	/an24/AZS/sw0116 EQ 1.0
+	<test logic="OR">
+		<test logic="AND">
+			/an24/FuelControl/sw0406 EQ 1.0
+			<test logic="OR">
+				<test logic="AND">
+				/consumables/fuel/tank[5]/level-kg GT 15.5
+				/an24/FuelControl/tanks_AUXright LT 450.0
+				</test>
+				<test logic="AND">
+				/an24/FuelControl/rfront463_press EQ 0
+				/an24/FuelControl/rrear463_press EQ 0
+				</test>
+			</test>
+		</test>
+	<test>
+		/an24/FuelControl/sw0406 EQ -1.0 
+	</test>
+	</test>
+   </test>
+  </switch>
+
+
+ </channel>
+
+ <channel name="Tank priority" execrate="30">
+
+  <!--Left-->
+  <summer>
+   <input>/an24/FuelControl/lrear463_press</input>
+   <input>/an24/FuelControl/lfront463_press</input>
+   <output>/an24/FuelControl/pumps_463l_press</output>
+  </summer>
+
+  <switch name="/an24/FuelControl/groupondutyl">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/FuelControl/pumps_463l_press LT /an24/FuelControl/lmainecn_press
+   </test>
+   <test value="2">
+	/an24/FuelControl/pumps_463l_press GT 0.0
+   </test>
+  </switch>
+
+  <switch name="propulsion/tank[0]/priority">
+   <default value="0"/>
+   <test value="1">
+	/an24/FuelControl/groupondutyl EQ 1
+   </test>
+  </switch>
+
+  <switch>
+   <default value="0"/>
+   <test value="1">
+	/an24/FuelControl/groupondutyl EQ 2
+   </test>
+   <output>propulsion/tank[1]/priority</output>
+   <output>propulsion/tank[2]/priority</output>
+  </switch>
+
+  <!--Right-->
+  <summer>
+   <input>/an24/FuelControl/rrear463_press</input>
+   <input>/an24/FuelControl/rfront463_press</input>
+   <output>/an24/FuelControl/pumps_463r_press</output>
+  </summer>
+
+  <switch name="/an24/FuelControl/groupondutyr">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/FuelControl/pumps_463r_press LT /an24/FuelControl/rmainecn_press
+   </test>
+   <test value="2">
+	/an24/FuelControl/pumps_463r_press GT 0.0
+   </test>
+  </switch>
+
+  <switch name="propulsion/tank[5]/priority">
+   <default value="0"/>
+   <test value="1">
+	/an24/FuelControl/groupondutyr EQ 1
+   </test>
+  </switch>
+
+  <switch>
+   <default value="0"/>
+   <test value="1">
+	/an24/FuelControl/groupondutyr EQ 2
+   </test>
+   <output>propulsion/tank[3]/priority</output>
+   <output>propulsion/tank[4]/priority</output>
+  </switch>
+
+ </channel>
+
+ <channel name="Equalize left" execrate="30">
+
+ <fcs_function name="/an24/FuelControl/equalleft">
+  <function>
+  <difference>
+   <quotient>
+    <property>propulsion/engine[1]/fuel-flow-rate-pps</property>
+    <sum>
+      <property>/an24/FuelControl/groupondutyl</property>
+      <property>/an24/FuelControl/groupondutyr</property>
+    </sum>
+   </quotient>
+<!-- part two -->
+   <quotient>
+    <product>
+     <property>propulsion/engine[0]/fuel-flow-rate-pps</property>
+     <property>/an24/FuelControl/groupondutyr</property>
+    </product>
+    <product>
+     <property>/an24/FuelControl/groupondutyl</property>
+     <sum>
+      <property>/an24/FuelControl/groupondutyl</property>
+      <property>/an24/FuelControl/groupondutyr</property>
+     </sum>
+    </product>
+   </quotient>
+  </difference>
+  </function>
+ </fcs_function>
+
+  <switch name="propulsion/tank[0]/external-flow-rate-pps">
+   <default value="0"/>
+   <test logic="AND" value="/an24/FuelControl/equalleft">
+	/an24/FuelControl/crossfeed EQ 0
+	/an24/FuelControl/groupondutyl EQ 1
+   </test>
+  </switch>
+
+  <switch>
+   <default value="0"/>
+   <test logic="AND" value="/an24/FuelControl/equalleft">
+	/an24/FuelControl/crossfeed EQ 0
+	/an24/FuelControl/groupondutyl EQ 2
+   </test>
+   <output>propulsion/tank[1]/external-flow-rate-pps</output>
+   <output>propulsion/tank[2]/external-flow-rate-pps</output>
+  </switch>
+
+ </channel>
+
+ <channel name="Equalize right" execrate="30">
+
+ <fcs_function name="/an24/FuelControl/equalright">
+  <function>
+  <difference>
+   <quotient>
+    <property>propulsion/engine[0]/fuel-flow-rate-pps</property>
+    <sum>
+      <property>/an24/FuelControl/groupondutyl</property>
+      <property>/an24/FuelControl/groupondutyr</property>
+    </sum>
+   </quotient>
+<!-- part two -->
+   <quotient>
+    <product>
+     <property>propulsion/engine[1]/fuel-flow-rate-pps</property>
+     <property>/an24/FuelControl/groupondutyl</property>
+    </product>
+    <product>
+     <property>/an24/FuelControl/groupondutyr</property>
+     <sum>
+      <property>/an24/FuelControl/groupondutyl</property>
+      <property>/an24/FuelControl/groupondutyr</property>
+     </sum>
+    </product>
+   </quotient>
+  </difference>
+  </function>
+ </fcs_function>
+
+  <switch name="propulsion/tank[5]/external-flow-rate-pps">
+   <default value="0"/>
+   <test logic="AND" value="/an24/FuelControl/equalright">
+	/an24/FuelControl/crossfeed EQ 0
+	/an24/FuelControl/groupondutyr EQ 1
+   </test>
+  </switch>
+
+  <switch>
+   <default value="0"/>
+   <test logic="AND" value="/an24/FuelControl/equalright">
+	/an24/FuelControl/crossfeed EQ 0
+	/an24/FuelControl/groupondutyr EQ 2
+   </test>
+   <output>propulsion/tank[3]/external-flow-rate-pps</output>
+   <output>propulsion/tank[4]/external-flow-rate-pps</output>
+  </switch>
+
+ </channel>
+
+ <channel name="Cutoff" execrate="120">
+
+  <switch name="/an24/FuelControl/cutoff-l-by-fs">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/FuelControl/crossfeed EQ 0
+	<test logic="OR">
+		/an24/FuelControl/groupondutyl EQ 0
+		<test logic="AND">
+		/an24/FuelControl/groupondutyl EQ 1
+		/consumables/fuel/tank[0]/level-kg LT 0.2
+	   	</test>
+		<test logic="AND">
+		/an24/FuelControl/groupondutyl EQ 2
+		/an24/FuelControl/tanks_AUXleft LT 2.5
+	   	</test>
+	</test>
+   </test>
+  </switch>
+
+  <switch name="/an24/FuelControl/cutoff-r-by-fs">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/FuelControl/crossfeed EQ 0
+	<test logic="OR">
+		/an24/FuelControl/groupondutyr EQ 0
+		<test logic="AND">
+		/an24/FuelControl/groupondutyr EQ 1
+		/consumables/fuel/tank[5]/level-kg LT 0.2
+	   	</test>
+		<test logic="AND">
+		/an24/FuelControl/groupondutyr EQ 2
+		/an24/FuelControl/tanks_AUXright LT 2.5
+	   	</test>
+	</test>
+   </test>
+  </switch>
+
+  <switch name="propulsion/active_engine">
+   <default value="-1"/>
+   <test logic="AND" value="0">
+	/an24/FuelControl/cutoff-l-by-fs EQ 1
+	/an24/FuelControl/cutoff-r-by-fs EQ 0
+   </test>
+   <test logic="AND" value="1">
+	/an24/FuelControl/cutoff-l-by-fs EQ 0
+	/an24/FuelControl/cutoff-r-by-fs EQ 1
+   </test>
+  </switch>
+
+  <switch name="propulsion/cutoff_cmd">
+   <default value="0"/>
+   <test logic="OR" value="1">
+	/an24/FuelControl/cutoff-l-by-fs EQ 1
+	/an24/FuelControl/cutoff-r-by-fs EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="BI2-5 Fuel Measuring Block" execrate="120">
+
+  <switch name="/an24/PG4and2PPT1/BI2-5l">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/Electrics/AZSmain_V LT 32.0
+	/an24/AZS/sw0117 EQ 1.0
+   </test>
+  </switch>
+
+  <switch name="/an24/PG4and2PPT1/BI2-5r">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/Electrics/AZSmain_V LT 32.0
+	/an24/AZS/sw0118 EQ 1.0
+   </test>
+  </switch>
+
+ </channel>
+
+ <channel name="RTMS fuel flow" execrate="30" execute="/an24/FuelControl/flow-meter">
+
+ <fcs_function name="/an24/RTMS/indicated-l-kg">
+  <function>
+
+ <sum>
+  <property>/an24/RTMS/indicated-l-kg</property>
+  <product>
+   <property>propulsion/engine[0]/fuel-flow-rate-pps</property>
+   <value>0.453592</value><!--pounds to kg-->
+   <property>simulation/dt</property>
+   <value>30</value>
+   <property>/sim/speed-up</property>
+  </product>
+ </sum>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/RTMS/indicated-r-kg">
+  <function>
+
+ <sum>
+  <property>/an24/RTMS/indicated-r-kg</property>
+  <product>
+   <property>propulsion/engine[1]/fuel-flow-rate-pps</property>
+   <value>0.453592</value><!--pounds to kg-->
+   <property>simulation/dt</property>
+   <value>30</value>
+   <property>/sim/speed-up</property>
+  </product>
+ </sum>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+</system>

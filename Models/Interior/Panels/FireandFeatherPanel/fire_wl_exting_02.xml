@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!-- Warning lamp indicating functionality of fire extinguishing system II left engine -->
+
+<PropertyList>
+ <path>../../shared/lamps/warninglamp02.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>holder</object-name>
+  <object-name>lampon</object-name>
+  <texture>../../shared/lamps/warninglamp02orangeplain.png</texture>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <condition>
+   <and>
+    <equals>
+     <property>an24/FireFeather/main</property>
+     <value>-1</value>
+    </equals>
+    <greater-than>
+     <property>an24/Fire-Protection/Extinguishers/Lengine_cartridge2-kg</property>
+     <value>0.8</value>
+    </greater-than>
+   </and>
+  </condition>
+  <object-name>lampon</object-name>
+ </animation>
+
+</PropertyList>

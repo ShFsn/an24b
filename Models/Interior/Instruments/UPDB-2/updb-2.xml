@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!-- UPDB-2, Radiocompass-->
+
+<PropertyList>
+ <path>updb-2.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>housing</object-name>
+   <object-name>needle1</object-name>
+   <object-name>needle2</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+   </emission>
+ </animation>
+
+<!--Needles-->
+ <animation>
+  <type>rotate</type>
+  <object-name>needle1</object-name>
+  <property>an24/Kurs-MP/output1-deg_filter</property>
+   <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>needle2</object-name>
+  <property>an24/Kurs-MP/output2-deg_filter</property>
+   <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </axis>
+ </animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textupdb</object-name>
+    <condition>
+     <or>
+      <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_nav</property>
+     </or>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textupdb</name>
+    <type type="string">literal</type>
+    <text type="string">UPDB-2</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.010 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textupdb</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

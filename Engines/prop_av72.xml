@@ -17,6 +17,7 @@
 
 <propeller name="prop_AV72">
   <ixx>  73.579 </ixx> <!-- real value -->
+  <!--ixx unit="KG*M2">  99.76 </ixx-->
   <diameter unit="M">   3.9 </diameter>
   <numblades> 4 </numblades>
   <gearratio> 12.11341 </gearratio>

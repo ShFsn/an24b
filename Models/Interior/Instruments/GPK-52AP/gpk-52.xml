@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<!-- GPK-52AP, gyropoly compass-->
+
+<PropertyList>
+ <path>gpk-52.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>compface</object-name>
+   <object-name>compbody</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.3</blue>
+     <factor-prop>controls/lighting/console-r_red</factor-prop>
+   </emission>
+ </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>compface</object-name>
+   <property>an24/GPK-52/indicated-heading-deg</property>
+  <factor>1</factor>
+  <offset-deg>-90</offset-deg>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textgpk</object-name>
+    <condition>
+     <or>
+      <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_nav</property>
+     </or>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textgpk</name>
+    <type type="string">literal</type>
+    <text type="string">GPK-52 gyro compass</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>xy-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.00</x-m>
+      <y-m>0.00</y-m>
+      <z-m>0.04</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textgpk</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

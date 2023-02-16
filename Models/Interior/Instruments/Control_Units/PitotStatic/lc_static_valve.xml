@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<!-- Lever to swap static ports from  S1/S5 to Emergency port 1 in radar chamber-->
+
+<PropertyList>
+ <path>../../../shared/pressure-valve.ac</path>
+
+ <animation>
+   <type>knob</type>
+   <object-name>valvescrew</object-name>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Pressure/lc_staticvalve</property>
+      <factor>0.2</factor>
+      <min>-1</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+
+     <binding>
+      <condition>
+       <equals>
+    	<property>an24/Pressure/lc_staticvalve</property>
+        <value>1</value>
+       </equals>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/static[0]/serviceable</property>
+      <value>1</value>
+     </binding>
+     <binding>
+      <condition>
+       <less-than>
+    	<property>an24/Pressure/lc_staticvalve</property>
+        <value>0.9</value>
+       </less-than>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/static[0]/serviceable</property>
+      <value>0</value>
+     </binding>
+
+     <binding>
+      <condition>
+       <equals>
+    	<property>an24/Pressure/lc_staticvalve</property>
+        <value>-1</value>
+       </equals>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/static[4]/serviceable</property>
+      <value>1</value>
+     </binding>
+     <binding>
+      <condition>
+       <greater-than>
+    	<property>an24/Pressure/lc_staticvalve</property>
+        <value>-0.9</value>
+       </greater-than>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/static[4]/serviceable</property>
+      <value>0</value>
+     </binding>
+    </action>
+
+  <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>lcstaticvalve</tooltip-id>
+      <label>%s</label>
+      <property>an24/Pressure/lc_staticvalve</property>
+      <mapping>nasal</mapping>
+      <script>
+        var modes2 = ['Closed', 'Static Ports S1/S5 Main', 'E1 Emergency Port'];
+        return modes2[arg[0]];
+      </script>
+    </binding>
+  </hovered>
+
+ </animation>
+
+ <animation>
+  <object-name>valvelever</object-name>
+  <type>rotate</type>
+   <property>an24/Pressure/lc_staticvalve</property>
+   <factor>30</factor>
+   <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+   </axis>
+ </animation>
+
+</PropertyList>

@@ -17,6 +17,12 @@
 <animation>
  <type>select</type>
  <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSemerg_V</property>
+    <value>24.0</value>
+   </greater-than>
+  </and>
   <or>
    <less-than>
     <expression>

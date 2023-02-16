@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<system name="PitotStatic">
+
+<!--***** PITOTS AND STATIC PORTS SWAP FROM MAIN TO EMERGENCY/RESERVE *****-->
+<channel name="SwapPitotStatic">
+
+<!--Pitot A1 to A2 (reserve) by valve U1-->
+  <switch name="systems/pitot-static/A1orA2pressure-inhg">
+   <default value="/systems/pitot[0]/total-pressure-inhg"/>
+   <test value="/systems/pitot[1]/total-pressure-inhg">
+     /an24/Pressure/lc_pitotvalve LT 0
+   </test>
+  </switch>
+
+<!--Static ports S1/S5 to N1 (emergency) by valve U2-->
+  <switch name="systems/pitot-static/S1orE1pressure-inhg">
+   <default value="/systems/static[0]/pressure-inhg"/>
+   <test value="/systems/static[4]/pressure-inhg">
+     /an24/Pressure/lc_staticvalve LT 0
+   </test>
+  </switch>
+
+<!--Static ports S2/S6 to N2 (emergency) by valve U3-->
+  <switch name="systems/pitot-static/S2orE2pressure-inhg">
+   <default value="/systems/static[1]/pressure-inhg"/>
+   <test value="/systems/static[5]/pressure-inhg">
+     /an24/Pressure/rc_staticvalve LT 0
+   </test>
+  </switch>
+
+</channel>
+
+</system>

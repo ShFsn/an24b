@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- Strobe lights OSS-61 (Bottom and V-Stab) ON/OFF -->
-
+<!-- Strobe lights OSS-61 (Bottom and V-Stab) ON/OFF; Item 327 -->
 <PropertyList>
  <path>../../../shared/switches/2vg-15k.ac</path>
+
  <animation>
   <type>pick</type>
   <object-name>clickspot_up</object-name>
@@ -14,7 +14,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/controls/lighting/ext_strobe-lights", 1.0, 0.1 );
+	interpolate("an24/lights/sw_OSS-61", 1.0, 0.1 );
+	sound.click("azs", 2.1, 0.18, 0.65);
       </script>
     </binding>
   </action>
@@ -37,7 +38,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/controls/lighting/ext_strobe-lights", 0.0, 0.1 );
+	interpolate("an24/lights/sw_OSS-61", 0.0, 0.1 );
+	sound.click("azs", 2.1, 0.18, 0.65);
       </script>
     </binding>
   </action>
@@ -53,7 +55,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>controls/lighting/ext_strobe-lights</property>
+   <property>an24/lights/sw_OSS-61</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>

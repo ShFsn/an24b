@@ -9,12 +9,12 @@
   <group>
     <layout>hbox</layout>
     <text>
-      <label>Choose Radio Equipment</label>
+      <label>Choose Equipment</label>
     </text>
 
-    <empty>
-      <stretch>true</stretch>
-    </empty>
+		<empty>
+		 <stretch>true</stretch>
+		</empty>
 
     <button>
       <legend/>
@@ -28,24 +28,280 @@
     </button>
   </group>
 
-  <hrule/>
+  <hrule>
+    <pref-height>4</pref-height>
+  </hrule>
 
-   <combo>
-        <row>2</row>
-        <col>1</col>
-        <name>radio-equip</name>
-        <halign>left</halign>
-        <stretch>true</stretch>
-        <pref-width>200</pref-width>
-        <property>an24/radio-equip</property>
-	<value>Kurs-MP</value>
-	<value>Standard</value>
-        <binding>
-          <command>dialog-apply</command>
-          <object-name>radio-equip</object-name>
-        </binding>
-      </combo>
 
-  <hrule/>
+  <group>
+   <layout>vbox</layout>
+    <text>
+    <halign>left</halign>
+      <label>Radio Equipment</label>
+    </text>
+  </group>
+
+<hrule/>
+
+  <group>
+   <layout>vbox</layout>
+   <radio>
+    <halign>left</halign>
+    <label>Standard</label>
+    <property>sim/gui/an24b/radio-standard</property>
+    <live>true</live>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	setprop("an24/radio-equip", "Standard" );
+	setprop("sim/gui/an24b/radio-standard", 1 );
+	setprop("sim/gui/an24b/radio-kurs_mp", 0 );
+       </script>
+     </binding>
+     <binding>
+      <command>dialog-update</command>
+     </binding>
+   </radio>
+
+   <radio>
+    <halign>left</halign>
+    <label>Kurs-MP</label>
+    <property>sim/gui/an24b/radio-kurs_mp</property>
+    <live>true</live>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+     <binding>
+      <command>nasal</command>
+       <script>
+	setprop("an24/radio-equip", "Kurs-MP" );
+	setprop("sim/gui/an24b/radio-kurs_mp", 1 );
+	setprop("sim/gui/an24b/radio-standard", 0 );
+       </script>
+     </binding>
+     <binding>
+      <command>dialog-update</command>
+     </binding>
+   </radio>
+  </group>
+
+  <empty>
+   <stretch>true</stretch>
+  </empty>
+
+  <hrule>
+    <pref-height>4</pref-height>
+  </hrule>
+
+  <group>
+   <layout>hbox</layout>
+    <text>
+    <halign>left</halign>
+      <label>Ground Equipment</label>
+    </text>
+  </group>
+
+<hrule/>
+
+  <group>
+   <layout>hbox</layout>
+    <text>
+    <halign>left</halign>
+      <label>Aerodrome Power</label>
+    </text>
+  </group>
+
+  <checkbox>
+    <halign>left</halign>
+    <label>ShRAP500 DC A</label>
+    <live>true</live>
+    <property>sim/gui/an24b/shrap500a</property>
+    <enable>
+     <less-than>
+      <property>velocities/groundspeed-kt</property>
+      <value>0.1</value>
+     </less-than>
+    </enable>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>nasal</command>
+       <script>
+	if (getprop("sim/gui/an24b/shrap500a") == 1 ) {
+	interpolate("an24/Electrics/DC_AUX_ShRAP500a_V", 28.2, 0.2 );
+	}
+	else {
+	interpolate("an24/Electrics/DC_AUX_ShRAP500a_V", 0.0, 0.2 );
+	}
+       </script>
+    </binding>
+  </checkbox>
+
+  <checkbox>
+    <halign>left</halign>
+    <label>ShRAP500 DC B</label>
+    <live>true</live>
+    <property>sim/gui/an24b/shrap500b</property>
+    <enable>
+     <less-than>
+      <property>velocities/groundspeed-kt</property>
+      <value>0.1</value>
+     </less-than>
+    </enable>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>nasal</command>
+       <script>
+	if (getprop("sim/gui/an24b/shrap500b") == 1 ) {
+	interpolate("an24/Electrics/DC_AUX_ShRAP500b_V", 24.9, 0.2 );
+	}
+	else {
+	interpolate("an24/Electrics/DC_AUX_ShRAP500b_V", 0.0, 0.2 );
+	}
+       </script>
+    </binding>
+  </checkbox>
+
+
+		<empty>
+		 <stretch>true</stretch>
+		</empty>
+
+  <checkbox>
+    <halign>left</halign>
+    <label>ShRA200 AC</label>
+    <live>true</live>
+    <property>an24/Electrics/AC_AUX_ShRA200_V</property>
+    <enable>
+     <less-than>
+      <property>velocities/groundspeed-kt</property>
+      <value>0.1</value>
+     </less-than>
+    </enable>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>nasal</command>
+       <script>
+	if (getprop("an24/Electrics/AC_AUX_ShRA200_V") == 1) {
+	interpolate("an24/Electrics/AC_AUX_ShRA200_V", 116.3, 0.2 );
+	}
+	else {
+	interpolate("an24/Electrics/AC_AUX_ShRA200_V", 0.0, 0.2 );
+	}
+       </script>
+    </binding>
+  </checkbox>
+<!--
+  <group>
+   <layout>vbox</layout>
+    <text>
+    <halign>left</halign>
+      <label>Hot/Cool Air Supply</label>
+    </text>
+  </group>
+
+  <checkbox>
+    <halign>left</halign>
+    <label>Hot Air</label>
+    <live>true</live>
+    <property>an24/Air-Cond/ext-air</property>
+    <enable>
+     <less-than>
+      <property>velocities/groundspeed-kt</property>
+      <value>0.1</value>
+     </less-than>
+    </enable>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>nasal</command>
+       <script>
+	if (getprop("an24/Electrics/DC_AUX_ShRAP500a_V") == 1) {
+	setprop("an24/Electrics/DC_AUX_ShRAP500b_V", 0 );
+	interpolate("an24/Electrics/DC_AUX_ShRAP500a_V", 27.5, 1.0 );
+	interpolate("an24/Electrics/DC_AUX_ShRAP500b_V", 0.0, 1.0 );
+	}
+       </script>
+    </binding>
+  </checkbox>
+
+  <checkbox>
+    <halign>left</halign>
+    <label>Cool Air</label>
+    <live>true</live>
+    <property>an24/Electrics/DC_AUX_ShRAP500b_V</property>
+    <enable>
+     <less-than>
+      <property>velocities/groundspeed-kt</property>
+      <value>0.1</value>
+     </less-than>
+    </enable>
+    <binding>
+     <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>nasal</command>
+       <script>
+	if (getprop("an24/Electrics/DC_AUX_ShRAP500b_V") == 1) {
+	setprop("an24/Electrics/DC_AUX_ShRAP500a_V", 0 );
+	interpolate("an24/Electrics/DC_AUX_ShRAP500b_V", 28.8, 1.0 );
+	interpolate("an24/Electrics/DC_AUX_ShRAP500a_V", 0.0, 1.0 );
+	}
+       </script>
+    </binding>
+  </checkbox>
+-->
+
+		<empty>
+		 <stretch>true</stretch>
+		</empty>
+
+  <hrule>
+    <pref-height>4</pref-height>
+  </hrule>
+
+  <group>
+   <layout>hbox</layout>
+    <text>
+    <halign>left</halign>
+      <label>Rockets</label>
+    </text>
+  </group>
+
+<hrule/>
+
+  <group>
+    <layout>hbox</layout>
+    <default-padding>6</default-padding>
+    <empty><stretch>true</stretch></empty>
+    <button>
+     <legend>Reload Rockets</legend>
+     <equal>true</equal>
+     <default>true</default>
+     <binding>
+      <command>nasal</command>
+       <script>
+	setprop("an24/TP622/rocketA1_fired", 0 );
+	setprop("an24/TP622/rocketA2_fired", 0 );
+	setprop("an24/TP622/rocketA3_fired", 0 );
+	setprop("an24/TP622/rocketA4_fired", 0 );
+	setprop("an24/TP622/rocketB1_fired", 0 );
+	setprop("an24/TP622/rocketB2_fired", 0 );
+	setprop("an24/TP622/rocketB3_fired", 0 );
+	setprop("an24/TP622/rocketB4_fired", 0 );
+       </script>
+     </binding>
+    </button>
+    <empty><stretch>true</stretch></empty>
+  </group>
 
 </PropertyList>

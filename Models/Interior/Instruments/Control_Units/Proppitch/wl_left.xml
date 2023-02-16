@@ -15,11 +15,17 @@
 <animation>
  <type>select</type>
  <condition>
-   <equals>
-    <property>an24/instrumentation/prop-lock/prop-lock-left</property>
-    <value>1</value>
-   </equals>
-  </condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSemerg_V</property>
+    <value>20.0</value>
+   </greater-than>
+   <less-than>
+    <property>fdm/jsbsim/fcs/prop-governor/min-blade-angle[0]</property>
+    <value>19</value>
+   </less-than>
+  </and>
+ </condition>
  <object-name>lampon</object-name>
 </animation>
 

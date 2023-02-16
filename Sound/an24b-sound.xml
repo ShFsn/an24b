@@ -11,11 +11,11 @@
    <condition>
     <property>controls/engines/engine[0]/starter</property>
    </condition>
-  <position>
+   <position>
     <x>5.94</x>
     <y>3.95</y>
     <z>1.185</z>
-  </position>
+   </position>
    <volume>
     <property>sim/current-view/internal</property>
     <factor>0.3</factor>
@@ -29,11 +29,11 @@
    <condition>
     <property>controls/engines/engine[1]/starter</property>
    </condition>
-  <position>
+   <position>
     <x>5.94</x>
     <y>-3.95</y>
     <z>1.185</z>
-  </position>
+   </position>
    <volume>
     <property>sim/current-view/internal</property>
     <factor>0.3</factor>
@@ -69,7 +69,35 @@
     <z>1.185</z>
   </position>
   </propeller>
-<!-- Negative thrust sound -->
+<!-- Right engine -->
+  <propeller>
+   <name>Right engine internal</name>
+   <mode>looped</mode>
+   <path>Aircraft/an24b/Sound/Engine/AI-24_Prop1-2.wav</path>
+   <condition>
+     <property>sim/current-view/internal</property>
+     <property>engines/engine[1]/running</property>
+   </condition>
+   <volume>
+    <property>engines/engine[1]/running</property>
+    <factor>0.5</factor>
+    <min>0.0</min>
+    <max>1.0</max>
+   </volume>
+   <pitch>
+    <property>/engines/engine[1]/thruster/rpm</property>
+    <factor>0.000803213</factor>
+    <min>0.5</min>
+    <max>2.0</max>
+    <offset>0.0</offset>
+   </pitch>
+  <position>
+    <x> 5.94 </x>
+    <y> -3.95 </y>
+    <z> 1.185 </z>
+  </position>
+  </propeller>
+<!-- Negative thrust sound left-->
   <propeller_rev>
    <name>Left engine propeller negative thrust internal</name>
    <mode>looped</mode>
@@ -100,35 +128,7 @@
     <z> 1.185 </z>
   </position>
   </propeller_rev>
-<!-- Right engine -->
-  <propeller>
-   <name>Right engine internal</name>
-   <mode>looped</mode>
-   <path>Aircraft/an24b/Sound/Engine/AI-24_Prop1-2.wav</path>
-   <condition>
-     <property>sim/current-view/internal</property>
-     <property>engines/engine[1]/running</property>
-   </condition>
-   <volume>
-    <property>engines/engine[1]/running</property>
-    <factor>0.5</factor>
-    <min>0.0</min>
-    <max>1.0</max>
-   </volume>
-   <pitch>
-    <property>/engines/engine[0]/thruster/rpm</property>
-    <factor>0.000803213</factor>
-    <min>0.5</min>
-    <max>2.0</max>
-    <offset>0.0</offset>
-   </pitch>
-  <position>
-    <x> 5.94 </x>
-    <y> -3.95 </y>
-    <z> 1.185 </z>
-  </position>
-  </propeller>
-<!-- Negative thrust sound -->
+<!-- Negative thrust sound right-->
   <propeller_rev>
    <name>Right engine propeller negative thrust internal</name>
    <mode>looped</mode>
@@ -147,7 +147,7 @@
     <factor>0.00125</factor>
    </volume>
    <pitch>
-    <property>/engines/engine[0]/thruster/rpm</property>
+    <property>/engines/engine[1]/thruster/rpm</property>
     <factor>0.000873362</factor>
     <min>0.5</min>
     <max>2.0</max>
@@ -189,7 +189,36 @@
     <z> 1.185 </z>
   </position>
   </propeller>
-<!-- Negative thrust sound -->
+<!-- Right engine -->
+<propeller>
+   <name>Right engine external</name>
+   <mode>looped</mode>
+   <path>Aircraft/an24b/Sound/Engine/AI-24_xProp1-2.wav</path>
+   <condition>
+      <not><property>sim/current-view/internal</property></not>
+     <property>engines/engine[1]/running</property>
+   </condition>
+   <volume>
+    <property>engines/engine[1]/running</property>
+    <factor>0.5</factor>
+    <min>0.0</min>
+    <max>1.0</max>
+   </volume>
+   <pitch>
+    <property>/engines/engine[1]/thruster/rpm</property>
+    <factor>0.000803213</factor>
+    <min>0.5</min>
+    <max>2.0</max>
+    <offset>0.0</offset>
+   </pitch>
+  <position>
+    <x> 5.94 </x>
+    <y> -3.95 </y>
+    <z> 1.185 </z>
+  </position>
+  </propeller>
+
+<!-- Negative thrust sound left-->
   <propeller_rev>
    <name>Left engine propeller negative thrust external</name>
    <mode>looped</mode>
@@ -220,35 +249,7 @@
     <z> 1.185 </z>
   </position>
   </propeller_rev>
-<!-- Right engine -->
-<propeller>
-   <name>Right engine external</name>
-   <mode>looped</mode>
-   <path>Aircraft/an24b/Sound/Engine/AI-24_xProp1-2.wav</path>
-   <condition>
-      <not><property>sim/current-view/internal</property></not>
-     <property>engines/engine[1]/running</property>
-   </condition>
-   <volume>
-    <property>engines/engine[1]/running</property>
-    <factor>0.5</factor>
-    <min>0.0</min>
-    <max>1.0</max>
-   </volume>
-   <pitch>
-    <property>/engines/engine[0]/thruster/rpm</property>
-    <factor>0.000803213</factor>
-    <min>0.5</min>
-    <max>2.0</max>
-    <offset>0.0</offset>
-   </pitch>
-  <position>
-    <x> 5.94 </x>
-    <y> -3.95 </y>
-    <z> 1.185 </z>
-  </position>
-  </propeller>
-<!-- Negative thrust sound -->
+<!-- Negative thrust sound right-->
   <propeller_rev>
    <name>Right engine propeller negative thrust external</name>
    <mode>looped</mode>
@@ -267,7 +268,7 @@
     <factor>0.00125</factor>
    </volume>
    <pitch>
-    <property>/engines/engine[0]/thruster/rpm</property>
+    <property>/engines/engine[1]/thruster/rpm</property>
     <factor>0.000873362</factor>
     <min>0.5</min>
     <max>2.0</max>
@@ -280,6 +281,7 @@
   </position>
   </propeller_rev>
 
+<!-- Gear Sounds -->
   <rumble>
    <name>rumble</name>
    <mode>looped</mode>
@@ -299,30 +301,29 @@
    </volume>
   </rumble>
 
-
-<gear>
-  <name>gear up</name>
-  <path>Aircraft/an24b/Sound/Systems/24gear.wav</path>
-  <condition>
+  <gear>
+   <name>gear up</name>
+   <path>Aircraft/an24b/Sound/Systems/24gear.wav</path>
+   <condition>
     <less-than>
-      <property>gear/gear[1]/position-norm</property>
-      <value>0.99</value>
+     <property>gear/gear[1]/position-norm</property>
+     <value>0.99</value>
     </less-than>
-  </condition>
-  <mode>once</mode>
-</gear> 
+   </condition>
+   <mode>once</mode>
+  </gear> 
 
-<gear>
-  <name>gear down</name>
-  <path>Aircraft/an24b/Sound/Systems/24gear.wav</path>
-  <condition>
+  <gear>
+   <name>gear down</name>
+   <path>Aircraft/an24b/Sound/Systems/24gear.wav</path>
+   <condition>
     <greater-than>
-      <property>gear/gear[1]/position-norm</property>
-      <value>0.01</value>
+     <property>gear/gear[1]/position-norm</property>
+     <value>0.01</value>
     </greater-than>
-  </condition>
-  <mode>once</mode>
-</gear> 
+   </condition>
+   <mode>once</mode>
+  </gear> 
 <!-- 
   <gear>
    <name>gear-lock</name>
@@ -335,7 +336,6 @@
    </condition>
   </gear>
 -->
-
   <squeal>
    <name>squeal</name>
    <path>Sounds/squeal.wav</path>
@@ -367,7 +367,8 @@
     <offset>1.2</offset>
    </pitch>
   </squeal>
- 
+
+<!-- Flap Sounds -->
   <flap>
    <name>flaps</name>
    <mode>in-transit</mode>
@@ -379,6 +380,7 @@
    </volume>
   </flap>
 
+<!-- Wind -->
   <wind>
    <name>wind</name>
    <mode>looped</mode>
@@ -403,7 +405,8 @@
     <offset>1.25</offset>
    </pitch>
   </wind>
- 
+
+<!-- Stall alarm(s) -->
   <stall>
    <name>stall</name>
    <mode>looped</mode>
@@ -429,14 +432,45 @@
    <reference-dist>10.0</reference-dist>
    <max-dist>20.0</max-dist>
   </stall>
- 
-<!-- no binding yet?
-  <click>
-   <name>click</name>
-   <path>Sounds/click.wav</path>
-  </click>
--->
 
+<!-- Switches -->
+  <switch>
+   <name>AZR</name>
+   <mode>once</mode>
+   <path>Sounds/click.wav</path>
+   <condition>
+    <property>an24/sound/click_azr</property>
+   </condition>
+   <position>
+    <x><property>an24/sound/click-pos-x</property></x>
+    <y><property>an24/sound/click-pos-y</property></y>
+    <z><property>an24/sound/click-pos-z</property></z>
+   </position>
+   <!--reference-dist>.02</reference-dist-->
+   <max-dist>25.0</max-dist>
+  </switch>
+
+  <switch>
+   <name>AZS</name>
+   <mode>once</mode>
+   <path>Sounds/click.wav</path>
+   <condition>
+    <equals>
+     <property>an24/sound/click_azs</property>
+     <value>1</value>
+    </equals>
+   </condition>
+   <position>
+    <x><property>an24/sound/click-pos-x</property></x>
+    <y><property>an24/sound/click-pos-y</property></y>
+    <z><property>an24/sound/click-pos-z</property></z>
+   </position>
+   <!--reference-dist>.02</reference-dist-->
+   <!--max-dist>5.0</max-dist-->
+  </switch>
+
+
+<!-- Marker -->
  <marker>
     <name>inner</name>
     <path>Aircraft/an24b/Sound/Systems/Innermk.wav</path>
@@ -461,7 +495,6 @@
       <offset type="double">0.5</offset>
     </volume>
   </marker>
-  
   <marker>
     <name>outer</name>
     <path>Aircraft/an24b/Sound/Systems/Outermk.wav</path>
@@ -475,6 +508,28 @@
     </volume>
   </marker>
 
+<!-- PPS warnings by siren S1 (wrong landing or T/O configuration) and VS-46 (cabin altitude) -->
+  <siren>
+   <name>pps</name>
+   <path>Aircraft/an24b/Sound/Systems/siren_constant.wav</path>
+   <condition>
+    <greater-than>
+     <property>an24/Siren/constant</property>
+     <value>0</value>
+    </greater-than>
+   </condition>
+   <mode>looped</mode>
+   <volume>
+    <offset type="double">0.5</offset>
+   </volume>
+   <position>
+    <x>3.90</x>
+    <y>0.60</y>
+    <z>1.42</z>
+   </position>
+  </siren>
+
+<!-- Radio(s) -->
   <!--radio>
     <name>ark1</name>
     <path>Sounds/radionoise.wav</path>
@@ -490,6 +545,7 @@
     </volume>
   </radio-->
 
+<!-- Fun stuff -->
   <other>
     <name>honk</name>
     <path>Aircraft/an24b/Sound/Systems/honk.wav</path>

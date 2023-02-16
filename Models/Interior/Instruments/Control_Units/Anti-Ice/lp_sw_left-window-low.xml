@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Window anti-ice low heat ON -->
-
 <PropertyList>
  <path>../../../shared/switches/vg-15k.ac</path>
 
@@ -13,32 +12,21 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-        <condition>
-         <equals>
-         <property>an24/AZS/sw0413</property>
-         <value>1.0</value>
-         </equals>
-        </condition>
-      <command>nasal</command>
+     <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/window_heating-left-low", 0.25, 0.1 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/Anti-Ice/sw_window_heating-left-low", 1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_window_heating-left-low", 1.0, 0.1 );
+	sound.click("azr", 2.1, -0.8, 0.64);
       </script>
     </binding>
   </action>
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>winheat_lowL-on</tooltip-id>
+      <tooltip-id>winheatlowLon</tooltip-id>
       <label>Window Heating low</label>
     </binding>
    </hovered>
-</animation>
+ </animation>
 
  <animation>
   <type>pick</type>
@@ -50,19 +38,19 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/window_heating-left-low", 0.0, 0.1 );
-        interpolate("an24/Anti-Ice/sw_window_heating-left-low", 0.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_window_heating-left-low", 0.0, 0.1 );
+	sound.click("azr", 2.1, -0.8, 0.64);
       </script>
     </binding>
   </action>
    <hovered>
     <binding>
       <command>set-tooltip</command>
-      <tooltip-id>winheat_lowL-off</tooltip-id>
+      <tooltip-id>winheatlowLoff</tooltip-id>
       <label>Window Heating low</label>
     </binding>
    </hovered>
-</animation>
+ </animation>
 
  <animation>
    <type>rotate</type>

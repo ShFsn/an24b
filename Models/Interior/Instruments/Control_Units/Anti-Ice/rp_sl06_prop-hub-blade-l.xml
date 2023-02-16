@@ -14,13 +14,13 @@
 
 <animation>
  <type>select</type>
+ <object-name>lampon</object-name>
  <condition>
    <equals>
-    <property>an24/Anti-Ice/prop-heat</property>
-    <value>1.0</value>
+    <property>an24/Anti-Ice/propheatL</property>
+    <value>1</value>
    </equals>
   </condition>
- <object-name>lampon</object-name>
 </animation>
 
 </PropertyList>

@@ -15,8 +15,14 @@
 <animation>
   <type>select</type>
   <condition>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
+   <equals>
     <property>engines/engine[2]/starter</property>
     <value>1</value>
+   </equals>
   </condition>
   <object-name>lampon</object-name>
 </animation>

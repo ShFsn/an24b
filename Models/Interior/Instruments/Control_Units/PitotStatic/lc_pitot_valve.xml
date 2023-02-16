@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<!-- Lever to swap pitots from A1 to A2 -->
+
+<PropertyList>
+ <path>../../../shared/pressure-valve.ac</path>
+
+ <animation>
+   <type>knob</type>
+   <object-name>valvescrew</object-name>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Pressure/lc_pitotvalve</property>
+      <factor>0.2</factor>
+      <min>-1</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+
+     <binding>
+      <condition>
+       <equals>
+    	<property>an24/Pressure/lc_pitotvalve</property>
+        <value>1</value>
+       </equals>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/pitot[0]/serviceable</property>
+      <value>1</value>
+     </binding>
+     <binding>
+      <condition>
+       <less-than>
+    	<property>an24/Pressure/lc_pitotvalve</property>
+        <value>0.9</value>
+       </less-than>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/pitot[0]/serviceable</property>
+      <value>0</value>
+     </binding>
+
+     <binding>
+      <condition>
+       <equals>
+    	<property>an24/Pressure/lc_pitotvalve</property>
+        <value>-1</value>
+       </equals>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/pitot[1]/serviceable</property>
+      <value>1</value>
+     </binding>
+     <binding>
+      <condition>
+       <greater-than>
+    	<property>an24/Pressure/lc_pitotvalve</property>
+        <value>-0.9</value>
+       </greater-than>
+      </condition>
+      <command>property-assign</command>
+      <property>systems/pitot[1]/serviceable</property>
+      <value>0</value>
+     </binding>
+    </action>
+
+  <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>lcpitotvalve</tooltip-id>
+      <label>Pitot %s</label>
+      <property>an24/Pressure/lc_pitotvalve</property>
+      <mapping>nasal</mapping>
+      <script>
+        var modes1 = ['Closed', 'A1 Main', 'A2 Emergency'];
+        return modes1[arg[0]];
+      </script>
+    </binding>
+  </hovered>
+
+ </animation>
+
+ <animation>
+  <object-name>valvelever</object-name>
+  <type>rotate</type>
+   <property>an24/Pressure/lc_pitotvalve</property>
+   <factor>30</factor>
+   <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+   </axis>
+ </animation>
+
+</PropertyList>

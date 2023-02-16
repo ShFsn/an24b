@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<system name="Fire-Protection">
+
+<!--***************************
+*** POWER CHECK
+****************************-->
+<channel name="Power Check" execrate="120">
+
+ <switch name="/an24/Fire-Protection/power-left">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/AZS/sw0208 EQ 1.0
+	/an24/Electrics/AZSemerg_V GT 24.0
+   </test>
+ </switch>
+
+ <switch name="/an24/Fire-Protection/power-right">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/AZS/sw0209 EQ 1.0
+	/an24/Electrics/AZSemerg_V GT 24.0
+   </test>
+ </switch>
+
+</channel>
+
+</system>

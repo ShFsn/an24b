@@ -1,0 +1,269 @@
+<PropertyList>
+
+<!-- AGD-1, type 1122B, FO's AI -->
+
+  <path>agd-1.ac</path>
+
+ <effect>
+  <inherits-from>Effects/model-transparent</inherits-from>
+  <object-name>tubefront</object-name>
+ </effect>
+
+ <animation>
+   <type>material</type>
+   <object-name>PitchScale</object-name>
+   <object-name>Plane</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>tubeback</object-name>
+   <emission>
+     <red>0.5</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>housing</object-name>
+   <emission>
+     <red>0.7</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>agdgreenlights</object-name>
+    <condition>
+    <and>
+     <greater-than>
+      <property>an24/Electrics/AZSmain_V</property>
+      <value>24.0</value>
+     </greater-than>
+     <less-than>
+      <property>instrumentation/agd-r[1]/spin</property>
+      <value>0.99</value>
+     </less-than>
+    </and>
+    </condition>
+   <diffuse>
+     <red>0.0</red>
+     <green>0.7</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>0.1</red>
+     <green>0.7</green>
+     <blue>0.1</blue>
+   </ambient>
+   <emission>
+     <red>0.0</red>
+     <green>0.3</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>0.1</red>
+     <green>0.7</green>
+     <blue>0.1</blue>
+   </specular>
+ </animation>
+
+<!--Caging-->
+<animation>
+  <type>pick</type>
+  <object-name>cageknob</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+  <binding>
+   <command>property-interpolate</command>
+    <property>instrumentation/agd-r[1]/caged-flag</property>
+    <value>1</value>
+    <rate>5.0</rate>
+  </binding>
+ <mod-up>
+  <binding>
+   <command>property-interpolate</command>
+    <property>instrumentation/agd-r[1]/caged-flag</property>
+    <value>0</value>
+    <rate>8.0</rate>
+  </binding>
+ </mod-up>
+  </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>Cage AGD-1</label>
+       <tooltip-id>agdrcage</tooltip-id>
+     </binding>
+   </hovered>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>cageknob</object-name>
+  <property>instrumentation/agd-r[1]/caged-flag</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!--Pitch-->
+<animation>
+  <type>rotate</type>
+  <object-name>PitchScale</object-name>
+  <expression>
+   <product>
+    <sum>
+     <property>instrumentation/agd-r[1]/indicated-pitch-deg</property>
+     <property>instrumentation/agd-r[1]/indicated-pitch-offset-deg</property>
+    </sum>
+    <value>2</value>
+   </product>
+  </expression>
+   <center>
+    <x-m>-0.0602</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0029</z-m>
+   </center>
+   <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+   </axis>
+</animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>pitchadjust</object-name>
+   <property>instrumentation/agd-r[1]/indicated-pitch-offset-deg</property>
+   <factor>-50</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.0516</y-m>
+    <z-m>-0.0316</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/agd-r[1]/indicated-pitch-offset-deg</property>
+      <factor>-0.15</factor>
+      <min>-4</min>
+      <max>4</max>
+      <wrap>false</wrap>
+     </binding>
+    </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>offsetind</object-name>
+  <property>instrumentation/agd-r[1]/indicated-pitch-offset-deg</property>
+  <factor>0.0016</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+
+<!--Attitude-->
+<animation>
+  <type>rotate</type>
+  <object-name>Plane</object-name>
+  <property>instrumentation/agd-r[1]/indicated-roll-deg</property>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0027</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Slip-->
+<animation>
+  <type>rotate</type>
+  <object-name>skid_ball</object-name>
+  <property>fdm/jsbsim/instrumentation/slip-skid-indicator/slip-skid-deg</property>
+  <factor>1</factor>
+  <max-deg>20.0</max-deg>
+  <min-deg>-20.0</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.006</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">AGD-1 AI</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  0.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

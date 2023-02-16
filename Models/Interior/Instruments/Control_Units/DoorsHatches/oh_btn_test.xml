@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Test button 8981 of "Doors and Hatches open" panel on back of overhead -->
-
 <PropertyList>
  <path>../../../shared/knobs_buttons/5k.ac</path><!--5ks-->
 
@@ -15,14 +14,16 @@
   <binding>
    <command>nasal</command>
     <script>
-	interpolate("an24/doorshatches/test-btn", 1.0, 0.1 );
+	interpolate("an24/doorshatches/btn_test", 1.0, 0.1 );
+	interpolate("an24/doorshatches/test", 1.0, 0.1 );
     </script>
   </binding>
  <mod-up>
   <binding>
    <command>nasal</command>
     <script>
-	interpolate("an24/doorshatches/test-btn", 0.0, 0.1 );
+	interpolate("an24/doorshatches/btn_test", 0.0, 0.1 );
+	interpolate("an24/doorshatches/test", 0.0, 0.1 );
     </script>
   </binding>
  </mod-up>
@@ -33,7 +34,7 @@
          <command>set-tooltip</command>
          <label>Doors/hatches Open
   Lights Control</label>
-         <tooltip-id>spu-gen-vol_eng</tooltip-id>
+         <tooltip-id>doorstestbtn</tooltip-id>
        </binding>
      </hovered>
  </animation>
@@ -41,7 +42,7 @@
  <animation>
   <type>translate</type>
   <object-name>press_me</object-name>
-  <property>an24/doorshatches/test-btn</property>
+  <property>an24/doorshatches/btn_test</property>
   <factor>0.005</factor>
   <axis>
     <x>0</x>

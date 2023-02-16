@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<!-- UPRT-2 -->
+
+<PropertyList>
+ <path>uprt.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>uprt_face</object-name>
+   <object-name>uprt_needle_1</object-name>
+   <object-name>uprt_needle_2</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.4</blue>
+     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>uprt_needle_1</object-name>
+  <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/AZSmain_V</property>
+     <value>24.0</value>
+    </greater-than>
+    <equals>
+     <property>an24/AZS/sw0204</property>
+     <value>1</value>
+    </equals>
+   </and>
+  </condition>
+  <property>fdm/jsbsim/fcs/throttle-pos-norm[0]</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>-145.0</dep></entry>
+    <entry><ind>1.0</ind><dep>110.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>uprt_needle_2</object-name>
+  <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/AZSmain_V</property>
+     <value>24.0</value>
+    </greater-than>
+    <equals>
+     <property>an24/AZS/sw0205</property>
+     <value>1</value>
+    </equals>
+   </and>
+  </condition>
+  <property>fdm/jsbsim/fcs/throttle-pos-norm[1]</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>-145.0</dep></entry>
+    <entry><ind>1.0</ind><dep>110.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textuprt</object-name>
+    <condition>
+     <or>
+      <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_eng</property>
+     </or>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textuprt</name>
+    <type type="string">literal</type>
+    <text type="string">UPRT Throttle lever %</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textuprt</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

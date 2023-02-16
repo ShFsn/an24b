@@ -12,21 +12,9 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-    <condition>
-     <equals>
-    	<property>an24/AZS/sw0605</property>
-     <value>1.0</value>
-     </equals>
-    </condition>
       <command>nasal</command>
       <script>
-        interpolate("an24/instrumentation/eup", 1.0, 0.1 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/instrumentation/sw_eup", 1.0, 0.1 );
+        interpolate("an24/EUP-53/sw_eup", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -34,7 +22,8 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>eup-on</tooltip-id>
-      <label>EUP Turn Coordinator</label>
+      <label>    EUP Turn
+Coordinator ON</label>
     </binding>
    </hovered>
 </animation>
@@ -49,13 +38,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/instrumentation/eup", 0.0, 0.1 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/instrumentation/sw_eup", 0.0, 0.1 );
+        interpolate("an24/EUP-53/sw_eup", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -63,7 +46,8 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>eup-off</tooltip-id>
-      <label>EUP Turn Coordinator</label>
+      <label>    EUP Turn
+Coordinator OFF</label>
     </binding>
    </hovered>
 </animation>
@@ -71,7 +55,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/instrumentation/sw_eup</property>
+   <property>an24/EUP-53/sw_eup</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>30.0</dep></entry>

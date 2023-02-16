@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+
+<!-- Device to adjust azimut (radial) -->
+
+<PropertyList>
+ <path>sk-azimut-selector.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>1s_drum</object-name>
+   <object-name>10s_drum</object-name>
+   <object-name>100s_drum</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   </emission>
+ </animation>
+
+
+ <!-- Azimuth -->
+ <animation>
+   <type>knob</type>
+   <object-name>azimutknob</object-name>
+   <property>instrumentation/nav[1]/radials/selected-deg</property>
+   <factor>15.0</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+  <center>
+    <x-m>-0.0221</x-m>
+    <y-m>0.0369</y-m>
+    <z-m>0.0</z-m>
+  </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/nav[1]/radials/selected-deg</property>
+      <factor>-1.0</factor>
+      <min>0.0</min>
+      <max>360.0</max>
+      <wrap>true</wrap>
+     </binding>
+    </action>
+   <!--hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Azimut No.1 %03d</label>
+         <tooltip-id>kurs-mp_azi1</tooltip-id>
+         <property>instrumentation/nav/radials/selected-deg</property>
+       </binding>
+    </hovered-->
+ </animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>1s_drum</object-name>
+    <property>instrumentation/nav[1]/radials/selected-deg</property>
+    <factor>-36.0</factor>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+    <center>
+      <x-m>0.0002</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0093</z-m>
+    </center>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>10s_drum</object-name>
+    <property>an24/Kurs-MP/azim2_10</property>
+    <factor>-36.0</factor>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+    <center>
+      <x-m>0.0002</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0093</z-m>
+    </center>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>100s_drum</object-name>
+    <property>an24/Kurs-MP/azim2_100</property>
+    <factor>-36.0</factor>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+    <center>
+      <x-m>0.0002</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0093</z-m>
+    </center>
+</animation>
+
+<!-- TO/FROM switch -->
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Kurs-MP/sw_to-from2", 1.0, 0.1 );
+	if (getprop("an24/Kurs-MP/sw_to-from2") == 0.0 ) {
+		if (getprop("instrumentation/nav[1]/radials/selected-deg") >= 180.0 ) {
+	        setprop("instrumentation/nav[1]/radials/selected-deg", getprop("instrumentation/nav[1]/radials/selected-deg") - 180 );
+		}
+		else {
+	        setprop("instrumentation/nav[1]/radials/selected-deg", getprop("instrumentation/nav[1]/radials/selected-deg") + 180 );
+		}
+	}
+      </script>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        interpolate("an24/Kurs-MP/sw_to-from2", 0.0, 0.1 );
+	if (getprop("an24/Kurs-MP/sw_to-from2") == 1.0 ) {
+		if (getprop("instrumentation/nav[1]/radials/selected-deg") >= 180.0 ) {
+	        setprop("instrumentation/nav[1]/radials/selected-deg", getprop("instrumentation/nav[1]/radials/selected-deg") - 180 );
+		}
+		else {
+	        setprop("instrumentation/nav[1]/radials/selected-deg", getprop("instrumentation/nav[1]/radials/selected-deg") + 180 );
+		}
+	}
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>to-from_sw</object-name>
+   <property>an24/Kurs-MP/sw_to-from2</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- TO/FROM flags -->
+ <animation>
+   <type>material</type>
+   <object-name>to-flag</object-name>
+    <condition>
+    <equals>
+    <property>instrumentation/nav[1]/to-flag</property>
+    <value>1.0</value>
+    </equals>
+    </condition>
+   <!--diffuse>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+   </ambient-->
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+   </emission>
+   <!--specular>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+   </specular-->
+ </animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>from-flag</object-name>
+    <condition>
+    <equals>
+    <property>instrumentation/nav[1]/from-flag</property>
+    <value>1.0</value>
+    </equals>
+    </condition>
+   <!--diffuse>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+   </ambient-->
+   <emission>
+     <red>1.0</red>
+     <green>0.5</green>
+     <blue>0.5</blue>
+   </emission>
+   <!--specular>
+     <red>1.0</red>
+     <green>0.4</green>
+     <blue>0.4</blue>
+   </specular-->
+ </animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textazi2</object-name>
+    <condition>
+     <or>
+      <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_nav</property>
+     </or>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textazi2</name>
+    <type type="string">literal</type>
+    <text type="string">Kurs-MP No.2 Azimuth</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>reversed-xy-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.015</z-m>
+      <heading-deg>-90</heading-deg>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textazi2</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

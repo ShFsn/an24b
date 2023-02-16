@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<!-- Fuse SP-15; Window heating right -->
+<PropertyList>
+ <path>../../shared/fuse.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>fusecap</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if ( getprop("an24/AC_Panel/hatchfuse0102") == 1.0 ) {
+	interpolate("an24/AC_Panel/hatchfuse0102", 0.0, 0.5 );
+	}
+	else {
+	interpolate("an24/AC_Panel/hatchfuse0102", 1.0, 0.5 );
+	}
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>fusewinheatr</tooltip-id>
+      <label>Window Heat right</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>fusecap</object-name>
+   <property>an24/AC_Panel/hatchfuse0102</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>100.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

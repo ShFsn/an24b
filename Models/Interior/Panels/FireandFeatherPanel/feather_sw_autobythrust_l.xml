@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- Switch (should be a VN-45M) "Autofeather by (negative) thrust" -->
+<PropertyList>
+ <path>../../shared/switches/vng-15.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/FireFeather/check-by-thrust_l", 1.0, 0.1 );
+	sound.click("azr", 2.15, -0.25, 1.3);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/FireFeather/check-by-thrust_l", 0.0, 0.1 );
+	sound.click("azr", 2.15, -0.25, 1.3);
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/animations/FireFeather/check-by-thrust_l</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation> 
+
+</PropertyList>

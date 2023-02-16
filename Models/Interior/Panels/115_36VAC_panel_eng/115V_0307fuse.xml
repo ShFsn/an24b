@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!-- Fuse SP-; still unknown -->
+
+<PropertyList>
+ <path>../../shared/fuse.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>fusecap</object-name>
+  <!--action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if ( getprop("an24/AC_Panel/fuse0307") == 1.0 ) {
+	interpolate("an24/AC_Panel/fuse0307", 0.0, 0.5 );
+	}
+	else {
+	interpolate("an24/AC_Panel/fuse0307", 1.0, 0.5 );
+	}
+      </script>
+    </binding>
+  </action-->
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>fuseunknown02</tooltip-id>
+      <label>Unknown</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <!--animation>
+   <type>rotate</type>
+   <object-name>fusecap</object-name>
+   <property>an24/AC_Panel/fuse0307</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>0.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>100.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation-->
+
+</PropertyList>

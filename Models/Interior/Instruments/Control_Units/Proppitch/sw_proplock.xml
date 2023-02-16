@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+
+<!-- Vintor Upora (prop pitch lock) ON/OFF -->
+<PropertyList>
+ <path>../../../shared/switches/vg-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <condition>
+      <equals>
+      <property>an24/AZS/sw0203</property>
+      <value>1.0</value>
+      </equals>
+     </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[0]", 19.0, 1.0 );
+	interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[1]", 19.0, 1.0 );
+      </script>
+    </binding>
+
+    <binding>
+     <condition>
+      <equals>
+      <property>fdm/jsbsim/fcs/prop-governor/cvr_proplock</property>
+      <value>1.0</value>
+      </equals>
+     </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("fdm/jsbsim/fcs/prop-governor/sw_proplock", 1.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>uporaon</tooltip-id>
+      <label>LOCK Prop Pitch</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+     <condition>
+      <equals>
+      <property>an24/AZS/sw0203</property>
+      <value>1.0</value>
+      </equals>
+     </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[0]", 8.0, 1.0 );
+	interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[1]", 8.0, 1.0 );
+      </script>
+    </binding>
+
+    <binding>
+     <condition>
+      <equals>
+      <property>fdm/jsbsim/fcs/prop-governor/cvr_proplock</property>
+      <value>1.0</value>
+      </equals>
+     </condition>
+      <command>nasal</command>
+      <script>
+	interpolate("fdm/jsbsim/fcs/prop-governor/sw_proplock", 0.0, 0.1 );
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>uporaoff</tooltip-id>
+      <label>UNLOCK Prop Pitch</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>fdm/jsbsim/fcs/prop-governor/sw_proplock</property>
+  <interpolation>
+    <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
+    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+ 
+</PropertyList>

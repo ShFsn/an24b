@@ -7,9 +7,9 @@
 <model>
  <path>wl_tg-started.xml</path>
   <offsets>
-    <x-m>2.54</x-m>
+    <x-m>2.535</x-m>
     <y-m>-0.984</y-m>
-    <z-m>0.598</z-m>
+    <z-m>0.583</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>
@@ -17,9 +17,9 @@
 <model>
  <path>wl_tg-starting.xml</path>
   <offsets>
-    <x-m>2.57</x-m>
+    <x-m>2.565</x-m>
     <y-m>-0.988</y-m>
-    <z-m>0.598</z-m>
+    <z-m>0.583</z-m>
     <heading-deg>82</heading-deg>
   </offsets>
 </model>

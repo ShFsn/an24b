@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+
+<!-- GF-400, Hertzmeter -->
+
+<PropertyList>
+ <path>gf-400.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>back</object-name>
+   <object-name>gf-400-needle</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>0.7</blue>
+     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+   </emission>
+ </animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>gf-400-needle</object-name>
+  <expression>
+   <table>
+     <mod>
+      <sum>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_go-16l</property>
+        <property>an24/Electrics/AC_Gen_GO16l_Hz</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_go-16r</property>
+        <property>an24/Electrics/AC_Gen_GO16r_Hz</property>
+       </product>
+       <!--product>
+        <property>an24/Electrical_Panel/ac_ind_ap28</property>
+        <property>an24/Electrics/ap28_V</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_emerg-bus</property>
+        <property>an24/Electrics/AC_Bus_115V_emerg</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_prop-heat</property>
+        <property>an24/Electrics/AC_Bus_115V_propheat</property>
+       </product>
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_main-bus</property>
+        <property>an24/Electrics/AC_Bus_115V_main</property>
+       </product-->
+       <product>
+        <property>an24/Electrical_Panel/ac_ind_aerodrome</property>
+        <value>400</value>
+       </product>
+      </sum>
+      <value>500.0</value>
+     </mod>
+    <entry><ind>  0.0</ind>	<dep>-50</dep></entry>
+    <entry><ind>350.0</ind>	<dep>-42</dep></entry>
+    <entry><ind>360.0</ind>	<dep>-33</dep></entry>
+    <entry><ind>370.0</ind>	<dep>-22</dep></entry>
+    <entry><ind>380.0</ind>	<dep>-14</dep></entry>
+    <entry><ind>390.0</ind>	<dep> -4</dep></entry>
+    <entry><ind>395.0</ind>	<dep> -0</dep></entry>
+    <entry><ind>400.0</ind>	<dep>  6</dep></entry>
+    <entry><ind>410.0</ind>	<dep> 15</dep></entry>
+    <entry><ind>420.0</ind>	<dep> 22</dep></entry>
+    <entry><ind>430.0</ind>	<dep> 31</dep></entry>
+    <entry><ind>440.0</ind>	<dep> 38</dep></entry>
+    <entry><ind>450.0</ind>	<dep> 45</dep></entry>
+    <entry><ind>500.0</ind>	<dep> 55</dep></entry>
+   </table>
+  </expression>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.0097</z-m>
+  </center>
+</animation>
+
+<!-- TEXT OSG -->
+
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">GF-400 Hertz- meter</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>  0.005 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.000 </z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

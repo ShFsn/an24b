@@ -15,10 +15,16 @@
 <animation>
  <type>select</type>
  <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSemerg_V</property>
+    <value>24.0</value>
+   </greater-than>
    <less-than>
-    <property>an24/Electrics/AC_Gen_GO16l_V_out</property>
-    <value>70.0</value>
+    <property>an24/Electrics/AC_Gen_GO16l_V</property>
+    <value>110.0</value>
    </less-than>
+  </and>
   </condition>
  <object-name>lampon</object-name>
 </animation>

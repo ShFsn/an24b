@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<PropertyList>
+ 
+ <particlesystem>
+  <name>flare</name>
+  <texture>strobe10000.png</texture>
+  <emissive>true</emissive>
+  <lighting>false</lighting>
+    
+  <offsets>
+    <x-m>1.15</x-m>
+    <y-m>0.8</y-m>
+    <z-m>-0.15</z-m>
+   <pitch-deg>0</pitch-deg>
+   <roll-deg>0</roll-deg>
+  </offsets>
+
+  <condition>
+   <or>
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketA1_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketA1_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketA2_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketA2_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketA3_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketA3_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketA4_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketA4_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketB1_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketB1_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketB2_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketB2_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketB3_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketB3_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+    <and>
+     <greater-than>
+      <property>an24/TP622/rocketB4_fired</property>
+      <value>0.1</value>
+     </greater-than>
+     <less-than>
+      <property>an24/TP622/rocketB4_fired</property>
+      <value>0.9</value>
+     </less-than>
+    </and>
+   </or>
+  </condition>
+
+  <attach>local</attach>
+
+  <placer>
+   <type>point</type>
+  </placer>
+
+  <shooter>
+   <theta-min-deg>-94.0</theta-min-deg>
+   <theta-max-deg>-94.0</theta-max-deg>
+   <phi-min-deg>-80.0</phi-min-deg>
+   <phi-max-deg>-80.0</phi-max-deg>
+   <speed-mps>
+    <value>500</value>
+    <spread>0</spread>
+   </speed-mps>
+  </shooter>
+
+  <counter>
+   <particles-per-sec>
+    <value>1.0</value>
+    <spread>0</spread>
+   </particles-per-sec>
+  </counter>
+
+  <align>billboard</align>
+
+  <particle>
+
+   <start>
+    <color>
+     <red>
+      <property>an24/TP622/startcolourred</property>
+     </red>
+     <green>
+      <property>an24/TP622/startcolourgreen</property>
+     </green>
+     <blue>
+      <property>an24/TP622/startcolourblue</property>
+     </blue>
+     <alpha>
+      <value>1.0</value>
+     </alpha>
+    </color>
+    <size>
+     <value>1</value>
+    </size>
+   </start>
+
+   <end>
+    <color>
+     <red>
+      <value>1</value>
+     </red>
+     <green>
+      <value>0.75</value>
+     </green>
+     <blue>
+      <value>0.75</value>
+     </blue>
+     <alpha>
+      <value>1.0</value>
+     </alpha>
+    </color>
+    <size>
+     <value>15</value>
+    </size>
+   </end>
+
+   <life-sec>
+    <value>14</value>
+   </life-sec>
+   <mass-kg>0.25</mass-kg>
+   <radius-m>0.1</radius-m>
+  </particle>
+		
+  <program>
+   <fluid>air</fluid>
+   <gravity>true</gravity>
+   <wind>false</wind>
+  </program>
+
+ </particlesystem>
+
+</PropertyList>

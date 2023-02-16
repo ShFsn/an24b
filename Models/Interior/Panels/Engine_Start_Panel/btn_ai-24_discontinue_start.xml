@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- "Discontinue start" of AI-24 engine buttton -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/spring_load_btn01.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	enginestart.apdtimer.stop();
+	setprop("an24/Electrics/StartCircuit/apdtime", 0 );
+	setprop("controls/electric/engine[0]/generator", 0 );
+	setprop("controls/electric/engine[1]/generator", 0 );
+	setprop("controls/engines/engine[0]/starter", 0);
+	setprop("controls/engines/engine[1]/starter", 0);
+	interpolate("an24/Start-Panel/discontinuestart_ai-24_btn", 1.0, 0.1 );
+	screen.log.write("APD-27 Start Sequence stopped", 1, 0, 0);
+      </script>
+    </binding>
+     <mod-up>
+      <binding>
+       <command>nasal</command>
+	<script>
+	interpolate("an24/Start-Panel/discontinuestart_ai-24_btn", 0.0, 0.1 );
+	</script>
+      </binding>
+     </mod-up>
+  </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>Discontinue AI-24 Engine Start</label>
+       <tooltip-id>disc_ai-24</tooltip-id>
+     </binding>
+   </hovered>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/Start-Panel/discontinuestart_ai-24_btn</property>
+  <factor>0.005</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+</PropertyList>

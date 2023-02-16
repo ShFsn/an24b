@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Fuel meter left, bottom panel switch 6 -->
+<!-- Fuel meter left, bottom panel switch 6 (Item 617) -->
 
 <PropertyList>
  <path>../../../shared/switches/2pp-250.ac</path>

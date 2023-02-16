@@ -1,0 +1,686 @@
+<?xml version="1.0"?>
+
+<system name="Instruments">
+
+<!--########################################
+## 2PPT1-4 Fuel level indicator
+#########################################-->
+ <!-- Mode "Sum" -->
+ <channel name="2PPT1-4 Sum left/ Sum right" execrate="120"><!-- some "execute" would be suitable here-->
+
+  <summer>
+   <input>/consumables/fuel/tank[0]/level-kg</input>
+   <input>/consumables/fuel/tank[1]/level-kg</input>
+   <input>/consumables/fuel/tank[2]/level-kg</input>
+   <output>/an24/PG4and2PPT1/mode1l_level-kg</output>
+  </summer>
+
+  <summer>
+   <input>/consumables/fuel/tank[3]/level-kg</input>
+   <input>/consumables/fuel/tank[4]/level-kg</input>
+   <input>/consumables/fuel/tank[5]/level-kg</input>
+   <output>/an24/PG4and2PPT1/mode1r_level-kg</output>
+  </summer>
+
+ </channel>
+
+ <channel name="2PPT1-4 Indication needles" execrate="120">
+
+  <switch name="/an24/PG4and2PPT1/indicatedl">
+   <default value="0"/>
+   <test logic="AND" value="/an24/PG4and2PPT1/mode1l_level-kg">
+	/an24/PG4and2PPT1/BI2-5l EQ 1
+	/an24/FuelControl/fuel-meter-l EQ 1.0
+	/an24/PG4and2PPT1/selected-ind EQ -18.0
+   </test>
+   <test logic="AND" value="/an24/FuelControl/tanks_AUXleft">
+	/an24/PG4and2PPT1/BI2-5l EQ 1
+	/an24/FuelControl/fuel-meter-l EQ 1.0
+	/an24/PG4and2PPT1/selected-ind EQ 18.0
+   </test>
+   <test logic="AND" value="/consumables/fuel/tank[0]/level-kg">
+	/an24/PG4and2PPT1/BI2-5l EQ 1
+	/an24/FuelControl/fuel-meter-l EQ 1.0
+	/an24/PG4and2PPT1/selected-ind EQ 50.0
+   </test>
+  </switch>
+
+  <switch name="/an24/PG4and2PPT1/indicatedr">
+   <default value="0"/>
+   <test value="/an24/PG4and2PPT1/mode1r_level-kg">
+	/an24/PG4and2PPT1/BI2-5r EQ 1
+	/an24/FuelControl/fuel-meter-r EQ 1.0
+	/an24/PG4and2PPT1/selected-ind EQ -18.0
+   </test>
+   <test value="/an24/FuelControl/tanks_AUXright">
+	/an24/PG4and2PPT1/BI2-5r EQ 1
+	/an24/FuelControl/fuel-meter-r EQ 1.0
+	/an24/PG4and2PPT1/selected-ind EQ 18.0
+   </test>
+   <test value="/consumables/fuel/tank[5]/level-kg">
+	/an24/PG4and2PPT1/BI2-5r EQ 1
+	/an24/FuelControl/fuel-meter-r EQ 1.0
+	/an24/PG4and2PPT1/selected-ind EQ 50.0
+   </test>
+  </switch>
+
+ </channel>
+
+<!--########################################
+## AGD-1
+#########################################-->
+ <channel name="AGD-1 power" execrate="60">
+<!--Also needs 115V AC somewhere-->
+ <switch name="/an24/AGD/agd-l">
+  <default value="0"/>
+  <test logic="AND" value="5">
+	/an24/AZS/sw0703 EQ 1.0
+	/an24/AGD/sw_agd-l EQ 1.0
+	<test logic="OR">
+	/an24/Electrics/AC_Bus_36V_phII GT 32.0
+	/an24/Electrics/PT-125_V GT 32.0
+	</test>
+  </test>
+ </switch>
+
+ <switch name="/an24/AGD/agd-r">
+  <default value="0"/>
+  <test logic="AND" value="5">
+	/an24/AZS/sw0704 EQ 1.0
+	/an24/AGD/sw_agd-r EQ 1.0
+	<test logic="OR">
+	/an24/Electrics/AC_Bus_36V_phII GT 32.0
+	/an24/Electrics/PT-125_V GT 32.0
+	</test>
+  </test>
+ </switch>
+
+ </channel>
+
+<!--########################################
+## ARK-11
+#########################################-->
+ <channel name="ARK-11 power" execrate="120">
+
+ <switch name="/an24/ARK-11/power-1_27V">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/Electrics/AZSemerg_V LT 32.0
+	/an24/AZS/sw0512 EQ 1.0
+  </test>
+ </switch>
+
+ <switch name="/an24/ARK-11/power-1_115V">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/RK115V_phIIb_V GT 112.0
+	/an24/Electrics/RK115V_phIIb_V LT 118.0
+  </test>
+ </switch>
+
+ <switch name="/an24/ARK-11/power-2_27V">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/Electrics/AZSmain_V LT 32.0
+	/an24/AZS/sw0514 EQ 1.0
+  </test>
+ </switch>
+
+ <switch name="/an24/ARK-11/power-2_115V">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/RK115V_phIIb_V GT 112.0
+	/an24/Electrics/RK115V_phIIb_V LT 118.0
+  </test>
+ </switch>
+
+ </channel>
+
+ <channel name="ARK-11 Signal Strength" execrate="30">
+
+ <fcs_function name="/an24/ARK-11/signal-1">
+  <function>
+
+ <abs>
+  <cos>
+   <product>
+    <value>0.017453</value>
+    <sum>
+     <value>90.0</value>
+     <property>-/instrumentation/adf[2]/indicated-bearing-deg</property>
+     <property>/instrumentation/adf[0]/indicated-bearing-deg</property>
+    </sum>
+   </product>
+  </cos>
+ </abs>
+
+  </function>
+ </fcs_function>
+
+<!-- too tired to make this logic more elegant...-->
+  <switch name="/an24/ARK-11/output-vol-1">
+   <default value="0.0"/>
+   <test logic="AND" value="/an24/ARK-11/kn_volume-nav">
+	/an24/ARK-11/panelpowernav_27V EQ 1
+	/an24/ARK-11/panel_nav_oh EQ 0
+	/an24/ARK-11/mode-nav NE 3 
+   </test>
+   <test logic="AND" value="/an24/ARK-11/kn_volume-oh">
+	/an24/ARK-11/panelpoweroh_27V EQ 1
+	/an24/ARK-11/panel_nav_oh EQ 1
+	/an24/ARK-11/mode-oh NE 3 
+   </test>
+   <test logic="AND" value="/an24/ARK-11/signal-1">
+	<test logic="OR">
+		<test logic="AND">
+		/an24/ARK-11/panelpowernav_27V EQ 1
+		/an24/ARK-11/panel_nav_oh EQ 0
+		/an24/ARK-11/mode-nav EQ 3
+		</test>
+		<test logic="AND">
+		/an24/ARK-11/panelpoweroh_27V EQ 1
+		/an24/ARK-11/panel_nav_oh EQ 1
+		/an24/ARK-11/mode-oh EQ 3
+		</test>
+	</test>
+   </test>
+  </switch>
+
+ <fcs_function name="/an24/ARK-11/signal-2">
+  <function>
+
+ <abs>
+  <cos>
+   <product>
+    <value>0.017453</value>
+    <sum>
+     <value>90.0</value>
+     <property>-/instrumentation/adf[3]/indicated-bearing-deg</property>
+     <property>/instrumentation/adf[1]/indicated-bearing-deg</property>
+    </sum>
+   </product>
+  </cos>
+ </abs>
+
+  </function>
+ </fcs_function>
+
+ <switch name="/an24/ARK-11/output-vol-2">
+  <default value="0.0"/>
+  <test value="/an24/ARK-11/kn_volume-2">
+	/an24/ARK-11/mode-2 NE 3 
+  </test>
+  <test value="/an24/ARK-11/signal-2">
+	/an24/ARK-11/mode-2 EQ 3 
+  </test>
+ </switch>
+
+ </channel>
+
+ <channel name="ARK 1 indicated heading" execute="/an24/ARK-11/power-1_27V">
+
+ <!--fcs_function name="/an24/ARK-11/frame-offset-1">
+  <function>
+
+  <sum>
+   <property>/an24/ARK-11/frame-offset-1</property>
+   <product>
+    <property>/an24/ARK-11/left-right-slew-1</property>
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+ </fcs_function-->
+
+  <summer>
+   <input>/instrumentation/adf[0]/indicated-bearing-deg</input>
+   <input>/an24/ARK-11/frame-offset-1</input>
+   <output>/an24/ARK-11/ant1-bearing-deg</output>
+  </summer>
+
+ </channel>
+
+ <channel name="ARK 2 indicated heading" execute="/an24/ARK-11/power-2_27V">
+
+ <!--fcs_function name="/an24/ARK-11/frame-offset-2">
+  <function>
+
+  <sum>
+   <property>/an24/ARK-11/frame-offset-2</property>
+   <product>
+    <property>/an24/ARK-11/left-right-slew-2</property>
+    <property>simulation/channel-dt</property>
+   </product>
+  </sum>
+
+  </function>
+ </fcs_function-->
+
+  <summer>
+   <input>/instrumentation/adf[1]/indicated-bearing-deg</input>
+   <input>/an24/ARK-11/frame-offset-2</input>
+   <output>/an24/ARK-11/ant2-bearing-deg</output>
+  </summer>
+
+ </channel>
+
+<!--########################################
+## EUP-53
+#########################################-->
+ <channel name="EUP-53 power" execrate="120">
+
+ <switch name="/systems/electrical/outputs/turn-coordinator">
+  <default value="0"/>
+  <test logic="AND" value="10">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/Electrics/AZSmain_V LT 32.0
+	/an24/AZS/sw0605 EQ 1.0
+  </test>
+ </switch>
+
+ </channel>
+
+<!--########################################
+## GIK-1
+#########################################-->
+ <channel name="GIK-1 power" execrate="120">
+
+ <switch name="/an24/GIK-1/gik-1_power">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/Electrics/AZSmain_V LT 32.0
+	/an24/AZS/sw0701 EQ 1.0
+	/an24/GIK-1/sw_gik-1 EQ 1.0
+  </test>
+ </switch>
+
+ </channel>
+
+ <channel name="GIK-1 Correction">
+
+ <switch name="/an24/GIK-1/correction-speed-degsec">
+  <default value="0.05"/>
+  <test value="0.0">
+	/an24/GIK-1/gik-1_power EQ 0
+  </test>
+  <test logic="OR" value="/orientation/yaw-rate-degps">
+	/orientation/yaw-rate-degps GT 2.0
+	/orientation/yaw-rate-degps LT -2.0
+  </test>
+  <test logic="OR" value="12.0">
+	/an24/GIK-1/btn_l_gik EQ 1.0
+	/an24/GIK-1/btn_r_gik EQ 1.0
+  </test>
+ </switch>
+
+ <fcs_function name="/an24/GIK-1/delta-heading">
+  <function>
+
+  <ifthen>
+   <lt>
+    <property>/an24/GIK-1/delta-heading</property>
+    <value>0</value>
+   </lt>
+   <sum>
+    <property>/an24/GIK-1/delta-heading</property>
+    <product>
+     <property>simulation/channel-dt</property>
+     <abs>
+      <property>/an24/GIK-1/correction-speed-degsec</property>
+     </abs>
+    </product>
+   </sum>
+   <difference>
+    <property>/an24/GIK-1/delta-heading</property>
+    <product>
+     <property>simulation/channel-dt</property>
+     <abs>
+      <property>/an24/GIK-1/correction-speed-degsec</property>
+     </abs>
+    </product>
+   </difference>
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+ <channel name="GIK-1 indicated">
+
+ <fcs_function name="/an24/GIK-1/indicated-heading">
+  <function>
+
+ <abs>
+  <sum>
+   <property>/an24/GIK-1/delta-heading</property>
+   <property>-/orientation/heading-magnetic-deg</property>
+  </sum>
+ </abs>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+<!--########################################
+## Kurs-MP ARK/NAV
+#########################################-->
+<channel name="Kurs-MP">
+
+ <fcs_function name="/an24/Kurs-MP/output1-deg">
+  <function>
+
+ <ifthen>
+  <eq>
+   <property>/an24/Kurs-MP/vor1-ark1</property>
+   <value>1.0</value>
+  </eq>
+  <difference>
+   <property>/instrumentation/nav[0]/heading-deg</property>
+   <property>/orientation/heading-magnetic-deg</property>
+  </difference>
+  <property>/an24/ARK-11/ant1-bearing-deg</property>
+ </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Kurs-MP/output2-deg">
+  <function>
+
+ <ifthen>
+  <eq>
+   <property>/an24/Kurs-MP/vor2-ark2</property>
+   <value>1.0</value>
+  </eq>
+  <difference>
+   <property>/instrumentation/nav[1]/heading-deg</property>
+   <property>/orientation/heading-magnetic-deg</property>
+  </difference>
+  <property>/an24/ARK-11/ant2-bearing-deg</property>
+ </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <!--switch name="/an24/Kurs-MP/output1-deg">
+  <default value="/instrumentation/nav[0]/heading-deg"/>
+  <test value="/an24/ARK-11/ant1-bearing-deg">
+	/an24/Kurs-MP/vor1-ark1 EQ -1.0
+  </test>
+ </switch-->
+
+ <!--switch name="/an24/Kurs-MP/output2-deg">
+  <default value="/instrumentation/nav[1]/heading-deg"/>
+  <test value="/an24/ARK-11/ant2-bearing-deg">
+	/an24/Kurs-MP/vor2-ark2 EQ -1.0
+  </test>
+ </switch-->
+
+ </channel>
+
+<!--########################################
+## PPS-2MKV (or VMK or MVK)
+#########################################-->
+ <channel name="PPS-2MKV" execrate="60">
+
+ <switch name="/an24/PPS/gear-light-power">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0316 EQ 1.0
+  </test>
+ </switch>
+
+ <switch name="/an24/PPS/flaps-light-power">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0304 EQ 1.0
+  </test>
+ </switch>
+
+ <switch name="/an24/PPS/warning-power">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0304 EQ 1.0
+  </test>
+ </switch>
+
+ </channel>
+
+<!--########################################
+## BANO-57 NAV lights
+#########################################-->
+ <channel name="BANO-57 Lamps" execrate="80">
+
+ <switch name="/an24/lights/BANO-57">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0706 EQ 1.0
+	/an24/lights/sw_BANO-57 EQ 1.0
+  </test>
+ </switch>
+
+ </channel>
+
+<!--########################################
+## OSS-61 Strobe lights
+#########################################-->
+ <channel name="OSS-61 Lamps" execrate="80">
+
+ <switch name="/an24/lights/OSS-61red">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0710 EQ 1.0
+	/an24/lights/sw_OSS-61 EQ 1.0
+  </test>
+ </switch>
+
+ <switch name="/an24/lights/OSS-61white">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0709 EQ 1.0
+	/an24/lights/sw_OSS-61 EQ 1.0
+  </test>
+ </switch>
+
+ </channel>
+
+<!--########################################
+## PRF-4/88 Landing lights
+#########################################-->
+ <channel name="PRF-4 Lamp" execrate="80">
+
+ <switch name="/an24/lights/PRF-4L_lamp">
+  <default value="0"/>
+  <test logic="AND" value="0.3">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0711 EQ 1.0
+	/an24/lights/sw_PRF-4brightness EQ -1.0
+  </test>
+  <test logic="AND" value="1.0">
+	/an24/Electrics/AZSmain_V GT 20.0
+	/an24/AZS/sw0711 EQ 1.0
+	/an24/lights/sw_PRF-4brightness EQ 1.0
+	/an24/Electrics/TsRUl_V GT 24.0
+  </test>
+ </switch>
+
+ <switch name="/an24/lights/PRF-4R_lamp">
+  <default value="0"/>
+  <test logic="AND" value="0.3">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0712 EQ 1.0
+	/an24/lights/sw_PRF-4brightness EQ -1.0
+  </test>
+  <test logic="AND" value="1.0">
+	/an24/Electrics/AZSmain_V GT 20.0
+	/an24/AZS/sw0712 EQ 1.0
+	/an24/lights/sw_PRF-4brightness EQ 1.0
+	/an24/Electrics/TsRUr_V GT 24.0
+  </test>
+ </switch>
+
+ <switch name="/an24/lights/PRF-4L_motor">
+  <default value="0"/>
+  <test logic="AND" value="/an24/lights/sw_PRF-4motor">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0711 EQ 1.0
+	/an24/lights/sw_PRF-4motor NE 0.0
+  </test>
+ </switch>
+
+ <switch name="/an24/lights/PRF-4R_motor">
+  <default value="0"/>
+  <test logic="AND" value="/an24/lights/sw_PRF-4motor">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0712 EQ 1.0
+	/an24/lights/sw_PRF-4motor NE 0.0
+  </test>
+ </switch>
+
+ </channel>
+
+ <channel name="PRF-4L Electric Motor" execute="/an24/lights/PRF-4L_motor">
+
+ <kinematic name="/an24/lights/PRF-4angleL">
+  <input>/an24/lights/sw_PRF-4motor</input>
+  <traverse>
+    <setting>
+      <position>-1.0</position>
+      <time>0</time>
+    </setting>
+    <setting>
+      <position>0.16</position><!--50deg-->
+      <time>8</time>
+    </setting>
+    <setting>
+      <position>1.0</position><!--85.7deg-->
+      <time>11</time>
+    </setting>
+  <clipto>
+    <min>-1.0</min>
+    <max>1.0</max>
+  </clipto>
+  </traverse>
+ </kinematic>
+
+ </channel>
+
+ <channel name="PRF-4L Electric Motor" execute="/an24/lights/PRF-4R_motor">
+
+ <kinematic name="/an24/lights/PRF-4angleR">
+  <input>/an24/lights/sw_PRF-4motor</input>
+  <traverse>
+    <setting>
+      <position>-1.0</position>
+      <time>0</time>
+    </setting>
+    <setting>
+      <position>0.16</position><!--50deg-->
+      <time>8</time>
+    </setting>
+    <setting>
+      <position>1.0</position><!--85.7deg-->
+      <time>11</time>
+    </setting>
+  <clipto>
+    <min>-1.0</min>
+    <max>1.0</max>
+  </clipto>
+  </traverse>
+ </kinematic>
+
+ </channel>
+
+<!--########################################
+## R-802 COMM Radios
+#########################################-->
+ <channel name="R-802" execrate="120">
+
+ <switch name="/an24/R-802/power-1_27V">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0508 EQ 1.0
+	/an24/R-802/sw_power-1 EQ 1.0
+  </test>
+ </switch>
+
+ <switch name="/an24/R-802/power-2_27V">
+  <default value="0"/>
+  <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0509 EQ 1.0
+	/an24/R-802/sw_power-2 EQ 1.0
+  </test>
+ </switch>
+
+ </channel>
+
+<!--########################################
+## UAP-12 (from AUASP)
+#########################################-->
+ <channel name="DKU" execrate="120">
+
+ <switch name="/an24/UAP-12/auasp-limit-rad">
+  <default value="0.2618"/><!-- 15.0deg(OFF)/mode 0 "pre-rotate" -->
+  <test logic="AND" value="0.2147"><!-- 12.3deg/all other modes -->
+	/an24/UAP-12/mode NE 0
+	/an24/Electrics/AZSmain_V GT 24.0
+  </test>
+ </switch>
+
+ </channel>
+
+ <channel name="UAP Alpha">
+
+ <switch name="/an24/UAP-12/alpha-wing-rad">
+  <default value="0.0"/>
+  <test value="aero/alpha-wing-rad">
+	/an24/Electrics/AZSmain_V GT 24.0
+  </test>
+ </switch>
+
+ </channel>
+
+ <channel name="UAP Signal" execrate="12">
+
+  <fcs_function name="/an24/UAP-12/blink">
+   <function>
+    <product>
+    <property>/an24/UAP-12/uap_warning</property>
+    <mod>
+     <integer>
+      <product>
+       <property>simulation/sim-time-sec</property>
+       <value>3</value>
+      </product>
+     </integer>
+     <value>2</value>
+    </mod>
+    </product>
+   </function>
+  </fcs_function>
+
+ <switch name="/an24/UAP-12/uap_warning">
+  <default value="0"/>
+  <test logic="OR" value="1">
+	/an24/UAP-12/alpha-wing-rad GT /an24/UAP-12/auasp-limit-rad
+	accelerations/n-pilot-z-norm LT -2.5
+  </test>
+ </switch>
+
+ </channel>
+
+</system>

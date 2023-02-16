@@ -3,8 +3,6 @@
 <!--
 **********************************************************************
 Specific for AN-24B
-static[9,10] and pitot[3] serve as passive "value receivers" from
-selected static ports [0,1,7,8] or pitots[0,1]
 **********************************************************************
 -->
 
@@ -30,36 +28,40 @@ selected static ports [0,1,7,8] or pitots[0,1]
     <number>3</number>
   </adf>
 
+<!-- Left KUS730 -->
   <airspeed-indicator>
     <name>airspeed-indicator</name>
     <number>0</number>
-    <total-pressure>/systems/pitot[3]/total-pressure-inhg</total-pressure> <!-- pitot[0] is swapable, need to fake it as [3] -->
-    <static-pressure>/systems/static[9]/pressure-inhg</static-pressure> <!-- static[0] is swapable, need to fake it as [9] -->
+    <total-pressure>/fdm/jsbsim/systems/pitot-static/A1orA2pressure-inhg</total-pressure>
+    <static-pressure>/fdm/jsbsim/systems/pitot-static/S1orE1pressure-inhg</static-pressure>
   </airspeed-indicator>
 
+<!-- Right KUS730 -->
   <airspeed-indicator>
     <name>airspeed-indicator</name>
     <number>1</number>
-    <total-pressure>/systems/pitot[2]/total-pressure-inhg</total-pressure> <!-- pitot[2] is anyway unswapable, no need to fake it -->
-    <static-pressure>/systems/static[10]/pressure-inhg</static-pressure> <!-- static port is, so fake it as [10] -->
+    <total-pressure>/systems/pitot[2]/total-pressure-inhg</total-pressure>
+    <static-pressure>/fdm/jsbsim/systems/pitot-static/S2orE2pressure-inhg</static-pressure>
   </airspeed-indicator>
 
+<!-- Left UVO-15M -->
   <altimeter>
     <name>altimeter</name>
     <number>0</number>
-    <encode-mode-c type="bool">true</encode-mode-c>
+    <encode-mode-c type="bool">false</encode-mode-c>
     <encode-mode-s type="bool">false</encode-mode-s>
-    <static-pressure>/systems/static[9]/pressure-inhg</static-pressure>
+    <static-pressure>/fdm/jsbsim/systems/pitot-static/S1orE1pressure-inhg</static-pressure>
     <quantum>0</quantum>
     <tau>0</tau>
   </altimeter>
 
+<!-- Right UVID-15 -->
   <altimeter>
     <name>altimeter</name>
     <number>1</number>
     <encode-mode-c type="bool">true</encode-mode-c>
     <encode-mode-s type="bool">false</encode-mode-s>
-    <static-pressure>/systems/static[10]/pressure-inhg</static-pressure>
+    <static-pressure>/fdm/jsbsim/systems/pitot-static/S2orE2pressure-inhg</static-pressure>
     <quantum>0</quantum>
     <tau>0</tau>
   </altimeter>
@@ -67,13 +69,13 @@ selected static ports [0,1,7,8] or pitots[0,1]
   <attitude-indicator>
     <name>agd-l</name>
     <number>0</number>
-    <suction>/an24/instrumentation/agd-l</suction>
+    <suction>an24/AGD/agd-l</suction>
   </attitude-indicator>
 
   <attitude-indicator>
     <name>agd-r</name>
     <number>1</number>
-    <suction>/an24/instrumentation/agd-r</suction>
+    <suction>an24/AGD/agd-r</suction>
   </attitude-indicator>
 
   <clock>
@@ -157,7 +159,7 @@ selected static ports [0,1,7,8] or pitots[0,1]
     <name>transponder</name>
     <number>0</number>
     <mode type="int">1</mode> <!-- 0 = Mode A, 1 = Mode C, 2 = Mode S -->
-    <encoder-path type="string">instrumentation/altimeter[1]</encoder-path><!-- UVID -->
+    <encoder-path type="string">instrumentation/altimeter[1]</encoder-path><!-- UVID-15, right altimeter -->
     <kt70-compatibility type="bool">0</kt70-compatibility>
   </transponder>
 
@@ -169,24 +171,13 @@ selected static ports [0,1,7,8] or pitots[0,1]
   <vertical-speed-indicator>
     <name>vertical-speed-indicator</name>
     <number>0</number>
-    <static-pressure>/systems/static[9]/pressure-inhg</static-pressure>
+    <static-pressure>/fdm/jsbsim/systems/pitot-static/S1orE1pressure-inhg</static-pressure>
   </vertical-speed-indicator>
 
   <vertical-speed-indicator>
     <name>vertical-speed-indicator</name>
     <number>1</number>
-    <static-pressure>/systems/static[10]/pressure-inhg</static-pressure>
+    <static-pressure>/fdm/jsbsim/systems/pitot-static/S2orE2pressure-inhg</static-pressure>
   </vertical-speed-indicator>
-
-
-  <!--gps>
-    <name>gps</name>
-    <number>0</number>
-  </gps>
-
-  <radar>
-    <name>wxradar</name>
-    <number>0</number>
-  </radar-->
 
 </PropertyList>

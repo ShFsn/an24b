@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<!-- PPG-15K; PO-750 transducer Ground/Air mode (Item 1466) -->
+<PropertyList>
+ <path>../../shared/switches/png-15k.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_up</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if (getprop("an24/AC_Panel/cvr_PO-750_earth-air") == 1.0 ) {
+	interpolate("an24/AC_Panel/sw_PO-750_earth-air", 0.0, 0.1 );
+	}
+	sound.click("azr", 3.7, 1.1, 0.74);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>po750earth</tooltip-id>
+      <label>PO-750 GROUND</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>clickspot_down</object-name>
+  <visible>false</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if (getprop("an24/AC_Panel/cvr_PO-750_earth-air") == 1.0 ) {
+        interpolate("an24/AC_Panel/sw_PO-750_earth-air", 1.0, 0.1 );
+	}
+	sound.click("azr", 3.7, 1.1, 0.74);
+      </script>
+    </binding>
+  </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>po750air</tooltip-id>
+      <label>PO-750 AIR</label>
+    </binding>
+   </hovered>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>lever</object-name>
+   <property>an24/AC_Panel/sw_PO-750_earth-air</property>
+  <interpolation>
+    <entry><ind>1.0</ind>	<dep>-25.0</dep></entry>
+    <entry><ind>0.0</ind>	<dep>25.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>-1.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+</PropertyList>

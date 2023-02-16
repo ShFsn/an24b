@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!-- Emergency shut-off of STG-18 right (cover) -->
+<PropertyList>
+ <path>../../shared/knobs_buttons/205cover.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>cover</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/Electrical_Panel/cvr_emerg_shutoff_stg18r" ) == 1.0 ){
+        interpolate("an24/Electrical_Panel/cvr_emerg_shutoff_stg18r", 0.0, 0.2 );
+        }
+        else {
+        interpolate("an24/Electrical_Panel/cvr_emerg_shutoff_stg18r", 1.0, 0.2 );
+        }
+	sound.click("azr", 3.9, 0.55, 0.4);
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>cover</object-name>
+   <property>an24/Electrical_Panel/cvr_emerg_shutoff_stg18r</property>
+   <factor>150</factor>
+  <center>
+    <x-m>0.0144</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0189</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

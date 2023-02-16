@@ -14,13 +14,19 @@
 
 <animation>
  <type>select</type>
+ <object-name>lampon</object-name>
  <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>20.0</value>
+   </greater-than>
    <equals>
     <property>an24/Anti-Ice/wing-tail-nose_bleed</property>
     <value>1.0</value>
    </equals>
+  </and>
   </condition>
- <object-name>lampon</object-name>
 </animation>
 
 </PropertyList>

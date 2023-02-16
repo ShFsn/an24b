@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 
 <!-- Window anti-ice intense heat ON -->
-
 <PropertyList>
  <path>../../../shared/switches/2vg-15k.ac</path>
 
-<animation>
+ <animation>
   <type>pick</type>
   <object-name>clickspot_up</object-name>
   <visible>false</visible>
@@ -13,21 +12,10 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-        <condition>
-         <equals>
-         <property>an24/AZS/sw0413</property>
-         <value>1.0</value>
-         </equals>
-        </condition>
-      <command>nasal</command>
+     <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/window_heating-left-intense", 1.0, 0.1 );
-      </script>
-    </binding>
-    <binding>
-      <command>nasal</command>
-      <script>
-        interpolate("an24/Anti-Ice/sw_window_heating-left-intense", 1.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_window_heating-left-intense", 1.0, 0.1 );
+	sound.click("azr", 2.1, -0.8, 0.64);
       </script>
     </binding>
   </action>
@@ -38,9 +26,9 @@
       <label>Window Heating high</label>
     </binding>
    </hovered>
-</animation>
+ </animation>
 
-<animation>
+ <animation>
   <type>pick</type>
   <object-name>clickspot_down</object-name>
   <visible>false</visible>
@@ -50,8 +38,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/Anti-Ice/window_heating-left-intense", 0.0, 0.1 );
-        interpolate("an24/Anti-Ice/sw_window_heating-left-intense", 0.0, 0.1 );
+	interpolate("an24/Anti-Ice/sw_window_heating-left-intense", 0.0, 0.1 );
+	sound.click("azr", 2.1, -0.8, 0.64);
       </script>
     </binding>
   </action>
@@ -64,7 +52,7 @@
       <mapping>on-off</mapping>
     </binding>
    </hovered>
-</animation>
+ </animation>
 
  <animation>
    <type>rotate</type>

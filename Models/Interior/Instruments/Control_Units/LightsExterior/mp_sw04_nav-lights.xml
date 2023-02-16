@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- Nav lights BANO-57 (red/green/white): Wings (red/green), tail light (white); (Switch 319) -->
-
+<!-- Nav lights BANO-57; Item 319 -->
 <PropertyList>
- <path>../../../shared/switches/ppng-15k.ac</path>
+ <path>../../../shared/switches/vg-15k.ac</path>
+
  <animation>
   <type>pick</type>
   <object-name>clickspot_up</object-name>
@@ -14,7 +14,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/controls/lighting/ext_nav-lights", 1.0, 0.1 );
+	interpolate("an24/lights/sw_BANO-57", 1.0, 0.1 );
+	sound.click("azr", 2.1, 0.18, 0.65);
       </script>
     </binding>
   </action>
@@ -25,13 +26,7 @@
       <label>BANO NAV-Lights</label>
     </binding>
    </hovered>
-</animation>
-
- <animation>
-  <object-name>clickspot_middle</object-name>
-  <type>pick</type>
-  <visible>false</visible>
-</animation>
+ </animation>
 
  <animation>
   <type>pick</type>
@@ -43,7 +38,8 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/controls/lighting/ext_nav-lights", 0.0, 0.1 );
+	interpolate("an24/lights/sw_BANO-57", 0.0, 0.1 );
+	sound.click("azr", 2.1, 0.18, 0.65);
       </script>
     </binding>
   </action>
@@ -54,12 +50,12 @@
       <label>BANO NAV-Lights</label>
     </binding>
    </hovered>
-</animation>
+ </animation>
 
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>controls/lighting/ext_nav-lights</property>
+   <property>an24/lights/sw_BANO-57</property>
   <interpolation>
     <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
     <entry><ind>1.0</ind>	<dep>20.0</dep></entry>

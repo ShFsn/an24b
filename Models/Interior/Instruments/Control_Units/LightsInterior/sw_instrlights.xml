@@ -14,7 +14,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/controls/lighting/main-emerg", 1.0, 0.1 );
+        interpolate("controls/lighting/main-emerg", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -37,7 +37,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/controls/lighting/main-emerg", 0.0, 0.1 );
+        interpolate("controls/lighting/main-emerg", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -53,7 +53,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("/controls/lighting/main-emerg", -1.0, 0.1 );
+        interpolate("controls/lighting/main-emerg", -1.0, 0.1 );
       </script>
     </binding>
   </action>

@@ -1,6 +1,6 @@
 <PropertyList>
 
-<!-- 115/36V AC panel, from top to bottom rows (01xx-07xx) and left to right (xx01-xx08);
+<!-- 115/36V AC panel, from top to bottom rows (01xx-07xx) and left to right (xx01-xx08), and below hatch;
 functionality not to be taken too seriously atm! -->
 
   <path>115_36VAC_panel.ac</path>
@@ -13,7 +13,7 @@ functionality not to be taken too seriously atm! -->
      <red>0.45</red>
      <green>0.4</green>
      <blue>0.35</blue>
-     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
    </emission>
  </animation>
 
@@ -24,26 +24,256 @@ functionality not to be taken too seriously atm! -->
      <red>0.1</red>
      <green>0.1</green>
      <blue>0.1</blue>
-     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
    </emission>
  </animation>
 
- <animation>
+ <!--animation>
    <type>material</type>
    <object-name>fuses</object-name>
-   <object-name>fuse0102</object-name>
    <emission>
      <red>0.2</red>
      <green>0.1</green>
      <blue>0.1</blue>
-     <factor-prop>an24/Radio_Panel/sw_radioopstationlight</factor-prop>
+     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
    </emission>
- </animation>
+ </animation-->
 
 
-<animation>
+<!-- ********** 115V Fuses, 01st row *********** -->
+<model>
+ <path>115V_0102fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.2</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0103fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.035</y-m>
+   <z-m>0.2</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0104fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.007</y-m>
+   <z-m>0.2</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0105fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.042</y-m>
+   <z-m>0.2</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0106fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.077</y-m>
+   <z-m>0.2</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0107fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.112</y-m>
+   <z-m>0.2</z-m>
+  </offsets>
+</model>
+
+<!-- ********** 02nd row *********** -->
+<model>
+ <path>115V_0201fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.105</y-m>
+   <z-m>0.166</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0202fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.166</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0203fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.035</y-m>
+   <z-m>0.166</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0205fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.042</y-m>
+   <z-m>0.166</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0206fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.077</y-m>
+   <z-m>0.166</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0207fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.112</y-m>
+   <z-m>0.166</z-m>
+  </offsets>
+</model>
+
+<!-- ********** 03rd row *********** -->
+<model>
+ <path>115V_0301fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.105</y-m>
+   <z-m>0.132</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0302fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.132</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0303fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.035</y-m>
+   <z-m>0.132</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0305fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.042</y-m>
+   <z-m>0.132</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0306fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.077</y-m>
+   <z-m>0.132</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0307fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.112</y-m>
+   <z-m>0.132</z-m>
+  </offsets>
+</model>
+
+<!-- ********** 04th row *********** -->
+<model>
+ <path>115V_0401fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.105</y-m>
+   <z-m>0.098</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0402fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.07</y-m>
+   <z-m>0.098</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0405fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.042</y-m>
+   <z-m>0.098</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0406fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.077</y-m>
+   <z-m>0.098</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>115V_0407fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.112</y-m>
+   <z-m>0.098</z-m>
+  </offsets>
+</model>
+
+<!-- ********** (Under) Hatch *********** -->
+<model>
+ <path>hatch0101fuse.xml</path>
+  <offsets>
+   <x-m>-0.002</x-m>
+   <y-m>0.053</y-m>
+   <z-m>0.025</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>hatch0102fuse.xml</path>
+  <offsets>
+   <x-m>-0.003</x-m>
+   <y-m>0.088</y-m>
+   <z-m>0.025</z-m>
+  </offsets>
+</model>
+
+<!-- ********** Hatch *********** -->
+ <animation>
   <type>pick</type>
-  <object-name>fuse0102</object-name>
+  <object-name>fuse_panel_hatch</object-name>
   <visible>true</visible>
   <action>
     <button>0</button>
@@ -51,75 +281,110 @@ functionality not to be taken too seriously atm! -->
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/animations/fuses/fuse0102" ) == 0.0 ){
-        interpolate("an24/animations/fuses/fuse0102", 3.0, 3.0 );
+        if( getprop("an24/AC_Panel/fuse_panel_hatch" ) == 1.0 ){
+        interpolate("an24/AC_Panel/fuse_panel_hatch", 0.0, 0.2 );
         }
         else {
-        interpolate("an24/animations/fuses/fuse0102", 0.0, 3.0 );
+        interpolate("an24/AC_Panel/fuse_panel_hatch", 1.0, 0.2 );
         }
       </script>
     </binding>
   </action>
-</animation>
-
- <animation>
-   <type>rotate</type>
-   <object-name>fuse0102</object-name>
-   <property>an24/animations/fuses/fuse0102</property>
-    <interpolation>
-      <entry>
-	<ind>0.0</ind>
-	<dep>0.0</dep>
-      </entry>
-      <entry>
-	<ind>2.5</ind>
-	<dep>720.0</dep>
-      </entry>
-      <entry>
-	<ind>3.0</ind>
-	<dep>720.0</dep>
-      </entry>
-    </interpolation>
-    <center>
-     <x-m>0</x-m>
-     <y-m>-0.0689</y-m>
-     <z-m>0.2008</z-m>
-    </center>
-    <axis>
-     <x>1</x>
-     <y>0</y>
-     <z>0</z>
-    </axis>
  </animation>
 
  <animation>
    <type>rotate</type>
-   <object-name>fuse0102</object-name>
-   <property>an24/animations/fuses/fuse0102</property>
-    <interpolation>
-      <entry>
-	<ind>0.0</ind>
-	<dep>0.0</dep>
-      </entry>
-      <entry>
-	<ind>2.5</ind>
-	<dep>0.0</dep>
-      </entry>
-      <entry>
-	<ind>3.0</ind>
-	<dep>30.0</dep>
-      </entry>
-    </interpolation>
-    <center>
-     <x-m>-0.79</x-m>
-     <y-m>0</y-m>
-     <z-m>-0.27</z-m>
-    </center>
-    <axis>
-     <x>0</x>
-     <y>1</y>
-     <z>0</z>
-    </axis>
+   <object-name>fuse_panel_hatch</object-name>
+   <property>an24/AC_Panel/fuse_panel_hatch</property>
+   <factor>140</factor>
+  <center>
+    <x-m>0.001</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.022</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
  </animation>
+
+<!-- ********** 36V Fuses, 01st row *********** -->
+<model>
+ <path>36V_0104fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.0245</y-m>
+   <z-m>-0.104</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>36V_0108fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.1</y-m>
+   <z-m>-0.104</z-m>
+  </offsets>
+</model>
+
+<!-- ********** 36V Fuses, 02nd row *********** -->
+<model>
+ <path>36V_0204fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.0245</y-m>
+   <z-m>-0.138</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>36V_0208fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.1</y-m>
+   <z-m>-0.138</z-m>
+  </offsets>
+</model>
+
+<!-- ********** 36V Fuses, 03rd row *********** -->
+<model>
+ <path>36V_0304fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>-0.0245</y-m>
+   <z-m>-0.17</z-m>
+  </offsets>
+</model>
+
+<model>
+ <path>36V_0308fuse.xml</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.1</y-m>
+   <z-m>-0.17</z-m>
+  </offsets>
+</model>
+
+<!-- ********** PO-750 switch *********** -->
+<model>
+ <path>cvr_po-750earth_air.xml</path>
+  <offsets>
+    <x-m>-0.001</x-m>
+    <y-m>-0.136</y-m>
+    <z-m>0.213</z-m>
+    <pitch-deg>90</pitch-deg>
+    <roll-deg>-90</roll-deg>
+  </offsets>
+</model>
+
+<model>
+ <path>sw_po-750earth_air.xml</path>
+  <offsets>
+    <x-m>-0.0025</x-m>
+    <y-m>-0.136</y-m>
+    <z-m>0.213</z-m>
+  </offsets>
+</model>
 
 </PropertyList>

@@ -1,18 +1,8 @@
 <?xml version="1.0"?>
-<!--
-  File:     gt-16d.xml
-  Author:   Aero-Matic v 0.83
-
-  Inputs:
-    name:           gt-16d
-    type:           turbine
-    thrust:         100.0 lb
-    augmented?      no
-    injected?       no
--->
+<!-- Fantasy numbers -->
 
 <turbine_engine name="gt-16d">
-  <milthrust>   100.0 </milthrust>
+  <milthrust>     100.0 </milthrust>
   <bypassratio>     1.0 </bypassratio>
   <tsfc>            0.8 </tsfc>
   <bleed>           0.03</bleed>

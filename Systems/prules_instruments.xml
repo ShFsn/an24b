@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+<!--########################################
+## EXTERIOR LIGHTS
+#########################################-->
+ <filter>
+  <enable>
+   <condition>
+    <or>
+     <property>/an24/lights/OSS-61red</property>
+     <property>/an24/lights/OSS-61white</property>
+    </or>
+   </condition>
+  </enable>
+  <type>gain</type>
+  <gain>540</gain>
+  <input>
+   <property>sim/time/elapsed-sec</property>
+  </input>
+  <output>an24/lights/strobe-timer</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <input>
+   <condition>
+    <less-than>
+     <property>/an24/lights/strobe-timer</property>
+     <value>300.0</value>
+    </less-than>
+   </condition>
+   <property>/an24/lights/OSS-61red</property>
+  </input>
+  <input>
+   <value>0.0</value>
+  </input>
+  <output>/an24/lights/OSS-61red_visible</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <input>
+   <condition>
+    <less-than>
+     <property>/an24/lights/strobe-timer</property>
+     <value>210.0</value>
+    </less-than>
+   </condition>
+   <property>/an24/lights/OSS-61white</property>
+  </input>
+  <input>
+   <value>0.0</value>
+  </input>
+  <output>/an24/lights/OSS-61white_visible</output>
+ </filter>
+
+<!--########################################
+## GPK-52
+#########################################-->
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <sum>
+     <property>/orientation/heading-magnetic-deg</property>
+     <property>/an24/GPK-52/init-error-deg</property>
+     <property>/an24/GPK-52/horiz-prec_sum</property>
+     <property>/an24/GPK-52/horiz-prec-corr_sum</property>
+    </sum>
+   </expression>
+  </input>
+  <output>/an24/GPK-52/indicated-heading-deg</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+<!--########################################
+## Kurs-MP
+#########################################-->
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>/an24/Kurs-MP/output1-deg</input>
+  <output>/an24/Kurs-MP/output1-deg_filter</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>/an24/Kurs-MP/output2-deg</input>
+  <output>/an24/Kurs-MP/output2-deg_filter</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+<!--########################################
+## URVK-18 Bleed-Air for Conditioning
+#########################################-->
+ <filter>
+  <name>URVK-18L</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>0.5</filter-time>
+   <input>an24/BleedAir/aircond_bleedL_kgperh</input>
+   <output>an24/URVK-18/airflowL_filter</output>
+ </filter>
+
+ <filter>
+  <name>URVK-18R</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>0.5</filter-time>
+   <input>an24/BleedAir/aircond_bleedR_kgperh</input>
+   <output>an24/URVK-18/airflowR_filter</output>
+ </filter>
+
+</PropertyList>

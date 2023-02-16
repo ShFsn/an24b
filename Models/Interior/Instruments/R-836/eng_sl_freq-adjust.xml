@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<!-- Lights, when frequency adjustment at tx block (B1 or B2) is in progress (new frequency assignment) -->
+
+<PropertyList>
+ <path>../../shared/lamps/sltsn.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+ <texture>../../shared/lamps/sltsnredplain.png</texture>
+</animation>
+
+<animation>
+  <type>scale</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+  <x-offset>1.0</x-offset>
+  <y-offset>0.6</y-offset>
+  <z-offset>0.6</z-offset>
+ </animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+  <greater-than>
+   <property>an24/Electrics/AZSmain_V</property>
+   <value>24.0</value>
+  </greater-than>
+  <greater-than>
+   <property>an24/R-836/adjust-in-progress</property>
+   <value>0.0</value>
+  </greater-than>
+  </condition>
+ <object-name>lampon</object-name>
+</animation>
+
+</PropertyList>

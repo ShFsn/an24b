@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<!-- Cover of switch PO-750 transducer Earth/Ground mode -->
+
+<PropertyList>
+ <path>../../shared/switches/cover_for_switch.ac</path>
+<!-- Cover -->
+
+<animation>
+  <type>pick</type>
+  <object-name>cover</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/AC_Panel/cvr_PO-750_earth-air" ) == 1.0 ){
+        interpolate("an24/AC_Panel/cvr_PO-750_earth-air", 0.0, 0.2 );
+        }
+        else {
+        interpolate("an24/AC_Panel/cvr_PO-750_earth-air", 1.0, 0.2 );
+        }
+	sound.click("azr", 3.7, 1.1, 0.74);
+      </script>
+    </binding>
+  </action>
+</animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>cover</object-name>
+   <property>an24/AC_Panel/cvr_PO-750_earth-air</property>
+   <factor>140</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.02</y-m>
+    <z-m>0.008</z-m>
+  </center>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+ </animation>
+ 
+</PropertyList>

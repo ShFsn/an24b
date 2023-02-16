@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Navigator panel red lighting -->
+<!-- Navigator panel lighting -->
 
 <PropertyList>
  <path>../../../shared/knobs_buttons/rsks-50.ac</path>
@@ -8,7 +8,7 @@
  <animation>
    <type>knob</type>
    <object-name>rsks-50</object-name>
-   <property>controls/lighting/nav_panel_red</property>
+   <property>controls/lighting/kn_nav_panel</property>
    <factor>-100</factor>
   <axis>
     <x>1.0</x>
@@ -18,7 +18,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>controls/lighting/nav_panel_red</property>
+      <property>controls/lighting/kn_nav_panel</property>
       <factor>-0.05</factor>
       <min>0</min>
       <max>1</max>

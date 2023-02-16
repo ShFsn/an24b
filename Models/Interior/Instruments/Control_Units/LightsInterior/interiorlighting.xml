@@ -10,7 +10,7 @@
     <pitch-deg>-25</pitch-deg>
     <x-m>2.125</x-m>
     <y-m>-0.6397</y-m>
-    <z-m>0.628</z-m>
+    <z-m>0.638</z-m>
   </offsets>
 </model>
 
@@ -22,7 +22,7 @@
   <heading-deg>82</heading-deg>
     <x-m>2.37</x-m>
     <y-m>-0.956</y-m>
-    <z-m>0.71</z-m>
+    <z-m>0.753</z-m>
   </offsets>
 </model>
 
@@ -32,7 +32,7 @@
   <heading-deg>82</heading-deg>
     <x-m>2.32</x-m>
     <y-m>-0.949</y-m>
-    <z-m>0.71</z-m>
+    <z-m>0.753</z-m>
   </offsets>
 </model>
 
@@ -42,7 +42,7 @@
   <heading-deg>82</heading-deg>
     <x-m>2.27</x-m>
     <y-m>-0.941</y-m>
-    <z-m>0.71</z-m>
+    <z-m>0.753</z-m>
   </offsets>
 </model>
 
@@ -54,7 +54,7 @@
     <pitch-deg>-90</pitch-deg>
     <x-m>2.43</x-m>
     <y-m>0.9</y-m>
-    <z-m>0.466</z-m>
+    <z-m>0.486</z-m>
   </offsets>
 </model>
 
@@ -64,7 +64,7 @@
     <pitch-deg>-90</pitch-deg>
     <x-m>2.42</x-m>
     <y-m>0.95</y-m>
-    <z-m>0.466</z-m>
+    <z-m>0.486</z-m>
   </offsets>
 </model>
 
@@ -96,7 +96,7 @@
  <path>knob_radio_panel_instr.xml</path>
   <offsets>
     <pitch-deg>180</pitch-deg>
-    <x-m>3.907</x-m>
+    <x-m>3.897</x-m>
     <y-m>0.83</y-m>
     <z-m>0.77</z-m>
   </offsets>
@@ -106,7 +106,7 @@
  <path>knob_radio_panel.xml</path>
   <offsets>
     <pitch-deg>180</pitch-deg>
-    <x-m>3.907</x-m>
+    <x-m>3.897</x-m>
     <y-m>0.90</y-m>
     <z-m>0.77</z-m>
   </offsets>

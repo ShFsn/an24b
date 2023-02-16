@@ -1,26 +1,15 @@
 <?xml version="1.0"?>
 
-<!-- Buttons for "Siren" and "Intermittent signal control" -->
+<!-- Button for "Intermittent signal control" (?) -->
 
 <PropertyList>
-
-<model>
- <path>rc_btn_horn.xml</path>
-  <offsets>
-    <x-m>2.4412</x-m>
-    <y-m>0.980</y-m>
-    <z-m>0.7242</z-m>
-    <pitch-deg>90</pitch-deg>
-    <heading-deg>279.5</heading-deg>
-  </offsets>
-</model>
 
 <model>
  <path>rc_btn_signal.xml</path>
   <offsets>
     <x-m>2.5042</x-m>
     <y-m>0.992</y-m>
-    <z-m>0.7242</z-m>
+    <z-m>0.7442</z-m>
     <pitch-deg>90</pitch-deg>
     <heading-deg>279.5</heading-deg>
   </offsets>

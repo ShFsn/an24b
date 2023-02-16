@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!--  -->
+
+<PropertyList>
+ <path>../../shared/lamps/warninglamp02.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+ <texture>../../shared/lamps/warninglamp02redplain.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+  <or>
+   <greater-than>
+    <property>fdm/jsbsim/fcs/prop-governor/min-blade-angle[1]</property>
+    <value>80</value>
+   </greater-than>
+   <greater-than>
+    <property>an24/FireFeather/blade-min-angle_r</property>
+    <value>1.0</value>
+   </greater-than>
+  </or>
+  </condition>
+ <object-name>lampon</object-name>
+</animation>
+
+</PropertyList>

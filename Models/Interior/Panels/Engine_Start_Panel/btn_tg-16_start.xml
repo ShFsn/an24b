@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<!-- Button to start gasturbine GTD-16 of turbogenerator TG-16 (APU) -->
+
+<PropertyList>
+ <path>../../shared/knobs_buttons/205k.ac</path>
+
+<animation>
+  <type>pick</type>
+  <object-name>press_me</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Start-Panel/starttg-btn", 1.0, 0.1 );
+	enginestart.gt16_startseq.start();
+      </script>
+    </binding>
+   <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Start-Panel/starttg-btn", 0.0, 0.1 );
+      </script>
+    </binding>
+   </mod-up>
+  </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>TG-16 APU Start</label>
+       <tooltip-id>start_tg-16</tooltip-id>
+     </binding>
+   </hovered>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>press_me</object-name>
+  <property>an24/Start-Panel/starttg-btn</property>
+  <factor>0.003</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+</PropertyList>

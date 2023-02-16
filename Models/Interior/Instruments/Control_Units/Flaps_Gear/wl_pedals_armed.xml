@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!-- Nosewheel steering by pedals ARMED -->
+
+<PropertyList>
+ <path>../../../shared/lamps/sltsn.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+ <texture>../../../shared/lamps/sltsnorange.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition> <!-- Add AZS #5 in future -->
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSmain_V</property>
+    <value>24.0</value>
+   </greater-than>
+   <equals>
+    <property>an24/gear/steer_mode</property>
+    <value>2</value>
+   </equals>
+  </and>
+ </condition>
+ <object-name>lampon</object-name>
+</animation>
+
+</PropertyList>

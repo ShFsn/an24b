@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!-- Prop anti-ice Normal/OFF/Emergency -->
+
+<PropertyList>
+ <path>../../../shared/switches/switch-lock.ac</path>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>switch-lock</object-name>
+   <property>an24/Anti-Ice/propheat-lock</property>
+  <factor>-90</factor>
+  <offset-deg>180</offset-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+ </animation>
+
+</PropertyList>

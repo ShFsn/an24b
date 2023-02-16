@@ -9,6 +9,39 @@
     <equipment type="string">FHLOV</equipment>
     <surveillance type="string">C</surveillance> <!-- mode-C transponder -->
   </icao>
+
+  <performance>
+    <minimum>
+      <takeoff-length-ft type="int">3300</takeoff-length-ft>
+      <landing-length-ft type="int">3300</landing-length-ft>
+    </minimum>
+    <climb>
+      <!-- potential for climb data in the future 
+      <airspeed-knots type="int">280</airspeed-knots>
+      <vertical-speed-fpm type="int">2000</vertical-speed-fpm>
+      -->
+    </climb>
+    <cruise>
+      <airspeed-knots type="int">240</airspeed-knots>
+      <!--  <mach type="double">0.875</mach> -->
+      <altitude-ft type="int">18500</altitude-ft>
+      <!-- <flight-level type="int">330</flight-level> -->
+    </cruise>
+    <descent>
+      <!-- potential for descent data in the future 
+      <airspeed-knots type="int">330</airspeed-knots>
+      <vertical-speed-fpm type="int">-1200</vertical-speed-fpm>
+      -->
+    </descent>
+    <approach>
+      <airspeed-knots type="int">120</airspeed-knots>
+    </approach>
+    <maximum>
+      <altitude-ft type="int">26000</altitude-ft> <!-- service ceiling -->
+      <mach type="double">0.7</mach>
+      <airspeed-knots type="int">290</airspeed-knots> <!-- VNe or similar airframe structural limit -->
+    </maximum>
+  </performance >
  </aircraft>
 
  <sim>
@@ -27,13 +60,17 @@
   <author>Michael Soitanen (FDM, Systems), Adrian (3D, Systems)</author>
   <authors>
     <author n="0">
-      <name>Adrian</name>
+      <name>Adrian aka Maerchenprinz</name>
       <description>3D, Systems</description>
       <nick>Maerchenprinz</nick>
     </author>
     <author n="1">
       <name>Michael Soitanen</name>
       <description>FDM, Systems</description>
+    </author>
+    <author n="2">
+      <name>L. Brenta</name>
+      <description>Bug tracing, Ideas</description>
     </author>
   </authors>
 
@@ -112,7 +149,7 @@
   <aero>an24b</aero>
 
   <sound>
-   <path>Aircraft/an24b/Sound/an24b-sound.xml</path>
+   <path>Sound/an24b-sound.xml</path>
   </sound>
 
   <view n="0">
@@ -120,7 +157,7 @@
    <internal archive="y">true</internal>
    <config>
    <x-offset-m archive="y">-0.47</x-offset-m>
-   <y-offset-m archive="y">1.26</y-offset-m>
+   <y-offset-m archive="y">1.27</y-offset-m>
    <z-offset-m archive="y">-5.6</z-offset-m>
    <pitch-offset-deg type="double">-13.0</pitch-offset-deg>
    <default-field-of-view-deg type="double">74.0</default-field-of-view-deg>
@@ -204,14 +241,6 @@
 	    <desc>Toggles Propeller Pitch Lock (UPOR VINTA)</desc>
 	   </key>
    	   <key>
-	    <name>F3</name>
-	    <desc>AP Target Pitch UP</desc>
-	   </key>
-   	   <key>
-	    <name>F4</name>
-	    <desc>AP Target Pitch Down</desc>
-	   </key>
-   	   <key>
 	    <name>-</name>
 	    <desc>Decrease Idle Lock value</desc>
 	   </key>
@@ -219,13 +248,45 @@
 	    <name>=</name>
 	    <desc>Increase Idle Lock value</desc>
 	   </key>
-   	   <key>
+   	   <!--key>
 	    <name>less-than</name>
 	    <desc>Quick Overhead View</desc>
+	   </key-->
+   	   <key>
+	    <name>Ctrl+D</name>
+	    <desc>Engage AP</desc>
+	   </key>
+   	   <key>
+	    <name>Shift+D</name>
+	    <desc>Disengage AP</desc>
 	   </key>
    	   <key>
 	    <name>d</name>
-	    <desc>(Dis-)Connect AP</desc>
+	    <desc>Disengage AP TEMPORARILY</desc>
+	   </key>
+   	   <key>
+	    <name>Ctrl+P</name>
+	    <desc>Wings Level (Horizon)</desc>
+	   </key>
+   	   <key>
+	    <name>Ctrl+A</name>
+	    <desc>Altitude Hold (KV)</desc>
+	   </key>
+   	   <key>
+	    <name>Arrow DOWN</name>
+	    <desc>AP Pitch Up</desc>
+	   </key>
+   	   <key>
+	    <name>Arrow UP</name>
+	    <desc>AP Pitch Down</desc>
+	   </key>
+   	   <key>
+	    <name>Arrow Left</name>
+	    <desc>AP Heading/Roll Left</desc>
+	   </key>
+   	   <key>
+	    <name>Arrow Right</name>
+	    <desc>AP Heading/Roll Right</desc>
 	   </key>
    	   <key>
 	    <name>1</name>
@@ -247,21 +308,14 @@
 	    <name>s</name>
 	    <desc>Autostart</desc>
 	   </key>
-   	   <key>
-	    <name> </name>
-	    <desc> </desc>
-	   </key>
-   	   <key>
-	    <name>Vref for 19 t and more</name>
-	    <desc>210 km/h (flaps 38)</desc>
-	   </key>
-   	   <key>
-	    <name>Vref for less than 19 t</name>
-	    <desc>200 km/h (flaps 38)</desc>
-	   </key>
+           <key>
+             <name>Ctrl+L</name>
+             <desc>Cycle nose wheel steering OFF, TAKEOFF/LANDING, TAXI</desc>
+           </key>
     <text>
-For a quick start guide, please read section 1 of the
-QuickStartUpGuide.pdf
+For a quick start guide, please read section 1 of the QuickStartUpGuide.pdf
+Vref for 19 t and more: 210 km/h (flaps 38)
+Vref for less than 19 t: 200 km/h (flaps 38)
     </text>
   </help>
 
@@ -269,9 +323,10 @@ QuickStartUpGuide.pdf
    <tutorial include="Tutorials/Engineer-Preflight.xml"/>
   </tutorials>
 
-  <!--checklists>
+  <checklists>
    <checklist include="Checklists/before-engines-startup.xml"/>
-  </checklists-->
+   <checklist include="Checklists/after-engines-startup.xml"/>
+  </checklists>
 
   <menubar>
     <default>
@@ -296,7 +351,7 @@ QuickStartUpGuide.pdf
           </binding>
         </item>
         <item>
-          <label>Realism settings</label>
+          <label>Little Helpers</label>
           <binding>
             <command>nasal</command>
             <script>
@@ -321,9 +376,10 @@ QuickStartUpGuide.pdf
 
   <aircraft-data>
    <path>an24/radio-equip</path>
-   <path>an24/AChS/mp_wind_up</path>
-   <path>an24/AChS/nav_wind_up</path>
-   <path>an24/AChS/rc_wind_up</path>
+   <path>sim/gui/an24b/radio-standard</path>
+   <path>sim/gui/an24b/radio-kurs_mp</path>
+   <path>an24/ARK-11/mem1/fix1ff</path>
+   <path>an24/ARK-11/mem1/fix1sb</path>
    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[7]</path>
    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[8]</path>
    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[9]</path>
@@ -355,68 +411,55 @@ QuickStartUpGuide.pdf
 	  <setting>1.0</setting>
   </flaps>
 
-  <instrumentation>
-    <path>Aircraft/an24b/Systems/instrumentation.xml</path>
-  </instrumentation>
+ <gui>
+  <an24b>
+   <radio-standard type="bool">1</radio-standard>
+   <radio-kurs_mp type="bool">0</radio-kurs_mp>
+  </an24b>
+ </gui>
 
-  <systems>
-    <path>Aircraft/an24b/Systems/systems.xml</path>
-    <autopilot>
-      <path>Aircraft/an24b/Systems/ap-28l1.xml</path>
-    </autopilot>
-  </systems>
-  <allow-toggle-cockpit type="bool">1</allow-toggle-cockpit>
+ <panel-hotspots_cond type="bool">0</panel-hotspots_cond>
+ <panel-hotspots_nav type="bool">0</panel-hotspots_nav>
+
+ <instrumentation>
+  <path>Systems/instrumentation.xml</path>
+ </instrumentation>
+
+ <systems>
+  <path>Systems/systems.xml</path>
+  <autopilot>
+   <name>AP-28L1</name>
+   <path>Systems/ap-28l1.xml</path>
+  </autopilot>
+  <property-rule n="100">
+   <path>Systems/prules_instruments.xml</path>
+  </property-rule>
+ </systems>
+
+ <allow-toggle-cockpit type="bool">0</allow-toggle-cockpit>
+
 </sim>
-
 
 <engines>
   <engine n="0">
+    <n1 type="double">0.0</n1>
     <running type="bool">false</running>
     <rpm type="double" alias="/engines/engine[0]/thruster/rpm"/> <!-- transmitted over mp and used in animations -->
   </engine>
   <engine n="1">
+    <n1 type="double">0.0</n1>
     <running type="bool">false</running>
     <rpm type="double" alias="/engines/engine[1]/thruster/rpm"/> <!-- transmitted over mp and used in animations -->
   </engine>
+  <engine n="2">
+    <n1 type="double">0.0</n1>
+  </engine>
 </engines>
 
-<input>
- <keyboard>
-     <key n="1">
-       <name>Ctrl+A</name>
-       <desc>Toggle autopilot altitude lock</desc>
-       <binding>
-         <command>nasal</command>
-         <script><![CDATA[
-         instruments.engage_kv_mode();
-         interpolate("an24/AP-28l1/buttons/kv", 1.0, 0.1 );
-         settimer(func {interpolate("an24/AP-28l1/buttons/kv", 0.0, 0.1 );},0.1);
-         ]]></script>
-       </binding>
-     </key>
-     <key n="8">
-       <name>Ctrl+H</name>
-       <desc>Toggle autopilot GIK lock</desc>
-       <binding>
-         <command>nasal</command>
-         <script><![CDATA[
-         var r = props.globals.getNode ("an24/AP-28l1/switches/roll-mode");
-         r.setValue (r.getValue () == 1 ? 0 : 1); # 1 -> 0, 0 -> 1, -1 -> 1
-         ]]></script>
-       </binding>
-     </key>
-     <key n="16">
-       <name>Ctrl+P</name>
-       <desc>Toggle autopilot horizon mode</desc>
-       <binding>
-         <command>nasal</command>
-         <script><![CDATA[
-         instruments.engage_ap_by_horizon();
-         interpolate("an24/AP-28l1/buttons/horizon", 1.0, 0.1 );
-         settimer(func {interpolate("an24/AP-28l1/buttons/horizon", 0.0, 0.1 );},0.1);
-         ]]></script>
-       </binding>
-     </key>
+ <input>
+  <keyboard>
+    
+<!-- Keybindings of general stuff -->
      <key n="115">
        <name>s</name>
        <desc>Autostart</desc>
@@ -426,134 +469,284 @@ QuickStartUpGuide.pdf
        </binding>
      </key>
 
+<!-- Keybindings of engine/prop control -->
      <key n="257">
        <name>F1</name>
        <desc>Idle lock</desc>
        <binding>
-          <command>property-assign</command>
-          <property>/an24/instrumentation/idle-lock/idle-lock</property>
-          <value>1</value>
+        <command>nasal</command>
+        <script>
+	interpolate("an24/instrumentation/idle-lock/idle-lock", 1.0, 0.3 );
+        </script>
        </binding>
        <mod-up>
-         <binding>
-           <command>property-assign</command>
-           <property>/an24/instrumentation/idle-lock/idle-lock</property>
-           <value>0</value>
-         </binding>            
+       <binding>
+        <command>nasal</command>
+        <script>
+	interpolate("an24/instrumentation/idle-lock/idle-lock", 0.0, 0.3 );
+        </script>
+       </binding>
        </mod-up>
      </key>
 
      <key n="258">
-       <name>F2</name>
-       <desc>Prop pitch lock</desc>
+      <name>F2</name>
+      <desc>Prop pitch lock</desc>
        <binding>
-        <condition>
-         <equals>
-         <property>an24/AZS/sw0203</property>
-         <value>1.0</value>
-         </equals>
-        </condition>
-         <command>property-toggle</command>
-         <property>/an24/instrumentation/prop-lock/prop-lock-left</property>
-       </binding>
-       <binding>
-        <condition>
-         <equals>
-         <property>an24/AZS/sw0203</property>
-         <value>1.0</value>
-         </equals>
-        </condition>
-         <command>property-toggle</command>
-         <property>/an24/instrumentation/prop-lock/prop-lock-right</property>
+       <condition>
+        <equals>
+        <property>an24/AZS/sw0203</property>
+        <value>1.0</value>
+        </equals>
+       </condition>
+       <command>nasal</command>
+        <script>
+	if( getprop("fdm/jsbsim/fcs/prop-governor/min-blade-angle[0]") == 8.0 ) {
+		interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[0]", 19.0, 1.0 );
+		interpolate("fdm/jsbsim/fcs/prop-governor/sw_proplock", 1.0, 0.1 );
+		}
+		else {
+		interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[0]", 8.0, 1.0 );
+		interpolate("fdm/jsbsim/fcs/prop-governor/sw_proplock", 0.0, 0.1 );
+		}
+
+	if( getprop("fdm/jsbsim/fcs/prop-governor/min-blade-angle[1]") == 8.0 ) {
+		interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[1]", 19.0, 1.0 );
+		interpolate("fdm/jsbsim/fcs/prop-governor/sw_proplock", 1.0, 0.1 );
+		}
+		else {
+		interpolate("fdm/jsbsim/fcs/prop-governor/min-blade-angle[1]", 8.0, 1.0 );
+		interpolate("fdm/jsbsim/fcs/prop-governor/sw_proplock", 0.0, 0.1 );
+		}
+        </script>
        </binding>
      </key>
-
-      <key n="259">
-      <name>F3</name>
-      <desc>AP Pitch UP</desc>
-      <repeatable>true</repeatable>
-       <binding>
-       <command>nasal</command>
-        <script>
-	if( getprop("an24/AP-28l1/internal/engaged" ) == 1.0 ){
-	interpolate("an24/AP-28l1/internal/pitch-switch", 1.0, 0.1 );
-	setprop("an24/AP-28l1/internal/kv", 0);
-	}
-        </script>
-       </binding>
-      <mod-up>
-       <binding>
-       <command>nasal</command>
-        <script>
-	interpolate("an24/AP-28l1/internal/pitch-switch", 0.0, 0.1 );
-        </script>
-       </binding>
-      </mod-up>
-      </key>
-
-      <key n="260">
-      <name>F4</name>
-      <desc>AP Pitch Down</desc>
-      <repeatable>true</repeatable>
-       <binding>
-       <command>nasal</command>
-        <script>
-	if( getprop("an24/AP-28l1/internal/engaged" ) == 1.0 ){
-	interpolate("an24/AP-28l1/internal/pitch-switch", -1.0, 0.1 );
-	setprop("an24/AP-28l1/internal/kv", 0);
-	}
-        </script>
-       </binding>
-      <mod-up>
-       <binding>
-       <command>nasal</command>
-        <script>
-	interpolate("an24/AP-28l1/internal/pitch-switch", 0.0, 0.1 );
-        </script>
-       </binding>
-      </mod-up>
-      </key>
-
-      <key n="45">
+     
+     <key n="45">
       <name>minus</name>
+      <desc>Idle Lock position</desc>
       <binding>
-        <command>property-adjust</command>
+       <command>property-adjust</command>
         <property>/fdm/jsbsim/fcs/throttle/idle-lock-pos</property>
         <step>-0.02</step>
       </binding>
-    </key>
+     </key>
 
      <key n="61">
       <name>equal</name>
+      <desc>Idle Lock position</desc>
       <binding>
-        <command>property-adjust</command>
+       <command>property-adjust</command>
         <property>/fdm/jsbsim/fcs/throttle/idle-lock-pos</property>
         <step>0.02</step>
       </binding>
      </key>
 
+<!-- Keybindings of Autopilot -->
+     <key n="4">
+      <name>Ctrl+d</name>
+      <desc>AP ENGAGE btn</desc>
+      <repeatable>false</repeatable>
+       <binding>
+        <command>nasal</command>
+        <script>
+	instruments.engage_ap(1);
+	interpolate("an24/AP-28l1/buttons/turn-on", 1.0, 0.1 );
+        </script>
+      </binding>
+      <mod-up>
+       <binding>
+	<command>nasal</command>
+	<script>
+	interpolate("an24/AP-28l1/buttons/turn-on", 0.0, 0.1 );
+        </script>
+       </binding>
+      </mod-up>
+     </key>
+
+      <key n="16">
+       <name>Ctrl+P</name>
+       <desc>AP Horizon button</desc>
+       <binding>
+        <command>nasal</command>
+        <script>
+	instruments.engage_ap(2);
+	interpolate("an24/AP-28l1/buttons/horizon", 1.0, 0.1 );
+        </script>
+       </binding>
+      <mod-up>
+       <binding>
+	<command>nasal</command>
+	<script>
+	interpolate("an24/AP-28l1/buttons/horizon", 0.0, 0.1 );
+        </script>
+       </binding>
+      </mod-up>
+     </key>
+
+     <key n="68">
+      <name>Shift+d</name>
+      <desc>AP DISENGAGE btn on yoke</desc>
+      <repeatable>false</repeatable>
+       <binding>
+        <command>nasal</command>
+         <script>
+	instruments.engage_ap(4);
+        </script>
+      </binding>
+     </key>
+
+     <key n="100">
+      <name>d</name>
+      <desc>AP temporalily DISENGAGE</desc>
+      <repeatable>false</repeatable>
+       <binding>
+       <command>nasal</command>
+        <script>
+	instruments.engage_ap(5);
+        </script>
+       </binding>
+      <mod-up>
+       <binding>
+	<command>nasal</command>
+	<script>
+	instruments.engage_ap(3);
+        </script>
+       </binding>
+      </mod-up>
+     </key>
+     
+     <key n="1">
+      <name>Ctrl+A</name>
+      <desc>Autopilot altitude lock</desc>
+      <binding>
+       <command>nasal</command>
+        <script><![CDATA[
+	instruments.engage_kv_mode();
+	interpolate("an24/AP-28l1/buttons/kv", 1.0, 0.1 );
+        ]]></script>
+      </binding>
+      <mod-up>
+       <binding>
+	<command>nasal</command>
+	<script>
+	interpolate("an24/AP-28l1/buttons/kv", 0.0, 0.1 );
+        </script>
+       </binding>
+      </mod-up>
+     </key>
+
+     <key n="356">
+      <name>Arrow Left</name>
+      <desc>AP Roll/NAV Left</desc>
+      <repeatable>true</repeatable>
+       <binding>
+       <command>nasal</command>
+        <script>
+	if ( getprop("an24/AP-28l1/internal/engaged") == 0 ) {
+	controls.incAileron(-0.05, -1.0);
+	}
+	else {
+	instruments.RollControl(-1.0);
+	}
+        </script>
+      </binding>
+     </key>
+
+     <key n="358">
+      <name>Arrow Right</name>
+      <desc>AP Roll/NAV Right</desc>
+      <repeatable>true</repeatable>
+       <binding>
+       <command>nasal</command>
+        <script>
+	if ( getprop("an24/AP-28l1/internal/engaged") == 0 ) {
+	controls.incAileron(0.05, 1.0);
+	}
+	else {
+	instruments.RollControl(1.0);
+	}
+        </script>
+      </binding>
+     </key>
+
+     <key n="357">
+      <name>Arrow Up</name>
+      <desc>AP Pitch DOWN</desc>
+      <repeatable>true</repeatable>
+      <binding>
+       <command>nasal</command>
+        <script>
+	if ( getprop("an24/AP-28l1/internal/engaged") == 0 ) {
+	controls.incElevator(0.05, 1.0);
+	}
+	else {
+	instruments.PitchSwitch(1.0);
+	}
+        </script>
+      </binding>
+      <mod-up>
+       <binding>
+       <command>nasal</command>
+        <script>
+	if ( getprop("an24/AP-28l1/internal/engaged") == 1 ) {
+	instruments.PitchSwitch(0.0);
+	}
+        </script>
+       </binding>
+      </mod-up>
+     </key>
+
+     <key n="359">
+      <name>Arrow Down</name>
+      <desc>AP Pitch UP</desc>
+      <repeatable>true</repeatable>
+       <binding>
+       <command>nasal</command>
+        <script>
+	if ( getprop("an24/AP-28l1/internal/engaged") == 0 ) {
+	controls.incElevator(-0.05, -1.0);
+	}
+	else {
+	instruments.PitchSwitch(-1.0);
+	}
+        </script>
+      </binding>
+      <mod-up>
+       <binding>
+       <command>nasal</command>
+        <script>
+	if ( getprop("an24/AP-28l1/internal/engaged") == 1 ) {
+	instruments.PitchSwitch(0.0);
+	}
+        </script>
+       </binding>
+      </mod-up>
+     </key>
+
+<!-- Keybindings of Gear and Flaps -->
      <key n="71">
-        <name>G</name>
-        <desc>Gear UP</desc>
-        <binding>
-          <command>nasal</command>
-          <script>
-		settimer(func {controls.gearDown(1);}, 0.45);
-		interpolate("an24/gear/sw_gear", -3.0, 3.0, 0.0, 3.0 );
-          </script>
+      <name>G</name>
+      <desc>Gear UP</desc>
+      <binding>
+       <command>nasal</command>
+        <script>
+	settimer(func {controls.gearDown(1);}, 0.45);
+	interpolate("an24/gear/sw_gear", -3.0, 3.0, 0.0, 3.0 );
+        </script>
         </binding>
      </key>
 
      <key n="103">
-        <name>g</name>
-        <desc>Gear DOWN</desc>
-        <binding>
-          <command>nasal</command>
-          <script>
-		settimer(func {controls.gearDown(-1);}, 0.45);
-		interpolate("an24/gear/sw_gear", 3.0, 3.0, 0.0, 3.0 );
-          </script>
-        </binding>
+      <name>g</name>
+      <desc>Gear DOWN</desc>
+      <binding>
+       <command>nasal</command>
+        <script>
+	settimer(func {controls.gearDown(-1);}, 0.45);
+	interpolate("an24/gear/sw_gear", 3.0, 3.0, 0.0, 3.0 );
+        </script>
+       </binding>
      </key>
 
      <key n="91">
@@ -598,89 +791,42 @@ QuickStartUpGuide.pdf
         </mod-up>
       </key>
 
-      <key n="100">
-      <name>d</name>
-      <desc>AP (DIS-)ENGAGE</desc>
-      <repeatable>false</repeatable>
-       <binding>
+     <key n="12">
+      <name>Ctrl+L</name>
+      <desc>Nosewheel steering mode</desc>
+      <binding>
        <command>nasal</command>
         <script>
-	if( getprop("an24/AP-28l1/internal/engaged" ) == 0.0 ){
-	instruments.engage_ap();
+	<![CDATA[
+	# the appropriate circuit breaker must be pushed in:
+	if (getprop ("an24/AZS/sw0317") == 0) return;
+		var current_mode = getprop ("an24/gear/steer_mode");
+		if (current_mode == 0) {
+		# transition from TAXI to OFF.
+		interpolate("an24/gear/steer_mode", 1.0, 0.1);
+		setprop("controls/gear/nose-wheel-steering", 0.0);
+		setprop("fdm/jsbsim/gear/nose-wheel-steering", 0.0);
 	}
-	else {
-	setprop("an24/AP-28l1/internal/kv", 0.0 );
-	setprop("an24/AP-28l1/internal/horizon-mode", 0.0 );
-	setprop("an24/AP-28l1/internal/engaged", 0.0 );
+	else if (current_mode == 1) {
+		# transition from OFF to TAKEOFF/LANDING
+		interpolate("an24/gear/steer_mode", 2.0, 0.1);
+		setprop("controls/gear/nose-wheel-steering", 1.0);
+ 		setprop("fdm/jsbsim/gear/nose-wheel-steering", 1.0);
+		setprop("controls/gear/steering", 10.0);
+		setprop("fdm/jsbsim/gear/steering", 10.0);
+ 	}
+	else if (current_mode == 2) {
+ 		# transition from TAKEOFF/LANDING to TAXI.
+		interpolate("an24/gear/steer_mode", 0.0, 0.1);
+		setprop("controls/gear/nose-wheel-steering", 1.0);
+		setprop("fdm/jsbsim/gear/nose-wheel-steering", 1.0);
+		setprop("controls/gear/steering", 45.0);
+		setprop("fdm/jsbsim/gear/steering", 45.0);
 	}
-        </script>
+	]]>
+         </script>
        </binding>
-      </key>
-
-     <key n="60">
-       <name>less-than</name>
-       <desc>Overhead View</desc>
-       <binding>
-        <command>nasal</command>
-        <script>
-	setprop("/sim/current-view/heading-offset-deg2", getprop("/sim/current-view/heading-offset-deg") );
-	setprop("/sim/current-view/pitch-offset-deg2", getprop("/sim/current-view/pitch-offset-deg") );
-	setprop("/sim/current-view/field-of-view2", getprop("/sim/current-view/field-of-view") );
-	</script>
-       </binding>
-       <binding>
-          <command>property-assign</command>
-          <property>/sim/current-view/goal-pitch-offset-deg</property>
-          <value>89.8</value>
-       </binding>
-       <binding>
-          <command>property-assign</command>
-          <property>/sim/current-view/field-of-view</property>
-          <value>90</value>
-       </binding>
-       <binding>
-          <command>property-assign</command>
-          <property>/sim/current-view/x-offset-m</property>
-          <value>-0.11</value>
-       </binding>
-       <binding>
-          <command>property-assign</command>
-          <property>/sim/current-view/y-offset-m</property>
-          <value>0.95</value>
-       </binding>
-       <binding>
-          <command>property-assign</command>
-          <property>/sim/current-view/z-offset-m</property>
-          <value>-6.01</value>
-       </binding>
-       <binding>
-          <command>property-assign</command>
-          <property>/sim/current-view/heading-offset-deg</property>
-          <value>0.0</value>
-       </binding>
-       <mod-up>
-       <binding>
-        <command>nasal</command>
-        <script>
-	if (getprop("/sim/current-view/view-number") > 7 ) {
-	var viewnr = getprop("/sim/current-view/view-number") + 93 ;
-	}
-	else {
-	var viewnr = getprop("/sim/current-view/view-number");
-	}
-	var offsetx = getprop("/sim/view[" ~ viewnr ~ "]/config/x-offset-m");
-	var offsety = getprop("/sim/view[" ~ viewnr ~ "]/config/y-offset-m");
-	var offsetz = getprop("/sim/view[" ~ viewnr ~ "]/config/z-offset-m");
-	setprop("/sim/current-view/x-offset-m", offsetx);
-	setprop("/sim/current-view/y-offset-m", offsety);
-	setprop("/sim/current-view/z-offset-m", offsetz);
-	setprop("/sim/current-view/heading-offset-deg", getprop("/sim/current-view/heading-offset-deg2") );
-	setprop("/sim/current-view/pitch-offset-deg", getprop("/sim/current-view/pitch-offset-deg2") );
-	setprop("/sim/current-view/field-of-view", getprop("/sim/current-view/field-of-view2") );
-	</script>
-       </binding>
-       </mod-up>
-      </key>
+     </key>
 
     <key n="49">
       <name>1</name>
@@ -719,49 +865,79 @@ QuickStartUpGuide.pdf
 </input>
 
 <!--*************** Initial settings *****************-->
-
 <controls>
+  <electric>
+   <engine n="0">
+    <generator type="bool">true</generator><!-- needed, otherwise starter won't start -->
+   </engine>
+   <engine n="1">
+    <generator type="bool">true</generator><!-- needed, otherwise starter won't start -->
+   </engine>
+  </electric>
   <gear>
-    <antiskid type="bool">false</antiskid>
-    <brake-parking type="bool">true</brake-parking>
-    <nose-wheel-steering type="bool">true</nose-wheel-steering>
-    <steering>10.0</steering>
+   <antiskid type="bool">false</antiskid>
+   <brake-parking type="bool">true</brake-parking>
+   <nose-wheel-steering type="bool">true</nose-wheel-steering>
+   <steering>10.0</steering>
   </gear>
   <lighting>
-    <sw_nosmoking type="double">-1.0</sw_nosmoking>
-    <landinglightL type="float">0.0</landinglightL>
+   <azspanel type="double">0.0</azspanel>
+   <console-l_red type="double">0.0</console-l_red>
+   <console-r_red type="double">0.0</console-r_red>
+   <panel-l_red type="double">0.0</panel-l_red>
+   <panel-m_red type="double">0.0</panel-m_red>
+   <panel-r_red type="double">0.0</panel-r_red>
+   <radio_panel type="double">0.0</radio_panel>
+   <radio_panel_instr type="double">0.0</radio_panel_instr>
+   <nav_panel_red type="double">0.0</nav_panel_red>
+   <nav_panel_instr_red type="double">0.0</nav_panel_instr_red>
+   <panel-elec_red type="double">0.0</panel-elec_red>
+   <radioopstationlight type="double">0.0</radioopstationlight>
+   <kn_console-l type="double">0.0</kn_console-l>
+   <kn_console-r type="double">0.0</kn_console-r>
+   <kn_panel-l type="double">0.0</kn_panel-l>
+   <kn_panel-m type="double">0.0</kn_panel-m>
+   <kn_panel-r type="double">0.0</kn_panel-r>
+   <kn_nav_panel type="double">0.0</kn_nav_panel>
+   <kn_nav_panel_instr type="double">0.0</kn_nav_panel_instr>
+   <kn_panel-elec type="double">0.0</kn_panel-elec>
+   <kn_radio_panel type="double">0.0</kn_radio_panel>
+   <kn_radio_panel_instr type="double">0.0</kn_radio_panel_instr>
+   <sw_azspanel type="double">0.0</sw_azspanel>
+   <sw_radioopstationlight type="double">0.0</sw_radioopstationlight>
+   <sw_nosmoking type="double">-1.0</sw_nosmoking>
   </lighting>
 </controls>
 
 <consumables>
     <fuel>
       <tank n="0">
-        <name>AUX2 LH</name>
+        <name>MAIN3 LH</name>
         <!--unusable fuel becomes effective by fuel.nas-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
       <tank n="1">
-      <name>AUX1 LH</name>
+      <name>AUX2 LH</name>
         <!--unusable fuel becomes effective by fuel.nas-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
       <tank n="2">
-      <name>MAIN LH</name>
+      <name>AUX1 LH</name>
         <!--unusable fuel becomes effective by fuel.nas-->
         <!--unusable-gal_us>0.0</unusable-gal_us-->
       </tank>
       <tank n="3">
-      <name>Main RH</name>
+      <name>AUX1 RH</name>
         <!--unusable fuel becomes effective by fuel.nas-->
         <!--unusable-gal_us>0.0</unusable-gal_us-->
       </tank>
       <tank n="4">
-        <name>AUX1 RH</name>
+        <name>AUX2 RH</name>
         <!--unusable fuel becomes effective by fuel.nas-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
       <tank n="5">
-        <name>AUX2 RH</name>
+        <name>MAIN3 RH</name>
         <!--unusable fuel becomes effective by fuel.nas-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
@@ -769,24 +945,30 @@ QuickStartUpGuide.pdf
 </consumables>
 
 <fdm>
-  <jsbsim>  
-    <gear>
-     <steering>10.0</steering>
-        <nose-wheel-steering type="bool">true</nose-wheel-steering>
-    </gear>
-    <fcs>
-     <realism>
-      <tiller-enabled type="double">0</tiller-enabled>
-     </realism>
-      <throttle>
-        <throttle-pos-norm number="0" type="double">0</throttle-pos-norm>
-        <throttle-pos-norm number="1" type="double">0</throttle-pos-norm>
-      </throttle>
-      <throttle-pos-norm>0</throttle-pos-norm>
-      <steering>
-        <steer-cmd-norm-final type="double">0</steer-cmd-norm-final>
-      </steering>
-    </fcs>
+  <jsbsim>
+   <fcs>
+    <prop-governor>
+     <gov-left-active type="int">1</gov-left-active>
+     <gov-right-active type="int">1</gov-right-active>
+    </prop-governor>
+    <realism>
+     <dme-enabled type="double">1</dme-enabled>
+     <disable_sp-50_offset type="double">1</disable_sp-50_offset>
+     <tiller-enabled type="double">0</tiller-enabled>
+    </realism>
+     <!--throttle>
+      <throttle-pos-norm number="0" type="double">0</throttle-pos-norm>
+      <throttle-pos-norm number="1" type="double">0</throttle-pos-norm>
+     </throttle-->
+     <!--throttle-pos-norm>0</throttle-pos-norm-->
+    <steering>
+     <steer-cmd-norm-final type="double">0</steer-cmd-norm-final>
+    </steering>
+   </fcs> 
+   <gear>
+    <steering>10.0</steering>
+    <nose-wheel-steering type="bool">true</nose-wheel-steering>
+   </gear>
   </jsbsim>
 </fdm>
 
@@ -818,11 +1000,48 @@ QuickStartUpGuide.pdf
  </gear>
 
 
-<instrumentation>
-  <!--adf n="0" on by default-->
-  <adf n="1">
-    <serviceable type="bool">true</serviceable>
+ <instrumentation>
+ <!-- adf[0] and adf[2] serve ARK No.1, adf[1] and adf[3] ARK No.2 -->
+  <adf n="0">
+    <error-deg type="double">0.0</error-deg>
+    <ident-audible type="bool">true</ident-audible>
+    <indicated-bearing-deg type="double">180.0</indicated-bearing-deg>
+    <mode type="string">off</mode>
+    <!--serviceable type="bool">true</serviceable on by default-->
+    <volume-norm type="double">0.0</volume-norm>
   </adf>
+  <adf n="2">
+    <error-deg type="double">0.0</error-deg>
+    <ident-audible type="bool">true</ident-audible>
+    <indicated-bearing-deg type="double">0.0</indicated-bearing-deg>
+    <mode type="string">off</mode>
+    <serviceable type="bool">true</serviceable>
+    <volume-norm type="double">0.0</volume-norm>
+  </adf>
+  <adf n="1">
+    <error-deg type="double">0.0</error-deg>
+    <ident-audible type="bool">true</ident-audible>
+    <indicated-bearing-deg type="double">180.0</indicated-bearing-deg>
+    <mode type="string">off</mode>
+    <serviceable type="bool">true</serviceable>
+    <volume-norm type="double">0.0</volume-norm>
+  </adf>
+  <adf n="3">
+    <error-deg type="double">0.0</error-deg>
+    <ident-audible type="bool">true</ident-audible>
+    <indicated-bearing-deg type="double">0.0</indicated-bearing-deg>
+    <mode type="string">off</mode>
+    <serviceable type="bool">true</serviceable>
+    <volume-norm type="double">0.0</volume-norm>
+  </adf>
+
+  <agd-l>
+   <caged-flag type="double">0.0</caged-flag>
+  </agd-l>
+  <agd-r n="1">
+   <caged-flag type="double">0.0</caged-flag>
+  </agd-r>
+
   <airspeed-indicator n="1">
     <serviceable type="bool">true</serviceable>
   </airspeed-indicator>
@@ -846,12 +1065,13 @@ QuickStartUpGuide.pdf
     <selected-mhz type="double">100.0</selected-mhz>
    </frequencies>
   </comm>
-  <heading-indicator-dg>
+
+  <!--heading-indicator-dg>
     <serviceable type="bool">true</serviceable>
   </heading-indicator-dg>
   <heading-indicator-fg>
     <serviceable type="bool">true</serviceable>
-  </heading-indicator-fg>
+  </heading-indicator-fg-->
   <marker-beacon>
     <audio-btn type="bool">false</audio-btn>
     <serviceable type="bool">false</serviceable>
@@ -886,9 +1106,13 @@ QuickStartUpGuide.pdf
   </radar-altimeter>
   <transponder>
    <inputs>
-    <knob-mode type="int">1</knob-mode>
     <anim-knob-mode type="int">3</anim-knob-mode>
+    <anim-ident-btn type="double">0.0</anim-ident-btn>
+    <knob-mode type="int">1</knob-mode>
+    <sensitivity type="int">0</sensitivity>
+    <serviceable type="double">0.0</serviceable>
    </inputs>
+   <serviceable type="bool">false</serviceable>
   </transponder>
   <vertical-speed-indicator n="1">
     <serviceable type="bool">true</serviceable>
@@ -896,18 +1120,70 @@ QuickStartUpGuide.pdf
   <zk2>
     <heading-bug type="double">0</heading-bug>
   </zk2>
-</instrumentation>
+ </instrumentation>
 
-<systems>
- <static n="7">
-  <serviceable>1</serviceable>
- </static>
- <static n="8">
-  <serviceable>1</serviceable>
- </static>
-</systems>
+ <systems>
+  <electrical>
+   <outputs>
+    <!-- Necessary workaround to set operable to true -->
+    <adf type="double">28.0</adf>
+    <dme type="double">28.0</dme>
+    <nav type="double">28.0</nav>
+    <transponder type="string">1</transponder>
+   </outputs>
+  </electrical>
+  <static n="4">
+  <serviceable type="bool">0</serviceable>
+  </static>
+  <static n="5">
+    <serviceable type="bool">0</serviceable>
+  </static>
+ </systems>
 
  <an24>
+  <AC_Panel>
+   <fuse0102 type="double">1.0</fuse0102>
+   <fuse0103 type="double">1.0</fuse0103>
+   <fuse0104 type="double">1.0</fuse0104>
+   <fuse0105 type="double">1.0</fuse0105>
+   <fuse0106 type="double">1.0</fuse0106>
+   <fuse0107 type="double">1.0</fuse0107>
+
+   <fuse0201 type="double">1.0</fuse0201>
+   <fuse0202 type="double">1.0</fuse0202>
+   <fuse0203 type="double">1.0</fuse0203>
+   <fuse0205 type="double">1.0</fuse0205>
+   <fuse0206 type="double">1.0</fuse0206>
+   <fuse0207 type="double">1.0</fuse0207>
+
+   <fuse0301 type="double">1.0</fuse0301>
+   <fuse0302 type="double">1.0</fuse0302>
+   <fuse0303 type="double">1.0</fuse0303>
+   <fuse0305 type="double">1.0</fuse0305>
+   <fuse0306 type="double">1.0</fuse0306>
+   <fuse0307 type="double">1.0</fuse0307>
+
+   <fuse0401 type="double">1.0</fuse0401>
+   <fuse0402 type="double">1.0</fuse0402>
+   <fuse0405 type="double">1.0</fuse0405>
+   <fuse0406 type="double">1.0</fuse0406>
+   <fuse0407 type="double">1.0</fuse0407>
+
+   <fuse36V_0104 type="double">1.0</fuse36V_0104>
+   <fuse36V_0108 type="double">1.0</fuse36V_0108>
+   <fuse36V_0204 type="double">1.0</fuse36V_0204>
+   <fuse36V_0208 type="double">1.0</fuse36V_0208>
+   <fuse36V_0304 type="double">1.0</fuse36V_0304>
+   <fuse36V_0308 type="double">1.0</fuse36V_0308>
+
+   <hatchfuse0101 type="double">1.0</hatchfuse0101>
+   <hatchfuse0102 type="double">1.0</hatchfuse0102>
+
+   <fuse_panel_hatch type="double">0.0</fuse_panel_hatch>
+   <sw_PO-750_earth-air type="double">0.0</sw_PO-750_earth-air>
+   <cvr_PO-750_earth-air type="double">0.0</cvr_PO-750_earth-air>
+  </AC_Panel>
+
   <AChS>
    <mp_flighttime type="int">0</mp_flighttime>
    <mp_ft-offset type="int">0</mp_ft-offset>
@@ -946,25 +1222,28 @@ QuickStartUpGuide.pdf
    <rc_wind_up type="int">2590</rc_wind_up>
   </AChS>
 
+  <AGD>
+   <agd-l type="double">0.0</agd-l>
+   <agd-r type="double">0.0</agd-r>
+   <sw_agd-l type="double">0.0</sw_agd-l>
+   <sw_agd-r type="double">0.0</sw_agd-r>
+  </AGD>
+
   <Air-Cond>
-   <TG-16heating type="double">0.0</TG-16heating>
    <auto_temp-c type="double">18.0</auto_temp-c>
-   <bleedairL type="double">1.0</bleedairL>
-   <bleedairR type="double">1.0</bleedairR>
-   <bleedair_autoL type="double">1.0</bleedair_autoL>
-   <bleedair_autoR type="double">1.0</bleedair_autoR>
-   <lp_footpedal type="double">0.0</lp_footpedal>
-   <rp_footpedal type="double">0.0</rp_footpedal>
-   <eng_footpedal type="double">0.0</eng_footpedal>
+   <!--bleedair_autoL type="int">0</bleedair_autoL-->
+   <!--bleedair_autoR type="int">0</bleedair_autoR-->
    <handle_left type="double">0.0</handle_left>
    <handle_right type="double">0.0</handle_right>
+   <lp_footpedal type="double">0.0</lp_footpedal>
    <mix-valveL type="double">0.0</mix-valveL>
    <mix-valveR type="double">0.0</mix-valveR>
-   <sw_bleedairL type="double">1.0</sw_bleedairL>
+   <radioop_footpedal type="double">0.0</radioop_footpedal>
+   <rp_footpedal type="double">0.0</rp_footpedal>
+   <sw_bleedairL type="double">0.0</sw_bleedairL>
    <sw_bleedairL1 type="double">0.0</sw_bleedairL1>
-   <sw_bleedairR type="double">1.0</sw_bleedairR>
+   <sw_bleedairR type="double">0.0</sw_bleedairR>
    <sw_bleedairR1 type="double">0.0</sw_bleedairR1>
-   <sw_TG-16heating type="double">-1.0</sw_TG-16heating>
    <sw_rack-panel type="double">-1.0</sw_rack-panel>
    <sw_turbo-cooler_valve type="double">-1.0</sw_turbo-cooler_valve>
    <temp_auto-manual type="double">1.0</temp_auto-manual>
@@ -972,12 +1251,29 @@ QuickStartUpGuide.pdf
   </Air-Cond>
 
   <Anti-Ice>
+   <TG-16heating type="int">0</TG-16heating>
+
+   <environment-set type="int">0</environment-set>
+   <controlL-R type="int">0</controlL-R>
+   <sw_controlL-R type="double">0.0</sw_controlL-R>
+   <so-4_icedL type="int">0</so-4_icedL>
+   <so-4_icedR type="int">0</so-4_icedR>
+   <D2R_time type="int">0</D2R_time>
+   <so4l-signal type="int">0</so4l-signal>
+   <so4r-signal type="int">0</so4r-signal>
+
    <pitot_S1S5A1 type="double">0.0</pitot_S1S5A1>
    <pitot_S2S6A3 type="double">0.0</pitot_S2S6A3>
    <pitot_S3A2 type="double">0.0</pitot_S3A2>
    <pitot_S4S7 type="double">0.0</pitot_S4S7>
-   <sw03_window_heating-right-low type="double">0.0</sw03_window_heating-right-low>
-   <sw04_window_heating-right-intense type="double">0.0</sw04_window_heating-right-intense>
+   <propheat type="double">0.0</propheat>
+   <propheat-lock type="double">0.0</propheat-lock>
+
+   <sw_TG-16heating type="double">0.0</sw_TG-16heating>
+   <sw_window_heating-left-low type="double">0.0</sw_window_heating-left-low>
+   <sw_window_heating-left-intense type="double">0.0</sw_window_heating-left-intense>
+   <sw_window_heating-right-low type="double">0.0</sw_window_heating-right-low>
+   <sw_window_heating-right-intense type="double">0.0</sw_window_heating-right-intense>
    <sw_clockheat type="double">0.0</sw_clockheat>
    <sw_pitot_S1S5A1 type="double">0.0</sw_pitot_S1S5A1>
    <sw_pitot_S2S6A3 type="double">0.0</sw_pitot_S2S6A3>
@@ -985,33 +1281,26 @@ QuickStartUpGuide.pdf
    <sw_pitot_S4S7 type="double">0.0</sw_pitot_S4S7>
    <sw_vna-heat-l type="double">0.0</sw_vna-heat-l>
    <sw_vna-heat-r type="double">0.0</sw_vna-heat-r>
-   <vna-heat-l type="double">0.0</vna-heat-l>
-   <vna-heat-r type="double">0.0</vna-heat-r>
-   <window_heating-left-low type="double">0.0</window_heating-left-low>
-   <window_heating-left-intense type="double">0.0</window_heating-left-intense>
-   <window_heating-right-low type="double">0.0</window_heating-right-low>
-   <window_heating-right-intense type="double">0.0</window_heating-right-intense>
    <wing-tail_bleed type="double">0.0</wing-tail_bleed>
-   <conditions>
-    <icing type="double">0.0</icing>
-   </conditions>
-   <elements>
-    <fronta_cm type="double">0.0</fronta_cm>
-    <frontbL_cm type="double">0.0</frontbL_cm>
-    <frontbR_cm type="double">0.0</frontbR_cm>
-    <pitot_S1S5A1_cm type="double">0.0</pitot_S1S5A1_cm>
-    <pitot_S2S6A3_cm type="double">0.0</pitot_S2S6A3_cm>
-    <pitot_S3A2_cm type="double">0.0</pitot_S3A2_cm>
-    <pitot_S4S7_cm type="double">0.0</pitot_S4S7_cm>
-    <sidecdL_cm type="double">0.0</sidecdL_cm>
-    <sidecdR_cm type="double">0.0</sidecdR_cm>
-    <sidenavL_cm type="double">0.0</sidenavL_cm>
-    <sideengR_cm type="double">0.0</sideengR_cm>
-    <topwindows_cm type="double">0.0</topwindows_cm>
-   </elements>
+    <conditions>
+     <icing type="double">0.0</icing>
+    </conditions>
+    <elements>
+     <pitot_S1S5A1_cm type="double">0.0</pitot_S1S5A1_cm>
+     <pitot_S2S6A3_cm type="double">0.0</pitot_S2S6A3_cm>
+     <pitot_S3A2_cm type="double">0.0</pitot_S3A2_cm>
+     <pitot_S4S7_cm type="double">0.0</pitot_S4S7_cm>
+    </elements>
   </Anti-Ice>
 
   <AP-28l1>
+    <knob_roll-control type="double">0.0</knob_roll-control>
+    <sw_roll-mode type="double">0.0</sw_roll-mode>
+    <sw_up-down-l type="double">0.0</sw_up-down-l>
+    <sw_up-down-r type="double">0.0</sw_up-down-r>
+    <sw_autotrim type="double">0.0</sw_autotrim>
+    <sw_power type="double">0.0</sw_power>
+    <sw_pitch type="double">0.0</sw_pitch>
     <coefficients> <!-- coefficients are taken from book An-24. Technical description.-->
       <roll-angle type="double">0.52</roll-angle>
       <roll-rate type="double">0.33</roll-rate>
@@ -1032,29 +1321,20 @@ QuickStartUpGuide.pdf
       <pull type="bool">false</pull>
       <push type="bool">false</push>
     </lamps>
-    <switches>
-      <roll-mode type="double">0</roll-mode>
-      <roll-control type="double">0</roll-control>
-      <up-down-l type="double">0</up-down-l>
-      <up-down-r type="double">0</up-down-r>
-      <autotrim type="double">1</autotrim>
-      <power type="double">0</power>
-      <pitch type="double">1</pitch>
-    </switches>
     <buttons>
       <turn-on type="double">0</turn-on>
       <horizon type="double">0</horizon>
       <kv type="double">0</kv>      
     </buttons>
     <internal>
-      <powered type="bool">false</powered>
+      <powered type="int">0</powered>
       <power-on-time type="double">0</power-on-time>
-      <engaged type="bool">false</engaged>
-      <armed type="bool">false</armed>
+      <engaged type="int">0</engaged>
+      <armed type="int">0</armed>
       <roll-mode type="int">0</roll-mode> <!-- 0=stabilization, 1=razvorot -->
       <yaw-mode type="int">0</yaw-mode> <!-- 0=yaw damper, 1=gpk-52, 2=gik-1 -->
-      <horizon-mode type="bool">false</horizon-mode>
-      <kv type="bool">false</kv>
+      <horizon-mode type="int">0</horizon-mode>
+      <kv type="int">0</kv>
       <target-bank type="double">0</target-bank>
       <target-pitch type="double">0</target-pitch>
       <target-heading-gpk-52 type="double">0</target-heading-gpk-52>
@@ -1062,33 +1342,177 @@ QuickStartUpGuide.pdf
       <target-pressure-inhg type="double">0</target-pressure-inhg>
       <pitch-error-deg type="double">0</pitch-error-deg>
       <roll-error-deg type="double">0</roll-error-deg>
-      <elevator-autotrim-feel type="bool">false</elevator-autotrim-feel>
+      <elevator-autotrim-feel type="int">0</elevator-autotrim-feel>
       <elevator-alt-correction type="double">0</elevator-alt-correction>
     </internal>
   </AP-28l1>
 
+ <ARD-2077>
+  <sealing-mmHg type="int">670</sealing-mmHg>
+ </ARD-2077>
+
  <ARK-11>
-  <panel_nav_oh type="double">0.0</panel_nav_oh>
-   <mem1>
-    <fixp type="double">0.0</fixp>
-    <fixpressed type="int">1</fixpressed>
-    <fixohpressed type="int">1</fixohpressed>
-   </mem1>
-   <mem2>
-    <fixp type="double">0.0</fixp>
-    <fixpressed type="int">1</fixpressed>
-   </mem2>
+  <!--left-right-slew-1 type="double">0.0</left-right-slew-1>
+  <left-right-slew-2 type="double">0.0</left-right-slew-2>
+  <sw_frame_l-r-1 type="double">0.0</sw_frame_l-r-1>
+  <sw_frame_l-r-2 type="double">0.0</sw_frame_l-r-2-->
+  <final-freq-1 type="double">120.0</final-freq-1>
+  <final-freq-2 type="double">120.0</final-freq-2>
+  <fine-khz-1 type="double">0.0</fine-khz-1>
+  <fine-khz-2 type="double">0.0</fine-khz-2>
+  <frame-offset-1 type="double">0.0</frame-offset-1>
+  <frame-offset-2 type="double">0.0</frame-offset-2>
+  <mem1>
+   <fix1ff type="double">0.0</fix1ff>
+   <fix2ff type="double">0.0</fix2ff>
+   <fix3ff type="double">0.0</fix3ff>
+   <fix4ff type="double">0.0</fix4ff>
+   <fix5ff type="double">0.0</fix5ff>
+   <fix6ff type="double">0.0</fix6ff>
+   <fix7ff type="double">0.0</fix7ff>
+   <fix8ff type="double">0.0</fix8ff>
+   <fix9ff type="double">0.0</fix9ff>
+   <fix1sb type="double">120.0</fix1sb>
+   <fix2sb type="double">120.0</fix2sb>
+   <fix3sb type="double">120.0</fix3sb>
+   <fix4sb type="double">120.0</fix4sb>
+   <fix5sb type="double">120.0</fix5sb>
+   <fix6sb type="double">120.0</fix6sb>
+   <fix7sb type="double">120.0</fix7sb>
+   <fix8sb type="double">120.0</fix8sb>
+   <fix9sb type="double">120.0</fix9sb>
+   <fixohpressed type="int">1</fixohpressed>
+   <fixp type="double">0.0</fixp>
+   <fixpressed type="int">1</fixpressed>
+  </mem1>
+  <mem2>
+   <fix1ff type="double">0.0</fix1ff>
+   <fix2ff type="double">0.0</fix2ff>
+   <fix3ff type="double">0.0</fix3ff>
+   <fix4ff type="double">0.0</fix4ff>
+   <fix5ff type="double">0.0</fix5ff>
+   <fix6ff type="double">0.0</fix6ff>
+   <fix7ff type="double">0.0</fix7ff>
+   <fix8ff type="double">0.0</fix8ff>
+   <fix9ff type="double">0.0</fix9ff>
+   <fix1sb type="double">120.0</fix1sb>
+   <fix2sb type="double">120.0</fix2sb>
+   <fix3sb type="double">120.0</fix3sb>
+   <fix4sb type="double">120.0</fix4sb>
+   <fix5sb type="double">120.0</fix5sb>
+   <fix6sb type="double">120.0</fix6sb>
+   <fix7sb type="double">120.0</fix7sb>
+   <fix8sb type="double">120.0</fix8sb>
+   <fix9sb type="double">120.0</fix9sb>
+   <fixp type="double">0.0</fixp>
+   <fixpressed type="int">1</fixpressed>
+  </mem2>
+  <mode-2 type="int">0</mode-2>
+  <mode-nav type="int">0</mode-nav>
+  <mode-oh type="int">0</mode-oh>
+  <panel_nav_oh type="int">0</panel_nav_oh>
+  <panelpowernav_27V type="int">0</panelpowernav_27V>
+  <panelpower2_27V type="int">0</panelpower2_27V>
+  <panelpoweroh_27V type="int">0</panelpoweroh_27V>
+  <power-1_27V type="int">0</power-1_27V>
+  <power-1_115V type="int">0</power-1_115V>
+  <power-2_27V type="int">0</power-2_27V>
+  <power-2_115V type="int">0</power-2_115V>
+  <signal-1 type="double">0.0</signal-1>
+  <signal-2 type="double">0.0</signal-2>
+  <sub-band-khz-1 type="double">120.0</sub-band-khz-1>
+  <sub-band-khz-2 type="double">120.0</sub-band-khz-2>
+  <output-vol-1 type="double">0.0</output-vol-1>
+  <output-vol-2 type="double">0.0</output-vol-2>
+  <kn_volume-nav type="double">0.0</kn_volume-nav>
+  <kn_volume-2 type="double">0.0</kn_volume-2>
+  <kn_volume-oh type="double">0.0</kn_volume-oh>
  </ARK-11>
 
+ <AZS>
+  <sw0109 type="double">0.0</sw0109>
+  <sw0110 type="double">0.0</sw0110>
+  <sw0113 type="double">0.0</sw0113>
+  <sw0508 type="double">0.0</sw0508>
+  <sw0509 type="double">0.0</sw0509>
+  <sw0512 type="double">0.0</sw0512>
+  <sw0513 type="double">0.0</sw0513>
+  <sw0514 type="double">0.0</sw0514>
+  <sw0515 type="double">0.0</sw0515>
+ </AZS>
+
  <Electrical_Panel>
-  <gs24_voltreg type="double">1.0</gs24_voltreg>
-  <go-16l_voltreg type="double">0.99</go-16l_voltreg>
-  <go-16r_voltreg type="double">1.01</go-16r_voltreg>
-  <stg-18l_voltreg type="double">1.0</stg-18l_voltreg>
-  <stg-18r_voltreg type="double">1.0</stg-18r_voltreg>
+  <add_go16l type="double">0.0</add_go16l>
+  <add_go16r type="double">0.0</add_go16r>
+  <btn_add_go16r type="double">0.0</btn_add_go16r>
+  <gs24_voltreg type="double">1.02</gs24_voltreg>
+  <go-16l_voltreg type="double">1.01</go-16l_voltreg>
+  <go-16r_voltreg type="double">0.98</go-16r_voltreg>
+  <slider type="double">1.0</slider>
+  <stg-18l_voltreg type="double">1.01</stg-18l_voltreg>
+  <stg-18r_voltreg type="double">0.98</stg-18r_voltreg>
+  <sw_board-aerodrome type="double">0.0</sw_board-aerodrome>
+  <sw_emerg-bus type="double">0.0</sw_emerg-bus>
+  <sw_gs24 type="double">0.0</sw_gs24>
   <sw_go16l type="double">0.0</sw_go16l>
   <sw_go16r type="double">0.0</sw_go16r>
+  <sw_po-750 type="double">0.0</sw_po-750>
+  <sw_pt-1000 type="double">0.0</sw_pt-1000>
+  <sw_stg18l type="double">0.0</sw_stg18l>
+  <sw_stg18r type="double">0.0</sw_stg18r>
  </Electrical_Panel>
+
+ <Electrics>
+  <CONN_Akku1-RKAkku type="int">0</CONN_Akku1-RKAkku>
+  <CONN_Akku2-RKAkku type="int">0</CONN_Akku2-RKAkku>
+  <CONN_TsRUl-TsRUr type="int">1</CONN_TsRUl-TsRUr>
+
+  <FUSE_TsRUl-TsRUr type="int">1</FUSE_TsRUl-TsRUr>
+  <FUSE_TsRUl-AZSmain type="int">1</FUSE_TsRUl-AZSmain>
+  <FUSE_TsRUr-RKCrewCab type="int">1</FUSE_TsRUr-RKCrewCab>
+  <FUSE_AZSmain-RKCrewCab type="int">1</FUSE_AZSmain-RKCrewCab>
+  <FUSE_AZSmain-RKNavmain type="int">1</FUSE_AZSmain-RKNavmain>
+  <FUSE_AZSemerg-RKNavemerg type="int">1</FUSE_AZSemerg-RKNavemerg>
+
+  <FUSE_RKAkku-RKCrewCab type="int">1</FUSE_RKAkku-RKCrewCab>
+  <FUSE_Akku1-RKAkku type="int">1</FUSE_Akku1-RKAkku>
+  <FUSE_Akku2-RKAkku type="int">1</FUSE_Akku2-RKAkku>
+  <FUSE_RKAkku-RKCrewCab type="int">1</FUSE_RKAkku-RKCrewCab>
+  <FUSE_RKCrewCab-RKNavmain type="int">1</FUSE_RKCrewCab-RKNavmain>
+  <FUSE_RKAkku-AZSemerg type="int">1</FUSE_RKAkku-AZSemerg>
+  <FUSE_TsRUl-RKFlAttmain type="int">1</FUSE_TsRUl-RKFlAttmain>
+  <FUSE_TsRUr-RKFlAttmain type="int">1</FUSE_TsRUr-RKFlAttmain>
+  <FUSE_AZSemerg-RKFlAttemerg type="int">1</FUSE_AZSemerg-RKFlAttemerg>
+  <FUSE_TsRUl-RKFuelPumps type="int">1</FUSE_TsRUl-RKFuelPumps>
+  <FUSE_TsRUr-RKFuelPumps type="int">1</FUSE_TsRUr-RKFuelPumps>
+  <FUSE_RK115V-RKRadioOpmain type="int">1</FUSE_RK115V-RKRadioOpmain>
+
+  <PO-750_V type="double">0.0</PO-750_V>
+  <PT-1000main_working type="int">1</PT-1000main_working><!--failing or working-->
+  <PT-1000res_working type="int">1</PT-1000res_working><!--failing or working-->
+  <PT-1000_V type="double">0.0</PT-1000_V>
+  <PT-125working type="int">1</PT-125working><!--failing or working-->
+  <PT-125_V type="double">36.0</PT-125_V>
+  <StartCircuit>
+   <apdtime type="int">0</apdtime>
+   <STG-18_terminal_V type="double">0.0</STG-18_terminal_V>
+  </StartCircuit>
+  <board-aerodrome type="int">0</board-aerodrome>
+  <random_stg18l type="double">28.5</random_stg18l>
+  <random_stg18r type="double">28.5</random_stg18r>
+  <random_gs24 type="double">28.5</random_gs24>
+  <random_go16l type="double">115.0</random_go16l>
+  <random_go16r type="double">115.0</random_go16r>
+ </Electrics>
+
+ <EUP-53>
+  <sw_eup type="double">0.0</sw_eup>
+  <!--eup type="double">0.0</eup-->
+ </EUP-53>
+
+ <Extras>
+  <book1_cover type="double">0.0</book1_cover>
+ </Extras>
 
  <FireTest>
   <mainresetdone type="bool">1.0</mainresetdone>
@@ -1103,32 +1527,71 @@ QuickStartUpGuide.pdf
   <btn_exting_wings type="double">0.0</btn_exting_wings>
   <feather-by-kfl_l type="double">0.0</feather-by-kfl_l>
   <feather-by-kfl_r type="double">0.0</feather-by-kfl_r>
+  <feather-by-test_l type="double">0.0</feather-by-test_l>
+  <feather-by-test_r type="double">0.0</feather-by-test_r>
+
+  <sw_check-by-ikm_l type="double">0.0</sw_check-by-ikm_l>
+  <sw_check-by-ikm_r type="double">0.0</sw_check-by-ikm_r>
+
   <lock_main type="double">0.0</lock_main>
   <main type="double">0.0</main>
+  <plexihood type="double">0.0</plexihood>
   <sw_main type="double">0.0</sw_main>
  </FireFeather>
 
- <FuelControl>
-  <anim-flow-meter type="double">0</anim-flow-meter>
-  <cutoff-l-by-sw type="double">1</cutoff-l-by-sw>
-  <cutoff-l-by-fs type="double">0</cutoff-l-by-fs>
-  <cutoff-r-by-sw type="double">1</cutoff-r-by-sw>
-  <cutoff-r-by-fs type="double">0</cutoff-r-by-fs>
-  <flow-meter type="double">0</flow-meter>
-  <flow-meter-save-l type="double">0</flow-meter-save-l>
-  <flow-meter-save-r type="double">0</flow-meter-save-r>
-  <fuel-meter-l type="double">0</fuel-meter-l>
-  <fuel-meter-r type="double">0</fuel-meter-r>
-  <sw0401 type="double">0</sw0401>
-  <sw0402 type="double">0</sw0402>
-  <sw0403 type="double">0</sw0403>
-  <sw_crossfeed type="double">0</sw_crossfeed>
-  <sw0405 type="double">0</sw0405>
-  <sw0406 type="double">0</sw0406>
-  <sw0407 type="double">0</sw0407>
- </FuelControl>
+  <Fire-Protection>
+   <Extinguishers>
+    <Lengine_cartridge1-kg type="double">1.0</Lengine_cartridge1-kg>
+    <Lengine_cartridge2-kg type="double">1.0</Lengine_cartridge2-kg>
+    <Rengine_cartridge1-kg type="double">1.0</Rengine_cartridge1-kg>
+    <Rengine_cartridge2-kg type="double">1.0</Rengine_cartridge2-kg>
+    <OS-8M_cartridge1-kg type="double">1.5</OS-8M_cartridge1-kg>
+    <OS-8M_cartridge1A-kg type="double">1.5</OS-8M_cartridge1A-kg>
+    <OS-8M_cartridge1B-kg type="double">1.5</OS-8M_cartridge1B-kg>
+    <OS-8M_cartridge2-kg type="double">1.5</OS-8M_cartridge2-kg>
+    <OS-8M_cartridge2A-kg type="double">1.5</OS-8M_cartridge2A-kg>
+    <OS-8M_cartridge2B-kg type="double">1.5</OS-8M_cartridge2B-kg>
+   </Extinguishers>
+  </Fire-Protection>
+
+  <FuelControl>
+   <TG-16_cutoff type="double">1.0</TG-16_cutoff>
+   <anim-flow-meter type="double">0</anim-flow-meter>
+   <crossfeed type="int">0</crossfeed>
+   <cutoff-l-by-sw type="int">1</cutoff-l-by-sw>
+   <cutoff-l-by-fs type="int">0</cutoff-l-by-fs>
+   <cutoff-r-by-sw type="int">1</cutoff-r-by-sw>
+   <cutoff-r-by-fs type="int">0</cutoff-r-by-fs>
+   <flow-meter type="double">0</flow-meter>
+   <flow-meter-save-l type="double">0</flow-meter-save-l>
+   <flow-meter-save-r type="double">0</flow-meter-save-r>
+   <fuel-meter-l type="double">0</fuel-meter-l>
+   <fuel-meter-r type="double">0</fuel-meter-r>
+   <sw0401 type="double">0</sw0401>
+   <sw0402 type="double">0</sw0402>
+   <sw0403 type="double">0</sw0403>
+   <sw_crossfeed type="double">0</sw_crossfeed>
+   <sw0405 type="double">0</sw0405>
+   <sw0406 type="double">0</sw0406>
+   <sw0407 type="double">0</sw0407>
+  </FuelControl>
+
+  <GIK-1>
+   <btn_l_gik type="double">0.0</btn_l_gik>
+   <btn_r_gik type="double">0.0</btn_r_gik>
+   <sw_gik-1 type="double">0.0</sw_gik-1>
+  </GIK-1>
+
+  <GPK-52>
+   <kn_l-r type="double">0.0</kn_l-r>
+   <left-right-slew type="double">0.0</left-right-slew>
+   <sw_ctrl type="double">0.0</sw_ctrl>
+   <sw_gpk type="double">0.0</sw_gpk>
+   <sw_hemisphere type="double">1.0</sw_hemisphere>
+  </GPK-52>
 
   <Kurs-MP>
+   <markermode type="int">0</markermode>
    <mhz1 type="double">0.0</mhz1>
    <dec1 type="double">0.0</dec1>
    <mhz2 type="double">0.0</mhz2>
@@ -1153,10 +1616,14 @@ QuickStartUpGuide.pdf
    <sw_oil-cooler-flapsR1 type="double">0.0</sw_oil-cooler-flapsR1>
   </OilControl>
 
+  <PG4and2PPT1>
+   <selected-ind type="double">-50</selected-ind>
+  </PG4and2PPT1>
+
   <Pressure>
-   <pitotvalve1 type="double">1.0</pitotvalve1>
-   <pitotvalve2 type="double">1.0</pitotvalve2>
-   <pitotvalve3 type="double">1.0</pitotvalve3>
+   <lc_pitotvalve type="double">1.0</lc_pitotvalve>
+   <lc_staticvalve type="double">1.0</lc_staticvalve>
+   <rc_staticvalve type="double">1.0</rc_staticvalve>
   </Pressure>
 
   <R-802>
@@ -1165,6 +1632,12 @@ QuickStartUpGuide.pdf
    <dial10 type="int">0</dial10>
    <dial1 type="double">0</dial1>
    <finalfreq type="double">100.0</finalfreq>
+   <kn_volume-1 type="double">0.0</kn_volume-1>
+   <kn_volume-2 type="double">0.0</kn_volume-2>
+   <output-vol-1 type="double">0.0</output-vol-1>
+   <output-vol-2 type="double">0.0</output-vol-2>
+   <power-1_27V type="double">0.0</power-1_27V>
+   <power-2_27V type="double">0.0</power-2_27V>
    <sw_power-1 type="double">0.0</sw_power-1>
    <sw_power-2 type="double">0.0</sw_power-2>
    <memory>
@@ -1179,28 +1652,37 @@ QuickStartUpGuide.pdf
     <num9 type="double">100.0</num9>
     <num10 type="double">100.0</num10>
    </memory>
-   <power-1 type="double">0.0</power-1>
-   <power-2 type="double">0.0</power-2>
    <transmit-power-w_1 type="int">15</transmit-power-w_1>
    <transmit-power-w_2 type="int">15</transmit-power-w_2>
-   <volume-1 type="double">0.0</volume-1>
-   <volume-2 type="double">0.0</volume-2>
   </R-802>
 
   <R-836>
-   <b1_hood_anim2 type="double">0</b1_hood_anim2>
-   <b2_hood_anim2 type="double">0</b2_hood_anim2>
-   <b1_knob_A type="double">0</b1_knob_A>
-   <b2_knob_D type="double">0</b2_knob_D>
-   <channel_viewnr8 type="int">0</channel_viewnr8>
-   <channel_viewnr9 type="int">0</channel_viewnr9>
-   <operator type="int">0</operator><!-- radio op = 0, F/O = 1) -->
+   <Channels>
+    <ch1knA type="double">10</ch1knA>
+    <ch1knB type="double">18</ch1knB>
+    <ch1knC type="double">45</ch1knC>
+    <ch2knA type="double">140</ch2knA>
+    <ch2knB type="double">31.5</ch2knB>
+    <ch2knC type="double">98</ch2knC>
+   </Channels>
+   <b1_hood_anim2 type="double">0.0</b1_hood_anim2>
+   <b2_hood_anim2 type="double">0.0</b2_hood_anim2>
+   <!--b1_knob_A type="double">0.0</b1_knob_A>
+   <b1_knob_B type="double">1.0</b1_knob_B>
+   <b2_knob_D type="double">0.0</b2_knob_D-->
+   <b3_knob_B type="int">1</b3_knob_B>
+   <b3_knob_C type="int">1</b3_knob_C>
+   <eng_channel type="int">1</eng_channel>
+   <rc_channel type="int">1</rc_channel>
+   <operator type="int">0</operator><!-- radio op = 0, F/O = 1 -->
    <transmit-power-w type="int">55</transmit-power-w>
   </R-836>
 
   <RKCrew>
+   <hood type="double">0</hood>
    <sw01_batt1 type="double">0</sw01_batt1>
    <sw02_batt2 type="double">0</sw02_batt2>
+   <sw03_pt-1000 type="double">0</sw03_pt-1000>
   </RKCrew>
 
   <RTMS>
@@ -1216,15 +1698,73 @@ QuickStartUpGuide.pdf
   </SP-50>
 
   <SPU-7>
+   <listen_viewnr0 type="double">0.0</listen_viewnr0>
+   <listen_viewnr101 type="double">0.0</listen_viewnr101>
+   <listen_viewnr102 type="double">0.0</listen_viewnr102>
+   <listen_viewnr103 type="double">0.0</listen_viewnr103>
+   <general_viewnr0 type="double">0.0</general_viewnr0>
+   <general_viewnr101 type="double">0.0</general_viewnr101>
+   <general_viewnr102 type="double">0.0</general_viewnr102>
+   <general_viewnr103 type="double">0.0</general_viewnr103>
    <source_viewnr0 type="int">0</source_viewnr0>
-   <source_viewnr8 type="int">0</source_viewnr8>
-   <source_viewnr9 type="int">0</source_viewnr9>
-   <source_viewnr10 type="int">0</source_viewnr10>
+   <source_viewnr101 type="int">0</source_viewnr101>
+   <source_viewnr102 type="int">0</source_viewnr102>
+   <source_viewnr103 type="int">0</source_viewnr103>
   </SPU-7>
+
+  <SRO-2>
+   <code_nr type="int">1</code_nr>
+  </SRO-2>
+
+  <Start-Panel>
+   <discontinuestart_ai-24_btn type="double">0.0</discontinuestart_ai-24_btn>
+   <ground-air type="int">1</ground-air>
+   <ground-air_sw type="double">1.0</ground-air_sw>
+   <ground-air_cvr type="double">0.0</ground-air_cvr>
+   <left-right type="string">0</left-right>
+   <left-right_sw type="double">0.0</left-right_sw>
+   <startai24-btn type="double">0.0</startai24-btn>
+   <starttg-btn type="double">0.0</starttg-btn>
+   <sw_tg16-prepare type="double">1.0</sw_tg16-prepare>
+   <tg-starter-on_cvr type="double">0.0</tg-starter-on_cvr>
+  </Start-Panel>
 
   <SVB-5>
    <transmit-power-w type="int">15</transmit-power-w>
   </SVB-5>
+
+  <TP622>
+   <colour_rocketA1 type="int">0</colour_rocketA1>
+   <colour_rocketA2 type="int">1</colour_rocketA2>
+   <colour_rocketA3 type="int">2</colour_rocketA3>
+   <colour_rocketA4 type="int">3</colour_rocketA4>
+   <colour_rocketB1 type="int">0</colour_rocketB1>
+   <colour_rocketB2 type="int">1</colour_rocketB2>
+   <colour_rocketB3 type="int">2</colour_rocketB3>
+   <colour_rocketB4 type="int">3</colour_rocketB4>
+   <btn_rocketA1 type="double">0.0</btn_rocketA1>
+   <btn_rocketA2 type="double">0.0</btn_rocketA2>
+   <btn_rocketA3 type="double">0.0</btn_rocketA3>
+   <btn_rocketA4 type="double">0.0</btn_rocketA4>
+   <btn_rocketB1 type="double">0.0</btn_rocketB1>
+   <btn_rocketB2 type="double">0.0</btn_rocketB2>
+   <btn_rocketB3 type="double">0.0</btn_rocketB3>
+   <btn_rocketB4 type="double">0.0</btn_rocketB4>
+   <rocketA1_fired type="double">0.0</rocketA1_fired>
+   <rocketA2_fired type="double">0.0</rocketA2_fired>
+   <rocketA3_fired type="double">0.0</rocketA3_fired>
+   <rocketA4_fired type="double">0.0</rocketA4_fired>
+   <rocketB1_fired type="double">0.0</rocketB1_fired>
+   <rocketB2_fired type="double">0.0</rocketB2_fired>
+   <rocketB3_fired type="double">0.0</rocketB3_fired>
+   <rocketB4_fired type="double">0.0</rocketB4_fired>
+   <sw_CassetteA type="double">0.0</sw_CassetteA>
+   <sw_CassetteB type="double">0.0</sw_CassetteB>
+  </TP622>
+
+  <UAP-12>
+   <mode type="int">0</mode>
+  </UAP-12>
 
   <URVK-18>
    <airflowL type="double">0.0</airflowL>
@@ -1236,68 +1776,79 @@ QuickStartUpGuide.pdf
   </US-8K>
 
  <animations>
-  <RK_hood type="double">0.0</RK_hood>
   <nose type="double">1.0</nose>
  </animations>
 
-  <gear>
-    <steer_mode type="double">2.0</steer_mode>
-    <sw_gear type="double">0.0</sw_gear>
-  </gear>
+ <foo>
+  <bar type="double">0.0</bar>
+ </foo>
+
+ <gear>
+  <steer_mode type="double">2.0</steer_mode>
+  <sw_gear type="double">0.0</sw_gear>
+ </gear>
 
   <instrumentation>
-    <idle-lock>
-      <idle-lock>0.0</idle-lock>
-    </idle-lock>
-    <prop-lock>
-      <prop-lock-left type="bool">false</prop-lock-left>
-      <prop-lock-right type="bool">false</prop-lock-right>
-    </prop-lock>
+   <idle-lock>
+    <idle-lock type="double">0.0</idle-lock>
+   </idle-lock>
+   <prop-lock>
+    <prop-lock-left type="double">0.0</prop-lock-left>
+    <prop-lock-right type="double">0.0</prop-lock-right>
+   </prop-lock>
   </instrumentation>
+
+  <lights>
+   <PRF-4angleL type="double">-1.0</PRF-4angleL>
+   <PRF-4angleR type="double">-1.0</PRF-4angleR>
+   <PRF-4L_motor type="double">0.0</PRF-4L_motor>
+   <sw_PRF-4brightness type="double">0.0</sw_PRF-4brightness>
+   <sw_PRF-4motor type="double">0.0</sw_PRF-4motor>
+  </lights>
+
+  <radio-equip type="string">Standard</radio-equip>
+
+  <sound>
+   <click_azr type="int">1</click_azr>
+   <click_azs type="int">1</click_azs>
+  </sound>
 
  </an24>
 
  <nasal>
   <autostart>
-    <file>Aircraft/an24b/Nasal/autostart.nas</file>
+    <file>Nasal/autostart.nas</file>
   </autostart>
-  <conditioning>
-    <file>Aircraft/an24b/Nasal/conditioning.nas</file>
-  </conditioning>
   <electrical>
-    <file>Aircraft/an24b/Nasal/electrical.nas</file>
+    <file>Nasal/electrical.nas</file>
   </electrical>
-  <engines>
-    <file>Aircraft/an24b/Nasal/enginestart.nas</file>
-  </engines>
+  <enginestart>
+    <file>Nasal/enginestart.nas</file>
+  </enginestart>
   <friction>
-    <file>Aircraft/an24b/Nasal/friction.nas</file>
+    <file>Nasal/friction.nas</file>
   </friction>
-  <fuel>
-    <file>Aircraft/an24b/Nasal/fuel.nas</file>
-  </fuel>
   <help>
-    <file>Aircraft/an24b/Nasal/help.nas</file>
+    <file>Nasal/help.nas</file>
   </help>
   <icing>
-    <file>Aircraft/an24b/Nasal/icing.nas</file>
+    <file>Nasal/icing.nas</file>
   </icing>
   <instruments>
-    <file>Aircraft/an24b/Nasal/instruments.nas</file>
-    <file>Aircraft/an24b/Nasal/gpk-52.nas</file>
-    <file>Aircraft/an24b/Nasal/ap-28l1.nas</file>
-    <file>Aircraft/an24b/Nasal/radios.nas</file>
-    <file>Aircraft/an24b/Nasal/achs.nas</file>
-    <file>Aircraft/an24b/Nasal/spu-7.nas</file>
+    <file>Nasal/instruments.nas</file>
+    <file>Nasal/ap-28l1.nas</file>
+    <file>Nasal/radios.nas</file>
+    <file>Nasal/achs.nas</file>
+    <file>Nasal/spu-7.nas</file>
   </instruments>
-  <pitotstatic>
-    <file>Aircraft/an24b/Nasal/pitotstatic.nas</file>
-  </pitotstatic>
+  <sound>
+    <file>Nasal/sound.nas</file>
+  </sound>
   <stations>
-    <file>Aircraft/an24b/Nasal/stations.nas</file>
+    <file>Nasal/stations.nas</file>
   </stations>
   <view>
-    <file>Aircraft/an24b/Nasal/view.nas</file>
+    <file>Nasal/view.nas</file>
   </view>
  </nasal>
 
