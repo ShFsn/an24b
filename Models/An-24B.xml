@@ -90,20 +90,6 @@
   <object-name>rudder</object-name>
  </animation>
 
- <animation>
-  <type>select</type>
-  <object-name>exterior</object-name>
-  <condition>
-    <or>
-      <not>
-        <property>sim/current-view/internal</property>
-      </not>
-      <!-- if viewing our own aircraft from the cockpit of another over multiplayer, we want to see the exterior -->
-      <property>sim/current-view/multiplayer</property>
-    </or>
-  </condition>
- </animation>
-
 <!--*********************
 ** COMPOSITOR LIGHTS
 **********************-->
