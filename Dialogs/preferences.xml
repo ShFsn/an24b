@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <name>preferences</name>
+  <layout>vbox</layout>
+  <group>
+    <layout>hbox</layout>
+    <text>
+      <halign>left</halign>
+      <label>An-24 Preferences</label>
+    </text>
+
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+
+    <button>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <legend/>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+      <key>Esc</key>
+    </button>
+  </group>
+
+  <hrule/>
+
+
+  <group>
+    <layout>hbox</layout>
+      
+    <text><label> </label></text>
+
+    <group>
+      <stretch>true</stretch>
+      <layout>vbox</layout>
+      <halign>center</halign>
+      <valign>top</valign>
+
+
+
+      <group><layout>hbox</layout>
+        <hrule>
+          <stretch type="bool">true</stretch>
+        </hrule>
+        <text><label>Keyboard</label></text>
+        <hrule>
+          <stretch type="bool">true</stretch>
+        </hrule>
+      </group>
+      <checkbox>
+        <halign>left</halign>
+        <label>Keyboard Mode</label>
+        <property>/an24/options/keyboard/keyboard-mode</property>
+        <live>true</live>
+        <binding><command>dialog-apply</command></binding>
+      </checkbox>
+
+      <text>
+        <label>1-9 buttons works as stated in Common Aircraft Keys, see aircraft help</label>
+        <halign>left</halign>
+      </text>
+
+      <text><label> </label></text>
+
+    </group>
+
+</PropertyList> 
