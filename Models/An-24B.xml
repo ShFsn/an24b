@@ -1107,6 +1107,13 @@
 </animation>
 
 <animation>
+ <type>noshadow</type>
+ <object-name>propblurL</object-name>
+ <object-name>propblurL1</object-name>
+ <object-name>propblurL2</object-name>
+</animation>
+
+<animation>
   <object-name>propL</object-name>
   <type>spin</type>
   <property>engines/engine[0]/rpm</property>
@@ -1164,6 +1171,13 @@
   <value>400</value>
   </greater-than>
  </condition>
+</animation>
+
+<animation>
+ <type>noshadow</type>
+ <object-name>propblurR</object-name>
+ <object-name>propblurR1</object-name>
+ <object-name>propblurR2</object-name>
 </animation>
 
 <animation>
