@@ -49,14 +49,6 @@
   <long-description>The Antonov An-24 is a successful Soviet aircraft designed in 1957.  Its many variants still serve as cargo, transport, reconnaissance, fire fighter, or even as navigator training plane.  Its derivatives, the An-26, An-30 and An-32 are used for military purposes. 
   </long-description>
 
-  <status>production</status>
-  <rating>
-   <FDM type="int">5</FDM>
-   <systems type="int">4</systems>
-   <cockpit type="int">4</cockpit>
-   <model type="int">3</model>
-  </rating>
-
   <author>Michael Soitanen (FDM, Systems), Adrian (3D, Systems)</author>
   <authors>
     <author n="0">
@@ -76,10 +68,62 @@
 
   <maintainers>
    <maintainer n="0">
-     <name>Adrian</name>
-     <email>euer.maerchenprinz@arcor.de</email>
+     <name>ShFsn</name>
    </maintainer>
   </maintainers>
+
+  <urls>
+   <home-page>https://github.com/ShFsn/an24b</home-page>
+   <support>https://github.com/ShFsn/an24b/issues</support>
+   <wikipedia>https://en.wikipedia.org/wiki/Antonov_An-24</wikipedia>
+   <code-repository>https://github.com/ShFsn/an24b</code-repository>
+  </urls>
+
+  <localized>
+    <ru>
+      <description>Антонов Ан-24Б</description>
+      <long-description>Антонов Ан-24 -- удачный советский самолёт, разработанный в 1957 году. Множество его вариаций до сих пор служат как грузовые, транспортные, спасательные, пожарные или навигационно-тренировочные самолёты. Его производные, Ан-26, Ан-30 и Ан-32 используются в военных целях.
+      </long-description>
+
+      <author>Michael Soitanen (FDM, Системы), Adrian (3D, Системы)</author>
+      <authors>
+        <author n="0">
+          <name>Adrian aka Maerchenprinz</name>
+          <description>3D, Системы</description>
+          <nick>Maerchenprinz</nick>
+        </author>
+        <author n="1">
+          <name>Michael Soitanen</name>
+          <description>FDM, Системы</description>
+        </author>
+        <author n="2">
+          <name>L. Brenta</name>
+          <description>Отслеживание багов, Идеи</description>
+        </author>
+      </authors>
+
+      <maintainers>
+        <maintainer n="0">
+          <name>ShFsn</name>
+        </maintainer>
+      </maintainers>
+
+      <urls>
+        <home-page>https://github.com/ShFsn/an24b</home-page>
+        <support>https://github.com/ShFsn/an24b/issues</support>
+        <wikipedia>https://ru.wikipedia.org/wiki/Ан-24</wikipedia>
+        <code-repository>https://github.com/ShFsn/an24b</code-repository>
+      </urls>
+    </ru>
+  </localized>
+
+  <status>production</status>
+  <rating>
+   <FDM type="int">5</FDM>
+   <systems type="int">4</systems>
+   <cockpit type="int">4</cockpit>
+   <model type="int">3</model>
+  </rating>
 
   <tags>
    <tag>passenger</tag>
@@ -102,13 +146,6 @@
    <tag>variable-pitch</tag>
    <tag>rembrandt</tag>
   </tags>
-
-  <urls>
-   <home-page>http://wiki.flightgear.org/Antonov_An-24</home-page>
-   <support>http://forum.flightgear.org</support>
-   <wikipedia>https://en.wikipedia.org/wiki/Antonov_An-24</wikipedia>
-   <code-repository>https://sourceforge.net/p/flightgear/fgaddon/HEAD/tree/trunk/Aircraft/an24b/</code-repository>
-  </urls>
 
   <startup>
    <splash-texture>Aircraft/an24b/an-24b.jpg</splash-texture>
